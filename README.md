@@ -1,2 +1,3 @@
-# debian-openjdk-python3
-Base Debian Image with openjdk and python3
+# Base Images
+
+These are a set of images from a common base:
