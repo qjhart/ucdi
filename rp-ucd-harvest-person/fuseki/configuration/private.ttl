@@ -1,0 +1,56 @@
+@prefix :      <#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tdb2:  <http://jena.apache.org/2016/tdb#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+
+ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
+ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
+
+tdb2:GraphTDB2  rdfs:subClassOf  ja:Model .
+tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
+
+
+# The private service carries additional private data that is accessed by the experts system.
+# These are not available to the experts users directly, but are used by the harvester.
+:private fuseki:name "private" .
+:tdb_private tdb2:location  "/var/lib/fuseki/databases/private" .
+
+:private a fuseki:Service ;
+    fuseki:dataset :tdb_private ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "sparql"
+        ];
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "query"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:update ;
+        fuseki:name "update"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-r ;
+        fuseki:name "get"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-rw ;
+        fuseki:name "data"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:upload ;
+        fuseki:name "upload"
+        ] ;
+    .
+
+
+# We use the graph to identify the source of the private data.  All input data
+# should have a graph source, but we should be able to query w/out that.
+# Setting unionDefaultGraph to true hides the normal (no-graph) data inputs.
+:tdb_private
+    a              tdb2:DatasetTDB2 ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+    tdb2:unionDefaultGraph true ;
+    .

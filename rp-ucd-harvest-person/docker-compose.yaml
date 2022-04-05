@@ -1,0 +1,21 @@
+
+version: '3.0'
+services:
+  fuseki:
+    image: local-dev/rp-ucd-harvest-person:main
+    ports:
+      - "3030:3030"
+    volumes:
+      - harvest:/var/lib/fuseki/databases/harvest
+      - ae-tdb2-vocab:/var/lib/fuseki/databases/vocab
+      - ae-tdb2-private:/var/lib/fuseki/databases/private
+volumes:
+  harvest:
+  ae-tdb2-vocab:
+    external:true
+  ae-tdb2-private:
+    external:true
+
+network:
+  default:
+    name:ae-harvest

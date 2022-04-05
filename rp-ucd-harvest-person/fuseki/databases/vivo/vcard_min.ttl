@@ -1,0 +1,1239 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.w3.org/2006/vcard/ns#CalendarRequest>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the calendar user address [RFC5545] to which a scheduling request [RFC5546] should be sent for the object represented by the vCard.\nWas called CALADRURI in vCard" ;
+        rdfs:label           "Calendar Request"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Calendar> ;
+    .
+
+<http://www.w3.org/2006/vcard/ns#hasCalenderBusy>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has calendar busy"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#CalendarBusy> .
+
+<http://www.w3.org/2006/vcard/ns#note>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Note> ;
+        rdfs:label   "note"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#uid>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "To specify a value that represents a globally unique identifier corresponding to the entity associated with the vCard" ;
+        rdfs:label    "uid"@en ;
+        rdfs:range    xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#hasOrganizationName>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has organization name"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#OrganizationName> .
+
+<http://www.w3.org/2006/vcard/ns#Female>
+        a                owl:Class ;
+        rdfs:label       "Female"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Gender> .
+
+<http://www.w3.org/2006/vcard/ns#hasOrganizationalUnitName>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has organizational unit name"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#OrganizationUnitName> .
+
+<http://www.w3.org/2006/vcard/ns#hasMember>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "To include a member in the group this vCard represents" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Group> ;
+        rdfs:label    "member"@en ;
+        rdfs:range    [ a            owl:Class ;
+                        owl:unionOf  ( <http://www.w3.org/2006/vcard/ns#Individual> <http://www.w3.org/2006/vcard/ns#Location> <http://www.w3.org/2006/vcard/ns#Organization> )
+                      ] .
+
+<http://www.w3.org/2006/vcard/ns#Key>
+        a                    owl:Class ;
+        rdfs:label           "Key"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Security> ;
+        .
+
+
+<http://www.w3.org/2006/vcard/ns#Colleague>
+        a                owl:Class ;
+        rdfs:label       "Colleague"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#honorificSuffix>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Name> ;
+        rdfs:label   "honorific suffix"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Spouse>
+        a                owl:Class ;
+        rdfs:label       "Spouse"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Unknown>
+        a                owl:Class ;
+        rdfs:label       "Unknown"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Gender> .
+
+<http://www.w3.org/2006/vcard/ns#instantMessage>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#InstantMessage> ;
+        rdfs:label   "instant message"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#nickName>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Nickname> ;
+        rdfs:label   "nickname"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Related>
+        a                    owl:Class ;
+        rdfs:comment         "To specify a relationship between another entity and the entity represented by this vCard" ;
+        rdfs:label           "Related"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Organizational> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#hasNote>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has note"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Note> .
+
+<http://www.w3.org/2006/vcard/ns#Photo>
+        a                    owl:Class ;
+        rdfs:comment         "Specifies an image or photograph information that annotates some aspect of the object the vCard represents" ;
+        rdfs:label           "Photo"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Identification> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#hasNickname>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has nickname"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Nickname> .
+
+<http://www.w3.org/2006/vcard/ns#TelephoneType>
+        a                owl:Class ;
+        rdfs:label       "Telephone Type"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Code> .
+
+<http://www.w3.org/2006/vcard/ns#OrganizationName>
+        a                    owl:Class ;
+        rdfs:label           "Organization Name"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Organizational> ;
+        .
+
+
+<http://www.w3.org/2006/vcard/ns#hasTitle>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has title"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Title> .
+
+<http://www.w3.org/2006/vcard/ns#additionalName>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Name> ;
+        rdfs:label   "additional name"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#category>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Category> ;
+        rdfs:label   "category"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#country>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Address> ;
+        rdfs:label   "country"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#calendarRequest>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#CalendarRequest> ;
+        rdfs:label   "calendar request"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#Male>
+        a                owl:Class ;
+        rdfs:label       "Male"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Gender> .
+
+<http://www.w3.org/2006/vcard/ns#Geographical>
+        a                    owl:Class ;
+        rdfs:comment         "These properties are concerned with information associated with  geographical positions or regions associated with the object the vCard represents" ;
+        rdfs:label           "Geographical"@en ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#hasTimeZone>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has time zone"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#TimeZone> .
+
+<http://www.w3.org/2006/vcard/ns#Voice>
+        a                owl:Class ;
+        rdfs:label       "Voice"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#formattedName>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#FormattedName> ;
+        rdfs:label   "has formatted name"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Child>
+        a                owl:Class ;
+        rdfs:label       "Child"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Sibling>
+        a                owl:Class ;
+        rdfs:label       "Sibling"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#hasAddress>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has address"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Address> .
+
+<http://www.w3.org/2006/vcard/ns#Communication>
+        a                    owl:Class ;
+        rdfs:comment         "These properties describe information about how to communicate with the object the vCard represents" ;
+        rdfs:label           "Communication"@en ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#telephone>
+        a           owl:DatatypeProperty ;
+        rdfs:label  "Telephone"@en ;
+        rdfs:range  xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#Kind>
+        a                    owl:Class ;
+        rdfs:comment         "The parent class for all vCard Objects" ;
+        rdfs:label           "VCard Kind"@en ;
+        rdfs:subClassOf      <http://purl.obolibrary.org/obo/ARG_2000379> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#revision>
+        a           owl:DatatypeProperty ;
+        rdfs:label  "revision"@en ;
+        rdfs:range  xsd:dateTime .
+
+<http://www.w3.org/2006/vcard/ns#photo>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Photo> ;
+        rdfs:label   "photo"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#Role>
+        a       owl:Class .
+
+<http://www.w3.org/2006/vcard/ns#Met>
+        a                owl:Class ;
+        rdfs:label       "Met"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#productId>
+        a           owl:DatatypeProperty ;
+        rdfs:label  "product ID"@en ;
+        rdfs:range  xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Muse>
+        a                owl:Class ;
+        rdfs:label       "Muse"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Cell>
+        a                owl:Class ;
+        rdfs:comment     "Also called mobile telephone" ;
+        rdfs:label       "Cell"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#Language>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the language(s) that may be used for contacting the entity associated with the vCard." ;
+        rdfs:label           "Language"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Communication> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#Calendar>
+        a                    owl:Class ;
+        rdfs:label           "Calendar"@en ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#hasFormattedName>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has formatted name"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#FormattedName> .
+
+<http://www.w3.org/2006/vcard/ns#logo>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Logo> ;
+        rdfs:label   "logo"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#geo>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Must use the geo URI scheme RFC5870" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Geo> ;
+        rdfs:label    "geo"@en ;
+        rdfs:range    xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#Note>
+        a                    owl:Class ;
+        rdfs:comment         "To specify supplemental information or a comment that is associated with the vCard" ;
+        rdfs:label           "Note"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Explanatory> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#Type>
+        a                owl:Class ;
+        rdfs:comment     "This is called TYPE in vCard but renamed here to Context for less confusion (with types/class)" ;
+        rdfs:label       "Type"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Code> .
+
+<http://www.w3.org/2006/vcard/ns#FormattedName>
+        a                    owl:Class ;
+        rdfs:comment         "Specifies the formatted text corresponding to the name of the object the vCard represents" ;
+        rdfs:label           "Formatted Name"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Identification> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#Fax>
+        a                owl:Class ;
+        rdfs:label       "Fax"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#None>
+        a                owl:Class ;
+        rdfs:label       "None"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Gender> .
+
+<http://www.w3.org/2006/vcard/ns#Friend>
+        a                owl:Class ;
+        rdfs:label       "Friend"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Pager>
+        a                owl:Class ;
+        rdfs:label       "Pager"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#hasInstantMessage>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has messaging"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#InstantMessage> .
+
+<http://www.w3.org/2006/vcard/ns#hasPhoto>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has photo"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Photo> .
+
+<http://www.w3.org/2006/vcard/ns#RelatedType>
+        a                owl:Class ;
+        rdfs:label       "Relation Type"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Code> .
+
+<http://www.w3.org/2006/vcard/ns#hasName>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has name"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Name> .
+
+<http://www.w3.org/2006/vcard/ns#Sweetheart>
+        a                owl:Class ;
+        rdfs:label       "Sweetheart"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Address>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the components of the delivery address for the vCard object" ;
+        rdfs:label           "Address"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Addressing> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#Group>
+        a                    owl:Class ;
+        rdfs:comment         "Defines all the properties required to be a Group of Individuals or  Organizations" ;
+        rdfs:label           "Group"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Kind> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#givenName>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "called Given Name invCard" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Name> ;
+        rdfs:label    "first name"@en ;
+        rdfs:range    xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#birthdate>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "To specify the birth date of the object the vCard represents" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Individual> ;
+        rdfs:label    "birthdate"@en ;
+        rdfs:range    xsd:dateTime .
+
+<http://www.w3.org/2006/vcard/ns#anniversary>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The date of marriage, or equivalent, of the object the  vCard represents" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Individual> ;
+        rdfs:label    "anniversary"@en ;
+        rdfs:range    xsd:dateTime .
+
+<http://www.w3.org/2006/vcard/ns#hasGeo>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has geo"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Geo> .
+
+<http://www.w3.org/2006/vcard/ns#key>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Key> ;
+        rdfs:label   "key"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#url>
+        a           owl:DatatypeProperty ;
+        rdfs:label  "URL"@en ;
+        rdfs:range  xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#Parent>
+        a                owl:Class ;
+        rdfs:label       "Parent"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#language>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Use 2 char language code from RFC5646" ;
+        rdfs:label    "has language"@en ;
+        rdfs:range    xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Work>
+        a                owl:Class ;
+        rdfs:comment     "This implies that the property is related to an individual's work place" ;
+        rdfs:label       "Work"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Type> .
+
+<http://www.w3.org/2006/vcard/ns#Code>
+        a             owl:Class ;
+        rdfs:comment  "Contains all the Code related Classes that are used to indicate vCard Types" ;
+        rdfs:label    "Code"@en .
+
+<http://www.w3.org/2006/vcard/ns#hasCategory>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has category"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Category> .
+
+<http://www.w3.org/2006/vcard/ns#Addressing>
+        a                    owl:Class ;
+        rdfs:comment         "These types are concerned with information related to the delivery addressing or label for the vCard object" ;
+        rdfs:label           "Addressing"@en ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#honorificPrefix>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Called Honorific Prefix in vCard" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Name> ;
+        rdfs:label    "honorific prefix"@en ;
+        rdfs:range    xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#familyName>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Called Family Name in vCard" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Name> ;
+        rdfs:label    "has last name"@en ;
+        rdfs:range    xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#CalendarBusy>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the URI for the busy time associated with the object that the vCard represents.\nWas called FBURI in vCard" ;
+        rdfs:label           "Calendar Busy"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Calendar> ;
+        .
+
+<http://www.w3.org/2006/vcard/ns#sortAs>
+        a           owl:DatatypeProperty ;
+        rdfs:label  "sort as"@en ;
+        rdfs:range  xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Home>
+        a                owl:Class ;
+        rdfs:comment     "This implies that the property is related to an individual's personal life" ;
+        rdfs:label       "Home"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Type> .
+
+<http://www.w3.org/2006/vcard/ns#Video>
+        a                owl:Class ;
+        rdfs:label       "Video"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#related>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Related> ;
+        rdfs:label   "related"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#calendarLink>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#CalendarLink> ;
+        rdfs:label   "calendar link"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#>
+        a           owl:Ontology ;
+        rdfs:label  "VIVO VCARD Ontology "@en-US .
+
+<http://www.w3.org/2006/vcard/ns#hasTelephone>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has telephone"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Telephone> .
+
+<http://www.w3.org/2006/vcard/ns#Nickname>
+        a                    owl:Class ;
+        rdfs:comment         "Specifies the text corresponding to the nickname of the object the vCard represents" ;
+        rdfs:label           "Nickname"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Identification> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#nickName> ;
+                                                       owl:someValuesFrom  xsd:string
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#nickName>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Gender>
+        a                owl:Class ;
+        rdfs:label       "Gender"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Code> .
+
+<http://www.w3.org/2006/vcard/ns#organizationalUnitName>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#OrganizationUnitName> ;
+        rdfs:label   "organizational unit name"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Identification>
+        a                    owl:Class ;
+        rdfs:comment         "These types are used to capture information associated with the identification and naming of the entity associated with the vCard" ;
+        rdfs:label           "Identification"@en ;
+        owl:equivalentClass  [ a            owl:Class ;
+                               owl:unionOf  ( [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo> ;
+                                                                        owl:someValuesFrom  xsd:anyURI
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo>
+                                                                      ]
+                                                                    )
+                                              ]
+                                              [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone> ;
+                                                                        owl:someValuesFrom  xsd:string
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone>
+                                                                      ]
+                                                                    )
+                                              ]
+                                              [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                        owl:allValuesFrom  xsd:string ;
+                                                                        owl:onProperty     <http://www.w3.org/2006/vcard/ns#language>
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#language>
+                                                                      ]
+                                                                    )
+                                              ]
+                                              [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                        owl:allValuesFrom  xsd:string ;
+                                                                        owl:onProperty     <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                      ]
+                                                                    )
+                                              ]
+                                            )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Coresident>
+        a                owl:Class ;
+        rdfs:label       "Coresident"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Name>
+        a                    owl:Class ;
+        rdfs:comment         "Specifies the components of the name of the object the  vCard represents" ;
+        rdfs:label           "Name"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Identification> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#additionalName> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#additionalName>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#familyName> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#familyName>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#givenName> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#givenName>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#honorificPrefix> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#honorificPrefix>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#honorificSuffix> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#honorificSuffix>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Organization>
+        a                owl:Class ;
+        rdfs:comment     "To specify the organizational name  associated with the vCard" , "Defines all the properties required to be an  Organization" ;
+        rdfs:label       "Organization"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Kind> .
+
+<http://www.w3.org/2006/vcard/ns#TimeZone>
+        a                    owl:Class ;
+        rdfs:comment         "Used to indicate time zone information that is specific to a location or address" ;
+        rdfs:label           "Time Zone"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Geographical> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone> ;
+                                                       owl:someValuesFrom  xsd:string
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#hasLogo>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has logo"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Logo> .
+
+<http://www.w3.org/2006/vcard/ns#gender>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "To specify the components of the sex and gender identity of the object the vCard represents.\nTo enable other Gender/Sex codes to be used, this dataproperty has range URI. The vCard gender code classes are defined under Code/Gender" ;
+        rdfs:domain   <http://www.w3.org/2006/vcard/ns#Individual> ;
+        rdfs:label    "gender"@en ;
+        rdfs:range    xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#region>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Address> ;
+        rdfs:label   "region"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#OrganizationUnitName>
+        a                    owl:Class ;
+        rdfs:label           "Organizational Unit Name"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#OrganizationName> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#organizationalUnitName> ;
+                                                       owl:someValuesFrom  xsd:string
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#organizationalUnitName>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Kin>
+        a                owl:Class ;
+        rdfs:label       "Kin"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Neighbor>
+        a                owl:Class ;
+        rdfs:label       "Neighbor"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#hasURL>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has URL"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#URL> .
+
+<http://www.w3.org/2006/vcard/ns#hasCalendarRequest>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has calendar request"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#CalendarRequest> .
+
+<http://www.w3.org/2006/vcard/ns#locality>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Address> ;
+        rdfs:label   "locality"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#title>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Title> ;
+        rdfs:label   "title"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#sound>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Sound> ;
+        rdfs:label   "sound"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#TextPhone>
+        a                owl:Class ;
+        rdfs:label       "Text Phone"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#Organizational>
+        a                    owl:Class ;
+        rdfs:comment         "These properties are concerned with information associated with characteristics of the organization or organizational units of the object that the vCard represents" ;
+        rdfs:label           "Organizational"@en ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo> ;
+                                                                               owl:someValuesFrom  xsd:anyURI
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                               owl:allValuesFrom  xsd:string ;
+                                                                               owl:onProperty     <http://www.w3.org/2006/vcard/ns#language>
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#language>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                               owl:allValuesFrom  xsd:string ;
+                                                                               owl:onProperty     <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#email>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Email> ;
+        rdfs:label   "email"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#hasLanguage>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has language"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Language> .
+
+<http://www.w3.org/2006/vcard/ns#Location>
+        a                owl:Class ;
+        rdfs:comment     "Defines all the properties required to be a Location" ;
+        rdfs:label       "Location"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Kind> .
+
+<http://www.w3.org/2006/vcard/ns#timeZone>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#TimeZone> ;
+        rdfs:label   "timezone"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#hasKey>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has key"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Key> .
+
+<http://www.w3.org/2006/vcard/ns#Contact>
+        a                owl:Class ;
+        rdfs:label       "Contact"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Individual>
+        a                    owl:Class ;
+        rdfs:comment         "Defines all the properties required to be an Individual" ;
+        rdfs:label           "Individual"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Kind> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#hasName> ;
+                                                                               owl:someValuesFrom  <http://www.w3.org/2006/vcard/ns#Name>
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#hasName>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#anniversary> ;
+                                                                               owl:someValuesFrom  xsd:dateTime
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#anniversary>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#birthdate> ;
+                                                                               owl:someValuesFrom  xsd:dateTime
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#birthdate>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#gender> ;
+                                                                               owl:someValuesFrom  xsd:anyURI
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#gender>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#postalCode>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Address> ;
+        rdfs:label   "postal code"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#source>
+        a           owl:DatatypeProperty ;
+        rdfs:label  "source"@en ;
+        rdfs:range  xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Title>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the position or job of the object the vCard represents" ;
+        rdfs:label           "Title"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Organizational> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#title> ;
+                                                       owl:someValuesFrom  xsd:string
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#title>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#streetAddress>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Address> ;
+        rdfs:label   "street address"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Date>
+        a                owl:Class ;
+        rdfs:label       "Date"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Sound>
+        a                    owl:Class ;
+        rdfs:comment         "To specify a digital sound content information that annotates some aspect of the vCard.  This property is often used to specify the proper pronunciation of the name property value of the vCard" ;
+        rdfs:label           "Sound"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Explanatory> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                       owl:allValuesFrom  xsd:anyURI ;
+                                                       owl:onProperty     <http://www.w3.org/2006/vcard/ns#sound>
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#sound>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Telephone>
+        a                    owl:Class ;
+        rdfs:label           "Telephone"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Communication> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                       owl:allValuesFrom  xsd:anyURI ;
+                                                       owl:onProperty     <http://www.w3.org/2006/vcard/ns#telephone>
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#telephone>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Agent>
+        a                owl:Class ;
+        rdfs:label       "Agent"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Email>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the electronic mail address for communication with the object the vCard represents" ;
+        rdfs:label           "Email"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Communication> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                       owl:allValuesFrom  xsd:string ;
+                                                       owl:onProperty     <http://www.w3.org/2006/vcard/ns#email>
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#email>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Text>
+        a                owl:Class ;
+        rdfs:comment     "Also called sms telephone" ;
+        rdfs:label       "Text"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#TelephoneType> .
+
+<http://www.w3.org/2006/vcard/ns#Other>
+        a                owl:Class ;
+        rdfs:label       "Other"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#Gender> .
+
+<http://www.w3.org/2006/vcard/ns#Security>
+        a                    owl:Class ;
+        rdfs:comment         "Contains all the Security related Classes" ;
+        rdfs:label           "Security"@en ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo> ;
+                                                                               owl:someValuesFrom  xsd:anyURI
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone> ;
+                                                                               owl:someValuesFrom  xsd:string
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                     [ a                   owl:Class ;
+                                                       owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                               owl:allValuesFrom  xsd:string ;
+                                                                               owl:onProperty     <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                             ]
+                                                                             [ a                   owl:Restriction ;
+                                                                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onProperty      <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                             ]
+                                                                           )
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Logo>
+        a                    owl:Class ;
+        rdfs:comment         "To specify a graphic image of a logo associated with the  object the vCard represents" ;
+        rdfs:label           "Logo"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Organizational> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#logo> ;
+                                                       owl:someValuesFrom  xsd:anyURI
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#logo>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#hasSound>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has sound"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Sound> .
+
+<http://www.w3.org/2006/vcard/ns#hasCalendarLink>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has calendar link"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#CalendarLink> .
+
+<http://www.w3.org/2006/vcard/ns#Coworker>
+        a                owl:Class ;
+        rdfs:label       "Coworker"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Crush>
+        a                owl:Class ;
+        rdfs:label       "Crush"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#calendarBusy>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#CalendarBusy> ;
+        rdfs:label   "calendar busy"@en ;
+        rdfs:range   xsd:anyURI .
+
+<http://www.w3.org/2006/vcard/ns#hasEmail>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has email"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Email> .
+
+<http://www.w3.org/2006/vcard/ns#CalendarLink>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the URI for a calendar associated with the object represented by the vCard.\nWas called CALURI in vCard." ;
+        rdfs:label           "Calendar Link"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Calendar> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#calendarLink> ;
+                                                       owl:someValuesFrom  xsd:anyURI
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#calendarLink>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Geo>
+        a                    owl:Class ;
+        rdfs:comment         "Used to indicate global positioning  information that is specific to an address" ;
+        rdfs:label           "Geo"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Geographical> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo> ;
+                                                       owl:someValuesFrom  xsd:anyURI
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Me>
+        a                owl:Class ;
+        rdfs:label       "Me"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#InstantMessage>
+        a                    owl:Class ;
+        rdfs:comment         "To specify the URI for instant messaging and presence protocol communications with the object the vCard represents.\nWas called IMPP in vCard." ;
+        rdfs:label           "Messaging"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Communication> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                       owl:allValuesFrom  xsd:anyURI ;
+                                                       owl:onProperty     <http://www.w3.org/2006/vcard/ns#instantMessage>
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#instantMessage>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#hasRelated>
+        a           owl:ObjectProperty ;
+        rdfs:label  "has related"@en ;
+        rdfs:range  <http://www.w3.org/2006/vcard/ns#Related> .
+
+<http://www.w3.org/2006/vcard/ns#organizationName>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#OrganizationName> ;
+        rdfs:label   "organization name"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Explanatory>
+        a                    owl:Class ;
+        rdfs:comment         "These properties are concerned with additional explanations, such as that related to informational notes or revisions specific to the  vCard" ;
+        rdfs:label           "Explanatory"@en ;
+        owl:equivalentClass  [ a            owl:Class ;
+                               owl:unionOf  ( [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo> ;
+                                                                        owl:someValuesFrom  xsd:anyURI
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#geo>
+                                                                      ]
+                                                                    )
+                                              ]
+                                              [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone> ;
+                                                                        owl:someValuesFrom  xsd:string
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#timeZone>
+                                                                      ]
+                                                                    )
+                                              ]
+                                              [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                        owl:allValuesFrom  xsd:string ;
+                                                                        owl:onProperty     <http://www.w3.org/2006/vcard/ns#language>
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#language>
+                                                                      ]
+                                                                    )
+                                              ]
+                                              [ a                   owl:Class ;
+                                                owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                                        owl:allValuesFrom  xsd:string ;
+                                                                        owl:onProperty     <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                      ]
+                                                                      [ a                   owl:Restriction ;
+                                                                        owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                                        owl:onProperty      <http://www.w3.org/2006/vcard/ns#sortAs>
+                                                                      ]
+                                                                    )
+                                              ]
+                                            )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Acquaintance>
+        a                owl:Class ;
+        rdfs:label       "Acquaintance"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#role>
+        a            owl:DatatypeProperty ;
+        rdfs:domain  <http://www.w3.org/2006/vcard/ns#Role> ;
+        rdfs:label   "role"@en ;
+        rdfs:range   xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#URL>
+        a                    owl:Class ;
+        rdfs:comment         "To specify a uniform resource locator associated with the object to which the vCard refers.  Examples for individuals include personal web sites, blogs, and social networking site  identifiers. " ;
+        rdfs:label           "URL"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Explanatory> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                       owl:allValuesFrom  xsd:anyURI ;
+                                                       owl:onProperty     <http://www.w3.org/2006/vcard/ns#url>
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#url>
+                                                     ]
+                                                   )
+                             ] .
+
+<http://www.w3.org/2006/vcard/ns#Emergency>
+        a                owl:Class ;
+        rdfs:label       "Emergency"@en ;
+        rdfs:subClassOf  <http://www.w3.org/2006/vcard/ns#RelatedType> .
+
+<http://www.w3.org/2006/vcard/ns#Category>
+        a                    owl:Class ;
+        rdfs:comment         "To specify application category information about the vCard, also known as tags. This was called CATEGORIES in vCard." ;
+        rdfs:label           "Category"@en ;
+        rdfs:subClassOf      <http://www.w3.org/2006/vcard/ns#Explanatory> ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( [ a                  owl:Restriction ;
+                                                       owl:allValuesFrom  xsd:string ;
+                                                       owl:onProperty     <http://www.w3.org/2006/vcard/ns#category>
+                                                     ]
+                                                     [ a                   owl:Restriction ;
+                                                       owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onProperty      <http://www.w3.org/2006/vcard/ns#category>
+                                                     ]
+                                                   )
+                             ] .

@@ -1,0 +1,89 @@
+@prefix :      <#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tdb2:  <http://jena.apache.org/2016/tdb#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+
+ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
+ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
+
+tdb2:GraphTDB2  rdfs:subClassOf  ja:Model .
+tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
+
+# There are some configurations that you might want to change, if for example
+# you like to run multiple experts setups on a single fuseki instance.
+# Otherwise the defaults will setup a normal instance.
+
+:harvest fuseki:name "add-person" .
+:tdb_harvest tdb2:location  "/fuseki/databases/add-person" .
+
+:tdb_private tdb2:location  "/fuseki/databases/private" .
+:tdb_private
+    a              tdb2:DatasetTDB2 ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+    tdb2:unionDefaultGraph true ;
+    .
+
+:graph_private_union
+    a tdb2:GraphTDB2;
+    tdb2:dataset :tdb_private ;
+    tdb2:graphName <urn:x-arq:UnionGraph> ;
+    .
+
+:tdb_vocab tdb2:location  "/fuseki/databases/vocabularies" .
+:tdb_vocab
+    a              tdb2:DatasetTDB2 ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+    .
+
+:graph_vocabularies
+    a tdb2:GraphTDB2;
+    tdb2:dataset :tdb_vocab ;
+    tdb2:graphName <urn:x-arq:UnionGraph> ;
+    .
+
+# IET and OAPolicy data are harvest to internal review
+# these are stored in the database below
+:tdb_harvest
+    a              tdb2:DatasetTDB2 ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+    .
+
+# These two graphs are used below
+:graph_harvest_experts_oap
+    a tdb2:GraphTDB2;
+    tdb2:dataset :tdb_harvest;
+    tdb2:graphName <http://oapolicy.universityofcalifornia.edu/> ;
+    .
+
+:graph_harvest_experts_iam
+    a tdb2:GraphTDB2;
+    tdb2:dataset :tdb_harvest;
+    tdb2:graphName <http://iam.ucdavis.edu/> ;
+    .
+
+
+# Other graphs will go to a emphemeral memory database, (I think)
+# Mentions of the public graphs are defined in the public configuration file.
+# Importantly, we have not decided where the inference graphs should go.
+# It might make the most sense to include those here.
+:dataset_harvest
+    a ja:RDFDataset ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/private/> ;
+        ja:graph :graph_private_union ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/vocab/> ;
+        ja:graph :graph_vocabularies ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://oapolicy.universityofcalifornia.edu/> ;
+        ja:graph :graph_harvest_experts_oap ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://iam.ucdavis.edu/> ;
+        ja:graph :graph_harvest_experts_iam ;
+        ] ;
+    .

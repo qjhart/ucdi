@@ -1,0 +1,1107 @@
+@prefix :      <http://vivoweb.org/ontology/core#> .
+@prefix study_protocol: <http://purl.org/net/OCRe/study_protocol.owl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix ns:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geopolitical: <http://aims.fao.org/aos/geopolitical.owl#> .
+@prefix vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> .
+@prefix skos2: <http://www.w3.org/2008/05/skos#> .
+@prefix core:  <http://vivoweb.org/ontology/core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix obo:   <http://purl.obolibrary.org/obo/> .
+@prefix statistics: <http://purl.org/net/OCRe/statistics.owl#> .
+
+obo:IAO_0000300  a       owl:Class ;
+        rdfs:label       "Textual Entity"@en ;
+        rdfs:subClassOf  obo:IAO_0000030 ;
+        obo:IAO_0000111  "textual entity"@en ;
+        obo:IAO_0000112  "Words, sentences, paragraphs, and the written (non-figure) parts of publications are all textual entities"@en ;
+        obo:IAO_0000115  "A textual entity is a part of a manifestation (FRBR sense), a generically dependent continuant whose concretizations are patterns of glyphs intended to be interpreted as words, formulas, etc."@en ;
+        obo:IAO_0000116  "AR, (IAO call 2009-09-01): a document as a whole is not typically a textual entity, because it has pictures in it - rather there are parts of it that are textual entities. Examples: The title, paragraph 2 sentence 7, etc."@en , "MC, 2009-09-14 (following IAO call 2009-09-01): textual entities live at the FRBR (http://en.wikipedia.org/wiki/Functional_Requirements_for_Bibliographic_Records) manifestation level. Everything is significant: line break, pdf and html versions of same document are different textual entities."@en ;
+        obo:IAO_0000117  "PERSON: Lawrence Hunter"@en ;
+        obo:IAO_0000118  "text"@en .
+
+<http://purl.org/ontology/bibo/Periodical>
+        a                 owl:Class ;
+        rdfs:comment      "A group of related documents issued at regular intervals."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Periodical"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Collection> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/eissn>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/issn>
+                          ] ;
+        ns:term_status    "stable" .
+
+<http://vivoweb.org/ontology/core>
+        a           owl:Ontology ;
+        rdfs:label  "VIVO Core Ontology"@en-US .
+
+obo:BFO_0000015  a       owl:Class ;
+        rdfs:label       "Process"@en ;
+        rdfs:subClassOf  obo:BFO_0000003 .
+
+<http://purl.org/ontology/bibo/Standard>
+        a                 owl:Class ;
+        rdfs:comment      "A document describing a standard"@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Standard"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "Short Definition from OCLC Input Standards, EntW" ;
+        obo:IAO_0000115   "A specification giving a precise statement of a process or a service requirement, often sanctioned by a nation or industry" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/CollectedDocument>
+        a                 owl:Class ;
+        rdfs:comment      "A document that simultaneously contains other documents."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Collected Document"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        obo:IAO_0000112   "Short Definition is the Medical Subject Heading (MeSH) definition" ;
+        obo:IAO_0000115   "Work consisting of collections of previously published works" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000023  a              owl:Class ;
+        rdfs:label              "Role"@en ;
+        rdfs:subClassOf         obo:BFO_0000017 ;
+        rdfs:subClassOf         [ a                  owl:Restriction ;
+                                  owl:allValuesFrom  core:DateTimeInterval ;
+                                  owl:onProperty     core:dateTimeInterval
+                                ] ;
+        rdfs:subClassOf         [ a                  owl:Restriction ;
+                                  owl:allValuesFrom  xsd:boolean ;
+                                  owl:onProperty     core:hideFromDisplay
+                                ] ;
+        rdfs:subClassOf         [ a                  owl:Restriction ;
+                                  owl:allValuesFrom  rdfs:Literal ;
+                                  owl:onProperty     core:description
+                                ] ;
+        obo:IAO_0000112         "Only use if no specific subclasses of core:Role describe the role." ;
+        obo:IAO_0000115         "A person's, group's or organization's role in an endeavor" ;
+        vitro:descriptionAnnot  "Only use this broad role class if no subclasses of role describe the item being classified." .
+
+obo:BFO_0000002  a       owl:Class ;
+        rdfs:label       "Continuant"@en ;
+        rdfs:subClassOf  obo:BFO_0000001 .
+
+<http://purl.org/ontology/bibo/Patent>
+        a                 owl:Class ;
+        rdfs:comment      "A document describing the exclusive right granted by a government to an inventor to manufacture, use, or sell an invention for a certain number of years."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Patent"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  core:DateTimeValue ;
+                            owl:onProperty     core:dateIssued
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        obo:IAO_0000112   "A patent is an exclusive right granted for an invention, which is a product or a process that provides, in general, a new way of doing something, or offers a new technical solution to a problem.  In order to be patentable, the invention must fulfill certain conditions. (http://www.wipo.int/patentscope/en/)" ;
+        obo:IAO_0000115   "(from BIBO) A document describing the exclusive right granted by a government to an inventor to manufacture, use, or sell an invention for a certain number of years" ;
+        ns:term_status    "stable" .
+
+obo:IAO_0000003  a       owl:Class ;
+        rdfs:label       "Measurement Unit Label"@en ;
+        rdfs:subClassOf  obo:IAO_0000009 ;
+        obo:IAO_0000111  "measurement unit label"@en ;
+        obo:IAO_0000112  "Examples of measurement unit labels are liters, inches, weight per volume."@en ;
+        obo:IAO_0000114  obo:IAO_0000125 ;
+        obo:IAO_0000115  "A measurement unit label is as a label that is part of a scalar measurement datum and denotes a unit of measure."@en ;
+        obo:IAO_0000116  "2009-03-16: review of this term done during during the OBI workshop winter 2009 and the current definition was considered acceptable for use in OBI. If there is a need to modify this definition please notify OBI."@en , "2009-03-16: provenance: a term measurement unit was\nproposed for OBI (OBI_0000176) , edited by Chris Stoeckert and\nCristian Cocos, and subsequently moved to IAO where the objective for\nwhich the original term was defined was satisfied with the definition\nof this, different, term."@en ;
+        obo:IAO_0000117  "PERSON: Alan Ruttenberg"@en , "PERSON: Melanie Courtot"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+<http://purl.org/ontology/bibo/Performance>
+        a                 owl:Class ;
+        rdfs:comment      "A public performance."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Performance"@en ;
+        rdfs:subClassOf   <http://purl.org/NET/c4dm/event.owl#Event> ;
+        obo:IAO_0000115   "Something carried out, acted or rendered." ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Brief>
+        a                 owl:Class ;
+        rdfs:comment      "A written argument submitted to a court."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Brief"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/LegalCaseDocument> ;
+        obo:IAO_0000115   "A document stating the facts and points of law of a client's case" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Film>
+        a                 owl:Class ;
+        rdfs:comment      "aka movie."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Film"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/AudioVisualDocument> ;
+        obo:IAO_0000115   "Audiovisual recording in film format" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Bill>
+        a                 owl:Class ;
+        rdfs:comment      "Draft legislation presented for discussion to a legal body."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Bill"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Legislation> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "Draft legislation presented for discussion to a legal body" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000031  a       owl:Class ;
+        rdfs:label       "Generically Dependent Continuant"@en ;
+        rdfs:subClassOf  obo:BFO_0000002 .
+
+obo:IAO_0000032  a       owl:Class ;
+        rdfs:label       "Scalar Measurement Datum"@en ;
+        rdfs:subClassOf  obo:IAO_0000109 ;
+        obo:IAO_0000112  "10 feet. 3 ml."@en ;
+        obo:IAO_0000114  obo:IAO_0000120 ;
+        obo:IAO_0000115  "a scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label."@en ;
+        obo:IAO_0000116  "Would write this as: has_part some 'measurement unit label' and has_part some numeral and has_part exactly 2, except for the fact that this won't let us take advantage of OWL reasoning over the numbers. Instead use has measurment value property to represent the same. Use has measurement unit label (subproperty of has_part) so we can easily say that there is only one of them."@en , "2009-03-16: we decided to keep datum singular in scalar measurement datum, as in\nthis case we explicitly refer to the singular form"@en ;
+        obo:IAO_0000117  "PERSON: Melanie Courtot"@en , "PERSON: Alan Ruttenberg"@en .
+
+<http://purl.org/ontology/bibo/EditedBook>
+        a                 owl:Class ;
+        rdfs:comment      "An edited book."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Edited Book"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/CollectedDocument> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     core:placeOfPublication
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/edition>
+                          ] ;
+        obo:IAO_0000112   "Best American Science Writing 2009" ;
+        obo:IAO_0000115   "An edited collection of stand-alone articles published as a book" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/LegalDecision>
+        a                 owl:Class ;
+        rdfs:comment      "A document containing an authoritative determination (as a decree or judgment) made after consideration of facts or law."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Decision"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/LegalCaseDocument> ;
+        obo:IAO_0000115   "The written determination of a case, motion or claim by a court or tribunal" ;
+        ns:term_status    "unstable" .
+
+xsd:anyURI  a   rdfs:Datatype .
+
+<http://purl.org/ontology/bibo/Slideshow>
+        a                 owl:Class ;
+        rdfs:comment      "A presentation of a series of slides, usually presented in front of an audience with written text and images."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Slideshow"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "A presentation of a series of slides, usually presented in front of an audience with written text and images" ;
+        ns:term_status    "stable" .
+
+xsd:string  a   rdfs:Datatype .
+
+obo:IAO_0000027  a       owl:Class ;
+        rdfs:label       "Data Item"@en ;
+        rdfs:subClassOf  obo:IAO_0000030 ;
+        obo:IAO_0000111  "data item"@en ;
+        obo:IAO_0000112  "Data items include counts of things, analyte concentrations, and statistical summaries."@en ;
+        obo:IAO_0000114  obo:IAO_0000125 ;
+        obo:IAO_0000115  "a data item is an information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."@en ;
+        obo:IAO_0000116  "2009-03-16: removed datum as alternative term as datum specifically refers to singular form, and is thus not an exact synonym."@en , "2009-03-16: data item deliberatly ambiguous: we merged data set and datum to be one entity, not knowing how to define singular versus plural. So data item is more general than datum."@en , "2/2/2009 Alan and Bjoern discussing FACS run output data. This is a data item because it is about the cell population. Each element records an event and is typically further composed a set of measurment data items that record the fluorescent intensity stimulated by one of the lasers."@en , "JAR: datum     -- well, this will be very tricky to define, but maybe some \ninformation-like stuff that might be put into a computer and that is \nmeant, by someone, to denote and/or to be interpreted by some \nprocess... I would include lists, tables, sentences... I think I might \ndefer to Barry, or to Brian Cantwell Smith\n\nJAR: A data item is an approximately justified approximately true approximate belief"@en ;
+        obo:IAO_0000117  "PERSON: Jonathan Rees"@en , "PERSON: Chris Stoeckert"@en , "PERSON: Alan Ruttenberg"@en ;
+        obo:IAO_0000118  "data"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+<http://purl.org/ontology/bibo/LegalCaseDocument>
+        a                 owl:Class ;
+        rdfs:comment      "A document accompanying a legal case."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Legal Case Document"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/LegalDocument> ;
+        obo:IAO_0000115   "Official court  papers for a case" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Collection>
+        a                 owl:Class ;
+        rdfs:comment      "A collection of Documents or Collections"@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Collection"@en ;
+        rdfs:subClassOf   obo:IAO_0000030 ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/oclcnum>
+                          ] ;
+        obo:IAO_0000112   "Collection of information resources that have a unified identity. Archives, museums and libraries often acquire collections on specific subjects and from distinguished authors or researchers. Also includes collections of resources bundled into a license." , "Hill Ornithology Collection; Wiley Interscience Online Books Biochemisty Collection" ;
+        obo:IAO_0000115   "Collection of information resources that have a unified identity" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000034  a       owl:Class ;
+        rdfs:label       "Function"@en ;
+        rdfs:subClassOf  obo:BFO_0000016 .
+
+<http://purl.org/ontology/bibo/Book>
+        a                 owl:Class ;
+        rdfs:comment      "A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Book"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     core:placeOfPublication
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/lccn>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/edition>
+                          ] ;
+        obo:IAO_0000112   "Short Definition copied from bibo ontology" ;
+        obo:IAO_0000115   "A written or printed work of fiction or nonfiction, usually on sheets of paper fastened or bound together within covers" ;
+        ns:term_status    "stable" .
+
+obo:ARG_2000379  a       owl:Class ;
+        rdfs:label       "Contact"@en ;
+        rdfs:subClassOf  obo:IAO_0000030 .
+
+<http://purl.org/ontology/bibo/Workshop>
+        a                 owl:Class ;
+        rdfs:comment      "A seminar, discussion group, or the like, that emphasizes zxchange of ideas and the demonstration and application of techniques, skills, etc."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Workshop"@en ;
+        rdfs:subClassOf   <http://purl.org/NET/c4dm/event.owl#Event> ;
+        obo:IAO_0000115   "Bibo Definition: A seminar, discussion group, or the like, that emphasizes exchange of ideas and the demonstration and application of techniques, skills, etc." ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Chapter>
+        a                 owl:Class ;
+        rdfs:comment      "A chapter of a book."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Chapter"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/BookSection> ;
+        obo:IAO_0000115   "A main division of a book" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Legislation>
+        a                 owl:Class ;
+        rdfs:comment      "A legal document proposing or enacting a law or a group of laws."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Legislation"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/LegalDocument> ;
+        obo:IAO_0000112   "From OCLC Input Standards, EntW" ;
+        obo:IAO_0000115   "Enactments of legislative bodies, published in either statute or code form" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/ReferenceSource>
+        a                 owl:Class ;
+        rdfs:comment      "A document that presents authoritative reference information, such as a dictionary or encylopedia ."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Reference Source"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "A document that presents authoritative reference information, such as a dictionary or encylopedia" ;
+        ns:term_status    "unstable" .
+
+<http://xmlns.com/foaf/0.1/Person>
+        a                owl:Class ;
+        rdfs:comment     "A person" ;
+        rdfs:label       "Person"@en ;
+        rdfs:subClassOf  <http://xmlns.com/foaf/0.1/Agent> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:string ;
+                           owl:onProperty     core:freetextKeyword
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:GeographicRegion ;
+                           owl:onProperty     core:geographicFocus
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      obo:ARG_2000028 ;
+                           owl:someValuesFrom  <http://www.w3.org/2006/vcard/ns#Individual>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:Credential ;
+                           owl:onProperty     core:eligibleFor
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  owl:Thing ;
+                           owl:onProperty     core:hasResearchArea
+                         ] ;
+        obo:IAO_0000111  "person" ;
+        obo:IAO_0000115  "An instance of a human being (Homo sapiens)" , "The most general classification of a person" ;
+        obo:IAO_0000117  "PERSON: Melissa Haendel" ;
+        obo:IAO_0000118  "" .
+
+<http://purl.org/ontology/bibo/Note>
+        a                 owl:Class ;
+        rdfs:comment      "Notes or annotations about a resource."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Note"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "Short Definition from bibo ontology" ;
+        obo:IAO_0000115   "Notes or annotations about a resource" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000029  a       owl:Class ;
+        rdfs:label       "Site"@en ;
+        rdfs:subClassOf  obo:BFO_0000141 .
+
+obo:IAO_0000030  a       owl:Class ;
+        rdfs:label       "Information Content Entity"@en ;
+        rdfs:subClassOf  obo:BFO_0000031 ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  rdfs:Literal ;
+                           owl:onProperty     core:freetextKeyword
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      obo:IAO_0000136 ;
+                           owl:someValuesFrom  obo:BFO_0000001
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:Relationship ;
+                           owl:onProperty     core:relatedBy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  owl:Thing ;
+                           owl:onProperty     core:hasSubjectArea
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:string ;
+                           owl:onProperty     core:freetextKeyword
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:DateTimeValue ;
+                           owl:onProperty     core:dateTimeValue
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:GeographicRegion ;
+                           owl:onProperty     core:geographicFocus
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  obo:BFO_0000015 ;
+                           owl:onProperty     obo:RO_0002353
+                         ] ;
+        obo:IAO_0000111  "information content entity"@en ;
+        obo:IAO_0000112  "Examples of information content entites include journal articles, data, graphical layouts, and graphs."@en ;
+        obo:IAO_0000114  obo:IAO_0000125 ;
+        obo:IAO_0000115  "The most general classification of an information resource" , "an information content entity is an entity that is generically dependent on some artifact and stands in relation of aboutness to some entity"@en ;
+        obo:IAO_0000116  "information_content_entity 'is_encoded_in' some digital_entity in obi before split (040907). information_content_entity 'is_encoded_in' some physical_document in obi before split (040907).\n\nPrevious. An information content entity is a non-realizable information entity that 'is encoded in' some digital or physical entity."@en ;
+        obo:IAO_0000117  "PERSON: Chris Stoeckert"@en ;
+        obo:IAO_0000119  "OBI_0000142"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+obo:BFO_0000008  a       owl:Class ;
+        rdfs:label       "Temporal Region"@en ;
+        rdfs:subClassOf  obo:BFO_0000003 .
+
+skos:Concept  a     owl:Class ;
+        rdfs:label  "Concept"@en .
+
+obo:IAO_0000009  a       owl:Class ;
+        rdfs:label       "Datum Label"@en ;
+        rdfs:subClassOf  obo:IAO_0000030 ;
+        obo:IAO_0000111  "datum label"@en ;
+        obo:IAO_0000114  obo:IAO_0000123 ;
+        obo:IAO_0000115  "A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label"@en ;
+        obo:IAO_0000116  "http://www.golovchenko.org/cgi-bin/wnsearch?q=label#4n"@en ;
+        obo:IAO_0000117  "GROUP: IAO"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+core:freetextKeyword  a  owl:DatatypeProperty ;
+        rdfs:label       "keywords"@en ;
+        obo:IAO_0000112  "one keyword or phrase per freetextKeyword assertion" , "conservation\n\nuse one freetextKeyword assertion for each keyword or phrase." .
+
+obo:IAO_0000109  a       owl:Class ;
+        rdfs:label       "Measurement Datum"@en ;
+        rdfs:subClassOf  obo:IAO_0000027 ;
+        obo:IAO_0000111  "measurement datum"@en ;
+        obo:IAO_0000112  "Examples of measurement data are the recoding of the weight of a mouse as {40,mass,\"grams\"}, the recording of an observation of the behavior of the mouse {,process,\"agitated\"}, the recording of the expression level of a gene as measured through the process of microarray experiment {3.4,luminosity,}."@en ;
+        obo:IAO_0000114  obo:IAO_0000120 ;
+        obo:IAO_0000115  "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device."@en ;
+        obo:IAO_0000116  "2/2/2009 is_specified_output of some assay?"@en ;
+        obo:IAO_0000117  "person:Chris Stoeckert"@en ;
+        obo:IAO_0000119  "OBI_0000305"@en , "group:OBI"@en .
+
+obo:BFO_0000016  a       owl:Class ;
+        rdfs:label       "Disposition"@en ;
+        rdfs:subClassOf  obo:BFO_0000017 .
+
+<http://purl.org/ontology/bibo/Manuscript>
+        a                 owl:Class ;
+        rdfs:comment      "An unpublished Document, which may also be submitted to a publisher for publication."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "manuscript"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "Short Definition is the Medical Subject Heading (MeSH) definition" ;
+        obo:IAO_0000115   "Works prepared by hand including handwritten or typescript drafts of pre-publication papers or works not otherwise reproduced in multiple copies" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/CourtReporter>
+        a                 owl:Class ;
+        rdfs:comment      "A collection of legal cases."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Court Reporter"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Periodical> ;
+        obo:IAO_0000112   "Supreme Court Reporter" ;
+        obo:IAO_0000115   "Collection of legal cases" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Statute>
+        a                 owl:Class ;
+        rdfs:comment      "A bill enacted into law."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Statute"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Legislation> ;
+        obo:IAO_0000112   "Short Definition from bibo ontology" ;
+        obo:IAO_0000115   "A bill enacted into law" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/DocumentStatus>
+        a                 owl:Class ;
+        rdfs:comment      "The status of the publication of a document."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Document Status"@en ;
+        obo:IAO_0000112   "submitted; accepted; in-press; published; invited; refereed." , "The status of a document with respect to its publication. The statuses are represented as individuals of this class. Use the \"show all individuals of this class\" button on the class control panel to see the currently defined statuses." ;
+        obo:IAO_0000115   "The status of a document with respect to its publication." ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/LegalDocument>
+        a                 owl:Class ;
+        rdfs:comment      "A legal document; for example, a court decision, a brief, and so forth."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Legal Document"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000115   "a document that states some contractual relationship or grants some right" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000003  a       owl:Class ;
+        rdfs:label       "Occurrent"@en ;
+        rdfs:subClassOf  obo:BFO_0000001 .
+
+rdf:PlainLiteral  a  rdfs:Datatype .
+
+<http://purl.org/ontology/bibo/Interview>
+        a                 owl:Class ;
+        rdfs:comment      "A formalized discussion between two or more people."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Interview"@en ;
+        rdfs:subClassOf   <http://purl.org/NET/c4dm/event.owl#Event> ;
+        obo:IAO_0000112   "radio or newspaper interview" ;
+        obo:IAO_0000115   "A conversation between two or more people where questions are asked by the interviewer to obtain information from the interviewee." ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Letter>
+        a                owl:Class ;
+        rdfs:label       "Letter"@en ;
+        rdfs:subClassOf  <http://purl.org/ontology/bibo/PersonalCommunicationDocument> ;
+        obo:IAO_0000112  "A written or printed communication addressed to a person or organization and usually transmitted by mail" ;
+        obo:IAO_0000115  "A written or printed communication addressed to a person or organization and usually transmitted by mail" .
+
+obo:IAO_0000104  a       owl:Class ;
+        rdfs:label       "Plan Specification"@en ;
+        rdfs:subClassOf  obo:IAO_0000033 ;
+        obo:IAO_0000111  "plan specification"@en ;
+        obo:IAO_0000112  "PMID: 18323827.Nat Med. 2008 Mar;14(3):226.New plan proposed to help resolve conflicting medical advice."@en ;
+        obo:IAO_0000114  obo:IAO_0000120 ;
+        obo:IAO_0000115  "a directive information entity that when concretized it is realized in a process in which the bearer tries to achieve the objectives, in part by taking the actions specified. Plan specifications includes parts such as objective specification, action specifications and conditional specifications."@en ;
+        obo:IAO_0000116  "2009-03-16: provenance: a term a plan was proposed for OBI (OBI_0000344) , edited by the PlanAndPlannedProcess branch. Original definition was \" a plan is a specification of a process that is realized by an actor to achieve the objective specified as part of the plan\". It has been subsequently moved to IAO where the objective for which the original term was defined was satisfied with the definitionof this, different, term."@en , "Alternative previous definition: a plan is a set of instructions that specify how an objective should be achieved"@en ;
+        obo:IAO_0000117  "Alan Ruttenberg"@en ;
+        obo:IAO_0000119  "OBI_0000344"@en , "OBI Plan and Planned Process branch"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+obo:IAO_0000033  a       owl:Class ;
+        rdfs:label       "Directive Information Entity"@en ;
+        rdfs:subClassOf  obo:IAO_0000030 ;
+        obo:IAO_0000114  obo:IAO_0000123 ;
+        obo:IAO_0000115  "An information content entity whose concretizations indicate to their bearer how to realize them in a process."@en ;
+        obo:IAO_0000116  "Werner pushed back on calling it realizable information entity as it isn't realizable. However this name isn't right either. An example would be a recipe. The realizable entity would be a plan, but the information entity isn't about the plan, it, once concretized, *is* the plan. -Alan"@en , "8/6/2009 Alan Ruttenberg: Changed label from \"information entity about a realizable\" after discussions at ICBO"@en ;
+        obo:IAO_0000117  "PERSON: Bjoern Peters"@en , "PERSON: Alan Ruttenberg"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+obo:BFO_0000040  a       owl:Class ;
+        rdfs:label       "Material Entity"@en ;
+        rdfs:subClassOf  obo:BFO_0000004 .
+
+obo:BFO_0000019  a       owl:Class ;
+        rdfs:label       "Quality"@en ;
+        rdfs:subClassOf  obo:BFO_0000020 .
+
+<http://purl.org/ontology/bibo/Report>
+        a                 owl:Class ;
+        rdfs:comment      "A document describing an account or statement describing in detail an event, situation, or the like, usually as the result of observation, inquiry, etc.."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Report"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/distributor>
+                          ] ;
+        obo:IAO_0000112   "Medical Subject Heading (MeSH) definition of Technical Report: Work consisting of a formal report giving details of the investigation and results of a medical or other scientific problem. When issued by a government agency or comparable official body, its contents may be classified, unclassified, or declassified with regard to security clearance. This publication type may also cover a scientific paper or article that records the current state or current position of scientific research and development. If so labeled by the editor or publisher, this publication type may be properly used for journal articles." ;
+        obo:IAO_0000115   "A document describing an account or statement describing in detail an event, situation, or the like, usually as the result of observation, inquiry, etc." ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Website>
+        a                 owl:Class ;
+        rdfs:comment      "A group of Webpages accessible on the Web."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Website"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Collection> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Agent> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        obo:IAO_0000112   "Facebook; VIVOweb.org; Flickr" ;
+        obo:IAO_0000115   "A group of webpages available within a specific parent address or URL on the World Wide Web" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Image>
+        a                 owl:Class ;
+        rdfs:comment      "A document that presents visual or diagrammatic information."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Image"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "photograph; diagram" , "\n" ;
+        obo:IAO_0000115   "A visual representation such as a photograph or graph" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/AcademicArticle>
+        a                 owl:Class ;
+        rdfs:comment      "A scholarly academic article, typically published in a journal."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Academic Article"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Article> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/eanucc13>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://purl.org/ontology/bibo/Journal> ;
+                            owl:onProperty     core:hasPublicationVenue
+                          ] ;
+        obo:IAO_0000112   "A specific academic journal article" ;
+        obo:IAO_0000115   "Written by scholars for other scholars, typically published in an academic journal with an abstract and bibliography" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Proceedings>
+        a                 owl:Class ;
+        rdfs:comment      "A compilation of documents published from an event, such as a conference."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Proceedings"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Book> ;
+        obo:IAO_0000112   "Short Definition copied from bibo ontology" ;
+        obo:IAO_0000115   "A compilation of documents published from an event, such as a conference" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Conference>
+        a                 owl:Class ;
+        rdfs:comment      "A meeting for consultation or discussion."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Conference"@en ;
+        rdfs:subClassOf   <http://purl.org/NET/c4dm/event.owl#Event> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     core:abbreviation
+                          ] ;
+        obo:IAO_0000112   "2010 International Congress on Autoimmunity; American Libraries Association 2009" , "core:Seminar and bibo:Conference are very similar." ;
+        obo:IAO_0000115   "A meeting for consultation or discussion." ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Hearing>
+        a                 owl:Class ;
+        rdfs:comment      "An instance or a session in which testimony and arguments are presented, esp. before an official, as a judge in a lawsuit."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Hearing"@en ;
+        rdfs:subClassOf   <http://purl.org/NET/c4dm/event.owl#Event> ;
+        obo:IAO_0000112   "Definiton from Bibo here: http://bibotools.googlecode.com/svn/bibo-ontology/trunk/doc/index.html" ;
+        obo:IAO_0000115   "An instance or a session in which testimony and arguments are presented, esp. before an official, as a judge in a lawsuit." ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000006  a       owl:Class ;
+        rdfs:label       "Spatial Region"@en ;
+        rdfs:subClassOf  obo:BFO_0000141 .
+
+obo:IAO_0000007  a       owl:Class ;
+        rdfs:label       "Action Specification"@en ;
+        rdfs:subClassOf  obo:IAO_0000033 ;
+        obo:IAO_0000112  "Pour the contents of flask 1 into flask 2"@en ;
+        obo:IAO_0000114  obo:IAO_0000123 ;
+        obo:IAO_0000115  "a directive information entity that describes an action the bearer will take"@en ;
+        obo:IAO_0000117  "Alan Ruttenberg"@en ;
+        obo:IAO_0000119  "OBI Plan and Planned Process branch"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+obo:BFO_0000148  a       owl:Class ;
+        rdfs:label       "Zero-Dimensional Temporal Region"@en ;
+        rdfs:subClassOf  obo:BFO_0000008 .
+
+<http://purl.org/ontology/bibo/Issue>
+        a                 owl:Class ;
+        rdfs:comment      "something that is printed or published and distributed, esp. a given number of a periodical"@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Issue"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/CollectedDocument> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "something that is printed or published and distributed, esp. a given number of a periodical" ;
+        ns:term_status    "stable" .
+
+<http://xmlns.com/foaf/0.1/Group>
+        a                owl:Class ;
+        rdfs:comment     "A group" ;
+        rdfs:label       "Group"@en ;
+        rdfs:subClassOf  <http://xmlns.com/foaf/0.1/Agent> ;
+        obo:IAO_0000111  "group" ;
+        obo:IAO_0000112  "A group can also be an organization but need not be; typically used for looser associations of people or organizations acting together in some fashion, not necessarily through formal agreement or on a long-term basis. Added to the VIVO ontology to be able to support informal and perhaps even private groups of people around an idea, funding opportunity, or event.\n\nsee: http://xmlns.com/foaf/spec/#term_Group" ;
+        obo:IAO_0000115  "A collection of individual agents." , " A collection of individual agents (and may itself play the role of a Agent, ie. something that can perform actions). " ;
+        obo:IAO_0000117  "PERSON: Scott Hoffmann" .
+
+<http://purl.org/ontology/bibo/BookSection>
+        a                 owl:Class ;
+        rdfs:comment      "A section of a book."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Book Section"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/DocumentPart> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/edition>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/pageEnd>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/pageStart>
+                          ] ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology " ;
+        obo:IAO_0000115   "A section of a book" ;
+        ns:term_status    "unstable" .
+
+[ owl:minCardinality  "1"^^xsd:nonNegativeInteger ] .
+
+<http://xmlns.com/foaf/0.1/Agent>
+        a                owl:Class ;
+        rdfs:comment     "An agent" ;
+        rdfs:label       "Agent"@en ;
+        rdfs:subClassOf  obo:BFO_0000004 ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:Relationship ;
+                           owl:onProperty     core:relatedBy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  rdfs:Literal ;
+                           owl:onProperty     core:freetextKeyword
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  obo:IAO_0000030 ;
+                           owl:onProperty     core:featuredIn
+                         ] ;
+        obo:IAO_0000111  "agent" ;
+        obo:IAO_0000112  "see: http://xmlns.com/foaf/spec/#term_Agent" ;
+        obo:IAO_0000115  "Agents are things that do stuff" , "Things that do stuff." ;
+        obo:IAO_0000117  "PERSON: Scott Hoffmann" ;
+        obo:IAO_0000118  "" ;
+        skos:scopeNote   "Used to describe any \"agent\" related to bibliographic items. Such agents can be persons, organizations or groups of any kind."@en .
+
+<http://purl.org/ontology/bibo/Excerpt>
+        a                 owl:Class ;
+        rdfs:comment      "A passage selected from a larger work."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Excerpt"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/DocumentPart> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "A passage selected from a larger work" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000001  a  owl:Class ;
+        rdfs:label  "Entity"@en .
+
+xsd:boolean  a  rdfs:Datatype .
+
+<http://purl.org/ontology/bibo/AudioVisualDocument>
+        a                 owl:Class ;
+        rdfs:comment      "An audio-visual document; film, video, and so forth."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Audio-Visual Document"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/distributor>
+                          ] ;
+        obo:IAO_0000112   "film; video; Blu-ray" ;
+        obo:IAO_0000115   "Audiovisual recording in any format" ;
+        ns:term_status    "stable" .
+
+obo:IAO_0000144  a       owl:Class ;
+        rdfs:label       "Conclusion Textual Entity"@en ;
+        rdfs:subClassOf  obo:IAO_0000030 ;
+        obo:IAO_0000111  "conclusion textual entity"@en ;
+        obo:IAO_0000112  "that fucoidan has a small statistically significant effect on AT3 level but no useful clinical effect as in-vivo anticoagulant, a paraphrase of part of the last paragraph of the discussion section of the paper 'Pilot clinical study to evaluate the anticoagulant activity of fucoidan', by Lowenthal et. al.PMID:19696660"@en ;
+        obo:IAO_0000114  obo:IAO_0000120 ;
+        obo:IAO_0000115  "A textual entity that expresses the results of reasoning about a problem, for instance as typically found towards the end of scientific papers."@en ;
+        obo:IAO_0000116  "2009/09/28 Alan Ruttenberg. Fucoidan-use-case"@en , "2009/10/23 Alan Ruttenberg: We need to work on the definition still"@en ;
+        obo:IAO_0000117  "Person:Alan Ruttenberg"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+obo:IAO_0000102  a       owl:Class ;
+        rdfs:label       "Data about an Ontology Part"@en ;
+        rdfs:subClassOf  obo:IAO_0000027 ;
+        obo:IAO_0000115  "data about an ontology part is a data item about a part of an ontology, for example a term"@en ;
+        obo:IAO_0000117  "Person:Alan Ruttenberg" .
+
+<http://purl.org/ontology/bibo/Map>
+        a                 owl:Class ;
+        rdfs:comment      "A graphical depiction of geographic features."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Map"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Image> ;
+        obo:IAO_0000112   "The Short Definition is how the bibo ontology defines Map. It has been extended to include more broader concept of map which includes science maps, social network maps." ;
+        obo:IAO_0000115   "A graphical depiction of geographic features, scientific discipline, scientific data analytical results" ;
+        ns:term_status    "unstable" .
+
+<http://xmlns.com/foaf/0.1/Organization>
+        a                owl:Class ;
+        rdfs:comment     "An organization" ;
+        rdfs:label       "Organization"@en ;
+        rdfs:subClassOf  <http://xmlns.com/foaf/0.1/Agent> ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                           owl:onProperty     obo:BFO_0000051
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      obo:ARG_2000028 ;
+                           owl:someValuesFrom  <http://www.w3.org/2006/vcard/ns#Organization>
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:GeographicLocation ;
+                           owl:onProperty     obo:RO_0001025
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  rdfs:Literal ;
+                           owl:onProperty     core:abbreviation
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  core:DateTimeInterval ;
+                           owl:onProperty     core:dateTimeInterval
+                         ] ;
+        obo:IAO_0000111  "organization" ;
+        obo:IAO_0000112  "This class will display all the instances in the subclasses below it, as well as any organizations that were added as part of this generic class because there wasn't a specific class available." , "Only use if no specific subclasses of foaf:organization desribe the organization." ;
+        obo:IAO_0000115  "A kind of Agent corresponding to social instititutions such as companies, societies etc." , "A generic class encompassing several types of organizations." ;
+        obo:IAO_0000117  "PERSON: Scott Hoffmann" ;
+        obo:IAO_0000118  "" ;
+        skos:scopeNote   "Ued to describe an organization related to bibliographic items such as a publishing company, etc."@en .
+
+<http://purl.org/ontology/bibo/Code>
+        a                 owl:Class ;
+        rdfs:comment      "A collection of statutes."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Code"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Periodical> ;
+        obo:IAO_0000112   "Short Definition from OCLC Input Standards, EntW" , "Code of Federal Regulations" ;
+        obo:IAO_0000115   "A work consisting of texts of rules and regulations related to statutes issued by executive or administrative agencies" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Newspaper>
+        a                 owl:Class ;
+        rdfs:comment      "A periodical of documents, usually issued daily or weekly, containing current news, editorials, feature articles, and usually advertising."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Newspaper"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Periodical> ;
+        obo:IAO_0000112   "USA Today" ;
+        obo:IAO_0000115   "Contains news articles, opinions, features, advertising, and is usually issued daily or weekly" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Slide>
+        a                 owl:Class ;
+        rdfs:comment      "A slide in a slideshow"@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Slide"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/DocumentPart> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "A slide in a slideshow" ;
+        ns:term_status    "unstable" .
+
+obo:BFO_0000038  a       owl:Class ;
+        rdfs:label       "One-Dimensional Temporal Region"@en ;
+        rdfs:subClassOf  obo:BFO_0000008 .
+
+<http://purl.org/ontology/bibo/Article>
+        a                 owl:Class ;
+        rdfs:comment      "A written composition in prose, usually nonfiction, on a specific topic, forming an independent part of a book or other publication, as a newspaper or magazine."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Article"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/pageEnd>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/pageStart>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/doi>
+                          ] ;
+        obo:IAO_0000112   "Short Definition modified from the bibo ontology." , "A specific journal article" ;
+        obo:IAO_0000115   "A written composition in prose, usually nonfiction, on a specific topic, forming an independent part of a periodical or book" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000017  a        owl:Class ;
+        rdfs:isDefinedBy  obo:bfo.owl ;
+        rdfs:label        "Realizable Entity"@en ;
+        rdfs:subClassOf   obo:BFO_0000020 ;
+        obo:BFO_0000179   "realizable" ;
+        obo:BFO_0000180   "RealizableEntity" ;
+        obo:IAO_0000112   "the disposition of this piece of metal to conduct electricity."@en , "the role of this boundary to delineate where Utah and Colorado meet"@en , "the disposition of your blood to coagulate"@en , "the role of being a doctor"@en , "the function of your reproductive organs"@en ;
+        obo:IAO_0000600   "To say that b is a realizable entity is to say that b is a specifically dependent continuant that inheres in some independent continuant which is not a spatial region and is of a type instances of which are realized in processes of a correlated type. (axiom label in BFO2 Reference: [058-002])"@en ;
+        obo:IAO_0000601   "All realizable dependent continuants have independent continuants that are not spatial regions as their bearers. (axiom label in BFO2 Reference: [060-002])"@en ;
+        obo:IAO_0000602   "(forall (x) (if (RealizableEntity x) (and (SpecificallyDependentContinuant x) (exists (y) (and (IndependentContinuant y) (not (SpatialRegion y)) (inheresIn x y)))))) // axiom label in BFO2 CLIF: [058-002] " , "(forall (x t) (if (RealizableEntity x) (exists (y) (and (IndependentContinuant y) (not (SpatialRegion y)) (bearerOfAt y x t))))) // axiom label in BFO2 CLIF: [060-002] " ;
+        owl:disjointWith  obo:BFO_0000019 .
+
+<http://purl.org/ontology/bibo/Document>
+        a                 owl:Class ;
+        rdfs:comment      "A document (noun) is a bounded physical representation of body of information designed with the capacity (and usually intent) to communicate. A document may manifest symbolic, diagrammatic or sensory-representational information."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Document"@en ;
+        rdfs:subClassOf   obo:IAO_0000030 ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://purl.org/spar/c4o/GlobalCitationCount> ;
+                            owl:onProperty     <http://purl.org/spar/c4o/hasGlobalCitationFrequency>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/oclcnum>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/abstract>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Agent> ;
+                            owl:onProperty     core:features
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/numPages>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  core:Dataset ;
+                            owl:onProperty     <http://purl.org/spar/cito/citesAsDataSource>
+                          ] ;
+        obo:IAO_0000111   "document"@en ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" , "A journal article, patent application, laboratory notebook, or a book"@en ;
+        obo:IAO_0000114   obo:IAO_0000120 ;
+        obo:IAO_0000115   "A collection of information content entities intended to be understood together as a whole"@en , "A bounded physical representation of a body of information designed with the capacity (and usually intent) to communicate" ;
+        obo:IAO_0000117   "PERSON: Lawrence Hunter"@en ;
+        obo:IAO_0000412   obo:iao.owl .
+
+<http://purl.org/ontology/bibo/Magazine>
+        a                 owl:Class ;
+        rdfs:comment      "A periodical of magazine Articles. A magazine is a publication that is issued periodically, usually bound in a paper cover, and typically contains essays, stories, poems, etc., by many writers, and often photographs and drawings, frequently specializing in a particular subject or area, as hobbies, news, or sports."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Magazine"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Periodical> ;
+        obo:IAO_0000112   "New Yorker" , "Abstracts and bibliographies are usually not included in magazines. " ;
+        obo:IAO_0000115   "Contains articles of current events or general interest, geared to the reading public as being informative or recreational" ;
+        ns:term_status    "stable" .
+
+obo:BFO_0000004  a       owl:Class ;
+        rdfs:label       "Independent Continuant"@en ;
+        rdfs:subClassOf  obo:BFO_0000002 .
+
+obo:IAO_0000005  a       owl:Class ;
+        rdfs:label       "Objective Specification"@en ;
+        rdfs:subClassOf  obo:IAO_0000033 ;
+        obo:IAO_0000111  "objective specification"@en ;
+        obo:IAO_0000112  "purpose of a study; support of hypothesis, discovery of new information"@en ;
+        obo:IAO_0000114  obo:IAO_0000125 ;
+        obo:IAO_0000115  "a directive information entity that describes an intended process endpoint. When part of a plan specification the concretization is realized in a planned process in which the bearer tries to effect the world so that the process endpoint is achieved."@en ;
+        obo:IAO_0000116  "Answers the question, why did you do this experiment?"@en ;
+        obo:IAO_0000117  "PERSON: Bjoern Peters"@en , "PERSON: Jennifer Fostel"@en , "PERSON: Barry Smith"@en , "PERSON: Alan Ruttenberg"@en ;
+        obo:IAO_0000119  "OBI Plan and Planned Process/Roles Branch"@en , "OBI_0000217"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+<http://purl.org/ontology/bibo/Quote>
+        a                 owl:Class ;
+        rdfs:comment      "An excerpted collection of words."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Quote"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Excerpt> ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology" ;
+        obo:IAO_0000115   "An excerpted collection of words" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/DocumentPart>
+        a                 owl:Class ;
+        rdfs:comment      "a distinct part of a larger document or collected document."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Document Part"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     core:placeOfPublication
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     core:publisher
+                          ] ;
+        obo:IAO_0000112   "Short Definition from the bibo ontology " ;
+        obo:IAO_0000115   "A distinct part of a larger document or collected document" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/Thesis>
+        a                 owl:Class ;
+        rdfs:comment      "A document created to summarize research findings associated with the completion of an academic degree."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Thesis"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     core:abbreviation
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     core:placeOfPublication
+                          ] ;
+        obo:IAO_0000112   "Short Definition from OCLC Input Standards, EntW" ;
+        obo:IAO_0000115   "Works created to satisfy the requirements for an academic certification or degree; also called dissertation" ;
+        ns:term_status    "stable" .
+
+xsd:int  a      rdfs:Datatype .
+
+<http://purl.org/ontology/bibo/PersonalCommunicationDocument>
+        a                owl:Class ;
+        rdfs:label       "Personal Communication Document"@en ;
+        rdfs:subClassOf  <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112  "A personal communication manifested in some document." ;
+        obo:IAO_0000115  "A personal communication manifested in some document." .
+
+obo:IAO_0000013  a       owl:Class ;
+        rdfs:label       "Journal Article"@en ;
+        rdfs:subClassOf  <http://purl.org/ontology/bibo/AcademicArticle> ;
+        obo:IAO_0000111  "journal article"@en ;
+        obo:IAO_0000112  "Examples are articles published in the journals, Nature and Science. The content can often be cited by reference to a paper based encoding, e.g.  Authors, Title of article, Journal name, date or year of publication, volume and page number."@en ;
+        obo:IAO_0000114  obo:IAO_0000120 ;
+        obo:IAO_0000115  "a report that is published in a journal"@en ;
+        obo:IAO_0000117  "person:Chris Stoeckert"@en , "person:Alan Ruttenberg"@en ;
+        obo:IAO_0000119  "OBI_0000159"@en , "group:OBI"@en ;
+        obo:IAO_0000412  obo:iao.owl .
+
+<http://purl.org/ontology/bibo/Series>
+        a                 owl:Class ;
+        rdfs:comment      "A loose, thematic, collection of Documents, often Books."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Series"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Collection> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/issn>
+                          ] ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  rdfs:Literal ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/eissn>
+                          ] ;
+        obo:IAO_0000112   "Methods in Molecular Biology" ;
+        obo:IAO_0000115   "A thematic collection of documents, usually books, issued at regular or irregular intervals" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/AudioDocument>
+        a                 owl:Class ;
+        rdfs:comment      "An audio document; aka record."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Audio Document"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  <http://xmlns.com/foaf/0.1/Organization> ;
+                            owl:onProperty     <http://purl.org/ontology/bibo/distributor>
+                          ] ;
+        obo:IAO_0000112   "phonograph record; tape; CD; DVD; DAT" ;
+        obo:IAO_0000115   "Recorded audio in any format" ;
+        ns:term_status    "stable" .
+
+xsd:date  a     rdfs:Datatype .
+
+obo:BFO_0000020  a       owl:Class ;
+        rdfs:label       "Specifically Dependent Continuant"@en ;
+        rdfs:subClassOf  obo:BFO_0000002 .
+
+<http://purl.org/ontology/bibo/Journal>
+        a                 owl:Class ;
+        rdfs:comment      "A periodical of scholarly journal Articles."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Journal"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Periodical> ;
+        rdfs:subClassOf   [ a                  owl:Restriction ;
+                            owl:allValuesFrom  xsd:string ;
+                            owl:onProperty     core:abbreviation
+                          ] ;
+        obo:IAO_0000112   "Journal of Information Science; IEEE Intelligent System; Scientometrics" , "Articles usually contain abstracts and bibliographies. Includes peer-reviewed, non-peer-reviewed, and open access journals. Journals are usually indexed in the major academic databases such as PubMed and Web of Science." ;
+        obo:IAO_0000115   "Contains original scholarly research or review articles by experts in the field" ;
+        ns:term_status    "stable" .
+
+<http://purl.org/ontology/bibo/Webpage>
+        a                 owl:Class ;
+        rdfs:comment      "A web page is an online document available (at least initially) on the world wide web. A web page is written first and foremost to appear on the web, as distinct from other online resources such as books, manuscripts or audio documents which use the web primarily as a distribution mechanism alongside other more traditional methods such as print."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Webpage"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000115   "One section of a website that appears at a unique address within the parent site's address or URL on the World Wide Web " ;
+        ns:term_status    "unstable" .
+
+obo:BFO_0000141  a       owl:Class ;
+        rdfs:label       "Immaterial Entity"@en ;
+        rdfs:subClassOf  obo:BFO_0000004 .
+
+rdfs:Literal  a  rdfs:Datatype .
+
+<http://purl.org/ontology/bibo/Manual>
+        a                 owl:Class ;
+        rdfs:comment      "A small reference book, especially one giving instructions."@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Manual"@en ;
+        rdfs:subClassOf   <http://purl.org/ontology/bibo/Document> ;
+        obo:IAO_0000112   "SDB User Manual" ;
+        obo:IAO_0000115   "A book of instructions or guide to a specific topic" ;
+        ns:term_status    "unstable" .
+
+<http://purl.org/ontology/bibo/ThesisDegree>
+        a                 owl:Class ;
+        rdfs:comment      "The academic degree of a Thesis"@en ;
+        rdfs:isDefinedBy  "http://purl.org/ontology/bibo/"^^xsd:anyURI ;
+        rdfs:label        "Thesis Degree"@en ;
+        rdfs:subClassOf   core:AcademicDegree ;
+        obo:IAO_0000112   "Doctor of Philosophy (Ph.D.)" , "Different from general academic degree, thesis degree is achieved through one's completed thesis. Thesis is a document submitted in support of candidature for a degree or professional qualification presenting the author's research and findings(http://en.wikipedia.org/wiki/Thesis_or_dissertation)." ;
+        obo:IAO_0000115   "The academic degree of a Thesis." ;
+        ns:term_status    "stable" .

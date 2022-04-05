@@ -1,0 +1,49 @@
+@prefix :      <#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tdb2:  <http://jena.apache.org/2016/tdb#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+
+ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
+ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
+
+tdb2:GraphTDB2  rdfs:subClassOf  ja:Model .
+tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
+
+
+# The vocab location carries all vocabulary data for the system
+# These are not available to the experts users directly, though they could be
+# in a seperate service (see the harvester)
+:vocab fuseki:name "vocabularies" .
+:tdb_vocab tdb2:location  "/var/lib/fuseki/databases/vocabularies" .
+
+# Everything below is standard to the experts setup, the public and private
+# databases and their relationships
+
+:vocab a fuseki:Service ;
+    fuseki:dataset :tdb_vocab ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "sparql"
+        ];
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "query"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-r ;
+        fuseki:name "get"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-rw ;
+        fuseki:name "data"
+        ] ;
+     .
+
+# Complete Thesauri, like FAST are saved in their own database
+:tdb_vocab
+    a              tdb2:DatasetTDB2 ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+    tdb2:unionDefaultGraph true ;
+    .

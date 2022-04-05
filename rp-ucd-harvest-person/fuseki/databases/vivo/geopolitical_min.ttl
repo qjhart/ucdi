@@ -1,0 +1,675 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geopolitical: <http://aims.fao.org/aos/geopolitical.owl#> .
+
+geopolitical:codeFAOSTAT
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeFAOSTAT"@en ;
+        geopolitical:sourceCreator     "FAOSTAT" ;
+        geopolitical:sourceIdentifier  "http://faostat.fao.org/default.aspx?lang=fr"@fr , "http://faostat.fao.org/default.aspx?lang=es"@es , "http://faostat.fao.org"@en ;
+        terms:source                   "FAOSTAT http://faostat.fao.org" .
+
+geopolitical:landAreaNotes
+        a           owl:DatatypeProperty ;
+        rdfs:label  "land area notes"@en .
+
+geopolitical:nameShortRU
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortRU"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/es/"@es ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:validUntil
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The value of the datatype property *validUntil* associated to a particular area (territory or group) indicates the area's last year of validity. In case the area is currently valid, this value is set by default to 9999.\n    " ;
+        rdfs:label    "valid until"@en .
+
+<http://vivoweb.org/ontology/core>
+        a           owl:Ontology ;
+        rdfs:label  "VIVO Core Ontology"@en-US .
+
+geopolitical:codeUNDP
+        a           owl:DatatypeProperty ;
+        rdfs:label  "codeUNDP"@en .
+
+geopolitical:nationalityIT
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityIT"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:populationTotal
+        a           owl:DatatypeProperty ;
+        rdfs:label  "total population"@en .
+
+geopolitical:organization
+        a                owl:Class ;
+        rdfs:label       "Organization"@en ;
+        rdfs:subClassOf  geopolitical:group .
+
+geopolitical:GDP  a                    owl:DatatypeProperty ;
+        rdfs:label                     "GDP"@en ;
+        geopolitical:sourceCreator     "World Bank" ;
+        geopolitical:sourceIdentifier  "http://data.albankaldawli.org/indicator/NY.GDP.MKTP.CD"@ar , "http://donnees.banquemondiale.org/indicateur/NY.GDP.MKTP.CD"@fr , "http://datos.bancomundial.org/indicador/NY.GDP.MKTP.CD"@es , "http://data.worldbank.org/indicator/NY.GDP.MKTP.CD"@en , "http://data.worldbank.org/indicator/NY.GDP.MKTP.CD" ;
+        geopolitical:sourceModified    "2010-12-16" ;
+        terms:description              "GDP at purchaser's prices is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars. Dollar figures for GDP are converted from domestic currencies using single year official exchange rates. For a few countries where the official exchange rate does not reflect the rate effectively applied to actual foreign exchange transactions, an alternative conversion factor is used. Source: World Bank national accounts data, and OECD National Accounts data files. http://data.worldbank.org/indicator/NY.GDP.MKTP.CD" ;
+        terms:source                   "World Bank http://data.worldbank.org/indicator/NY.GDP.MKTP.CD" .
+
+geopolitical:nameCurrencyIT
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyIT"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:codeAGROVOC
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeAGROVOC"@en ;
+        geopolitical:sourceCreator     "AGROVOC" ;
+        geopolitical:sourceIdentifier  "http://aims.fao.org/zh-hans/website/Search-AGROVOC/sub"@zh , "http://aims.fao.org/fr/website/Search-AGROVOC/sub"@fr , "http://aims.fao.org/es/website/Search-AGROVOC/sub"@es , "http://aims.fao.org/website/Search-AGROVOC/sub"@en , "http://aims.fao.org/ar/website/Search-AGROVOC/sub"@ar ;
+        terms:source                   "AGROVOC http://aims.fao.org/website/Search-AGROVOC/sub" .
+
+geopolitical:countryAreaUnit
+        a           owl:DatatypeProperty ;
+        rdfs:label  "country area unit"@en .
+
+geopolitical:sourceModified
+        a       owl:AnnotationProperty .
+
+geopolitical:agriculturalAreaYear
+        a           owl:DatatypeProperty ;
+        rdfs:label  "agriculturalAreaYear"@en .
+
+geopolitical:hasCoordinate
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has coordinate"@en .
+
+geopolitical:nameOfficialAR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialAR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:populationUnit
+        a           owl:DatatypeProperty ;
+        rdfs:label  "population unit"@en .
+
+geopolitical:nameOfficialFR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialFR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameShortAR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortAR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameListES
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListES"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nationalityZH
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityZH"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameShortFR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortFR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:GDPNotes
+        a           owl:DatatypeProperty ;
+        rdfs:label  "GDP notes"@en .
+
+geopolitical:population
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "population"@en ;
+        geopolitical:sourceCreator     "FAOSTAT" ;
+        geopolitical:sourceIdentifier  "http://faostat.fao.org/DesktopDefault.aspx?PageID=550&lang=en#ancor"@en , "http://faostat.fao.org/DesktopDefault.aspx?PageID=550&lang=en#ancor" , "http://faostat.fao.org/DesktopDefault.aspx?PageID=550&lang=es#ancor"@es , "http://faostat.fao.org/DesktopDefault.aspx?PageID=550&lang=fr#ancor"@fr ;
+        geopolitical:sourceModified    "2009-09-21" ;
+        terms:description              "The total population usually refers to the present-in-area (de facto) population which includes all persons physically present within the present geographical boundaries of countries at the mid-point of the reference period.  http://faostat.fao.org/site/375/default.aspx" ;
+        terms:source                   "FAOSTAT http://faostat.fao.org/site/550/default.aspx" .
+
+geopolitical:nameCurrencyZH
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyZH"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:GDPYear  a  owl:DatatypeProperty ;
+        rdfs:label  "GDPYear"@en .
+
+geopolitical:codeUN  a                 owl:DatatypeProperty ;
+        rdfs:label                     "codeUN"@en ;
+        geopolitical:sourceCreator     "United Nations Statistics Division" ;
+        geopolitical:sourceIdentifier  "http://unstats.un.org/unsd/methods/m49/m49alphaf.htm"@fr , "http://unstats.un.org/unsd/methods/m49/m49alpha.htm"@en ;
+        geopolitical:sourceModified    "2010-04-01" ;
+        terms:source                   "United Nations Statistics Division http://unstats.un.org/unsd/methods/m49/m49alpha.htm" .
+
+geopolitical:countryAreaNotes
+        a           owl:DatatypeProperty ;
+        rdfs:label  "country area notes"@en .
+
+geopolitical:landAreaUnit
+        a           owl:DatatypeProperty ;
+        rdfs:label  "land area unit"@en .
+
+geopolitical:hasMember
+        a              owl:ObjectProperty ;
+        rdfs:domain    geopolitical:group ;
+        rdfs:label     "has member country or territory"@en ;
+        rdfs:range     geopolitical:territory ;
+        owl:inverseOf  geopolitical:isInGroup .
+
+geopolitical:other  a    owl:Class ;
+        rdfs:label       "Other"@en ;
+        rdfs:subClassOf  geopolitical:territory .
+
+geopolitical:nameListEN
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListEN"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:countryAreaYear
+        a           owl:DatatypeProperty ;
+        rdfs:label  "countryAreaYear"@en .
+
+geopolitical:codeISO2
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeISO2"@en ;
+        geopolitical:sourceCreator     "ISO 3166-1" ;
+        geopolitical:sourceIdentifier  "http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" ;
+        terms:source                   "ISO 3166-1 http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" .
+
+geopolitical:isPredecessorOf
+        a                              owl:ObjectProperty ;
+        rdfs:domain                    geopolitical:area ;
+        rdfs:label                     "is predecessor of"@en ;
+        rdfs:range                     geopolitical:area ;
+        geopolitical:sourceCreator     "United Nations Statistics Division" ;
+        geopolitical:sourceIdentifier  "http://unstats.un.org/unsd/methods/m49/m49chgef.htm"@fr , "http://unstats.un.org/unsd/methods/m49/m49chang.htm"@en ;
+        geopolitical:sourceModified    "2010-04-15" ;
+        terms:source                   "United Nations Statistics Division http://unstats.un.org/unsd/methods/m49/m49chang.htm" ;
+        owl:inverseOf                  geopolitical:isSuccessorOf .
+
+geopolitical:hasListName
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has list name"@en .
+
+geopolitical:hasCurrency
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has currency"@en .
+
+geopolitical:special_group
+        a                owl:Class ;
+        rdfs:label       "Special Group"@en ;
+        rdfs:subClassOf  geopolitical:group .
+
+geopolitical:nameOfficialIT
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialIT"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:countryAreaTotal
+        a           owl:DatatypeProperty ;
+        rdfs:label  "total country area"@en .
+
+geopolitical:non_self_governing
+        a                owl:Class ;
+        rdfs:label       "Non Self Governing"@en ;
+        rdfs:subClassOf  geopolitical:territory ;
+        terms:source     "UN Cartographic Section, Department of Field Support http://www.un.org/Depts/Cartographic/map/profile/world00.pdf" .
+
+geopolitical:populationYear
+        a           owl:DatatypeProperty ;
+        rdfs:label  "populationYear"@en .
+
+geopolitical:isSuccessorOf
+        a                              owl:ObjectProperty ;
+        rdfs:domain                    geopolitical:area ;
+        rdfs:label                     "is successor of"@en ;
+        rdfs:range                     geopolitical:area ;
+        geopolitical:sourceCreator     "United Nations Statistics Division" ;
+        geopolitical:sourceIdentifier  "http://unstats.un.org/unsd/methods/m49/m49chgef.htm"@fr , "http://unstats.un.org/unsd/methods/m49/m49chang.htm"@en ;
+        geopolitical:sourceModified    "2010-04-15" ;
+        terms:source                   "United Nations Statistics Division http://unstats.un.org/unsd/methods/m49/m49chang.htm" .
+
+geopolitical:isAdministeredBy
+        a                              owl:ObjectProperty ;
+        rdfs:label                     "is administered by"@en ;
+        geopolitical:sourceCreator     "United Nations cartographic maps" ;
+        geopolitical:sourceIdentifier  "http://www.un.org/Depts/Cartographic/map/profile/world00.pdf"@en ;
+        geopolitical:sourceModified    "2010-05-01" ;
+        terms:source                   "United Nations cartographic maps http://www.un.org/Depts/Cartographic/map/profile/world00.pdf" .
+
+geopolitical:codeGAUL
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeGAUL"@en ;
+        geopolitical:sourceCreator     "Global Administrative Unit Layers" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" ;
+        geopolitical:sourceModified    "2008-12-10" ;
+        terms:source                   "Global Administrative Unit Layers http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691" .
+
+geopolitical:nameShortIT
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortIT"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:codeFAOTERM
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeFAOTERM"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/es/"@es ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:countryArea
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "countryArea"@en ;
+        geopolitical:sourceCreator     "FAOSTAT" ;
+        geopolitical:sourceIdentifier  "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=fr#ancor"@fr , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=es#ancor"@es , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor"@en , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor" ;
+        geopolitical:sourceModified    "2011-07-21" ;
+        terms:description              "Country area, area of the country including area under inland water bodies, but excluding offshore territorial waters. Possible variations in the data may be due to updating and revisions of the country data and not necessarily to any change of area. Data are expressed in 1000 hectares. http://faostat.fao.org/site/375/default.aspx " ;
+        terms:source                   "FAOSTAT http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor" .
+
+geopolitical:nameListRU
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListRU"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:HDI  a                    owl:DatatypeProperty ;
+        geopolitical:sourceCreator     "UNDP - HDRO" ;
+        geopolitical:sourceIdentifier  "http://hdrstats.undp.org/en/indicators/49806.html" , "http://hdrstats.undp.org/en/indicators/49806.html"@en , "http://hdrstats.undp.org/fr/indicateurs/49806.html"@fr , "http://hdrstats.undp.org/es/indicadores/49806.html"@es ;
+        geopolitical:sourceModified    "2010-11-04" ;
+        terms:description              " composite index measuring average achievement in three basic dimensions of human development-a long and healthy life, knowledge and a decent standard of living. Source: Calculated based on data from UNDESA (2009d), Barro and Lee (2010), UNESCO Institute for Statistics (2010b), World Bank (2010b) and IMF(2010a) . http://hdrstats.undp.org/en/indicators/49806.html" , " composite index measuring average achievement in three basic dimensions of human development—a long and healthy life, knowledge and a decent standard of living. Source: Calculated based on data from UNDESA (2009d), Barro and Lee (2010), UNESCO Institute for Statistics (2010b), World Bank (2010b) and IMF(2010a) . http://hdrstats.undp.org/en/indicators/49806.html" ;
+        terms:source                   "UNDP - HDRO http://hdrstats.undp.org/en/indicators/49806.html" .
+
+geopolitical:hasMinLongitude
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has minimum longitude"@en .
+
+geopolitical:nationalityES
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityES"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:territory
+        a                owl:Class ;
+        rdfs:label       "Territory"@en ;
+        rdfs:subClassOf  geopolitical:area , <http://vivoweb.org/ontology/core#GeopoliticalEntity> ;
+    .
+
+geopolitical:hasNationality
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has nationality"@en .
+
+geopolitical:landAreaYear
+        a           owl:DatatypeProperty ;
+        rdfs:label  "landAreaYear"@en .
+
+geopolitical:hasStatistics
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has statistics"@en .
+
+geopolitical:nameCurrencyES
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyES"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameOfficialZH
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialZH"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:codeCurrency
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeCurrency"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:HDITotal
+        a       owl:DatatypeProperty .
+
+geopolitical:nameShortZH
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortZH"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/en/" ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nationalityEN
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityEN"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/es/"@es ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:area  a     owl:Class ;
+        rdfs:label       "Area"@en ;
+        rdfs:subClassOf  owl:Thing ;
+    .
+
+geopolitical:landAreaTotal
+        a           owl:DatatypeProperty ;
+        rdfs:label  "total land area"@en .
+
+geopolitical:nameListAR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListAR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameCurrencyEN
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyEN"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:agriculturalAreaNotes
+        a           owl:DatatypeProperty ;
+        rdfs:label  "agricultural area notes"@en .
+
+geopolitical:sourceCreator
+        a       owl:AnnotationProperty .
+
+geopolitical:hasShortName
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has short name"@en .
+
+geopolitical:GDPUnit  a  owl:DatatypeProperty ;
+        rdfs:label  "GDP unit"@en .
+
+geopolitical:nameListFR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListFR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:agriculturalAreaTotal
+        a           owl:DatatypeProperty ;
+        rdfs:label  "agriculturalAreaTotal"@en .
+
+geopolitical:HDIUnit  a  owl:DatatypeProperty .
+
+geopolitical:hasBorderWith
+        a                              owl:ObjectProperty ;
+        rdfs:label                     "has border with"@en ;
+        geopolitical:sourceCreator     "United Nations cartographic maps" ;
+        geopolitical:sourceIdentifier  "http://www.un.org/Depts/Cartographic/map/profile/world00.pdf" ;
+        geopolitical:sourceModified    "2010-05-01" ;
+        terms:source                   "United Nations cartographic maps http://www.un.org/Depts/Cartographic/map/profile/world00.pdf" .
+
+geopolitical:codeISO3
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeISO3"@en ;
+        geopolitical:sourceCreator     "United Nations Statistics Division" ;
+        geopolitical:sourceIdentifier  "http://unstats.un.org/unsd/methods/m49/m49alphaf.htm"@fr , "http://unstats.un.org/unsd/methods/m49/m49alpha.htm"@en ;
+        geopolitical:sourceModified    "2010-04-01" ;
+        terms:source                   "United Nations Statistics Division http://unstats.un.org/unsd/methods/m49/m49alpha.htm" .
+
+geopolitical:nationalityRU
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityRU"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:disputed
+        a                owl:Class ;
+        rdfs:label       "Disputed"@en ;
+        rdfs:subClassOf  geopolitical:territory .
+
+geopolitical:geographical_region
+        a                owl:Class ;
+        rdfs:label       "Transnational Region"@en ;
+        rdfs:subClassOf  <http://vivoweb.org/ontology/core#GeographicRegion> , geopolitical:group ;
+        terms:source     "United Nations statistics department http://unstats.un.org/unsd/methods/m49/m49regin.htm" .
+
+geopolitical:nameCurrencyRU
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyRU"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameOfficialES
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialES"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:landArea
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "land area"@en ;
+        geopolitical:sourceCreator     "FAOSTAT" ;
+        geopolitical:sourceIdentifier  "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor" , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor"@en , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=es#ancor"@es , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=fr#ancor"@fr ;
+        geopolitical:sourceModified    "2011-07-21" ;
+        terms:description              "Land area is the total area of the country excluding area under inland water bodies. Possible variations in the data may be due to updating and revisions of the country data and not necessarily to any change of area. Data are expressed in 1 000 hectares. http://faostat.fao.org/site/375/default.aspx " ;
+        terms:source                   "FAOSTAT http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor" .
+
+geopolitical:nameShortES
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortES"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameListIT
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListIT"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:hasCode  a  owl:DatatypeProperty ;
+        rdfs:label  "has code"@en .
+
+geopolitical:economic_region
+        a                owl:Class ;
+        rdfs:label       "Economic Region"@en ;
+        rdfs:subClassOf  geopolitical:group .
+
+geopolitical:isInGroup
+        a            owl:ObjectProperty ;
+        rdfs:domain  geopolitical:territory ;
+        rdfs:label   "in geographic grouping"@en ;
+        rdfs:range   geopolitical:group .
+
+geopolitical:nameOfficialEN
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialEN"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/zh/"@zh ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nationalityAR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityAR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:self_governing
+        a                    owl:Class ;
+        rdfs:label           "Self Governing"@en ;
+        rdfs:subClassOf      <http://vivoweb.org/ontology/core#GeopoliticalEntity> , geopolitical:territory ;
+        terms:source         "United Nations Map Library http://www.un.org/depts/dhl/maplib/countinfo.htm" ;
+        owl:equivalentClass  <http://vivoweb.org/ontology/core#Country> .
+
+geopolitical:GDPTotalInCurrentPrices
+        a           owl:DatatypeProperty ;
+        rdfs:label  "GDP total in current prices"@en .
+
+geopolitical:validSince
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The value of the datatype property *validSince* associated to a particular area (territory or group) indicates the area's  first year of validity.  The geopolitical ontology traces back historic changes only until 1985, therefore, if an area has a validSince = 1985, this indicates that the area is/was valid since 1985 or before.       " ;
+        rdfs:label    "valid since"@en .
+
+geopolitical:hasOfficialName
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has official name"@en .
+
+geopolitical:hasMaxLongitude
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has maximum longitude"@en .
+
+geopolitical:hasMinLatitude
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has minimum latitude"@en .
+
+geopolitical:HDIYear  a  owl:DatatypeProperty .
+
+geopolitical:nameCurrencyAR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyAR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:codeDBPediaID
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "codeDBPediaID"@en ;
+        geopolitical:sourceCreator     "DBpedia" ;
+        geopolitical:sourceIdentifier  "http://dbpedia.org/About"@en ;
+        geopolitical:sourceModified    "2010-04-28" ;
+        terms:source                   "DBpedia http://dbpedia.org/About" .
+
+geopolitical:nationalityFR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nationalityFR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:nameShortEN
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameShortEN"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:agriculturalAreaUnit
+        a           owl:DatatypeProperty ;
+        rdfs:label  "agricultural area unit"@en .
+
+geopolitical:nameCurrencyFR
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameCurrencyFR"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/en/"@en ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:hasMaxLatitude
+        a           owl:DatatypeProperty ;
+        rdfs:label  "has maximum latitude"@en .
+
+geopolitical:sourceIdentifier
+        a       owl:AnnotationProperty .
+
+geopolitical:nameListZH
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameListZH"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/ar/"@ar , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/contr/es/"@es ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:agriculturalArea
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "agricultural area"@en ;
+        geopolitical:sourceCreator     "FAOSTAT" ;
+        geopolitical:sourceIdentifier  "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor"@en , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor" , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=fr#ancor"@fr , "http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=es#ancor"@es ;
+        geopolitical:sourceModified    "2010-07-21" ;
+        terms:description              "Agricultural area, this category is the sum of areas under a) arable land - land under temporary agricultural crops (multiple-cropped areas are counted only once), temporary meadows for mowing or pasture, land under market and kitchen gardens and land temporarily fallow (less than five years). The abandoned land resulting from shifting cultivation is not included in this category. Data for “Arable land” are not meant to indicate the amount of land that is potentially cultivable; (b) permanent crops - land cultivated with long-term crops which do not have to be replanted for several years (such as cocoa and coffee); land under trees and shrubs producing flowers, such as roses and jasmine; and nurseries (except those for forest trees, which should be classified under \"forest\"); and (c) permanent meadows and pastures - land used permanently (five years or more) to grow herbaceous forage crops, either cultivated or growing wild (wild prairie or grazing land). Data are expressed in 1000 hectares. http://faostat.fao.org/site/375/default.aspx " ;
+        terms:source                   "FAOSTAT http://faostat.fao.org/DesktopDefault.aspx?PageID=377&lang=en#ancor" .
+
+geopolitical:populationNotes
+        a           owl:DatatypeProperty ;
+        rdfs:label  "population notes"@en .
+
+geopolitical:nameOfficialRU
+        a                              owl:DatatypeProperty ;
+        rdfs:label                     "nameOfficialRU"@en ;
+        geopolitical:sourceCreator     "FAO terminology" ;
+        geopolitical:sourceIdentifier  "http://www.fao.org/termportal/contr/zh/"@zh , "http://www.fao.org/termportal/en/" , "http://www.fao.org/termportal/contr/en/"@en , "http://www.fao.org/termportal/contr/fr/"@fr , "http://www.fao.org/termportal/contr/es/"@es , "http://www.fao.org/termportal/contr/ar/"@ar ;
+        geopolitical:sourceModified    "2010-06-24" ;
+        terms:source                   "FAO terminology http://www.fao.org/termportal/en/" .
+
+geopolitical:group  a    owl:Class ;
+        rdfs:label       "Group"@en ;
+        rdfs:subClassOf  geopolitical:area .
+
+geopolitical:HDINotes
+        a       owl:DatatypeProperty .

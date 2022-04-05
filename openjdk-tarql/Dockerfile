@@ -1,4 +1,6 @@
-FROM local-dev/ucdi-debian-openjdk-python3:main
+ARG VERSION
+ARG SRC
+FROM $SRC/ucdi-openjdk-python3:$VERSION
 
 ENV TARQL_VERSION="1.2"
 

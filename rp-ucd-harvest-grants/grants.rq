@@ -1,0 +1,93 @@
+# See https://wiki.lyrasis.org/download/attachments/112526814/Grant%20Model.png?version=1&modificationDate=1553028250086&api=v2
+
+PREFIX experts: <http://experts.ucdavis.edu/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ucdrp: <http://experts.ucdavis.edu/schema#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+	?grant a vivo:Grant ;
+	rdfs:label ?title ;
+	vivo:sponsorAwardId ?grantor_award_id ;
+ 	vivo:totalAwardAmount ?grant_amount_i ;
+ 	vivo:assignedBy ?funding_org;
+ 	vivo:relates ?person ;
+  vivo:relates ?admin_role, ?admin_department;
+	vivo:dateTimeInterval ?grant_duration;
+ vivo:grantDirectCosts ?direct_costs_i ;
+  ucdrp:subAwardOf ?from_grant;
+ 	ucdrp:grantIndirectCosts ?indirect_costs_i ;
+  ucdrp:grantType ?grant_class;
+  ucdrp:caoCode ?cao_code;
+ .
+
+  ?grant_duration a vivo:DateTimeInterval;
+                  vivo:start ?grant_start;
+                  vivo:end ?grant_end;
+                  .
+
+  ?grant_start a vivo:DateTimeValue;
+               vivo:dateTime ?start_date;
+               vivo:dateTimePrecision vivo:yearMonthDayPrecision;
+               .
+
+  ?grant_end a vivo:DateTimeValue;
+             vivo:dateTime ?end_date;
+             vivo:dateTimePrecision vivo:yearMonthDayPrecision;
+             .
+
+	?funding_org vivo:assigns ?grant.
+
+  ?from_grant a vivo:Grant;
+ 	            vivo:assignedBy ?fpt_funding_org;
+              .
+
+  ?fpt_funding_org vivo:assigns ?from_grant.
+
+
+  ?admin_role
+  a vivo:AdminRole ;
+	vivo:relatedBy ?grant ;
+#	obo:RO_000052 ?admin_department ;
+  rdfs:label ?admin_dept_nm;
+   .
+
+#  ?admin_department
+#    vivo:relatedBy ?grant;
+#    obo:RO_000053 ?admin_role;
+#    .
+
+}
+WHERE {
+  VALUES (?grant_type ?grant_class) {
+    ("INSTRUCTION" ucdrp:GrantTypeInstruction)
+    ("RESEARCH" ucdrp:GrantTypeResearch)
+    ("SERVICE/OTHER" ucdrp:GrantTypeService)
+    ("ACADEMIC SUPPORT" ucdrp:GrantTypeAcademicSupport)
+    ("STUDENT SERVICES" ucdrp:GrantTypeStudentService)
+    ("SCHOLARSHIPS / FELLOWSHIPS" ucdrp:GrantTypeScholarship)
+    ("DEFAULT" ucdrp:GrantTypeDefault)
+  }
+
+
+	BIND(URI(CONCAT(str(experts:), "admin_role/",?admin_dept_cd, "-", ?cgprpsl_nbr)) as ?admin_role)
+	BIND(URI(CONCAT(str(experts:), "organization/",?admin_dept_cd)) as ?admin_department)
+
+	BIND(URI(CONCAT(str(experts:), "grant/", ?cgprpsl_nbr)) AS ?grant)
+	BIND(URI(CONCAT(str(?grant), "#duration")) AS ?grant_duration)
+	BIND(URI(CONCAT(str(?grant), "#start")) AS ?grant_start)
+	BIND(URI(CONCAT(str(?grant), "#end")) AS ?grant_end)
+
+  BIND(xsd:integer(?grant_amount) AS ?grant_amount_i)
+  BIND(xsd:integer(?direct_costs) AS ?direct_costs_i)
+  BIND(xsd:integer(?indirect_costs) AS ?indirect_costs_i)
+
+  BIND(URI(CONCAT(str(ucdrp:), "ChartOfAccounts_", ?fin_coa_cd)) as ?fin_coa_code)
+	BIND(URI(CONCAT(str(experts:), "person/", md5(?prncpl_nm))) as ?person)
+	BIND(URI(CONCAT(str(experts:), "funding_org/", ?agency_nbr)) as ?funding_org)
+
+	BIND(URI(CONCAT(str(?grant), "#subAwardOf_", md5(?fpt_agency_nbr))) as ?from_grant)
+	BIND(URI(CONCAT(str(experts:), "funding_org/", ?fpt_agency_nbr)) as ?fpt_funding_org)
+}

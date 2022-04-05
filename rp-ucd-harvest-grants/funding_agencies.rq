@@ -1,0 +1,14 @@
+PREFIX experts: <http://experts.ucdavis.edu/>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+CONSTRUCT {
+	?funding_org
+		a vivo:FundingOrganization ;
+	  rdfs:label ?AGENCY;
+}
+#FROM
+#	<file:grants.csv>
+WHERE {
+	BIND(URI(CONCAT(str(experts:), "funding_org/", ?CG_AGENCY_NBR)) as ?funding_org)
+}

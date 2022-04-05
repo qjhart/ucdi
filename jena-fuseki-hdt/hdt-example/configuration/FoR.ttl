@@ -1,0 +1,37 @@
+@prefix :      <#> .
+@prefix tdb:   <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix hdt: <http://www.rdfhdt.org/fuseki#> .
+
+# HDT Classes
+hdt:HDTGraph rdfs:subClassOf ja:Graph .
+
+:FoR-service a fuseki:Service ;
+    rdfs:label                      "HDT FoR" ;
+    fuseki:name                     "FoR" ;
+    fuseki:serviceQuery             "query","sparql" ;
+    fuseki:serviceReadGraphStore    "get" ;
+    fuseki:dataset                   :FoR-datasets ;
+    .
+
+:FoR-datasets a ja:RDFDataset ;
+    rdfs:label "FOR Thesauri" ;
+    ja:namedGraph  [ ja:graphName  <http://experts.ucdavis.edu/FoR/> ;
+                     ja:graph      :FoR ]
+    .
+
+:FoR a hdt:HDTGraph;
+    rdfs:label "Fields of Research" ;
+    hdt:fileName "/var/lib/fuseki/hdt/FoR.hdt" ;
+        # Optional: Keep the HDT and index in memory at all times.
+        # Uses more memory but it is potentially faster because avoids IO.
+        # hdt:keepInMemory "true" ;
+    .
+
+#:agm a hdt:HDTGraph;
+#    rdfs:label "Authorities Genre Forms" ;
+#        hdt:fileName "/fuseki/databases/authoritiesgenreForms.hdt" ;
+#    .

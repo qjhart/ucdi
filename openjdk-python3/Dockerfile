@@ -71,6 +71,7 @@ RUN apt-get update -y -qq && \
     	jq \
     rsync \
     httpie \
+    make \
 # 		python3-gssapi \
 # 		krb5-user \
 # 		libkrb5-dev \

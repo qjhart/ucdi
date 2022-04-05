@@ -1,0 +1,6 @@
+{
+  "database": "FIS_DS_PROD",
+  "user": "agexpert_app",
+  "password": "br8sp8brlCru",
+  "sid": "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(COMMUNITY=TCP.ucdavis.edu)(PROTOCOL=TCP)(Host=fis-dss.ucdavis.edu)(Port=1521)))(CONNECT_DATA=(SID=dsprod)(GLOBAL_NAME=fis_ds_prod.ucdavis.edu)))"
+}
