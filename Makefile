@@ -13,22 +13,14 @@ Dockerfile Tools
 
 This Makefile is used to manage our workflow Dockerfiles.
 
-  make [-n] [fiscal_y
+  make [-n] [dest=cloud] [image] [image ...]
 
 =head2 Methods / Files
 
-=item C<interactive>
+=item C<image>
 
-Starts an interactive SQL connection to FIS.
-
-=item C<funding_agencies.ttl>
-
-All funding agencies and pass-thru agencies referenced in these grants.
-
-=item C<grants.ttl>
-
-These are the files are used to fill our experts system with potential grants.  These are used when
-adding new users to the system.
+Adding an image name will build the image.  The if [dest=cloud] then it will be a cloud build,
+otherwise it will be a local-dev build.
 
 =cut
 
@@ -36,10 +28,16 @@ endef
 
 mkfile_path := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-src:=local-dev
+dest:=local
+org.local:=local-dev
+org.cloud:=gcr.io/ucdlib-pubreg
+
 repo:=$(shell basename -s .git $$(git config --get remote.origin.url))
 branch:=$(shell git rev-parse --abbrev-ref HEAD)
-
+tag:=$(shell git tag --points-at HEAD)
+base:=$(shell git rev-parse --show-toplevel)
+gcloud_user:=$(shell gcloud auth list --filter="status:ACTIVE"  --format="value(account)")
+sha:=$(shell git log -1 --pretty=%h)
 
 images:=jena-fuseki-hdt rp-ucd-harvest-grants rp-ucd-harvest-person openjdk-tarql
 
@@ -50,6 +48,9 @@ INFO::
 
 local-dev: ${images}
 
+# This is where you set any other dependancies
+jena-fuseki-hdt:: openjdk-python3
+
 define build-local
 $(warning build-local $1)
 
@@ -59,10 +60,26 @@ $1::
 	export DOCKER_BUILDKIT=1;\
 	docker build \
 	     --build-arg BUILDKIT_INLINE_CACHE=1 \
-	     --build-arg SRC=${src} --build-arg VERSION=${branch}\
-	     -t ${src}/${repo}-$1:${branch} $1
+	     --build-arg SRC=${org.${dest}} --build-arg VERSION=${branch}\
+	     -t ${org.${dest}}/${repo}-$1:${branch} $1
 endef
 
-$(eval $(call build-local, openjdk-python3))
+define build-cloud
+$(warning build-remote $1)
 
-$(foreach i,${images},$(eval $(call build-local,$i)))
+.PHONY:: $1
+
+$1::
+	gcloud config set project digital-ucdavis-edu;\
+  gcloud builds submit \
+    --config ${base}/cloudbuild.yaml \
+    --substitutions=_UCD_LIB_INITIATOR=${user},ORG=${org.${dest}},\
+	IMAGE=${repo}-$1,REPO_NAME=${repo},TAG_NAME=${tag},\
+	BRANCH_NAME=${branch},SHORT_SHA=${sha} \
+  ${base}/$1
+endef
+
+
+$(eval $(call build-${dest},openjdk-python3))
+
+$(foreach i,${images},$(eval $(call build-${dest},$i)))
