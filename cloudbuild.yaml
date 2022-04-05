@@ -2,7 +2,7 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: "sh"
-    args: [ '-c', 'docker pull gcr.io/ucdlib-pubreg/${IMAGE}:latest || true' ]
+    args: [ '-c', 'docker pull ${ORG}/${IMAGE}:latest || true' ]
     env:
       - 'REPO_NAME=$REPO_NAME'
       - 'BRANCH_NAME=$BRANCH_NAME'
@@ -16,6 +16,6 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: "sh"
-    args: [ '-c', 'docker tag ${ORG}/${IMAGE}:$TAG_NAME gcr.io/ucdlib-pubreg/${IMAGE}:latest' ]
+    args: [ '-c', 'docker tag ${ORG}/${IMAGE}:$TAG_NAME ${ORG}/${IMAGE}:latest' ]
 
-images: ['gcr.io/ucdlib-pubreg/${IMAGE}:$TAG_NAME', 'gcr.io/ucdlib-pubreg/${IMAGE}:latest']
+images: ['gcr.io/ucdlib-pubreg/${IMAGE}:$TAG_NAME', '${ORG}/${IMAGE}:latest']
