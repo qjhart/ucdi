@@ -6,3 +6,6 @@
 tdb2
 *.trig.*
 *.trig
+
+# Secrets
+fis_connection.json

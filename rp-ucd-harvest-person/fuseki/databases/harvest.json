@@ -1,0 +1,18 @@
+{
+  "@graph" : [ {
+    "@id" : "http://iam.ucdavis.edu/",
+    "@type" : [ "ucdrp:private_graph", "ucdrp:graph" ],
+    "comment" : "UC Davis IAM derived Data"
+  }, {
+    "@id" : "http://oapolicy.universityofcalifornia.edu/",
+    "@type" : [ "ucdrp:private_graph", "ucdrp:graph" ],
+    "comment" : "CDL OA Policy dervived data"
+  } ],
+  "@context" : {
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "ucdrp" : "http://experts.ucdavis.edu/schema#"
+  }
+}

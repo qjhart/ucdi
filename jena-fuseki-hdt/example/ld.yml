@@ -1,0 +1,30 @@
+# Create with alias jena-dc=docker-compose -p jena -f jena.yml
+version: '3'
+
+###
+# Create a jena instance for building graphs for the DAMS
+###
+services:
+  ldf:
+    image: linkeddatafragments/server.js
+    env_file:
+      - ld.yml.env
+    volumes:
+      - hdt-data:/hdt
+    ports:
+      - 3000:3000
+  fuseki:
+    image: jena-fuseki-hdt:latest
+    env_file:
+      - ld.yml.env
+    volumes:
+      - fuseki-data:/fuseki
+      - hdt-data:/hdt
+    ports:
+      - 3030:3030
+
+volumes:
+  fuseki-data:
+    driver: local
+  hdt-data:
+    driver: local

@@ -1,21 +1,30 @@
-
-version: '3.0'
+version: '3.6'
 services:
   fuseki:
     image: local-dev/rp-ucd-harvest-person:main
     ports:
       - "3030:3030"
-    volumes:
-      - harvest:/var/lib/fuseki/databases/harvest
-      - ae-tdb2-vocab:/var/lib/fuseki/databases/vocab
-      - ae-tdb2-private:/var/lib/fuseki/databases/private
-volumes:
-  harvest:
-  ae-tdb2-vocab:
-    external:true
-  ae-tdb2-private:
-    external:true
+    environment:
+      - CDL_AUTH=ucd:4eKuwAhZLG
+      - UCDID_AUTH=ucd:75b4442-c7e1a-3f77e05-3662178800710
 
-network:
-  default:
-    name:ae-harvest
+    tmpfs:
+      - /var/lib/fuseki/databases/harvest
+      - /home/ucd.process/cdl
+    command: tail -f /dev/null
+#    volumes:
+#      - type: tmpfs
+#        target: /var/lib/fuseki/databases/harvest
+#        tmpfs:
+#          size: 1000000000
+#      - ./iam.hdt:/var/lib/fuseki/hdt/iam.hdt
+
+#volumes:
+#  ae-grants:
+#    external:true
+#  ae-iam:
+#    external:true
+
+#network:
+#  default:
+#    name:ae-harvest

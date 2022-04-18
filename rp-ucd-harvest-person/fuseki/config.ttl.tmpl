@@ -6,6 +6,7 @@
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix ucd:     <http://library.ucdavis.edu/ns#> .
+@prefix hdt:     <http://www.rdfhdt.org/fuseki#> .
 
 [] rdf:type fuseki:Server ;
    # Example::
@@ -23,5 +24,10 @@
      ja:cxtName "arq:queryTimeout" ;
      ja:cxtValue "${FUSEKI_TIMEOUT_FIRST:-30000},${FUSEKI_TIMEOUT_REST:-120000}"
    ] ;
+   ja:loadClass "org.rdfhdt.hdtjena.HDTGraphAssembler" ;
 
+   # End triples.
    .
+
+hdt:DatasetHDT rdfs:subClassOf ja:RDFDataset .
+hdt:HDTGraph rdfs:subClassOf ja:Graph .

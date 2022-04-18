@@ -29,7 +29,7 @@ RUN mvn install \
 #CMD ["/bin/echo", "Available commands: hdt2rdf.sh hdtInfo.sh hdtSearch.sh hdtsparql.sh rdf2hdt.sh"]
 
 
-FROM $SRC/ucdi-openjdk-python3:$VERSION
+FROM $SRC/openjdk-python3:$VERSION
 # These need to be reinitialized
 ARG SRC
 
@@ -60,14 +60,34 @@ LABEL org.opencontainers.image.version ${JENA_VERSION}
 LABEL org.opencontainers.image.licenses "(Apache-2.0 AND (GPL-2.0 WITH Classpath-exception-2.0) AND GPL-3.0)"
 #LABEL org.opencontainers.image.authors "Apache Jena Fuseki by https://jena.apache.org/; this image by https://orcid.org/0000-0001-9842-9718"
 
+# Add in Jena files
 WORKDIR /tmp
+ARG JENA_REPO=https://repo1.maven.org/maven2/org/apache/jena
+
+ARG JENA_TAR_MD5=ef43daa78939d961b16b9cddc4844dd5
+RUN echo "$JENA_TAR_MD5 jena.tar.gz" > jena.tar.gz.md5
+# Download/check/unpack/move in one go (to reduce image size)
+RUN     curl --location --silent --show-error --fail --retry-connrefused --retry 3 --output jena.tar.gz ${JENA_REPO}/apache-jena/${JENA_VERSION}/apache-jena-$JENA_VERSION.tar.gz && \
+    md5sum -c jena.tar.gz.md5
+
+RUN tar zxf jena.tar.gz && \
+	mv apache-jena* /usr/local/apache-jena && \
+	rm jena.tar.gz* && \
+	cd /usr/local/apache-jena && rm -rf *javadoc* *src* bat
+
+# Add to PATH
+ENV PATH $PATH:/usr/local/apache-jena/bin
+# Check it works
+RUN riot  --version
+
+# Install Fuseki Server (Repeat some ARGS)
+WORKDIR /tmp
+ARG JENA_REPO=https://repo1.maven.org/maven2/org/apache/jena
+
 # published sha512 checksum
 ARG FUSEKI_TAR_MD5=d9820b51c4037bc2e1ab9c4c751a7608
 RUN echo "$FUSEKI_TAR_MD5 fuseki.tar.gz" > fuseki.tar.gz.md5
 # Download/check/unpack/move in one go (to reduce image size)
-
-ARG JENA_REPO=https://repo1.maven.org/maven2/org/apache/jena
-ARG ${JENA_REPO}/apache-jena-fuseki/${JENA_VERSION}/
 
 RUN     curl --location --silent --show-error --fail --retry-connrefused --retry 3 --output fuseki.tar.gz ${JENA_REPO}/apache-jena-fuseki/${JENA_VERSION}/apache-jena-fuseki-$JENA_VERSION.tar.gz && \
     md5sum -c fuseki.tar.gz.md5
@@ -78,15 +98,6 @@ RUN        tar zxf fuseki.tar.gz && \
         rm fuseki.tar.gz* && \
     cd $FUSEKI_HOME && rm -rf fuseki.war && chmod 755 fuseki-server
 
-# Although FUSEKI sez use FUSEKI_BASE, we use home so we can have a good docker image.
-# Need to update the server script in this case
-#COPY --from=hdt-java \
-#    /opt/hdt-java/lib/hdt-java-core-$HDT_VERSION.jar \
-#/opt/hdt-java/lib/hdt-api-$HDT_VERSION.jar \
-#    /opt/hdt-java/lib/hdt-jena-$HDT_VERSION.jar \
-#    /opt/hdt-java/lib/JLargeArrays-1.6.jar \
-#    /opt/hdt-java/lib/JLargeArrays-1.6.jar \
-#    $FUSEKI_HOME/extra/
 COPY --from=hdt-java /opt/hdt-java/lib/* $FUSEKI_HOME/extra/
 
 # Copy some working binaries as well
@@ -98,6 +109,7 @@ COPY config.ttl $FUSEKI_BASE/
 
 
 COPY fuseki-server-hdt $FUSEKI_HOME
+
 # Test the install by testing it's ping resource. 20s sleep because Docker Hub.
 RUN  $FUSEKI_HOME/fuseki-server-hdt & \
      sleep 2 && \
@@ -119,6 +131,7 @@ RUN chmod 755 $FUSEKI_HOME/load.sh $FUSEKI_HOME/tdbloader
 
 ENV FUSEKI_HOME=${FUSEKI_HOME}
 ENV FUSEKI_BASE=${FUSEKI_BASE}
+ENV FUSEKI_JAR=${FUSEKI_JAR}
 
 # Where we start our server from
 WORKDIR $FUSEKI_HOME

@@ -1,24 +1,9 @@
-ARG PROCESS_USER=ucd.process
-ARG HOME=/home/ucd.process
-ARG VERSION=latest
-ARG SRC=local-dev
+ARG VERSION
+ARG SRC
 
-FROM ${SRC}/ucdi-openjdk-python3:${VERSION}
+FROM ${SRC}/jena-fuseki-hdt:${VERSION}
 
-ARG JENA_VERSION=4.4.0
-ARG FUSEKI_HOME=/usr/share/fuseki
-ARG FUSEKI_JAR=jena-fuseki-server-${JENA_VERSION}.jar
-ARG FUSEKI_HOME=/etc/fuseki
-
-COPY --from=local-dev/jena-fuseki:4.4.0 /fuseki ${FUSEKI_HOME}
-COPY --from=local-dev/jena4:latest /jena /usr/local/jena/
-ENV PATH=$PATH:/usr/local/jena/bin
-
-
-# Put this section, where we install ontop, above all the ENV vars and the COPY
-# statement that might change a lot so that we don't have to waste time on
-# waiting for ontop installation.
-#
+# JENA_VERSION, FUSEKI_HOME,FUSEKI_BASE, FUSEKI_JAR  all specified in jena-fuseki-hdt
 
 USER root
 
@@ -29,12 +14,14 @@ RUN set -eux && \
     httpie \
     jq \
     xmlstarlet \
-    wait-for-it && \
+    wait-for-it gosu && \
     rm -rf /var/lib/apt/lists/*
 
 # Add node
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
+
+RUN cd /tmp && npm install -g xml2json --unsafe-perm
 
 # Add our elements
 COPY cdl-elements /usr/local/bin
@@ -43,21 +30,24 @@ COPY ucdid /usr/local/bin
 # Add our aeq tool
 #COPY aeq /aeq/
 #RUN make --directory=/aeq prefix=/usr/local install && rm -rf /aeq
-COPY ./fuseki $FUSEKI_HOME/
+
+# Add our specific fuseki setup
+COPY ./fuseki $FUSEKI_BASE/
+
+# Add in our FoR data
+COPY hdt /var/lib/fuseki/hdt/
+
+
+# Test the install and configuration by testing it's ping resource. 20s? sleep for cloud builds? TBD
+RUN  $FUSEKI_HOME/fuseki-server-hdt & \
+     sleep 2 && \
+     curl -sS --fail 'http://localhost:3030/$/ping'
+
 
 # Our entrypoint calls the generic VIVO one
 COPY rp-ucd-harvest-person-entrypoint.sh /
 
-RUN chown -vR ${PROCESS_USER}:root ${HOME}
-
-USER ucd.process
-
-RUN cd && npm install xml2json
-env PATH $PATH:${HOME}/node_modules/.bin
-
-RUN mkdir ${HOME}/add-person
-WORKDIR ${HOME}/add-person
-COPY add_person.ttl .
+ENV PATH=${PATH}
 
 # You can override this entrypoint if you use this image as your base image
 #ENTRYPOINT ["/usr/bin/make","--directory=/home/ucd.process/grants" ]

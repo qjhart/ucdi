@@ -4,6 +4,7 @@
 @prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix hdt:     <http://www.rdfhdt.org/fuseki#> .
 
 ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
 ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
@@ -17,7 +18,6 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
 
 :harvest fuseki:name "harvest" .
 :tdb_harvest tdb2:location  "/var/lib/fuseki/databases/harvest" .
-
 
 # Everything below is standard harvest to the experts setup
 # With the experts database, and the harvest data
@@ -55,41 +55,15 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
         ] ;
     .
 
-:tdb_experts tdb2:location  "/var/lib/fuseki/databases/experts" .
-:tdb_experts
-    a              tdb2:DatasetTDB2 ;
-    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+:FoR a hdt:HDTGraph;
+    rdfs:label "Fields of Research" ;
+    hdt:fileName "/var/lib/fuseki/hdt/FoR.hdt" ;
     .
 
-:graph_experts
-    a tdb2:GraphTDB2;
-    tdb2:dataset :tdb_experts ;
-    tdb2:graphName <http://experts.ucdavis.edu/>;
-    .
-
-:tdb_private tdb2:location  "/var/lib/fuseki/databases/private" .
-:tdb_private
-    a              tdb2:DatasetTDB2 ;
-    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
-    tdb2:unionDefaultGraph true ;
-    .
-
-:graph_private_union
-    a tdb2:GraphTDB2;
-    tdb2:dataset :tdb_private ;
-    tdb2:graphName <urn:x-arq:UnionGraph> ;
-    .
-
-:tdb_vocab tdb2:location  "/var/lib/fuseki/databases/vocabularies" .
-:tdb_vocab
-    a              tdb2:DatasetTDB2 ;
-    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
-    .
-
-:graph_vocabularies
-    a tdb2:GraphTDB2;
-    tdb2:dataset :tdb_vocab ;
-    tdb2:graphName <urn:x-arq:UnionGraph> ;
+:FoR-datasets a ja:RDFDataset ;
+    rdfs:label "FOR Thesauri" ;
+    ja:namedGraph  [ ja:graphName  <http://experts.ucdavis.edu/FoR/> ;
+                     ja:graph      :FoR ]
     .
 
 # IET and OAPolicy data are harvest to internal review
@@ -116,13 +90,13 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
 # Other graphs will go to a emphemeral memory database, (I think)
 :dataset_harvest
     a ja:RDFDataset ;
+#    ja:namedGraph [
+#        ja:graphName <http://experts.ucdavis.edu/private/> ;
+#        ja:graph :graph_private_union ;
+#        ] ;
     ja:namedGraph [
-        ja:graphName <http://experts.ucdavis.edu/private/> ;
-        ja:graph :graph_private_union ;
-        ] ;
-    ja:namedGraph [
-        ja:graphName <http://experts.ucdavis.edu/vocab/> ;
-        ja:graph :graph_vocabularies ;
+        ja:graphName <http://experts.ucdavis.edu/FoR/> ;
+        ja:graph :FoR ;
         ] ;
     ja:namedGraph [
         ja:graphName <http://oapolicy.universityofcalifornia.edu/> ;
@@ -132,8 +106,8 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
         ja:graphName <http://iam.ucdavis.edu/> ;
         ja:graph :graph_harvest_experts_iam ;
         ] ;
-    ja:namedGraph [
-        ja:graphName <http://experts.ucdavis.edu/> ;
-        ja:graph :graph_experts ;
-        ] ;
+#    ja:namedGraph [
+#        ja:graphName <http://experts.ucdavis.edu/> ;
+#        ja:graph :graph_experts ;
+#        ] ;
     .

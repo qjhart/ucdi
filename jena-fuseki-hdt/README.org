@@ -16,75 +16,21 @@
 
  Some good review of all of Jena's tools are found in this [[https://www.bobdc.com/blog/jenagems/][blog post]].
 
-** Private database
 
-   One idea is that we can periodically run one item to create our private
-   database and our vocabularies, and then simply mount this volume among all
-   the versions that are using this.  This allows us to have local tdb2 files
-   for our data, so we can more quickly spin up a database.
+** Docker instance
 
-   However, apache sez that multiple users of the same TDB file is verboten, and
-   so maybe we need an alternative plan for that.
+   The Dockerfile is a combination of the hdt-java project, and the Apache Jena
+   project.  These are controlled at build time with the HDT_VERSION, and
+   JENA_VERSION parameters.  The hdt is an intermediate build using maven, which
+   then copies some jars into the fuseki extras directory.
 
+   The fuseki instance actually copies existing jars from the apache jena repo,
+   and adds them to the image.
 
+** Running the image
 
-*** Indices
+   The docker image entrypoint ends by starting the FUSEKI endpoint. This means
+   that to properly configure this, you need to setup files in the
+   /etc/fuseki/configuation location.
 
-    To further improve our setup, we should always add statistics to our
-    databases, especially the ones that are not changing too quickly.
-
-    The TDB [[https://jena.apache.org/documentation/tdb/optimizer.html][Optimizer]] gives information on creating the statistics to create
-    better optimization strategies.
-
-
-
-** Docker instances
-
-   Right now the creation of this docker instance is pretty hodge podge.  I'm
-   getting the fuseki instance from the apache jena project directly.  Apache
-   has the [[https://jena.apache.org/documentation/fuseki2/fuseki-docker.html][Fuseki Docker]] tools description.  The apache jena-docker doesn't
-   include the full UI server, and is simply the services.  It's [[https://jena.apache.org/documentation/fuseki2/fuseki-configuration.html][configured]] with
-   a single configuration file.
-
-   The full server includes the UI, and also has shiro security enabled. This
-   seems like it might be convenient, I need to investigate the [[https://jena.apache.org/documentation/fuseki2/fuseki-data-access-control.html][Access Control]]
-   in more detail.
-
-   Persistent files are mounted to /fuseki/databases,
-
-#+begin_src bash
-  JENA_VERSION=4.4.0
-  git clone https://github.com/apache/jena.git
-  docker build -t local-dev/jena-fuseki:${JENA_VERSION} --build-arg JENA_VERSION=${JENA_VERSION} jena/jena-fuseki2
-#+end_src
-
-The JENA build, I'm getting from the stain github, by way of my fork.  This is
-probably something that needs looking into.
-
-   #+begin_src bash
-     git clone https://github.com/qjhart/jena-docker.git
-     docker build --build-arg JENA-VERSION=${JENA_VERSION} --tag=local-dev/jena4:${JENA_VERSION} jena-docker/jena
-   #+end_src
-
-
-*** HDT Java
-
-    I am looking at the possibility of using HDT files as read-only additions
-    for the fuseki services.  This might be a more convenient method of sharing
-    the slowly changing files.
-
-    #+begin_src
-HDT_VERSION=3.0.1
-git clone --branch=v${HDT_VERSION} https://github.com/rdfhdt/hdt-java.git
-docker build --tag=local-dev/hdt-java:${HDT_VERSION} hdt-java
-    #+end_src
-
-
-
-** Exporting
-
-   #+begin_src bash
-     dc exec fuseki curl http://fuseki:3030/vocabularies/get -H "Accept:application/ld+json" | gzip > vocabularies.json.gz
-   #+end_src
-
-   #+RESULTS:
+   See the [[file:hdt-example][hdt-example]] directory for an example configuration

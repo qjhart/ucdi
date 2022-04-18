@@ -80,8 +80,6 @@ probably something that needs looking into.
 
 *** Fuseki
 
-
-
 *** HDT Java
 
     I am looking at the possibility of using HDT files as read-only additions
@@ -102,4 +100,20 @@ docker build --tag=local-dev/hdt-java:${HDT_VERSION} hdt-java
      dc exec fuseki curl http://fuseki:3030/vocabularies/get -H "Accept:application/ld+json" | gzip > vocabularies.json.gz
    #+end_src
 
-   #+RESULTS:
+#+RESULTS:
+
+
+** Example Workflow.
+
+   I'm trying
+
+   This is how you can add the ucdid data into the database.
+   #+begin_src bash
+     ucdid fetch --format=jsonld --search=userId=quinn profiles | curl -X POST --data-binary @- -H 'Content-Type:application/ld+json' http://fuseki:3030/harvest/data?graph=http://iam.ucdavis.edu/
+   #+end_src
+
+   The cdl-elements has loading in the script file.
+
+   #+begin_src bash
+     cdl-elements -v -v --cache=. --data=http://fuseki:3030/harvest/data users --pubs quinn
+   #+end_src

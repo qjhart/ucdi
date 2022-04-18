@@ -1,0 +1,28 @@
+@prefix :      <#> .
+@prefix tdb:   <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix hdt: <http://www.rdfhdt.org/fuseki#> .
+
+# HDT Classes
+hdt:HDTGraph rdfs:subClassOf ja:Graph .
+
+:vgm-service a fuseki:Service ;
+    rdfs:label                      "HDT vgm" ;
+    fuseki:name                     "vgm" ;
+    fuseki:serviceQuery             "query", "sparql" ;
+    fuseki:serviceReadGraphStore    "get" ;
+    fuseki:dataset                   [ a ja:RDFDataset ;
+                                       ja:defaultGraph :vgm ] ;
+    .
+
+:vgm a hdt:HDTGraph;
+    rdfs:label "Vobaculary of Graphic Materials" ;
+    hdt:fileName "/fuseki/databases/vocabularygraphicMaterials.hdt" ;
+
+        # Optional: Keep the HDT and index in memory at all times.
+        # Uses more memory but it is potentially faster because avoids IO.
+        # hdt:keepInMemory "true" ;
+    .

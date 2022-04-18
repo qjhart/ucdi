@@ -26,10 +26,10 @@ ENV YQ_VERSION="3.3.2"
 #
 #   See also https://www.openshift.com/blog/jupyter-on-openshift-part-6-running-as-an-assigned-user-id
 #
-ARG UID=2000
-ENV HOME=/home/ucd.process
-RUN useradd --system --no-user-group --home-dir /home/ucd.process --create-home --shell /bin/bash --uid ${UID} --gid 0 ucd.process && \
-    chgrp -Rf root /home/ucd.process && chmod -Rf g+w /home/ucd.process
+#ARG UID=2000
+#ENV HOME=/home/ucd.process
+#RUN useradd --system --no-user-group --home-dir /home/ucd.process --create-home --shell /bin/bash --uid ${UID} --gid 0 ucd.process && \
+#    chgrp -Rf root /home/ucd.process && chmod -Rf g+w /home/ucd.process
 
 
 #   Ensure that the local python is preferred over distribution python
@@ -94,7 +94,7 @@ RUN apt-get update -y -qq && \
 		pip --version || true \
 	) && \
 #   create /home/ucd.process/.cache and own it as root to avoid red warning messages during docker build
-	mkdir -p /home/ucd.process/.cache && chown root /home/ucd.process/.cache && \
+#	mkdir -p /home/ucd.process/.cache && chown root /home/ucd.process/.cache && \
     python3 -m pip install --upgrade pip && \
 #   install wheel just to avoid all kinds of messages during docker build
     python3 -m pip install wheel && \
@@ -121,24 +121,24 @@ RUN apt-get update -y -qq && \
     python3 -m pip install unidecode && \
 #   python3 -m pip install gssapi && \
 #   no more pip installs after this point so we can now remove the .cache directory
-    rm -rf /home/ucd.process/.cache && \
+#    rm -rf /home/ucd.process/.cache && \
 #
 #   now the final clean up, making the image as small as possible
 #
     apt-get --purge -y remove git && \
     apt-get --purge -y autoremove && \
     apt-get clean -y && \
-    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /var/lib/apt/lists/* \
 #
 #   just to be sure, everything we added to the home directory is owned by user ucd.process
 #   and group root (see openshift comments at the top of this dockerfile)
 #
-	cd /home/ucd.process && \
-	chown -vR ucd.process:root .
+#	cd /home/ucd.process && \
+#	chown -vR ucd.process:root .
 
 #
 # 	now we leave the image to run as user ucd.process from its home directory
 #
-USER ucd.process
+#USER ucd.process
 WORKDIR /home/ucd.process
 ENTRYPOINT [ "/bin/bash" ]

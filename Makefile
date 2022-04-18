@@ -61,7 +61,7 @@ $1::
 	docker build \
 	     --build-arg BUILDKIT_INLINE_CACHE=1 \
 	     --build-arg SRC=${org.${dest}} --build-arg VERSION=${branch}\
-	     -t ${org.${dest}}/${repo}-$1:${branch} $1
+	     -t ${org.${dest}}/$1:${branch} $1
 endef
 
 define build-cloud

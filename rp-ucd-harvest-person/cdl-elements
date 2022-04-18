@@ -66,9 +66,9 @@ declare -A G=(
   [api]='https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5'
   [graph]='http://oapolicy.universityofcalifornia.edu/'
   [auth]=''
-  [data]=''
+  [data]='http://fuseki:3030/harvest/upload'
   [http_session]="elements"
-  [cache]="/var/lib/harvest/cdl"
+  [cache]="."
   [util_rsync]="rsync"
   [util_xml2json]="xml2json"
   [util_xmlstarlet]="xmlstarlet"
@@ -90,6 +90,7 @@ function init() {
 	    case $1 in
         --api) CMD[api]=$2; shift 2;;
 	      --session | --http_session) CMD[http_session]=$2;  shift 2;;
+        -a | --auth ) CMD[auth]=$2; shift 2;;
         -t | --tdb ) CMD[tdb]=$2; shift 2;;
         -d | --data ) CMD[data]=$2; shift 2;;
         -c | --cache ) CMD[cache]=$2; shift 2;;
@@ -100,7 +101,7 @@ function init() {
       esac
     done
 
-    # system variables (ELEMENTS_FOO_BAR) over config file
+    # system variables (eg CDL_AUTH) over G file
     for i in "${!G[@]}"; do
       eval v=\$CDL_${i^^}
       [[ -n $v ]] && G[$i]=$v
@@ -110,6 +111,10 @@ function init() {
     for i in ${!CMD[@]}; do
       [[ -n ${CMD[$i]} ]] && G[$i]=${CMD[$i]};
     done
+
+    if [[ -n $G[auth] ]]; then
+      login
+    fi
 
 }
 

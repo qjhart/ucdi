@@ -29,24 +29,29 @@ function fix_startup_files() {
   done
 }
 
-function login() {
-  if [[ -n $CDL_AUTH ]]; then
-    cdl-elements -v login
-  fi
-
-  if [[ -n $UCDID_AUTH ]]; then
-    ucdid -v login
-  fi
+# Just always load this data.
+function json_load_test() {
+  local jsonld="$FUSEKI_BASE/databases/harvest.json"
+  tdb2.tdbloader --syntax=jsonld --tdb=$FUSEKI_BASE/configuration/harvest.ttl < $jsonld
 }
 
 function start_fuseki() {
-  nohup $JAVA_HOME/bin/java $JAVA_OPTIONS -jar "${FUSEKI_HOME}/${FUESKI_JAR}" $@
+  $FUSEKI_HOME/fuseki-server-hdt &
+}
+
+function local_user() {
+  local user_id=${LOCAL_USER_ID:-9001}
+#  useradd --system --create-home --shell /bin/bash --uid ${user_id} ucd.process
+  useradd --create-home --shell /bin/bash --uid ${user_id} ucd.process
+  export HOME=/home/ucd.process
 }
 
 fix_startup_files
+json_load_test
 start_fuseki
-login
-wait-for-it localhost:3030 -- echo "fuseki is up"
+local_user
+wait-for-it -t 5 localhost:3030 -- echo "fuseki is up"
 
 # Switch to CMD
-exec "$@"
+cd $HOME
+exec setpriv --reuid=ucd.process --init-groups "$@"
