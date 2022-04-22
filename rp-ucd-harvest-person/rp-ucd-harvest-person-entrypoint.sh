@@ -1,42 +1,12 @@
 #! /bin/bash
 
-#https://stackoverflow.com/questions/415677/how-to-replace-placeholders-in-a-text-file
-function expandVarsStrict(){
-  local line lineEscaped
-  while IFS= read -r line || [[ -n $line ]]; do  # the `||` clause ensures that the last line is read even if it doesn't end with \n
-    # Escape ALL chars. that could trigger an expansion..
-    IFS= read -r -d '' lineEscaped < <(printf %s "$line" | tr '`([$' '\1\2\3\4')
-    # ... then selectively reenable ${ references
-    lineEscaped=${lineEscaped//$'\4'\{/\$\{}
-    # Finally, escape embedded double quotes to preserve them.
-    lineEscaped=${lineEscaped//\"/\\\"}
-    eval "printf '%s\n' \"$lineEscaped\"" | tr '\1\2\3\4' '`([$'
-  done
-}
-
-function fix_startup_files() {
-  # Since these are affected by configuration parameters, redo on every startup
-  for f in $(cd $FUSEKI_HOME; find . -name \*.tmpl); do
-    n=$(dirname $f)/$(basename $f .tmpl)
-    mkdir -p $(dirname ${FUSEKI_BASE}/$n)
-    expandVarsStrict < ${FUSEKI_HOME}/$f > ${FUSEKI_BASE}/$n
-
-    if (false); then # This just displayed the password
-      if [[ "$(basename $n)" = "shiro.ini" && -z "$FUSEKI_PASSWORD" ]]; then
-        grep 'admin=' ${FUSEKI_BASE}/$n;
-      fi
-    fi
-  done
-}
+# Add in jena-fuseki entrypoint functions
+#. /jena-fuseki-hdt-functions.sh
 
 # Just always load this data.
 function json_load_test() {
   local jsonld="$FUSEKI_BASE/databases/harvest.json"
   tdb2.tdbloader --syntax=jsonld --tdb=$FUSEKI_BASE/configuration/harvest.ttl < $jsonld
-}
-
-function start_fuseki() {
-  $FUSEKI_HOME/fuseki-server-hdt &
 }
 
 function local_user() {
@@ -46,12 +16,13 @@ function local_user() {
   export HOME=/home/ucd.process
 }
 
-fix_startup_files
 json_load_test
-start_fuseki
 local_user
-wait-for-it -t 5 localhost:3030 -- echo "fuseki is up"
+
+#fix_startup_files
+#start_fuseki
+#wait-for-it -t 5 localhost:3030 -- echo "fuseki is up"
 
 # Switch to CMD
 cd $HOME
-exec setpriv --reuid=ucd.process --init-groups "$@"
+exec /jena-fuseki-hdt-entrypoint setpriv --reuid=ucd.process --init-groups "$@"

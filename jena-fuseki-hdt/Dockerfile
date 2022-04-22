@@ -47,7 +47,7 @@ ENV LANG C.UTF-8
 RUN set -eux && \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-       bash curl ca-certificates findutils coreutils pwgen procps && \
+       bash curl ca-certificates findutils coreutils pwgen procps wait-for-it && \
     rm -rf /var/lib/apt/lists/*
 
 # Update below according to https://jena.apache.org/download/
@@ -104,13 +104,12 @@ COPY --from=hdt-java /opt/hdt-java/lib/* $FUSEKI_HOME/extra/
 COPY --from=hdt-java /opt/hdt-java /opt/hdt-java/
 ENV PATH="${PATH}:/opt/hdt-java/bin"
 
-# We need to modify add a server command with hdt
+COPY fuseki $FUSEKI_HOME
+
+# We need a config file for our sleep test
 COPY config.ttl $FUSEKI_BASE/
 
-
-COPY fuseki-server-hdt $FUSEKI_HOME
-
-# Test the install by testing it's ping resource. 20s sleep because Docker Hub.
+# Test the install by testing it's ping resource
 RUN  $FUSEKI_HOME/fuseki-server-hdt & \
      sleep 2 && \
      curl -sS --fail 'http://localhost:3030/$/ping'
@@ -120,14 +119,9 @@ RUN  $FUSEKI_HOME/fuseki-server-hdt & \
 # As "localhost" is often inaccessible within Docker container,
 # we'll enable basic-auth with a random admin password
 # (which we'll generate on start-up)
-COPY shiro.ini $FUSEKI_HOME/shiro.ini
-COPY docker-entrypoint.sh /
-RUN chmod 755 /docker-entrypoint.sh
-
-
-COPY load.sh $FUSEKI_HOME/
-COPY tdbloader $FUSEKI_HOME/
-RUN chmod 755 $FUSEKI_HOME/load.sh $FUSEKI_HOME/tdbloader
+COPY jena-fuseki-hdt-functions.sh /
+COPY jena-fuseki-hdt-entrypoint.sh /
+RUN chmod 755 /jena-fuseki-hdt-entrypoint.sh
 
 ENV FUSEKI_HOME=${FUSEKI_HOME}
 ENV FUSEKI_BASE=${FUSEKI_BASE}
@@ -136,5 +130,6 @@ ENV FUSEKI_JAR=${FUSEKI_JAR}
 # Where we start our server from
 WORKDIR $FUSEKI_HOME
 EXPOSE 3030
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["./fuseki-server-hdt"]
+ENTRYPOINT ["/jena-fuseki-hdt-entrypoint.sh"]
+CMD "${FUSEKI_HOME}/fuseki-server-hdt"
+#CMD "/usr/bin/curl" "-sS" "--fail" "http://localhost:3030/$/ping"

@@ -1,0 +1,24 @@
+version: '3.6'
+services:
+  fuseki:
+    image: local-dev/rp-ucd-harvest-grant:main
+    ports:
+      - "3030:3030"
+    environment:
+      LOCAL_USER_ID=1001
+    tmpfs:
+      - /var/lib/fuseki/databases/harvest
+    command: server
+    volumes:
+      -/home/quinn/ucdi/test:/home/ucd.process/workdir
+    workdir:
+      /home/ucd.process/workdir
+#      - type: tmpfs
+#        target: /var/lib/fuseki/databases/harvest
+#        tmpfs:
+#          size: 1000000000
+#      - ./iam.hdt:/var/lib/fuseki/hdt/iam.hdt
+
+#network:
+#  default:
+#    name:ae-harvest

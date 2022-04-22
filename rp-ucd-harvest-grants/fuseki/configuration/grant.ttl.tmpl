@@ -1,0 +1,99 @@
+@prefix :      <#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tdb2:  <http://jena.apache.org/2016/tdb#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix hdt:     <http://www.rdfhdt.org/fuseki#> .
+
+ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
+ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
+
+tdb2:GraphTDB2  rdfs:subClassOf  ja:Model .
+tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
+
+# There are some configurations that you might want to change, if for example
+# you like to run multiple experts setups on a single fuseki instance.
+# Otherwise the defaults will setup a normal instance.
+
+:grants fuseki:name "grants" .
+:tdb_grants tdb2:location  "${FUSEKI_BASE}/databases/grants" .
+
+# Everything below is standard grants to the experts setup
+# With the experts database, and the grants data
+
+# ARQ.queryTimeout; https://jena.apache.org/documentation/fuseki2/fuseki-configuration.html
+[] a fuseki:Server ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,120000" ] ;
+    .
+
+:grants a fuseki:Service ;
+    fuseki:dataset :dataset_grants ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "sparql"
+        ];
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "query"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:update ;
+        fuseki:name "update"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-r ;
+        fuseki:name "get"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-rw ;
+        fuseki:name "data"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:upload ;
+        fuseki:name "upload"
+        ] ;
+    .
+
+:FoR a hdt:HDTGraph;
+    rdfs:label "Fields of Research" ;
+    hdt:fileName "/var/lib/fuseki/hdt/FoR.hdt" ;
+    .
+
+:positions a hdt:HDTGraph;
+    rdfs:label "UC Path positions" ;
+    hdt:fileName "/var/lib/fuseki/hdt/positions.hdt" ;
+    .
+
+
+# IET and OAPolicy data are grants to internal review
+# these are stored in the database below
+:tdb_grants
+    a              tdb2:DatasetTDB2 ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,360000" ] ;
+    .
+
+# These two graphs are used below
+:graph_grants
+    a tdb2:GraphTDB2;
+    tdb2:dataset :tdb_grants;
+    tdb2:graphName <http://experts.ucdavis.edu/> ;
+    .
+
+
+# Other graphs will go to a emphemeral memory database, (I think)
+:dataset_grants
+    a ja:RDFDataset ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/FoR/> ;
+        ja:graph :FoR ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/ucop/> ;
+        ja:graph :positions ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/> ;
+        ja:graph :graph_grants ;
+        ] ;
+    .

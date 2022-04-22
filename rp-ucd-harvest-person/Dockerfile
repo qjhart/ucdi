@@ -13,8 +13,7 @@ RUN set -eux && \
     build-essential \
     httpie \
     jq \
-    xmlstarlet \
-    wait-for-it gosu && \
+    xmlstarlet && \
     rm -rf /var/lib/apt/lists/*
 
 # Add node
@@ -53,4 +52,3 @@ ENV PATH=${PATH}
 #ENTRYPOINT ["/usr/bin/make","--directory=/home/ucd.process/grants" ]
 ENTRYPOINT ["/rp-ucd-harvest-person-entrypoint.sh"]
 CMD ["/bin/echo", "rp-ucd-harvest-person"]
-#CMD ["/jena-fuseki/fuseki-server", "--jetty-config=/jena-fuseki/jetty-config.xml"]

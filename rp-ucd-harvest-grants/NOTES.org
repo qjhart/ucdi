@@ -1,0 +1,85 @@
+* Grants
+:PROPERTIES:
+:header-args:sparql: :url http://localhost:3030/grants/sparql
+:END:
+
+Running on the command-line.
+
+#+begin_src bash
+  docker run  --interactive --tty --rm \
+         --mount type=bind,source=/home/quinn/ucdi/test,target=/home/ucd.process/workdir \
+         --workdir=/home/ucd.process/workdir -p 3030:3030 \
+         local-dev/rp-ucd-harvest-grants:main bash
+#+end_src
+
+#+name: lob-ingest
+#+BEGIN_SRC elisp
+(org-babel-lob-ingest "/home/quinn/aeq/lib/prefixes.org");
+#+END_SRC
+
+
+#+begin_src sparql :notangle :noweb yes
+<<prefixes>>
+
+  select distinct ?grant
+  (GROUP_CONCAT(DISTINCT ?grant_type_label ; separator="|") as ?grant_types) ?pi_cas
+  (GROUP_CONCAT(DISTINCT ?pi_label ; separator="|") as ?pi_labels)
+  (GROUP_CONCAT(DISTINCT ?pi_title ; separator="|") as ?pi_positions)
+  ?cas
+  (GROUP_CONCAT(DISTINCT ?role_name ; separator="|") as ?role_names)
+  (GROUP_CONCAT(DISTINCT ?broader_label ; separator="|") as ?broader_labels)
+  (group_concat(DISTINCT ?position_label; separator="|") as ?positions)
+  #describe ?grant ?pi
+  where {
+      {
+      SERVICE <http://fuseki:3030/vocabularies/query> {
+        VALUES (?broader ?broader_label) { (position:Senate "SEN") (position:Federation "FED") }
+      ?position a ucdrp:position;
+               rdfs:label ?position_label;
+                skos:broader ?broader;
+                .
+    }
+
+      ?grant a vivo:Grant;
+             vivo:relates ?pi_role;
+             vivo:relates ?role;
+  #           vivo:relates <http://experts.ucdavis.edu/organization/024020>;
+             ucdrp:grantType ?grant_type;
+             .
+
+      ?pi_role a vivo:PrincipalInvestigatorRole;
+            obo:RO_000052 ?pi;
+            .
+
+      ?pi rdfs:label ?pi_label;
+          ucdrp:casId ?pi_cas;
+          .
+
+      OPTIONAL {
+        ?pi  obo:ARG_2000028/vcard:hasTitle/vcard:title ?pi_title;
+      }
+
+      bind(ucdrp:GrantKeyPersonnelRole as ?role_type)
+      ?role a ?role_type;
+            obo:RO_000052 ?user;
+            .
+      ?role_type rdfs:label ?role_name.
+
+      ?user a ucdrp:person;
+            ucdrp:casId ?cas;
+            obo:ARG_2000028 ?pps_eng;
+            obo:ARG_2000028 ?pps_senate_or_federation;
+            .
+
+          ?pps_eng vcard:hasOrganizationalUnit/ucdrp:apptBouOrgoid harvest_iam:F80B657C9EFC23A0E0340003BA8A560D ;
+          .
+
+      ?pps_senate_or_federation vcard:hasTitle/ucdrp:titleCode ?title_code;
+                 .
+      bind(uri(concat(str(position:),?title_code)) as ?pps_position)
+      bind(replace(str(?grant_type),str(ucdrp:GrantType),"") as ?grant_type_label)
+      filter(?pps_position=?position)
+      filter(?pi != ?user)
+      filter(regex(str(?role_type),str(ucdrp:)))
+    }} group by ?grant ?pi_cas ?cas limit 100
+#+end_src

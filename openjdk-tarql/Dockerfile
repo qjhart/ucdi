@@ -1,6 +1,6 @@
 ARG VERSION
 ARG SRC
-FROM $SRC/ucdi-openjdk-python3:$VERSION
+FROM $SRC/openjdk-python3:$VERSION
 
 ENV TARQL_VERSION="1.2"
 
@@ -9,8 +9,8 @@ ENV TARQL_VERSION="1.2"
 # so that we don't have to waste time on waiting for ontop installation.
 #
 USER root
-RUN set -x ; mkdir -p /home/ucd.process/builder && \
-    cd /home/ucd.process/builder && \
+RUN set -x ; mkdir -p /tmp/builder && \
+    cd /tmp/builder && \
     curl -L https://github.com/tarql/tarql/releases/download/v${TARQL_VERSION}/tarql-${TARQL_VERSION}.tar.gz -o ./tarql.tar.gz && \
     tar xzf ./tarql.tar.gz && \
     rm tarql.tar.gz && \
@@ -21,14 +21,10 @@ RUN set -x ; mkdir -p /home/ucd.process/builder && \
     chmod ug+x ./tarql/bin/tarql && \
     cat ./tarql/bin/tarql && \
     ls -al ./tarql/bin && \
-    mv tarql .. && cd .. && rm -rf builder && \
-    chown -vR ucd.process:root .
+    mv tarql /usr/local/lib && cd /usr/local/lib/tarql && rm -rf builder
 
-ENV PATH=/home/ucd.process/tarql/bin:$PATH
+ENV PATH=/usr/local/lib/tarql/bin:$PATH
 
-#
-USER ucd.process
-WORKDIR /home/ucd.process
 
 ENV TARQL_JAVA_ARGS="-Xmx2g"
 ENV JAVA_OPTS=${TARQL_JAVA_ARGS}
@@ -38,4 +34,4 @@ ENV JAVA_OPTS=${TARQL_JAVA_ARGS}
 # if you leave it as is you can use this image just to run tarql from your
 # command line.
 #
-ENTRYPOINT [ "/bin/bash", "/home/ucd.process/tarql/bin/tarql" ]
+ENTRYPOINT [ "/bin/bash", "/usr/local/lib/tarql/bin/tarql" ]

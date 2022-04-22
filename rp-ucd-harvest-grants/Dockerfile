@@ -1,31 +1,42 @@
-ARG PROCESS_USER=ucd.process
-ARG HOME=/home/ucd.process
-ARG VERSION=latest
-ARG SRC=local-dev
+ARG VERSION
+ARG SRC
 
-FROM ${SRC}/ucdi-openjdk-python3:${VERSION}
+FROM $SRC/openjdk-sqlcl:$VERSION as sqlcl
+FROM $SRC/openjdk-tarql:$VERSION as tarql
 
-COPY --from=local-dev/ucdi-openjdk-sqlcl ${HOME}/sqlcl ${HOME}/sqlcl
-COPY --from=local-dev/ucdi-openjdk-tarql ${HOME}/tarql ${HOME}/tarql
+
+FROM $SRC/jena-fuseki-hdt:$VERSION
+
+COPY --from=sqlcl /usr/local/lib/sqlcl /usr/local/lib/sqlcl
+COPY --from=tarql /usr/local/lib/tarql /usr/local/lib/tarql
+
 
 # Put this section, where we install ontop, above all the ENV vars and the COPY statement that might change a lot
 # so that we don't have to waste time on waiting for ontop installation.
 #
-
 USER root
-RUN chown -vR ${PROCESS_USER}:root ${HOME}
 
+# Set up some HDT files
+RUN mkdir -p /var/lib/fuseki/hdt/
+COPY vocabularies/experts.ucdavis.edu%2FFoR/FoR.hdt* /var/lib/fuseki/hdt/
+COPY vocabularies/experts.ucdavis.edu%2Fucop/positions.hdt* /var/lib/fuseki/hdt/
 
-USER ucd.process
-RUN mkdir ${HOME}/grants
-WORKDIR ${HOME}/grants
-COPY Makefile *.sql *.rq ./
+# Setup our FUSEKI_BASE, this is actually copied for regular users
+COPY fuseki ${FUSEKI_BASE}
 
-ENV PATH=$PATH:${HOME}/sqlcl/bin:${HOME}/tarql/bin
+# Setup a place to hold the Makefile data
+RUN mkdir /usr/local/lib/grants
+COPY grants  /usr/local/lib/grants
+COPY /rp-ucd-harvest-grants-entrypoint.sh /
 
-#
+ENV PATH=$PATH:/usr/local/lib/sqlcl/bin:/usr/local/lib/tarql/bin
+
+VOLUME /home/ucd.process
+WORKDIR /home/ucd.process
+
 # You can override this entrypoint if you use this image as your base image but
 # if you leave it as is you can use this image just to run tarql from your
 # command line.
 #
-ENTRYPOINT ["/usr/bin/make","--directory=/home/ucd.process/grants" ]
+ENTRYPOINT ["/rp-ucd-harvest-grants-entrypoint.sh" ]
+#ENTRYPOINT ["/usr/bin/make","--file=/usr/local/lib/grants/Makefile" ]
