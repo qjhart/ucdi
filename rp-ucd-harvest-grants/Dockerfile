@@ -10,7 +10,6 @@ FROM $SRC/jena-fuseki-hdt:$VERSION
 COPY --from=sqlcl /usr/local/lib/sqlcl /usr/local/lib/sqlcl
 COPY --from=tarql /usr/local/lib/tarql /usr/local/lib/tarql
 
-
 # Put this section, where we install ontop, above all the ENV vars and the COPY statement that might change a lot
 # so that we don't have to waste time on waiting for ontop installation.
 #
@@ -23,6 +22,10 @@ COPY vocabularies/experts.ucdavis.edu%2Fucop/positions.hdt* /var/lib/fuseki/hdt/
 
 # Setup our FUSEKI_BASE, this is actually copied for regular users
 COPY fuseki ${FUSEKI_BASE}
+
+# Get our UCDID tool
+COPY ucdid /usr/local/bin
+RUN chmod +x /usr/local/bin/ucdid
 
 # Setup a place to hold the Makefile data
 RUN mkdir /usr/local/lib/grants

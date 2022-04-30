@@ -22,7 +22,7 @@ RUN mvn install \
   && cd hdt-java-package \
   && mvn assembly:single \
     && mv target/hdt-java-*/hdt-java-* /opt/hdt-java \
-  && rm -rf /tmp/hdt-java
+  && rm -rf /tmp/hdt-java && rm -f /opt/hdt-java/bin/*.bat
 
 # If we were creating a standalone setup we'd add
 #ENV PATH="/opt/hdt-java/bin:${PATH}"

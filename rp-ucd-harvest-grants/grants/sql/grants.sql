@@ -33,6 +33,7 @@ JOIN FINANCE.CG_AWD_PRJDR_T pi
     ON pi.CGPRPSL_NBR = awd.CGPRPSL_NBR
     AND pi.CGAWD_PRMPRJDR_IND = 'Y'
     AND pi.ROW_ACTV_IND = 'Y'
+    AND awd.CGAWD_PURPOSE_CD != 'S'
 JOIN FINANCE.CG_AWD_ORG_T aorg
     ON aorg.CGPRPSL_NBR = awd.CGPRPSL_NBR
     AND aorg.ROW_ACTV_IND = 'Y'
@@ -48,6 +49,9 @@ LEFT OUTER JOIN FINANCE.RICE_KRIM_ENTITY_CACHE_T c
 LEFT OUTER JOIN FINANCE.RICE_UC_KRIM_PERSON_MV adm
     ON adm.PRNCPL_ID = aorgext.DEPT_ADMIN_PRNCPL_ID
 )
+/*
+-- We are excluding scholarship awards
+*/
 select /* csv */
 awd.*,
 HD.HOME_DEPT_NM as "pi_dept_nm",

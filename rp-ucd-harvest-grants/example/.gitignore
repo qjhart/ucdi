@@ -1,1 +1,11 @@
 test
+*.hdt*
+*.json.gz
+.bash_history
+.httpie
+.sqlcl
+*.json
+history.log
+databases
+system
+templates

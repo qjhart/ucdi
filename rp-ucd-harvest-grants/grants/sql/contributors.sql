@@ -1,6 +1,8 @@
 SET SQLFORMAT CSV
 SET FEEDBACK OFF
-
+/*
+-- Scholarships 'S' are not included
+*/
 with
 award_pis as (
 select distinct
@@ -12,11 +14,13 @@ select distinct
     , CASE pi.CGAWD_PRMPRJDR_IND
         WHEN 'Y' THEN 'PI'
         ELSE 'KP' END as grant_role
-FROM FINANCE.CG_AWD_PRJDR_T pi
+FROM FINANCE.CG_AWD_T awd
+JOIN FINANCE.CG_AWD_PRJDR_T pi
+ON pi.CGPRPSL_NBR = awd.CGPRPSL_NBR
+AND pi.ROW_ACTV_IND = 'Y'
+AND awd.CGAWD_PURPOSE_CD != 'S'
 JOIN FINANCE.RICE_UC_KRIM_PERSON_MV person
     ON person.PRNCPL_ID = pi.PERSON_UNVL_ID
-WHERE
-    pi.ROW_ACTV_IND='Y'
 ),
 award_fund as (
   select distinct awd.CGPRPSL_NBR,awdext.UC_LOC_CD,awdext.UC_FUND_NBR
@@ -80,9 +84,11 @@ select distinct /* csv */
 -- select "cgprpsl_nbr","prncpl_nm",listagg("grant_role",'; ') as "roles"
 -- from combined_roles order by "cgprpsl_nbr","prncpl_nm"
 -- fetch first 5 rows only;
+-- below we are *NOT* including the ACCT-COPI roles at all
 */
 select *
 from combined_roles
+where "grant_role" != 'ACCT-COPI'
 order by "cgprpsl_nbr","prncpl_nm","grant_role"
 ;
 

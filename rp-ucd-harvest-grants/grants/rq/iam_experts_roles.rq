@@ -1,0 +1,116 @@
+# For our purposes then, in the
+#  name_www_flag/name_ucd_flags are unchecked then we will assume the user wants
+#  then entire ODR section not included, and since they don't show up in the
+#  directory search, I think we'll take that to mean to not to include any PPS
+#  data as well.
+
+PREFIX experts: <http://experts.ucdavis.edu/>
+PREFIX experts_iam: <http://experts.ucdavis.edu/iam/>
+PREFIX experts_oap: <http://experts.ucdavis.edu/oap/>
+PREFIX harvest_iam: <http://iam.ucdavis.edu/>
+PREFIX iam: <http://iam.ucdavis.edu/schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX person: <http://experts.ucdavis.edu/person/>
+PREFIX position: <http://experts.ucdavis.edu/position/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ucdrp: <http://experts.ucdavis.edu/schema#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?user obo:ARG_2000028 ?vcard.
+  ?vcard a vcard:Individual;
+         ucdrp:identifier ?vid;
+         vivo:rank ?order ;
+    vcard:hasName ?vcard_name;
+    vcard:hasTitle ?vcard_title;
+    vcard:hasOrganizationalUnit ?vcard_unit;
+    vcard:hasEmail ?vcard_email;
+    vcard:hasURL ?vcard_url;
+    .
+
+    ?vcard_title a vcard:Title;
+                 ucdrp:titleCode ?title_code;
+                 vcard:title ?title;
+                 .
+
+  ?vcard_unit a vcard:Organization;
+              ucdrp:apptBouOrgoid ?appt_bou;
+              ucdrp:dept ?dept;
+              vcard:title ?dept_name;
+              .
+    ?vcard_email a vcard:Email;
+                 vcard:email ?email;
+                 .
+    ?vcard_url a vcard:URL;
+               vcard:url ?website;
+               ucdrp:urlType ucdrp:URLType_other;
+               .
+
+} WHERE {
+  select ?user ?vcard_name ?vid ?title ?email ?dept_name ?order ?vcard ?vcard_title ?vcard_unit ?vcard_url ?vcard_email ?email ?website ?title_code ?appt_bou ?dept
+  where {
+    ?s iam:email ?default_email;
+       iam:userID ?kerb;
+       .
+    OPTIONAL {
+      {
+        select ?s ?vid ?title ?dept_name ?order ?website ?title_email
+        WHERE {
+          ?s iam:directory ?dir .
+          ?dir iam:listings ?list;
+               .
+          OPTIONAL {
+            ?list iam:deptWwwFlag "Y";
+                  iam:listingOrder ?order;
+                  iam:title ?title;
+                  iam:deptName ?dept_name;
+                  .
+            OPTIONAL {
+              ?list iam:websiteWwwFlag "Y";
+                    iam:website ?website;
+                    .
+                  }
+            OPTIONAL {
+              ?list iam:emailWwwFlag "Y";
+                    iam:email ?title_email;
+                    .
+                  }
+            bind(concat("odr-",str(?order)) as ?vid)
+          }
+        }
+      } UNION {
+        select ?s ?vid ?title ?dept_name ?order ?use_default_email ?title_code ?appt_bou_code ?dept_code
+        where {
+          ?s iam:ppsAssociations [iam:assocRank ?a_order;
+                                 iam:titleOfficialName ?otitle;
+                                 iam:titleCode ?title_code;
+                                 iam:apptBouOrgoid ?appt_bou_code;
+                                 iam:deptCode ?dept_code;
+                                 iam:deptOfficialName ?dept_name ];
+                                                      .
+          bind(replace(?otitle," -.*","") as ?title)
+          bind(xsd:integer(?a_order)+10 as ?order)
+          bind(concat("pps-",str(?a_order)) as ?vid)
+          bind(true as ?use_default_email)
+        }
+      }
+    }
+    bind(md5(?kerb) as ?user_id)
+    bind(uri(concat(str(person:),?user_id)) as ?user)
+    bind(uri(concat(str(?user),"#vcard-name")) as ?vcard_name)
+    bind(uri(concat(str(?user),"#vcard-",?vid)) as ?vcard)
+
+    bind(if(bound(?title),uri(concat(str(?vcard),"-title")),?undefined_var) as ?vcard_title)
+    bind(if(bound(?title_email),?title_email,if(bound(?use_default_email),?default_email,?undefined_var)) as ?email)
+    bind(if(bound(?email),uri(concat(str(?vcard),"-email")),?undefined_var) as ?vcard_email)
+    bind(if(bound(?website),uri(concat(str(?vcard),"-url")),?undefined_var) as ?vcard_url)
+    bind(if(bound(?dept_name),uri(concat(str(?vcard),"-unit")),?undefined_var) as ?vcard_unit)
+
+    bind(if(bound(?appt_bou_code),uri(concat(str(harvest_iam:),?appt_bou_code)),?undefined_var) as ?appt_bou)
+    bind(if(bound(?dept_code),uri(concat(str(harvest_iam:),?dept_code)),?undefined_var) as ?dept)
+
+
+  }
+}

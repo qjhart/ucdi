@@ -1,0 +1,72 @@
+# For our purposes then, in the
+#  name_www_flag/name_ucd_flags are unchecked then we will assume the user wants
+#  then entire ODR section not included, and since they don't show up in the
+#  directory search, I think we'll take that to mean to not to include any PPS
+#  data as well.
+
+PREFIX experts: <http://experts.ucdavis.edu/>
+PREFIX person: <http://experts.ucdavis.edu/person/>
+PREFIX experts_iam: <http://experts.ucdavis.edu/iam/>
+PREFIX experts_oap: <http://experts.ucdavis.edu/oap/>
+PREFIX harvest_iam: <http://iam.ucdavis.edu/>
+PREFIX iam: <http://iam.ucdavis.edu/schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ucdrp: <http://experts.ucdavis.edu/schema#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?user a ?emp_type, ucdrp:person;
+          rdfs:label ?label;
+          ucdrp:casId ?kerb;
+          ucdrp:employeeId ?employeeId;
+          vcard:hasName ?vcard_name;
+  .
+
+    ?vcard_name a vcard:Name;
+                vcard:givenName ?fname;
+                vcard:middleName ?mname;
+                vcard:familyName ?lname;
+                vcard:pronoun ?pronoun;
+                .
+
+} WHERE {
+    ?s iam:email ?email;
+       iam:userID ?kerb;
+       iam:employeeId ?employeeId;
+       iam:dLastName ?iam_lname;
+       iam:dFirstName ?iam_fname;
+       iam:isFaculty ?faculty;
+       .
+    OPTIONAL {
+        ?s iam:dMiddleName ?iam_mname .
+    }
+    OPTIONAL {
+      ?s iam:directory/iam:displayName ?dname.
+      ?dname iam:nameWwwFlag "Y";
+             iam:preferredFname ?better_fname;
+             iam:preferredLname ?better_lname;
+             .
+      OPTIONAL {
+        ?dname iam:preferredMname ?better_mname .
+        bind(concat(?better_fname," ",?better_mname," ",?better_lname) as ?better_mlabel)
+      }
+      OPTIONAL {
+        ?dname iam:preferredPronouns ?pronoun .
+      }
+    }
+    bind(coalesce(?better_fname,?iam_fname) as ?fname)
+    bind(coalesce(?better_lname,?iam_lname) as ?lname)
+    # Use this to include UCPATH mname
+    #bind(coalesce(?better_mname,?iam_mname) as ?lname)
+    bind(?better_mname as ?mname)
+    bind(coalesce(?better_mlabel,concat(?fname," ",?lname)) as ?label)
+
+    bind(md5(?kerb) as ?user_id)
+    bind(uri(concat(str(person:),?user_id)) as ?user)
+    bind(if(?faculty=true,vivo:FacultyMember,vivo:NonAcademic) as ?emp_type)
+
+    bind(uri(concat(str(?user),"#vcard-name")) as ?vcard_name)
+  }

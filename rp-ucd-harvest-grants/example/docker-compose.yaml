@@ -7,12 +7,12 @@ services:
     environment:
       LOCAL_USER_ID=1001
     tmpfs:
-      - /var/lib/fuseki/databases/harvest
+      - /tmp
     command: server
     volumes:
-      -/home/quinn/ucdi/test:/home/ucd.process/workdir
-    workdir:
-      /home/ucd.process/workdir
+      -/home/quinn/ucdi/test:/home/ucd.process
+#    workdir:
+#      /home/ucd.process/workdir
 #      - type: tmpfs
 #        target: /var/lib/fuseki/databases/harvest
 #        tmpfs:

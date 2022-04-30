@@ -32,7 +32,7 @@ WHERE {
     ("COPI" ucdrp:GrantCoPrincipalInvestigatorRole vivo:CoPrincipalInvestigatorRole)
     ("PI" ucdrp:GrantPrincipalInvestigatorRole vivo:PrincipalInvestigatorRole )
     ("CLDR" ucdrp:GrantCoreLeaderRole vivo:ResearcherRole)
-    ("ACCT-COPI" ucdrp:GrantAccountManagerRole vivo:ResearcherRole)
+#    ("ACCT-COPI" ucdrp:GrantAccountManagerRole vivo:ResearcherRole)
     }
 	BIND(URI(CONCAT(str(grant:), ?cgprpsl_nbr)) AS ?grant)
 	BIND(URI(CONCAT(str(?grant), "#role", md5(?prncpl_nm),"-",?grant_role)) AS ?role)
