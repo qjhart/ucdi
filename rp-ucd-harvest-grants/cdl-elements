@@ -648,6 +648,8 @@ function publications () {
 
   local selT="${G[util_xmlstarlet]} sel -T -N a=http://www.w3.org/2005/Atom"
 
+  local ids="$@"
+
   if [[ -n ${ids} ]]; then
     next="${G[api]}/publications?ids=${ids}&detail=full"
     let n=0;
