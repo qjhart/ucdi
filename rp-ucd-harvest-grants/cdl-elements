@@ -77,7 +77,7 @@ declare -A G=(
 
 function init() {
   local opts;
-  if ! opts=$($GETOPT -o A:bnhS:vt:d:c: --long verbose,base:,api:,data:,cache:,tdb:,http_session:,session:,dry-run,help -n 'cdl' -- "$@"); then
+  if ! opts=$($GETOPT -o A:bnhS:vt:d:c: --long verbose,auth:,base:,api:,data:,cache:,tdb:,http_session:,session:,dry-run,help -n 'cdl' -- "$@"); then
     echo "Bad Command Options." >&2 ; exit 1 ; fi
 
     eval set -- "$opts"
@@ -137,7 +137,7 @@ function main.cmd () {
     cmd=$1
     shift;
     case $cmd in
-	    get | login | groups | users ) # API requests
+	    login | groups | users | publications ) # API requests
 	      $cmd "$@";
 	      ;;
 	    group.sub | group.membership ) # group commands
@@ -598,7 +598,7 @@ function users () {
 
       # Finally, publications
       for fn in ${G[cache]}/user-relationships.${username}.*.xml; do
-        local tfn=${fn//user-relationships/publications}
+        local tfn =${fn//user-relationships/publications}
         tfn=${tfn%.xml}
         ids=$($selT -t -v "/a:feed/a:entry/api:relationship/api:related[@category='publication' and @direction='from']/@id" ${fn} | sort -u | paste -sd ',' )
         if [[ -n $ids ]] ; then
@@ -629,20 +629,25 @@ function users () {
 =cut
 
 function publications () {
-  local opts=`$GETOPT -o g: --long ids: -n 'cdl_elements publications' -- "$@"`
+  local opts=`$GETOPT -o p: --long prefix: -n 'cdl_elements publications' -- "$@"`
   if [ $? != 0 ] ; then echo "Bad Command Options." >&2 ; exit 1 ; fi
 
   eval set -- "$opts"
 
+  local prefix='publications'
+
   declare -A CMD;
   while true; do
 	  case $1 in
+      -p | --prefix ) prefix=$2; shift 2 ;;
 	    -- ) shift; break;;
 	    *) shift; break;
     esac
   done
 
-  local g n N uf;
+  local fn
+  local next
+  local n
 
   [[ -d ${G[cache]} ]] || err 1 "cache ${G[cache]} doesn't exist or isn't a directory"
 
@@ -655,11 +660,11 @@ function publications () {
     let n=0;
     while [[ -n ${next} ]]; do
       printf -v N "%03d" $n
-      ttfn=${tfn}.${N};
-      url_fetch --no-overwrite --file=${ttfn}.xml "$next"
-      xml2jsonld --type=publication ${ttfn}.xml
-      load_jsonld ${ttfn}.jsonld
-      next=$(${selT} -t -v '//api:page[@position="next"]/@href' ${ttfn}.xml);
+      fn=${prefix}.${N};
+      url_fetch --no-overwrite --file=${fn}.xml "$next"
+      xml2jsonld --type=publication ${fn}.xml
+      load_jsonld ${fn}.jsonld
+      next=$(${selT} -t -v '//api:page[@position="next"]/@href' ${fn}.xml);
       let n+=1;
     done
   fi

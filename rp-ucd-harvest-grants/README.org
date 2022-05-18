@@ -15,8 +15,31 @@ A normal way of running this then might be:
 
 
 #+begin_src bash
-docker run --rm --mount type=bind,source=${pwd}/test,target=/home/ucd.process local-dev/rp-ucd-harvest-grants:main
+  docker run  --interactive --tty \
+         -e FIS_JSON="${FIS_JSON}" \
+         -e LOCAL_USER_ID=$(id -u) \
+         -e UCDID_AUTH=${UCDID_AUTH} \
+         --rm \
+         --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example,target=/home/ucd.process  \
+         -p 3030:3030 local-dev/rp-ucd-harvest-grants:main FIS_LOGIN grants.json.gz grants.hdt
 #+end_src
+
+Alternatively, we could expect that we are using all HDT files to start up the
+app, and we are not saving any data once we are finished.  In that setup, we are
+letting the image make the volume, and then bind a volume containing the
+directory of hdt files that we want to use.
+
+#+begin_src bash
+  docker run  --interactive --tty \
+         -e FIS_JSON="${FIS_JSON}" \
+         -e LOCAL_USER_ID=$(id -u) \
+         -e UCDID_AUTH=${UCDID_AUTH} \
+         --rm \
+         --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example/databases/hdt,target=/home/ucd.process/databases/hdt  \
+         -p 3030:3030 local-dev/rp-ucd-harvest-grants:main
+#+end_src
+
+
 
 The following ENVIRONMENTAL VARIABLES are used in this setup
 
@@ -24,20 +47,30 @@ The following ENVIRONMENTAL VARIABLES are used in this setup
 - UCDID_AUTH = The UCD IAM connection authorization
 
 
+
 ** Using a different workspace
 
   Some care is taken to allow
 
 #+begin_src bash
-  docker run  --interactive --tty --rm \
-         --mount type=bind,source=/home/quinn/ucdi/test,target=/home/ucd.process/workdir \
-         --workdir=/home/ucd.process/workdir -p 3030:3030 \
-         local-dev/rp-ucd-harvest-grants:main bash
+  docker run  --interactive --tty \
+         -e FIS_JSON="${FIS_JSON}" \
+         -e LOCAL_USER_ID=$(id -u) \
+         -e UCDID_AUTH=${UCDID_AUTH} \
+         --rm \
+         --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example,target=/home/ucd.process  \
+         -p 3030:3030 local-dev/rp-ucd-harvest-grants:main server
 #+end_src
 
 
+** Per-Interaction Standards
 
-** Debugging your data
+   The normal expected method for interaction is to use the ~experts~ database,
+   in addition, ephemeral data is typically added to the default graph.
+
+
+
+** Debugging the data
 :PROPERTIES:
 :header-args:sparql: :url http://localhost:3030/grants/sparql
 :END:
@@ -53,15 +86,6 @@ The following ENVIRONMENTAL VARIABLES are used in this setup
 
   However, if you are interested in activities for particular users, then you
   may also need to add in more detailed IAM data.
-
-#+begin_src bash
-  docker run  --interactive --tty --rm \
-         --mount type=bind,source=/home/quinn/ucdi/test,target=/home/ucd.process/workdir \
-         --workdir=/home/ucd.process/workdir -p 3030:3030 \
-         local-dev/rp-ucd-harvest-grants:main bash
-#+end_src
-
-
 
 #+name: lob-ingest
 #+BEGIN_SRC elisp

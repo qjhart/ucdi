@@ -33,7 +33,7 @@ JOIN FINANCE.CG_AWD_PRJDR_T pi
     ON pi.CGPRPSL_NBR = awd.CGPRPSL_NBR
     AND pi.CGAWD_PRMPRJDR_IND = 'Y'
     AND pi.ROW_ACTV_IND = 'Y'
-    AND awd.CGAWD_PURPOSE_CD != 'S'
+    AND awd.CGAWD_PURPOSE_CD not in ( 'S' ,'H')
 JOIN FINANCE.CG_AWD_ORG_T aorg
     ON aorg.CGPRPSL_NBR = awd.CGPRPSL_NBR
     AND aorg.ROW_ACTV_IND = 'Y'
@@ -50,7 +50,7 @@ LEFT OUTER JOIN FINANCE.RICE_UC_KRIM_PERSON_MV adm
     ON adm.PRNCPL_ID = aorgext.DEPT_ADMIN_PRNCPL_ID
 )
 /*
--- We are excluding scholarship awards
+-- We are excluding scholarship and student services awards (see not in () above)
 */
 select /* csv */
 awd.*,

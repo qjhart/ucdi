@@ -80,9 +80,9 @@ endef
 
 
 INFO::
-#	@pod2usage -exit 0 ${MAKEFILE_LIST}
-	echo ${FIS_JSON}
-	echo ${FIS_LOGIN}
+	@pod2usage -exit 0 ${MAKEFILE_LIST}
+#	echo ${FIS_JSON}
+#	echo ${FIS_LOGIN}
 
 
 
@@ -129,6 +129,7 @@ ${grants.tdb2}:graph:=http://experts.ucdavis.edu/fis/
 ${grants.tdb2}:${grants.ttl} ${const_ttl}
 	mkdir -p ${grants.tdb2};
 	tdb2.tdbloader --loc=${grants.tdb2} --graph=${graph} ${grants.ttl} ${const_ttl}
+	touch ${grants.tdb2}
 
 grants.json.gz:${grants.tdb2}
 	tdb2.tdbdump --loc=${grants.tdb2} --output=jsonld | gzip > $@

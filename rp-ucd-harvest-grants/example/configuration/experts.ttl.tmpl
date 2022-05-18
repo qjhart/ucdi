@@ -16,11 +16,12 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
 # you like to run multiple experts setups on a single fuseki instance.
 # Otherwise the defaults will setup a normal instance.
 
-:grants fuseki:name "grants" .
-:tdb_grants tdb2:location  "${FUSEKI_BASE}/databases/grants" .
+:experts fuseki:name "experts" .
+:tdb_experts tdb2:location  "${FUSEKI_BASE}/databases/experts" .
 
-:iam fuseki:name "iam" .
-:tdb_iam tdb2:location  "${FUSEKI_BASE}/databases/iam" .
+
+#:tdb_grants tdb2:location  "${FUSEKI_BASE}/databases/grants" .
+#:tdb_iam tdb2:location  "${FUSEKI_BASE}/databases/iam" .
 
 # Everything below is standard grants to the experts setup
 # With the experts database, and the grants data
@@ -30,8 +31,8 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
     ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,120000" ] ;
     .
 
-:grants a fuseki:Service ;
-    fuseki:dataset :dataset_grants ;
+:experts a fuseki:Service ;
+    fuseki:dataset :dataset_experts ;
     fuseki:endpoint [
         fuseki:operation fuseki:query ;
         fuseki:name "sparql"
@@ -68,45 +69,61 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
     hdt:fileName "/var/lib/fuseki/hdt/positions.hdt" ;
     .
 
-:iam  a hdt:HDTGraph;
-    rdfs:label "UC Path positions" ;
+:iam  a hdt:HDTGraph ;
+    fuseki:name "iam" ;
+    rdfs:label "UC Faculty and staff info" ;
     hdt:fileName "${FUSEKI_BASE}/databases/hdt/iam.hdt" ;
     .
 
 
-# IET and OAPolicy data are grants to internal review
-# these are stored in the database below
-:tdb_grants
+:tdb_experts
     a              tdb2:DatasetTDB2 ;
+    rdfs:label "Scratch Location" ;
     ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
     .
 
-# These two graphs are used below
-:graph_grants
-    a tdb2:GraphTDB2;
-    tdb2:dataset :tdb_grants;
-    tdb2:graphName <http://experts.ucdavis.edu/fis/> ;
+:mem_experts
+    a ja:MemoryModel ;
     .
+
+
+# We use HDT files for these.  If we want access to the TDB files, I Need to think about the
+# best way to do that.  Maybe service would be best.
+
+# IET and OAPolicy data are grants to internal review
+# these are stored in the database below
+#:tdb_grants
+#    a              tdb2:DatasetTDB2 ;
+#    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
+#    .
+
+# These two graphs are used below
+#:graph_grants
+#    a tdb2:GraphTDB2;
+#    tdb2:dataset :tdb_grants;
+#    tdb2:graphName <http://experts.ucdavis.edu/fis/> ;
+#    .
 
 
 # IET and OAPolicy data are grants to internal review
 # these are stored in the database below
-:tdb_iam
-    a              tdb2:DatasetTDB2 ;
-    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
-    .
+#:tdb_iam
+#    a              tdb2:DatasetTDB2 ;
+#    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
+#    .
 
 # These two graphs are used below
-:graph_iam
-    a tdb2:GraphTDB2;
-    tdb2:dataset :tdb_iam;
-    tdb2:graphName <http://experts.ucdavis.edu/private/iam/> ;
-    .
+#:graph_iam
+#    a tdb2:GraphTDB2;
+#    tdb2:dataset :tdb_iam;
+#    tdb2:graphName <http://experts.ucdavis.edu/private/iam/> ;
+#    .
 
 
 # Other graphs will go to a emphemeral memory database, (I think)
-:dataset_grants
+:experts_grants
     a ja:RDFDataset ;
+    ja:defaultGraph :mem_experts ;
     ja:namedGraph [
         ja:graphName <http://experts.ucdavis.edu/FoR/> ;
         ja:graph :FoR ;
@@ -122,9 +139,5 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
     ja:namedGraph [
         ja:graphName <http://experts.ucdavis.edu/fis/> ;
         ja:graph :graph_grants ;
-        ] ;
-    ja:namedGraph [
-        ja:graphName <http://experts.ucdavis.edu/private/iam/> ;
-        ja:graph :graph_iam ;
         ] ;
     .
