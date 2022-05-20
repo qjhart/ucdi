@@ -11,6 +11,11 @@ services:
     command: server
     volumes:
       -/home/quinn/ucdi/test:/home/ucd.process
+      mybucket:
+        name: ucd-research-profiles/vrt
+        driver: ofekmeister/gcsfs
+        driver_opts:
+          key: ${SERVICE_KEY}
 #    workdir:
 #      /home/ucd.process/workdir
 #      - type: tmpfs
