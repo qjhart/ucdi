@@ -39,7 +39,7 @@ base:=$(shell git rev-parse --show-toplevel)
 gcloud_user:=$(shell gcloud auth list --filter="status:ACTIVE"  --format="value(account)")
 sha:=$(shell git log -1 --pretty=%h)
 
-images:=jena-fuseki-hdt rp-ucd-harvest-grants rp-ucd-harvest-person openjdk-tarql openjdk-sqlcl
+images:=jena-fuseki-hdt rp-ucd-harvest rp-ucd-harvest-grants rp-ucd-harvest-person openjdk-tarql openjdk-sqlcl
 
 INFO::
 	@pod2usage -exit 0 ${MAKEFILE_LIST}

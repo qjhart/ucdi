@@ -4,7 +4,6 @@ ARG SRC
 FROM $SRC/openjdk-sqlcl:$VERSION as sqlcl
 FROM $SRC/openjdk-tarql:$VERSION as tarql
 
-
 FROM $SRC/jena-fuseki-hdt:$VERSION
 
 COPY --from=sqlcl /usr/local/lib/sqlcl /usr/local/lib/sqlcl
@@ -24,8 +23,8 @@ COPY vocabularies/experts.ucdavis.edu%2Fucop/positions.hdt* /var/lib/fuseki/hdt/
 COPY fuseki ${FUSEKI_BASE}
 
 # Get our UCDID tool
-COPY ucdid /usr/local/bin
-RUN chmod +x /usr/local/bin/ucdid
+#COPY ucdid /usr/local/bin
+#RUN chmod +x /usr/local/bin/ucdid
 
 # Setup a place to hold the Makefile data
 RUN mkdir /usr/local/lib/grants

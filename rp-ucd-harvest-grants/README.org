@@ -13,12 +13,13 @@ secrets needed to run the system as well.
 
 A normal way of running this then might be:
 
-
 #+begin_src bash
   docker run  --interactive --tty \
          -e FIS_JSON="${FIS_JSON}" \
          -e LOCAL_USER_ID=$(id -u) \
          -e UCDID_AUTH=${UCDID_AUTH} \
+         -e CDL_AUTH=${CDL_AUTH} \
+         -e PERSONS="${PERSONS}" \
          --rm \
          --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example,target=/home/ucd.process  \
          -p 3030:3030 local-dev/rp-ucd-harvest-grants:main FIS_LOGIN grants.json.gz grants.hdt
@@ -39,13 +40,10 @@ directory of hdt files that we want to use.
          -p 3030:3030 local-dev/rp-ucd-harvest-grants:main
 #+end_src
 
-
-
 The following ENVIRONMENTAL VARIABLES are used in this setup
 
 - FIS_JSON = The FIS Connection information.
 - UCDID_AUTH = The UCD IAM connection authorization
-
 
 
 ** Using a different workspace
