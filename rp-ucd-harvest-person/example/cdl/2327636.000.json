@@ -1,0 +1,1790 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "2327636",
+      "last-affected-when": "2022-05-23T15:12:46-07:00",
+      "last-modified-when": "2022-05-23T15:12:46-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2327636",
+      "created-when": "2018-08-07T01:55:45.257-07:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2018-10-01",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "6355039",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-85050083820",
+            "api:citation-count": "14",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "This short communication describes a new open-source implementation of the CALVIN model (CALifornia Value Integrated Network), a large-scale network flow optimization model of California's water supply system. The model is cross-platform, uses common data formats, and connects to several freely available linear programming solvers. Given inputs including hydrology, urban/agricultural demand curves, and variable operating costs, the model minimizes the systemwide cost of water scarcity and operations including surface and groundwater reservoirs, wastewater reuse, desalination, environmental flow requirements, and hydropower. Key outputs include water shortage costs and marginal economic values of water and infrastructure capacity. We benchmark the scalability of different solvers up to roughly 5 million decision variables, using shared-memory parallelization on a high performance computing cluster. Runtimes are reduced by two orders of magnitude relative to the original model when no initial solution is provided, in addition to the benefits such as accessibility and transparency that come with an open-source platform. While this model is specific to California, the data and model structure are separated, so a similar framework could be used in any system where water allocation has been formulated as a network flow problem."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Dogan",
+                        "api:initials": "MS",
+                        "api:first-names": "MS",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "M",
+                            "S"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "57225471333"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Fefer",
+                        "api:initials": "MA",
+                        "api:first-names": "MA",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "M",
+                            "A"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "57202992464"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "16097",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/16097"
+                          }
+                        },
+                        "api:last-name": "Herman",
+                        "api:initials": "JD",
+                        "api:first-names": "JD",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "J",
+                            "D"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "36925285300"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "QJ",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Q",
+                            "J"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "JR",
+                        "api:first-names": "JR",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "J",
+                            "R"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56985470700"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Medellín-Azuara",
+                        "api:initials": "J",
+                        "api:first-names": "J",
+                        "api:separate-first-names": {
+                          "api:first-name": "J"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "UC Merced"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Merced"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.266096.d",
+                              "href": "https://grid.ac/institutes/grid.266096.d",
+                              "latitude": "37.36291",
+                              "longitude": "-120.43009"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": [
+                            {
+                              "scheme": "scopus-author-id",
+                              "$t": "19934190600"
+                            },
+                            {
+                              "scheme": "orcid",
+                              "$t": "0000-0003-1379-2257"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "13910",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/13910"
+                          }
+                        },
+                        "api:last-name": "Lund",
+                        "api:initials": "JR",
+                        "api:first-names": "JR",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "J",
+                            "R"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "55950426300"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.envsoft.2018.07.002",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.envsoft.2018.07.002"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.envsoft.2018.07.002"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "1364-8152",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706968"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Environmental Modelling and Software"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "8",
+                    "api:end-page": "13"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "10",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "An open-source Python implementation of California's hydroeconomic optimization model"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "108"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6418885",
+            "source-id": "11",
+            "source-name": "wos-lite",
+            "source-display-name": "Web of Science (Lite)",
+            "id-at-source": "WOS:000442892900002",
+            "api:citation-count": "13",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Dogan",
+                        "api:initials": "MS",
+                        "api:first-names": "Mustafa S",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Mustafa",
+                            "S"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Fefer",
+                        "api:initials": "MA",
+                        "api:first-names": "Max A",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Max",
+                            "A"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "16097",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/16097"
+                          }
+                        },
+                        "api:last-name": "Herman",
+                        "api:initials": "JD",
+                        "api:first-names": "Jonathan D",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jonathan",
+                            "D"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "JR",
+                        "api:first-names": "Justin R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Justin",
+                            "R"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "33710",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/33710"
+                          }
+                        },
+                        "api:last-name": "Medellin-Azuara",
+                        "api:initials": "J",
+                        "api:first-names": "Josue",
+                        "api:separate-first-names": {
+                          "api:first-name": "Josue"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "13910",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/13910"
+                          }
+                        },
+                        "api:last-name": "Lund",
+                        "api:initials": "JR",
+                        "api:first-names": "Jay R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jay",
+                            "R"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "author-url",
+                  "type": "text",
+                  "display-name": "Author URL",
+                  "api:text": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=PARTNER_APP&SrcAuth=LinksAMR&KeyUT=WOS:000442892900002&DestLinkType=FullRecord&DestApp=ALL_WOS&UsrCustomerID=039f08444e522f04b0c74ec005e57dc4"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.envsoft.2018.07.002",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.envsoft.2018.07.002"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.envsoft.2018.07.002"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1873-6726",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706968"
+                    }
+                  }
+                },
+                {
+                  "name": "external-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "External identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "isidoc",
+                      "$t": "GR7SD"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "1364-8152",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706968"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "ENVIRONMENTAL MODELLING & SOFTWARE"
+                },
+                {
+                  "name": "keywords",
+                  "type": "keyword-list",
+                  "display-name": "Keywords",
+                  "api:keywords": {
+                    "api:keyword": [
+                      "Hydroeconomic modeling",
+                      "Network flow optimization",
+                      "Multi-reservoir operations"
+                    ]
+                  }
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "8",
+                    "api:end-page": "13"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "10",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "An open-source Python implementation of California's hydroeconomic optimization model"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "108"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6365769",
+            "source-id": "13",
+            "source-name": "crossref",
+            "source-display-name": "Crossref",
+            "id-at-source": "10.1016/j.envsoft.2018.07.002",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Dogan",
+                        "api:initials": "MS",
+                        "api:first-names": "Mustafa S",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Mustafa",
+                            "S"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Fefer",
+                        "api:initials": "MA",
+                        "api:first-names": "Max A",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Max",
+                            "A"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "16097",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/16097"
+                          }
+                        },
+                        "api:last-name": "Herman",
+                        "api:initials": "JD",
+                        "api:first-names": "Jonathan D",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jonathan",
+                            "D"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0002-4081-3175"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0001-9829-8914"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "JR",
+                        "api:first-names": "Justin R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Justin",
+                            "R"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0003-1690-8112"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Medellín-Azuara",
+                        "api:initials": "J",
+                        "api:first-names": "Josue",
+                        "api:separate-first-names": {
+                          "api:first-name": "Josue"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0003-1379-2257"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "13910",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/13910"
+                          }
+                        },
+                        "api:last-name": "Lund",
+                        "api:initials": "JR",
+                        "api:first-names": "Jay R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jay",
+                            "R"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.envsoft.2018.07.002",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.envsoft.2018.07.002"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.envsoft.2018.07.002"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "1364-8152",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706968"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Environmental Modelling &amp; Software"
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "en"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "8",
+                    "api:end-page": "13"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "10",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "publisher",
+                  "type": "text",
+                  "display-name": "Publisher",
+                  "api:text": "Elsevier BV"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "15",
+                    "api:month": "7",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "An open-source Python implementation of California's hydroeconomic optimization model"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "108"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "9503044",
+            "source-id": "10",
+            "source-name": "dimensions",
+            "source-display-name": "Dimensions",
+            "id-at-source": "pub.1105478601",
+            "api:citation-count": "14",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "associated-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "Associated Identifiers",
+                  "api:identifiers": {
+                    "api:identifier": [
+                      {
+                        "scheme": "dimensions-grant-id",
+                        "$t": "grant.7438502"
+                      },
+                      {
+                        "scheme": "dimensions-grant-id",
+                        "$t": "grant.4314344"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Dogan",
+                        "api:initials": "MS",
+                        "api:first-names": "Mustafa S",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Mustafa",
+                            "S"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            }
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.016661727760.33"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Fefer",
+                        "api:initials": "MA",
+                        "api:first-names": "Max A",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Max",
+                            "A"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "16097",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/16097"
+                          }
+                        },
+                        "api:last-name": "Herman",
+                        "api:initials": "JD",
+                        "api:first-names": "Jonathan D",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jonathan",
+                            "D"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            }
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.07645351520.21"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015323550434.14"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "JR",
+                        "api:first-names": "Justin R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Justin",
+                            "R"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015047257660.52"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Medellín-Azuara",
+                        "api:initials": "J",
+                        "api:first-names": "Josue",
+                        "api:separate-first-names": {
+                          "api:first-name": "Josue"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Merced"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Merced"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.266096.d",
+                              "href": "https://grid.ac/institutes/grid.266096.d",
+                              "latitude": "37.36291",
+                              "longitude": "-120.43009"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.011145516071.54"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "13910",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/13910"
+                          }
+                        },
+                        "api:last-name": "Lund",
+                        "api:initials": "JR",
+                        "api:first-names": "Jay R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jay",
+                            "R"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            }
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.01303070263.38"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.envsoft.2018.07.002",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.envsoft.2018.07.002"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.envsoft.2018.07.002"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "field-citation-ratio",
+                  "type": "decimal",
+                  "display-name": "Field citation ratio",
+                  "api:decimal": "2.41"
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "1364-8152",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706968"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Environmental Modelling & Software"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "8",
+                    "api:end-page": "13"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "10",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "13",
+                    "api:month": "7",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "An open-source Python implementation of California's hydroeconomic optimization model"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "108"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6464158",
+            "source-id": "6",
+            "source-name": "dblp",
+            "source-display-name": "DBLP",
+            "id-at-source": "journals/envsoft/DoganFHHMML18",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Dogan",
+                        "api:initials": "MS",
+                        "api:first-names": "Mustafa S",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Mustafa",
+                            "S"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Fefer",
+                        "api:initials": "MA",
+                        "api:first-names": "Max A",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Max",
+                            "A"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "16097",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/16097"
+                          }
+                        },
+                        "api:last-name": "Herman",
+                        "api:initials": "JD",
+                        "api:first-names": "Jonathan D",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jonathan",
+                            "D"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "JR",
+                        "api:first-names": "Justin R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Justin",
+                            "R"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Medellín-Azuara",
+                        "api:initials": "J",
+                        "api:first-names": "Josué",
+                        "api:separate-first-names": {
+                          "api:first-name": "Josué"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "13910",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/13910"
+                          }
+                        },
+                        "api:last-name": "Lund",
+                        "api:initials": "JR",
+                        "api:first-names": "Jay R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jay",
+                            "R"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.envsoft.2018.07.002",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.envsoft.2018.07.002"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.envsoft.2018.07.002"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Environ. Model. Softw."
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "8",
+                    "api:end-page": "13"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "An open-source Python implementation of California's hydroeconomic optimization model."
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "108"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Hydroeconomic modeling"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Network flow optimization"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Multi-reservoir operations"
+            },
+            {
+              "scheme": "science-metrix",
+              "origin": "issn-inferred",
+              "$t": "Environmental Engineering"
+            }
+          ]
+        }
+      },
+      "api:journal": {
+        "issn": "1364-8152",
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706968",
+        "api:records": {
+          "api:record": [
+            {
+              "source-name": "era-2015",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "science-metrix",
+              "api:title": "Environmental Modelling & Software"
+            },
+            {
+              "source-name": "era-2010",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "snip",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "era-2012",
+              "api:title": "Environmental Modelling and Software"
+            },
+            {
+              "source-name": "era-2018",
+              "api:title": "Environmental Modelling and Software"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2327636/relationships"
+      }
+    }
+  ]
+}

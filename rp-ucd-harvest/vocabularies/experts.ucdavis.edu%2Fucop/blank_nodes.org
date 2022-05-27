@@ -1,0 +1,171 @@
+* Blank Nodes
+:PROPERTIES:
+:header-args:http: :host localhost:3030
+:header-args:sparql: :url http://localhost:3030/blank/sparql :format text/csv
+:END:
+
+
+
+#+BEGIN_SRC sparql
+prefix : <http://iam.ucdavis.edu/>
+
+INSERT {
+  :quinn a :Person;
+    :name "Quinn";
+    :love :nikki;
+    :love [a :Person; :name "Ashley"];
+    .
+  :nikki a :Person;
+    :name "Nikki";
+    .
+} WHERE {}
+
+#+END_SRC
+
+#+BEGIN_SRC sparql :format raw :wrap SRC ttl
+DESCRIBE ?s WHERE {?s ?o ?p. filter(isiri(?s)) }
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ttl
+<http://iam.ucdavis.edu/quinn>
+        a                              <http://iam.ucdavis.edu/Person> ;
+        <http://iam.ucdavis.edu/love>  <http://iam.ucdavis.edu/nikki> ;
+        <http://iam.ucdavis.edu/love>  [ a                              <http://iam.ucdavis.edu/Person> ;
+                                         <http://iam.ucdavis.edu/name>  "Ashley"
+                                       ] ;
+        <http://iam.ucdavis.edu/love>  [ a                              <http://iam.ucdavis.edu/Person> ;
+                                         <http://iam.ucdavis.edu/name>  "Ashley" ;
+                                         <http://iam.ucdavis.edu/species>
+                                                 [ a                             <http://iam.ucdavis.edu/Cat> ;
+                                                   <http://iam.ucdavis.edu/sex>  "Female"
+                                                 ]
+                                       ] ;
+        <http://iam.ucdavis.edu/name>  "Quinn" .
+
+<http://iam.ucdavis.edu/nikki>
+        a                              <http://iam.ucdavis.edu/Person> ;
+        <http://iam.ucdavis.edu/name>  "Nikki" .
+#+END_SRC
+
+Now if we delete just Quinn
+
+#+BEGIN_SRC
+prefix : <http://iam.ucdavis.edu/>
+
+DELETE  { ?s ?p ?o. } WHERE {bind(:quinn as ?s) ?s ?p ?o }
+
+#+END_SRC
+
+Then we have all these blank nodes, that did not get deleted.
+
+#+BEGIN_SRC sparql :format raw :wrap SRC ttl
+CONSTRUCT { ?s ?p ?o. } WHERE {?s ?p ?o.}
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ttl
+[ a                              <http://iam.ucdavis.edu/Person> ;
+  <http://iam.ucdavis.edu/name>  "Ashley"
+] .
+
+[ a                              <http://iam.ucdavis.edu/Person> ;
+  <http://iam.ucdavis.edu/name>  "Ashley" ;
+  <http://iam.ucdavis.edu/species>
+          [ a                             <http://iam.ucdavis.edu/Cat> ;
+            <http://iam.ucdavis.edu/sex>  "Female"
+          ]
+] .
+
+<http://iam.ucdavis.edu/nikki>
+        a                              <http://iam.ucdavis.edu/Person> ;
+        <http://iam.ucdavis.edu/name>  "Nikki" .
+#+END_SRC
+
+If we wanted a list of all blank nodes that are unconnected:
+https://stackoverflow.com/questions/33241812/sparql-query-to-get-all-triples-related-to-a-specific-subject
+
+#+BEGIN_SRC sparql
+PREFIX : <http://iam.ucdavis.edu/>
+select distinct ?blank ?p ?o where {
+  ?blank ?p ?o.
+  filter NOT EXISTS { ?link :foo | !:foo ?blank }
+  filter(isblank(?blank))
+}
+
+#+END_SRC
+
+#+RESULTS:
+| blank | p                                               | o                             |
+|-------+-------------------------------------------------+-------------------------------|
+| _:b0  | http://iam.ucdavis.edu/species                  | _:b1                          |
+| _:b0  | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://iam.ucdavis.edu/Person |
+| _:b0  | http://iam.ucdavis.edu/name                     | Ashley                        |
+| _:b2  | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://iam.ucdavis.edu/Person |
+| _:b2  | http://iam.ucdavis.edu/name                     | Ashley                        |
+
+Okay, now what if we want to delete a blank node and all the blank nodes below
+it.
+
+
+#+BEGIN_SRC sparql :format raw :wrap SRC ttl
+PREFIX : <http://iam.ucdavis.edu/>
+CONSTRUCT {
+  ?blank ?prop ?val .
+  ?child ?childProp ?childPropVal .
+  ?someSubj ?incomingChildProp ?child .
+}
+WHERE {
+  bind(_:b0 as ?blank)
+  ?blank ?prop ?val ;
+    (:overrides|!:overrides)+ ?child .
+  ?child ?childProp ?childPropVal.
+  ?someSubj ?incomingChildProp ?child.
+}
+
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ttl
+HTTP/1.1 400 Bad Request
+Fuseki-Request-ID: 97
+Server: Apache Jena Fuseki (3.16.0-SNAPSHOT)
+Content-Type: text/plain;charset=utf-8
+Cache-Control: must-revalidate,no-cache,no-store
+Pragma: no-cache
+Content-Length: 23
+
+Error 400: Bad Request
+#+END_SRC
+
+#+BEGIN_SRC sparql :format raw :wrap SRC ttl
+PREFIX : <http://iam.ucdavis.edu/>
+DELETE {
+  ?blank ?prop ?val .
+}
+WHERE {
+  ?blank ?prop ?val .
+  filter(isblank(?blank))
+}
+
+
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ttl
+@prefix :      <http://iam.ucdavis.edu/> .
+
+[ a       :Person ;
+  :name   "Ashley"
+] .
+
+[ a         :Person ;
+  :name     "Ashley" ;
+  :species  [ a       :Cat ;
+              :sex    "Female"
+            ]
+] .
+#+END_SRC

@@ -1,0 +1,1558 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "2364120",
+      "last-affected-when": "2022-05-24T03:39:52.923-07:00",
+      "last-modified-when": "2022-05-24T03:39:52.923-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2364120",
+      "created-when": "2018-10-21T00:26:53.313-07:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2018-12-01",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "7522208",
+            "source-id": "18",
+            "source-name": "epmc",
+            "source-display-name": "Europe PubMed Central",
+            "id-at-source": "AGR:IND606254344",
+            "api:citation-count": "0",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Hybrid poplar has potential as feedstock for the production of bioenergy and bio-based products. Planning effective placement of hybrid poplar based biorefinery facilities takes tremendous time and financial resources. A hybrid poplar based biorefinery siting application (HP-BiSWA), a web-enabled refinery siting application, was developed so that potential stakeholders may quickly assess available resources at selected locations and provide information relating to the economic competitiveness and financial risks associated with construction and operation. At present, the tool supports evaluation of the potential for hybrid poplar based jet fuel and acetic acid production based on user-specified conditions. The application is generally expandable to other feedstock, technology, and product types. HP-BiSWA uses various modules (i.e. 3PG-crop growth model and farm budget application) and services (i.e. parcel service, transportation routing service, crop service, soil and weather services) to retrieve and estimate information to optimize and select potential parcels for poplar cultivation, and ultimately determine net revenue for biofuel production under selected decision options.To demonstrate the utility of HP-BiSWA, a case study analysis was performed for Centralia, WA based on a 380 ML/yr (100 MGY) jet fuel biorefinery using two scenarios: (1) a 175 km feedstock supply radius with 50% pastureland use, and (2) a 225 km feedstock supply radius with 25% pastureland use. The case study captures the interactive effects on biorefinery performance with changes in feedstock supply area and available water, power, and other resources for operation of the biorefinery."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "J",
+                        "api:first-names": "Justin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Justin"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0003-1690-8112"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Bryan M. Jenkins",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Nathan Parker",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Quinn Hart",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Varaprasad Bandaru",
+                        "api:initials": {}
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.compag.2018.09.042",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.compag.2018.09.042"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.compag.2018.09.042"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "is-open-access",
+                  "type": "boolean",
+                  "display-name": "Open access",
+                  "api:boolean": "false"
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1699",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Computers and electronics in agriculture."
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "eng"
+                },
+                {
+                  "name": "medium",
+                  "type": "text",
+                  "display-name": "Medium",
+                  "api:text": "Undetermined"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "76",
+                    "api:end-page": "83"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "12",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "18",
+                    "api:month": "3",
+                    "api:year": "2019"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "155"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6465586",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-85054563909",
+            "api:citation-count": "3",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Hybrid poplar has potential as feedstock for the production of bioenergy and bio-based products. Planning effective placement of hybrid poplar based biorefinery facilities takes tremendous time and financial resources. A hybrid poplar based biorefinery siting application (HP-BiSWA), a web-enabled refinery siting application, was developed so that potential stakeholders may quickly assess available resources at selected locations and provide information relating to the economic competitiveness and financial risks associated with construction and operation. At present, the tool supports evaluation of the potential for hybrid poplar based jet fuel and acetic acid production based on user-specified conditions. The application is generally expandable to other feedstock, technology, and product types. HP-BiSWA uses various modules (i.e. 3PG-crop growth model and farm budget application) and services (i.e. parcel service, transportation routing service, crop service, soil and weather services) to retrieve and estimate information to optimize and select potential parcels for poplar cultivation, and ultimately determine net revenue for biofuel production under selected decision options. To demonstrate the utility of HP-BiSWA, a case study analysis was performed for Centralia, WA based on a 380 ML/yr (100 MGY) jet fuel biorefinery using two scenarios: (1) a 175 km feedstock supply radius with 50% pastureland use, and (2) a 225 km feedstock supply radius with 25% pastureland use. The case study captures the interactive effects on biorefinery performance with changes in feedstock supply area and available water, power, and other resources for operation of the biorefinery."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "J",
+                        "api:first-names": "J",
+                        "api:separate-first-names": {
+                          "api:first-name": "J"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56985470700"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "V",
+                        "api:separate-first-names": {
+                          "api:first-name": "V"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of Maryland, College Park"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "College Park"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.164295.d",
+                              "href": "https://grid.ac/institutes/grid.164295.d",
+                              "latitude": "38.98305",
+                              "longitude": "-76.94187"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "14051672300"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Q",
+                        "api:separate-first-names": {
+                          "api:first-name": "Q"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": [
+                            {
+                              "scheme": "scopus-author-id",
+                              "$t": "6506365550"
+                            },
+                            {
+                              "scheme": "orcid",
+                              "$t": "0000-0001-9829-8914"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "N",
+                        "api:first-names": "N",
+                        "api:separate-first-names": {
+                          "api:first-name": "N"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "Arizona State University"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Tempe"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.215654.1",
+                              "href": "https://grid.ac/institutes/grid.215654.1",
+                              "latitude": "33.41720",
+                              "longitude": "-111.93651"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "24598096400"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "BM",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "B",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7102927027"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.compag.2018.09.042",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.compag.2018.09.042"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.compag.2018.09.042"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1699",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Computers and Electronics in Agriculture"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "76",
+                    "api:end-page": "83"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "12",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "155"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6908892",
+            "source-id": "11",
+            "source-name": "wos-lite",
+            "source-display-name": "Web of Science (Lite)",
+            "id-at-source": "WOS:000453642100009",
+            "api:citation-count": "3",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "J",
+                        "api:first-names": "Justin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Justin"
+                        }
+                      },
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "N",
+                        "api:first-names": "Nathan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Nathan"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "author-url",
+                  "type": "text",
+                  "display-name": "Author URL",
+                  "api:text": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=PARTNER_APP&SrcAuth=LinksAMR&KeyUT=WOS:000453642100009&DestLinkType=FullRecord&DestApp=ALL_WOS&UsrCustomerID=039f08444e522f04b0c74ec005e57dc4"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.compag.2018.09.042",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.compag.2018.09.042"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.compag.2018.09.042"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1872-7107",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953"
+                    }
+                  }
+                },
+                {
+                  "name": "external-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "External identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "isidoc",
+                      "$t": "HE7TE"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1699",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "COMPUTERS AND ELECTRONICS IN AGRICULTURE"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "76",
+                    "api:end-page": "83"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "12",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "155"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6781933",
+            "source-id": "13",
+            "source-name": "crossref",
+            "source-display-name": "Crossref",
+            "id-at-source": "10.1016/j.compag.2018.09.042",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "J",
+                        "api:first-names": "Justin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Justin"
+                        }
+                      },
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0001-9829-8914"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "N",
+                        "api:first-names": "Nathan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Nathan"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.compag.2018.09.042",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.compag.2018.09.042"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.compag.2018.09.042"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1699",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Computers and Electronics in Agriculture"
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "en"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "76",
+                    "api:end-page": "83"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "12",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "publisher",
+                  "type": "text",
+                  "display-name": "Publisher",
+                  "api:text": "Elsevier BV"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "11",
+                    "api:month": "10",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "155"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "7792759",
+            "source-id": "10",
+            "source-name": "dimensions",
+            "source-display-name": "Dimensions",
+            "id-at-source": "pub.1107535546",
+            "api:citation-count": "3",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "altmetric-attention-score",
+                  "type": "integer",
+                  "display-name": "Altmetric attention score",
+                  "api:integer": "2"
+                },
+                {
+                  "name": "associated-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "Associated Identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "dimensions-grant-id",
+                      "$t": "grant.3825881"
+                    }
+                  }
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "J",
+                        "api:first-names": "Justin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Justin"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015047257660.52"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": {
+                              "type": "full",
+                              "$t": "Department of Geographical Sciences, University of Maryland, MD, United States"
+                            },
+                            "api:grid": {
+                              "id": "grid.266673.0",
+                              "href": "https://grid.ac/institutes/grid.266673.0",
+                              "latitude": "39.25550",
+                              "longitude": "-76.71126"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.014361542662.33"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015323550434.14"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "N",
+                        "api:first-names": "Nathan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Nathan"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "Arizona State University"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Tempe"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "Arizona"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.215654.1",
+                              "href": "https://grid.ac/institutes/grid.215654.1",
+                              "latitude": "33.41720",
+                              "longitude": "-111.93651"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.013205100434.69"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.0741703046.48"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.compag.2018.09.042",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.compag.2018.09.042"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.compag.2018.09.042"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "field-citation-ratio",
+                  "type": "decimal",
+                  "display-name": "Field citation ratio",
+                  "api:decimal": "1.27"
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1699",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Computers and Electronics in Agriculture"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "76",
+                    "api:end-page": "83"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "12",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "12",
+                    "api:month": "10",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "155"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "10931620",
+            "source-id": "24",
+            "source-name": "dspace",
+            "source-display-name": "eScholarship",
+            "id-at-source": "qt1591c5d8",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Hybrid poplar has potential as feedstock for the production of bioenergy and bio-based products. Planning effective placement of hybrid poplar based biorefinery facilities takes tremendous time and financial resources. A hybrid poplar based biorefinery siting application (HP-BiSWA), a web-enabled refinery siting application, was developed so that potential stakeholders may quickly assess available resources at selected locations and provide information relating to the economic competitiveness and financial risks associated with construction and operation. At present, the tool supports evaluation of the potential for hybrid poplar based jet fuel and acetic acid production based on user-specified conditions. The application is generally expandable to other feedstock, technology, and product types. HP-BiSWA uses various modules (i.e. 3PG-crop growth model and farm budget application) and services (i.e. parcel service, transportation routing service, crop service, soil and weather services) to retrieve and estimate information to optimize and select potential parcels for poplar cultivation, and ultimately determine net revenue for biofuel production under selected decision options.To demonstrate the utility of HP-BiSWA, a case study analysis was performed for Centralia, WA based on a 380 ML/yr (100 MGY) jet fuel biorefinery using two scenarios: (1) a 175 km feedstock supply radius with 50% pastureland use, and (2) a 225 km feedstock supply radius with 25% pastureland use. The case study captures the interactive effects on biorefinery performance with changes in feedstock supply area and available water, power, and other resources for operation of the biorefinery."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "95993",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/95993"
+                          }
+                        },
+                        "api:last-name": "Merz",
+                        "api:initials": "J",
+                        "api:first-names": "Justin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Justin"
+                        },
+                        "api:email-address": "jrmerz@ucdavis.edu",
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "orcid",
+                            "$t": "0000-0003-1690-8112"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Bryan M. Jenkins",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Nathan Parker",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Quinn Hart",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Varaprasad Bandaru",
+                        "api:initials": {}
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "c-eschol-id",
+                  "type": "text",
+                  "display-name": "eScholarship identifier",
+                  "api:text": "ark:/13030/qt1591c5d8"
+                },
+                {
+                  "name": "collections",
+                  "type": "list",
+                  "display-name": "Collections",
+                  "api:items": {
+                    "api:item": [
+                      "UC Davis: UC Davis Previously Published Works",
+                      "Research Grants Program Office (RGPO): Recent Work"
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.compag.2018.09.042",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.compag.2018.09.042"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.compag.2018.09.042"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "keywords",
+                  "type": "keyword-list",
+                  "display-name": "Keywords",
+                  "api:keywords": {
+                    "api:keyword": [
+                      "Agricultural Land Management",
+                      "Agricultural and Veterinary Sciences",
+                      "Information and Computing Sciences",
+                      "Engineering",
+                      "Agronomy & Agriculture"
+                    ]
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "12",
+                    "api:year": "2018"
+                  }
+                },
+                {
+                  "name": "public-url",
+                  "type": "text",
+                  "display-name": "Public URL",
+                  "api:text": "https://escholarship.org/uc/item/1591c5d8"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "5",
+                    "api:month": "3",
+                    "api:year": "2021"
+                  }
+                },
+                {
+                  "name": "record-made-public-at-source-date",
+                  "type": "date",
+                  "display-name": "Record made publicly available",
+                  "api:date": {
+                    "api:day": "5",
+                    "api:month": "3",
+                    "api:year": "2021"
+                  }
+                },
+                {
+                  "name": "repository-status",
+                  "type": "text",
+                  "display-name": "Availability",
+                  "api:text": "Public"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries"
+                }
+              ],
+              "api:files": {
+                "api:file": {
+                  "proprietary-id": "qt1591c5d8/content/HP-BiSAW.pdf",
+                  "api:filename": "HP-BiSAW.pdf",
+                  "api:file-url": "https://submit.escholarship.org/dspace-preview/qt1591c5d8/content/HP-BiSAW.pdf?key=plaq03yct4suhw8m81xvrd2p6ff3qoi",
+                  "api:extension": "pdf",
+                  "api:file-size": "910675",
+                  "api:mime-type": "application/pdf",
+                  "api:description": "File",
+                  "api:embargo-description": "PUBLISHED"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "api:fields": {
+        "api:field": {
+          "name": "labels",
+          "type": "keyword-list",
+          "display-name": "labels",
+          "api:keywords": {
+            "api:keyword": {
+              "scheme": "for",
+              "$t": "070101 Agricultural Land Management"
+            }
+          }
+        }
+      },
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Agricultural Land Management"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Agricultural and Veterinary Sciences"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Information and Computing Sciences"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Engineering"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Agronomy & Agriculture"
+            },
+            {
+              "scheme": "for",
+              "origin": "object-data",
+              "$t": "070101 Agricultural Land Management"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "07 Agricultural and Veterinary Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "08 Information and Computing Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "09 Engineering"
+            },
+            {
+              "scheme": "science-metrix",
+              "origin": "issn-inferred",
+              "$t": "Agronomy & Agriculture"
+            }
+          ]
+        }
+      },
+      "api:journal": {
+        "issn": "0168-1699",
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1721953",
+        "api:records": {
+          "api:record": [
+            {
+              "source-name": "era-2015",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "science-metrix",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "era-2010",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "snip",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "era-2012",
+              "api:title": "Computers and Electronics in Agriculture"
+            },
+            {
+              "source-name": "era-2018",
+              "api:title": "Computers and Electronics in Agriculture"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2364120/relationships"
+      }
+    }
+  ]
+}

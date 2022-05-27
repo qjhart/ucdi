@@ -1,7 +1,7 @@
 ARG VERSION
 ARG SRC
 
-FROM ${SRC}/jena-fuseki-hdt:${VERSION}
+FROM ${SRC}/rp-ucd-harvest:${VERSION}
 
 # JENA_VERSION, FUSEKI_HOME,FUSEKI_BASE, FUSEKI_JAR  all specified in jena-fuseki-hdt
 
@@ -30,18 +30,8 @@ COPY ucdid /usr/local/bin
 #COPY aeq /aeq/
 #RUN make --directory=/aeq prefix=/usr/local install && rm -rf /aeq
 
-# Add our specific fuseki setup
-COPY ./fuseki $FUSEKI_BASE/
-
-# Add in our FoR data
-COPY hdt /var/lib/fuseki/hdt/
-
-
-# Test the install and configuration by testing it's ping resource. 20s? sleep for cloud builds? TBD
-RUN  $FUSEKI_HOME/fuseki-server-hdt & \
-     sleep 2 && \
-     curl -sS --fail 'http://localhost:3030/$/ping'
-
+# Add our makefile
+COPY harvest /usr/local/lib/harvest/
 
 # Our entrypoint calls the generic VIVO one
 COPY rp-ucd-harvest-person-entrypoint.sh /

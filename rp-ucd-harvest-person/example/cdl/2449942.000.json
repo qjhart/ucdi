@@ -1,0 +1,215 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "2449942",
+      "last-affected-when": "2021-11-23T09:58:14.643-08:00",
+      "last-modified-when": "2021-06-25T01:17:28.81-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2449942",
+      "created-when": "2018-12-16T01:07:01.36-08:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2014-07-10",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": {
+          "format": "native",
+          "id": "6662904",
+          "source-id": "24",
+          "source-name": "dspace",
+          "source-display-name": "eScholarship",
+          "id-at-source": "qt1cc1p27b",
+          "api:native": {
+            "api:field": [
+              {
+                "name": "abstract",
+                "type": "text",
+                "display-name": "Abstract",
+                "api:text": "Short rotation woody crops (SRWC) such as hybrid poplar are potential feedstocks for cellulosic derived biofuels. The ability to accurately predict the growth and biomass yields of SRWC under various environmental conditions is important for predicting economic performance and overall sustainability of the biofuel production system.  Tree coppicing is often used in the management of SRWC plantations. Modeling the response of the SRWC to the coppice cycle is a requirement in long term predictions of stand productivity. The objective of this study was to develop a model of poplar growth to evaluate feedstock supply potentials under different production conditions including coppicing.  This was accomplished by modifying thePhysiological Principles in Predicting Growth (3PG) model originally developedby Landsberg et al. (1997) to include a simple root interaction system to simulate the sprouting and regrowth of coppiced trees. The modified model,3PG-AHB, was tested against published information from three previous hybrid poplar field studies employing coppicing.  Soil and weather inputs were parameterized to be as close to the growing conditions as possible for the field trials.  The model parameterized with generic poplar derived values generally predicted crop yield under coppicing to within the variations among different species field tested.  The model's predictions were weakest in the first year after coppicing events, improving thereafter. The model has been used as part of a geospatial assessment of regional biomass production for the Pacific Northwest and as an online tool SRWC feedstock estimation."
+              },
+              {
+                "name": "authors",
+                "type": "person-list",
+                "display-name": "Authors",
+                "api:people": {
+                  "api:person": {
+                    "api:links": {
+                      "api:link": {
+                        "type": "elements/user",
+                        "id": "42956",
+                        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                      }
+                    },
+                    "api:last-name": "Hart",
+                    "api:initials": "QJ",
+                    "api:first-names": "Quinn James",
+                    "api:separate-first-names": {
+                      "api:first-name": [
+                        "Quinn",
+                        "James"
+                      ]
+                    },
+                    "api:addresses": {
+                      "api:address": {
+                        "api:line": {
+                          "type": "organisation",
+                          "$t": "UC Davis"
+                        },
+                        "api:grid": {
+                          "id": "grid.27860.3b",
+                          "href": "https://grid.ac/institutes/grid.27860.3b",
+                          "latitude": "38.54000",
+                          "longitude": "-121.75000"
+                        }
+                      }
+                    },
+                    "api:email-address": "qjhart@ucdavis.edu"
+                  }
+                }
+              },
+              {
+                "name": "c-eschol-id",
+                "type": "text",
+                "display-name": "eScholarship identifier",
+                "api:text": "ark:/13030/qt1cc1p27b"
+              },
+              {
+                "name": "collections",
+                "type": "list",
+                "display-name": "Collections",
+                "api:items": {
+                  "api:item": "UC Davis Institute of Transportation Studies: Working Papers"
+                }
+              },
+              {
+                "name": "keywords",
+                "type": "keyword-list",
+                "display-name": "Keywords",
+                "api:keywords": {
+                  "api:keyword": [
+                    "poplar",
+                    "biofuels",
+                    "Pacific Northwest",
+                    "Short rotation Woody Crops"
+                  ]
+                }
+              },
+              {
+                "name": "publication-date",
+                "type": "date",
+                "display-name": "Publication date",
+                "api:date": {
+                  "api:day": "10",
+                  "api:month": "7",
+                  "api:year": "2014"
+                }
+              },
+              {
+                "name": "public-url",
+                "type": "text",
+                "display-name": "Public URL",
+                "api:text": "https://escholarship.org/uc/item/1cc1p27b"
+              },
+              {
+                "name": "record-created-at-source-date",
+                "type": "date",
+                "display-name": "Record created at source",
+                "api:date": {
+                  "api:day": "10",
+                  "api:month": "7",
+                  "api:year": "2014"
+                }
+              },
+              {
+                "name": "record-made-public-at-source-date",
+                "type": "date",
+                "display-name": "Record made publicly available",
+                "api:date": {
+                  "api:day": "10",
+                  "api:month": "7",
+                  "api:year": "2014"
+                }
+              },
+              {
+                "name": "repository-status",
+                "type": "text",
+                "display-name": "Availability",
+                "api:text": "Public"
+              },
+              {
+                "name": "title",
+                "type": "text",
+                "display-name": "Title",
+                "api:text": "Modeling Poplar Growth as a Short Rotation Woody Crop for Biofuels"
+              }
+            ],
+            "api:files": {
+              "api:file": {
+                "proprietary-id": "qt1cc1p27b/content/hart12poplar-coppice.pdf",
+                "api:filename": "hart12poplar-coppice.pdf",
+                "api:file-url": "https://submit.escholarship.org/dspace-preview/qt1cc1p27b/content/hart12poplar-coppice.pdf?key=5zww9m6p9y5swtp94yes6uty79camq5",
+                "api:extension": "pdf",
+                "api:file-size": "484408",
+                "api:mime-type": "application/pdf",
+                "api:description": "File",
+                "api:embargo-description": "PUBLISHED"
+              }
+            }
+          }
+        }
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "poplar"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "biofuels"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Pacific Northwest"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Short rotation Woody Crops"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2449942/relationships"
+      }
+    }
+  ]
+}

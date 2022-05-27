@@ -1,0 +1,206 @@
+* Grants
+
+This specialized container is meant to create grant information for the Aggie
+Experts program.  It does this by querying the campus FIS database for all
+grants.  Under normal operation this tool will update the grants database in
+google cloud storage.  This requires a token to write to the cloud storage, and
+also a token to access the FIS database.
+
+Creating this data requires creation of a number of intermediate datafiles, and
+the image expects a VOLUME mounted at /home/ucd.process.  If this volume doesn't
+exist then it will be created.  This location can also be used to share the
+secrets needed to run the system as well.
+
+A normal way of running this then might be:
+
+#+begin_src bash
+  docker run  --interactive --tty \
+         -e FIS_JSON="${FIS_JSON}" \
+         -e LOCAL_USER_ID=$(id -u) \
+         -e UCDID_AUTH=${UCDID_AUTH} \
+         -e CDL_AUTH=${CDL_AUTH} \
+         -e PERSONS="${PERSONS}" \
+         --rm \
+         --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example,target=/home/ucd.process  \
+         -p 3030:3030 local-dev/rp-ucd-harvest-grants:main FIS_LOGIN grants.json.gz grants.hdt
+#+end_src
+
+Alternatively, we could expect that we are using all HDT files to start up the
+app, and we are not saving any data once we are finished.  In that setup, we are
+letting the image make the volume, and then bind a volume containing the
+directory of hdt files that we want to use.
+
+#+begin_src bash
+  docker run  --interactive --tty \
+         -e FIS_JSON="${FIS_JSON}" \
+         -e LOCAL_USER_ID=$(id -u) \
+         -e UCDID_AUTH=${UCDID_AUTH} \
+         --rm \
+         --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example/databases/hdt,target=/home/ucd.process/databases/hdt  \
+         -p 3030:3030 local-dev/rp-ucd-harvest-grants:main
+#+end_src
+
+The following ENVIRONMENTAL VARIABLES are used in this setup
+
+- FIS_JSON = The FIS Connection information.
+- UCDID_AUTH = The UCD IAM connection authorization
+
+
+** Using a different workspace
+
+  Some care is taken to allow
+
+#+begin_src bash
+  docker run  --interactive --tty \
+         -e FIS_JSON="${FIS_JSON}" \
+         -e LOCAL_USER_ID=$(id -u) \
+         -e UCDID_AUTH=${UCDID_AUTH} \
+         --rm \
+         --mount type=bind,source=/home/quinn/ucdi/rp-ucd-harvest-grants/example,target=/home/ucd.process  \
+         -p 3030:3030 local-dev/rp-ucd-harvest-grants:main server
+#+end_src
+
+
+** Per-Interaction Standards
+
+   The normal expected method for interaction is to use the ~experts~ database,
+   in addition, ephemeral data is typically added to the default graph.
+
+
+
+** Debugging the data
+:PROPERTIES:
+:header-args:sparql: :url http://localhost:3030/grants/sparql
+:END:
+
+   Under normal operation, the commands used to create the grants database are
+  stand-alone, in that you they can be created without any external files.
+
+  However, there are times when you need to investigate the grants output data,
+  and also have access to some additional data for those investigations.  This
+  image allows one to start up a local fuseki database, so that queries to the
+  grants database can be executed on this dataset.  The image includes some
+  vocabularies for investigation, primarily information about user job titles.
+
+  However, if you are interested in activities for particular users, then you
+  may also need to add in more detailed IAM data.
+
+#+name: lob-ingest
+#+BEGIN_SRC elisp
+(org-babel-lob-ingest "/home/quinn/aeq/lib/prefixes.org");
+#+END_SRC
+
+#+begin_src sparql :notangle :noweb yes
+  PREFIX FoR: <http://experts.ucdavis.edu/concept/FoR/>
+  PREFIX aeq: <http://experts.ucdavis.edu/queries/schema#>
+  PREFIX afn: <http://jena.apache.org/ARQ/function#>
+  PREFIX authorship: <http://experts.ucdavis.edu/authorship/>
+  PREFIX bibo: <http://purl.org/ontology/bibo/>
+  PREFIX experts: <http://experts.ucdavis.edu/>
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  PREFIX free: <http://experts.ucdavis.edu/concept/free>
+  PREFIX grant: <http://experts.ucdavis.edu/grant/>
+  PREFIX harvest_iam: <http://iam.ucdavis.edu/>
+  PREFIX harvest_oap: <http://oapolicy.universityofcalifornia.edu/>
+  PREFIX iam: <http://iam.ucdavis.edu/schema#>
+  PREFIX oap: <http://oapolicy.universityofcalifornia.edu/vocab#>
+  PREFIX obo: <http://purl.obolibrary.org/obo/>
+  PREFIX person: <http://experts.ucdavis.edu/person/>
+  PREFIX private: <http://experts.ucdavis.edu/private/>
+  PREFIX purl: <http://purl.org/ontology/bibo/>
+  PREFIX q: <http://experts.ucdavis.edu/queries/>
+  PREFIX query: <http://experts.ucdavis.edu/schema/queries/>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX ucdrp: <http://experts.ucdavis.edu/schema#>
+  PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+  PREFIX vivo: <http://vivoweb.org/ontology/core#>
+  PREFIX work: <http://experts.ucdavis.edu/work/>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+  PREFIX position: <http://experts.ucdavis.edu/position/>
+
+  select ?grant_num ?title ?pi_cas ?cas ?positions ?broader_labels
+  ?grant_types ?pi_labels ?pi_positions ?role_names
+  where {
+    {
+      select ?user ?cas
+      (group_concat(DISTINCT ?position_label; separator="|") as ?positions)
+      (GROUP_CONCAT(DISTINCT ?broader_label ; separator="|") as ?broader_labels)
+      WHERE {
+        graph <http://experts.ucdavis.edu/ucop/> {
+          VALUES (?broader ?broader_label) { (position:Senate "SEN") (position:Federation "FED") }
+          ?academic_position a ucdrp:position;
+                             rdfs:label ?position_label;
+                             skos:broader ?broader;
+                             .
+        }
+        graph <http://iam.ucdavis.edu/> {
+          ?user a ucdrp:person;
+                ucdrp:casId ?cas;
+                obo:ARG_2000028 ?pps_senate_or_federation;
+                .
+
+          ?pps_senate_or_federation vcard:hasTitle/ucdrp:titleCode ?title_code;
+                                    .
+          bind(uri(concat(str(position:),?title_code)) as ?academic_position)
+        }
+      } group by ?user ?cas
+    }
+
+    { select ?grant_num ?title ?pi_cas ?user
+      (GROUP_CONCAT(DISTINCT ?grant_type_label ; separator="|") as ?grant_types)
+      (GROUP_CONCAT(DISTINCT ?pi_label ; separator="|") as ?pi_labels)
+      (GROUP_CONCAT(DISTINCT ?pi_title ; separator="|") as ?pi_positions)
+      (GROUP_CONCAT(DISTINCT ?role_name ; separator="|") as ?role_names)
+      WHERE {
+        graph <http://experts.ucdavis.edu/fis/> {
+          ?grant a vivo:Grant;
+                 rdfs:label ?title;
+                 vivo:relates ?pi_role;
+                 vivo:relates ?role;
+                 ucdrp:grantType ?grant_type;
+                 .
+
+          ?pi_role a vivo:PrincipalInvestigatorRole;
+                   obo:RO_000052 ?pi;
+                   .
+
+          ?pi rdfs:label ?pi_label;
+              ucdrp:casId ?pi_cas;
+              .
+
+          OPTIONAL {
+            graph <http://iam.ucdavis.edu/> {
+              ?pi a ucdrp:person;
+                  obo:ARG_2000028/vcard:hasTitle/vcard:title ?pi_title;
+                  .
+            }
+          }
+
+          bind(ucdrp:GrantKeyPersonnelRole as ?role_type)
+          ?role a ?role_type;
+                obo:RO_000052 ?user;
+                .
+          ?role_type rdfs:label ?role_name.
+        }
+        bind(replace(str(?grant_type),str(ucdrp:GrantType),"") as ?grant_type_label)
+        bind(replace(str(?grant),str(grant:),"") as ?grant_num)
+        filter(?pi != ?user)
+        filter(regex(str(?role_type),str(ucdrp:)))
+      } group by ?grant_num ?title ?pi_cas ?user
+    }
+  }
+#+end_src
+
+#+RESULTS:
+| HTTP/1.1 400 Bad Request                                  |                          |          |
+|-----------------------------------------------------------+--------------------------+----------|
+| Date: Fri                                                 | 29 Apr 2022 19:39:53 GMT |          |
+| Fuseki-Request-Id: 22                                     |                          |          |
+| Content-Type: text/plain;charset=utf-8                    |                          |          |
+| Cache-Control: must-revalidate                            | no-cache                 | no-store |
+| Pragma: no-cache                                          |                          |          |
+| Content-Length: 69                                        |                          |          |
+|                                                           |                          |          |
+| Parse error: Encountered " "select" "select "" at line 61 | column 3.                |          |

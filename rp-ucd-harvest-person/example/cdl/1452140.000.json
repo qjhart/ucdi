@@ -1,0 +1,2091 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "1452140",
+      "last-affected-when": "2022-05-20T12:01:52.277-07:00",
+      "last-modified-when": "2022-05-20T12:01:52.277-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1452140",
+      "created-when": "2015-12-20T00:24:47.137-08:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2015-07-01",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "7407192",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-84943636664",
+            "api:citation-count": "12",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Biofuels are expected to play a major role in meeting California's long-term energy needs, but many factors influence the commercial viability of the various feedstock and production technology options. We developed a spatially explicit analytic framework that integrates models of plant growth, crop adoption, feedstock location, transportation logistics, economic impact, biorefinery costs and biorefinery energy use and emissions. We used this framework to assess the economic potential of hybrid poplar as a feedstock for jet fuel production in Northern California. Results suggest that the region has sufficient suitable croplands (2.3 million acres) and nonarable lands (1.5 million acres) for poplar cultivation to produce as much as 2.26 billion gallons of jet fuel annually. However, there are major obstacles to such large-scale production, including, on nonarable lands, low poplar yields and broad spatial distribution and, on croplands, competition with existing crops. We estimated the production cost of jet fuel to be $4.40 to $5.40 per gallon for poplar biomass grown on nonarable lands and $3.60 to $4.50 per gallon for biomass grown on irrigated cropland; the current market price is $2.12 per gallon. Improved poplar yields, use of supplementary feedstocks at the biorefinery and economic supports such as carbon credits could help to overcome these barriers."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "V",
+                        "api:separate-first-names": {
+                          "api:first-name": "V"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "14051672300"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "NC",
+                        "api:first-names": "NC",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "N",
+                            "C"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "24598096400"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Q",
+                        "api:separate-first-names": {
+                          "api:first-name": "Q"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Jenner",
+                        "api:initials": "M",
+                        "api:first-names": "M",
+                        "api:separate-first-names": {
+                          "api:first-name": "M"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56896949200"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Yeo",
+                        "api:initials": "BL",
+                        "api:first-names": "BL",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "B",
+                            "L"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56840216000"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Crawford",
+                        "api:initials": "JT",
+                        "api:first-names": "JT",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "J",
+                            "T"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of Washington"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Seattle"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.34477.33",
+                              "href": "https://grid.ac/institutes/grid.34477.33",
+                              "latitude": "47.65554",
+                              "longitude": "-122.30353"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56814211800"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Li",
+                        "api:initials": "Y",
+                        "api:first-names": "Y",
+                        "api:separate-first-names": {
+                          "api:first-name": "Y"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "57211569655"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "PW",
+                        "api:first-names": "PW",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "P",
+                            "W"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Berkeley"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Berkeley"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.47840.3f",
+                              "href": "https://grid.ac/institutes/grid.47840.3f",
+                              "latitude": "37.87216",
+                              "longitude": "-122.25857"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56897045100"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Rogers",
+                        "api:initials": "L",
+                        "api:first-names": "L",
+                        "api:separate-first-names": {
+                          "api:first-name": "L"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of Washington"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Seattle"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.34477.33",
+                              "href": "https://grid.ac/institutes/grid.34477.33",
+                              "latitude": "47.65554",
+                              "longitude": "-122.30353"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7402427237"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Kaffka",
+                        "api:initials": "SR",
+                        "api:first-names": "SR",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "S",
+                            "R"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6603285025"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "BM",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "B",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7102927027"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.3733/ca.v069n03p171",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.3733/ca.v069n03p171"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.3733/ca.v069n03p171"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0008-0845",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "3"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "California Agriculture"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "171",
+                    "api:end-page": "176"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "7",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Economic sustainability modeling provides decision support for assessing hybrid poplar-based biofuel development in California"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": [
+                      "Review",
+                      "Journal"
+                    ]
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "69"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "3927530",
+            "source-id": "11",
+            "source-name": "wos-lite",
+            "source-display-name": "Web of Science (Lite)",
+            "id-at-source": "WOS:000364527900011",
+            "api:citation-count": "13",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "NC",
+                        "api:first-names": "Nathan C",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Nathan",
+                            "C"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:last-name": "Jenner",
+                        "api:initials": "M",
+                        "api:first-names": "Mark",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mark"
+                        }
+                      },
+                      {
+                        "api:last-name": "Yeo",
+                        "api:initials": "B-L",
+                        "api:first-names": "Boon-Ling",
+                        "api:separate-first-names": {
+                          "api:first-name": "Boon-Ling"
+                        }
+                      },
+                      {
+                        "api:last-name": "Crawford",
+                        "api:initials": "JT",
+                        "api:first-names": "Jordan T",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jordan",
+                            "T"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Li",
+                        "api:initials": "Y",
+                        "api:first-names": "Yuanzhe",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yuanzhe"
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "PW",
+                        "api:first-names": "Peter W",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Peter",
+                            "W"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Rogers",
+                        "api:initials": "L",
+                        "api:first-names": "Luke",
+                        "api:separate-first-names": {
+                          "api:first-name": "Luke"
+                        }
+                      },
+                      {
+                        "api:last-name": "Kaffka",
+                        "api:initials": "SR",
+                        "api:first-names": "Stephen R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Stephen",
+                            "R"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "author-url",
+                  "type": "text",
+                  "display-name": "Author URL",
+                  "api:text": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=PARTNER_APP&SrcAuth=LinksAMR&KeyUT=WOS:000364527900011&DestLinkType=FullRecord&DestApp=ALL_WOS&UsrCustomerID=039f08444e522f04b0c74ec005e57dc4"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.3733/ca.v069n03p171",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.3733/ca.v069n03p171"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.3733/ca.v069n03p171"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "2160-8091",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157"
+                    }
+                  }
+                },
+                {
+                  "name": "external-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "External identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "isidoc",
+                      "$t": "CV8IU"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0008-0845",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "3"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "CALIFORNIA AGRICULTURE"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "171",
+                    "api:end-page": "176"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Economic sustainability modeling provides decision support for assessing hybrid poplar-based biofuel development in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "69"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "4246849",
+            "source-id": "13",
+            "source-name": "crossref",
+            "source-display-name": "Crossref",
+            "id-at-source": "10.3733/ca.v069n03p171",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "NC",
+                        "api:first-names": "Nathan C",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Nathan",
+                            "C"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:last-name": "Jenner",
+                        "api:initials": "M",
+                        "api:first-names": "Mark",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mark"
+                        }
+                      },
+                      {
+                        "api:last-name": "Yeo",
+                        "api:initials": "B-L",
+                        "api:first-names": "Boon-Ling",
+                        "api:separate-first-names": {
+                          "api:first-name": "Boon-Ling"
+                        }
+                      },
+                      {
+                        "api:last-name": "Crawford",
+                        "api:initials": "JT",
+                        "api:first-names": "Jordan T",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jordan",
+                            "T"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Li",
+                        "api:initials": "Y",
+                        "api:first-names": "Yuanzhe",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yuanzhe"
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "PW",
+                        "api:first-names": "Peter W",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Peter",
+                            "W"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Rogers",
+                        "api:initials": "L",
+                        "api:first-names": "Luke",
+                        "api:separate-first-names": {
+                          "api:first-name": "Luke"
+                        }
+                      },
+                      {
+                        "api:last-name": "Kaffka",
+                        "api:initials": "SR",
+                        "api:first-names": "Stephen R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Stephen",
+                            "R"
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.3733/ca.v069n03p171",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.3733/ca.v069n03p171"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.3733/ca.v069n03p171"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0008-0845",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "3"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "California Agriculture"
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "en"
+                },
+                {
+                  "name": "online-publication-date",
+                  "type": "date",
+                  "display-name": "Online publication date",
+                  "api:date": {
+                    "api:month": "7",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "171",
+                    "api:end-page": "176"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "7",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "publisher",
+                  "type": "text",
+                  "display-name": "Publisher",
+                  "api:text": "University of California Agriculture and Natural Resources (UC ANR)"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "16",
+                    "api:month": "10",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Economic sustainability modeling provides decision support for assessing hybrid poplar-based biofuel development in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "69"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "9186756",
+            "source-id": "10",
+            "source-name": "dimensions",
+            "source-display-name": "Dimensions",
+            "id-at-source": "pub.1071354844",
+            "api:citation-count": "12",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.014361542662.33"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "NC",
+                        "api:first-names": "Nathan C",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Nathan",
+                            "C"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.013205100434.69"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015323550434.14"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Jenner",
+                        "api:initials": "M",
+                        "api:first-names": "Mark",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mark"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.011260474352.44"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Yeo",
+                        "api:initials": "B-L",
+                        "api:first-names": "Boon-Ling",
+                        "api:separate-first-names": {
+                          "api:first-name": "Boon-Ling"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.012045406427.75"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Crawford",
+                        "api:initials": "JT",
+                        "api:first-names": "Jordan T",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jordan",
+                            "T"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Li",
+                        "api:initials": "Y",
+                        "api:first-names": "Yuanzhe",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yuanzhe"
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.010367561157.24"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "PW",
+                        "api:first-names": "Peter W",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Peter",
+                            "W"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.011535123747.36"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Rogers",
+                        "api:initials": "L",
+                        "api:first-names": "Luke",
+                        "api:separate-first-names": {
+                          "api:first-name": "Luke"
+                        }
+                      },
+                      {
+                        "api:last-name": "Kaffka",
+                        "api:initials": "SR",
+                        "api:first-names": "Stephen R",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Stephen",
+                            "R"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.0663444321.74"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.0741703046.48"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.3733/ca.v069n03p171",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.3733/ca.v069n03p171"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.3733/ca.v069n03p171"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0008-0845",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "3"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "California Agriculture"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "171",
+                    "api:end-page": "176"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "7",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "31",
+                    "api:month": "8",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Economic sustainability modeling provides decision support for assessing hybrid poplar-based biofuel development in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "69"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "4176825",
+            "source-id": "2147483646",
+            "source-name": "c-inst-1",
+            "source-display-name": "Local Source 1",
+            "id-at-source": "ark:/13030/p8901zk1j",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "V",
+                        "api:separate-first-names": {
+                          "api:first-name": "V"
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "N",
+                        "api:first-names": "N",
+                        "api:separate-first-names": {
+                          "api:first-name": "N"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Q",
+                        "api:separate-first-names": {
+                          "api:first-name": "Q"
+                        }
+                      },
+                      {
+                        "api:last-name": "Jenner",
+                        "api:initials": "M",
+                        "api:first-names": "M",
+                        "api:separate-first-names": {
+                          "api:first-name": "M"
+                        }
+                      },
+                      {
+                        "api:last-name": "Yeo",
+                        "api:initials": "B",
+                        "api:first-names": "B",
+                        "api:separate-first-names": {
+                          "api:first-name": "B"
+                        }
+                      },
+                      {
+                        "api:last-name": "Crawford",
+                        "api:initials": "J",
+                        "api:first-names": "J",
+                        "api:separate-first-names": {
+                          "api:first-name": "J"
+                        }
+                      },
+                      {
+                        "api:last-name": "Li",
+                        "api:initials": "Y",
+                        "api:first-names": "Y",
+                        "api:separate-first-names": {
+                          "api:first-name": "Y"
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "P",
+                        "api:first-names": "P",
+                        "api:separate-first-names": {
+                          "api:first-name": "P"
+                        }
+                      },
+                      {
+                        "api:last-name": "Rogers",
+                        "api:initials": "L",
+                        "api:first-names": "L",
+                        "api:separate-first-names": {
+                          "api:first-name": "L"
+                        }
+                      },
+                      {
+                        "api:last-name": "Kaffka",
+                        "api:initials": "S",
+                        "api:first-names": "S",
+                        "api:separate-first-names": {
+                          "api:first-name": "S"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "B",
+                        "api:first-names": "B",
+                        "api:separate-first-names": {
+                          "api:first-name": "B"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "c-eschol-id",
+                  "type": "text",
+                  "display-name": "eScholarship identifier",
+                  "api:text": "ark:/13030/qt4qb3m3p2"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.3733/ca.v069n03p171",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.3733/ca.v069n03p171"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.3733/ca.v069n03p171"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "3"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "California Agriculture"
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "1",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Economic sustainability modeling provides decision support for assessing hybrid poplar-based biofuel development in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "69"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "6640884",
+            "source-id": "24",
+            "source-name": "dspace",
+            "source-display-name": "eScholarship",
+            "id-at-source": "qt4qb3m3p2",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Biofuels are expected to play a major role in meeting California's long-term energy needs, but many factors influence the commercial viability of the various feedstock and production technology options. We developed a spatially explicit analytic framework that integrates models of plant growth, crop adoption, feedstock location, transportation logistics, economic impact, biorefinery costs and biorefinery energy use and emissions. We used this framework to assess the economic potential of hybrid poplar as a feedstock for jet fuel production in Northern California. Results suggest that the region has sufficient suitable croplands (2.3 million acres) and nonarable lands (1.5 million acres) for poplar cultivation to produce as much as 2.26 billion gallons of jet fuel annually. However, there are major obstacles to such large-scale production, including, on nonarable lands, low poplar yields and broad spatial distribution and, on croplands, competition with existing crops. We estimated the production cost of jet fuel to be $4.40 to $5.40 per gallon for poplar biomass grown on nonarable lands and $3.60 to $4.50 per gallon for biomass grown on irrigated cropland; the current market price is $2.12 per gallon. Improved poplar yields, use of supplementary feedstocks at the biorefinery and economic supports such as carbon credits could help to overcome these barriers."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Parker",
+                        "api:initials": "NC",
+                        "api:first-names": "Nathan C",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Nathan",
+                            "C"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Jenner",
+                        "api:initials": "M",
+                        "api:first-names": "Mark",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mark"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Yeo",
+                        "api:initials": "B-L",
+                        "api:first-names": "Boon-Ling",
+                        "api:separate-first-names": {
+                          "api:first-name": "Boon-Ling"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Crawford",
+                        "api:initials": "JT",
+                        "api:first-names": "Jordan T",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Jordan",
+                            "T"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "University of Washington"
+                            },
+                            "api:grid": {
+                              "id": "grid.34477.33",
+                              "href": "https://grid.ac/institutes/grid.34477.33",
+                              "latitude": "47.65554",
+                              "longitude": "-122.30353"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Li",
+                        "api:initials": "Y",
+                        "api:first-names": "Yuanzhe",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yuanzhe"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "P",
+                        "api:first-names": "Peter",
+                        "api:separate-first-names": {
+                          "api:first-name": "Peter"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Berkeley"
+                            },
+                            "api:grid": {
+                              "id": "grid.47840.3f",
+                              "href": "https://grid.ac/institutes/grid.47840.3f",
+                              "latitude": "37.87216",
+                              "longitude": "-122.25857"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Rogers",
+                        "api:initials": "L",
+                        "api:first-names": "Luke",
+                        "api:separate-first-names": {
+                          "api:first-name": "Luke"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "University of Washington"
+                            },
+                            "api:grid": {
+                              "id": "grid.34477.33",
+                              "href": "https://grid.ac/institutes/grid.34477.33",
+                              "latitude": "47.65554",
+                              "longitude": "-122.30353"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Kaffka",
+                        "api:initials": "S",
+                        "api:first-names": "Stephen",
+                        "api:separate-first-names": {
+                          "api:first-name": "Stephen"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "api:line": {
+                              "type": "organisation",
+                              "$t": "UC Davis"
+                            },
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "c-eschol-id",
+                  "type": "text",
+                  "display-name": "eScholarship identifier",
+                  "api:text": "ark:/13030/qt4qb3m3p2"
+                },
+                {
+                  "name": "collections",
+                  "type": "list",
+                  "display-name": "Collections",
+                  "api:items": {
+                    "api:item": "UC Agriculture & Natural Resources: California Agriculture"
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.3733/ca.v069n03p171",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.3733/ca.v069n03p171"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.3733/ca.v069n03p171"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0008-0845",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "3"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "California Agriculture"
+                },
+                {
+                  "name": "keywords",
+                  "type": "keyword-list",
+                  "display-name": "Keywords",
+                  "api:keywords": {
+                    "api:keyword": [
+                      "crop models",
+                      "farming systems",
+                      "forest economics",
+                      "geospatial science and technology",
+                      "Research"
+                    ]
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "1",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "public-url",
+                  "type": "text",
+                  "display-name": "Public URL",
+                  "api:text": "https://escholarship.org/uc/item/4qb3m3p2"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "23",
+                    "api:month": "10",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "record-made-public-at-source-date",
+                  "type": "date",
+                  "display-name": "Record made publicly available",
+                  "api:date": {
+                    "api:day": "23",
+                    "api:month": "10",
+                    "api:year": "2015"
+                  }
+                },
+                {
+                  "name": "repository-status",
+                  "type": "text",
+                  "display-name": "Availability",
+                  "api:text": "Public"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Economic sustainability modeling provides decision support for assessing hybrid poplar-based biofuel development in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "69"
+                }
+              ],
+              "api:files": {
+                "api:file": {
+                  "proprietary-id": "qt4qb3m3p2/content/qt4qb3m3p2.pdf",
+                  "api:filename": "qt4qb3m3p2.pdf",
+                  "api:file-url": "https://submit.escholarship.org/dspace-preview/qt4qb3m3p2/content/qt4qb3m3p2.pdf?key=8tpeo2l627g7wanr1yjjrjgkk2o8aob",
+                  "api:extension": "pdf",
+                  "api:file-size": "1186508",
+                  "api:mime-type": "application/pdf",
+                  "api:description": "File",
+                  "api:embargo-description": "PUBLISHED"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "crop models"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "farming systems"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "forest economics"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "geospatial science and technology"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Research"
+            },
+            {
+              "scheme": "science-metrix",
+              "origin": "issn-inferred",
+              "$t": "Agronomy & Agriculture"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "07 Agricultural and Veterinary Sciences"
+            }
+          ]
+        }
+      },
+      "api:journal": {
+        "issn": "0008-0845",
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1694157",
+        "api:records": {
+          "api:record": [
+            {
+              "source-name": "doaj",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "science-metrix",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "era-2010",
+              "api:title": "California Agriculture: peer-reviewed research in agricultural, natural and human resources"
+            },
+            {
+              "source-name": "snip",
+              "api:title": "California Agriculture"
+            },
+            {
+              "source-name": "era-2012",
+              "api:title": "California Agriculture: peer-reviewed research in agricultural, natural and human resources"
+            },
+            {
+              "source-name": "era-2018",
+              "api:title": "California Agriculture: peer-reviewed research in agricultural, natural and human resources"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1452140/relationships"
+      }
+    }
+  ]
+}

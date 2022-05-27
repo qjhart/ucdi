@@ -1,0 +1,207 @@
+{
+  "@graph" : [ {
+    "@id" : "authorship:1452104-1",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 1,
+    "relates" : [ "work:1452104", "authorship:1452104-1#vcard" ]
+  }, {
+    "@id" : "authorship:1452104-1#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1452104-1#vcard-name"
+  }, {
+    "@id" : "authorship:1452104-1#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Hart",
+    "givenName" : "QJ"
+  }, {
+    "@id" : "authorship:1452104-2",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 2,
+    "relates" : [ "work:1452104", "authorship:1452104-2#vcard" ]
+  }, {
+    "@id" : "authorship:1452104-2#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1452104-2#vcard-name"
+  }, {
+    "@id" : "authorship:1452104-2#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Tittmann",
+    "givenName" : "PW"
+  }, {
+    "@id" : "authorship:1452104-3",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 3,
+    "relates" : [ "work:1452104", "authorship:1452104-3#vcard" ]
+  }, {
+    "@id" : "authorship:1452104-3#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1452104-3#vcard-name"
+  }, {
+    "@id" : "authorship:1452104-3#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Bandaru",
+    "givenName" : "V"
+  }, {
+    "@id" : "authorship:1452104-4",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 4,
+    "relates" : [ "work:1452104", "authorship:1452104-4#vcard" ]
+  }, {
+    "@id" : "authorship:1452104-4#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1452104-4#vcard-name"
+  }, {
+    "@id" : "authorship:1452104-4#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Jenkins",
+    "givenName" : "BM"
+  }, {
+    "@id" : "venue:issn:0961-9534",
+    "@type" : [ "bibo:Journal", "ucdrp:venue" ],
+    "eissn" : "1873-2909",
+    "issn" : "0961-9534",
+    "publicationVenueFor" : "work:1452104",
+    "label" : "Biomass and Bioenergy"
+  }, {
+    "@id" : "work:1452104",
+    "@type" : "bibo:AcademicArticle",
+    "best_source" : "scopus",
+    "insertionDateTime" : "2022-05-27T15:45:08.510+00:00",
+    "lastModifiedDateTime" : "2022-05-20T12:01:52.277-07:00",
+    "pagination_source" : "scopus",
+    "abstract" : "© 2015 Elsevier Ltd. Predicting the economic viability and environmental sustainability of a biofuels industry based on intensively cultivated short rotation woody crops (SRWC) requires spatial predictions of growth and yield under various environmental conditions and across large regions. The Physiological Principles in Predicting Growth (3PG) model was modified to evaluate the growth and yield of coppiced poplar (Populus spp). This included an additional biomass partitioning method and developing a sub-model which takes into account the impact of coppicing on post harvest regeneration, extending the applicability of the 3PG model to coppice management regimes.The parameterized model was applied to the entire Pacific Northwest of the United States, using appropriate climate and soil input data. Results predict the yield of poplar cultivation at a spatial resolution of ≈64km<sup>2</sup> throughout the ≈8,000,000km<sup>2</sup> of the study region. Existing agricultural cultivation patterns were used to estimate regional water availability for irrigation, and for non-irrigated regions, land cover features including ownership, slope, soil salinity and water table depth where used to select areas with a real potential to support a SRWC plantation.Results can be integrated with other models that allow for optimizing crop selection and biorefinery site selection. Important results include; an updated 3PG model for coppiced SRWC plantings, estimates of biomass feedstock yields under different irrigation patterns and weather conditions, and estimates for feedstock availability when combined with crop adoption scenarios.",
+    "doi" : "10.1016/j.biombioe.2015.05.004",
+    "journal" : "Biomass and Bioenergy",
+    "pageEnd" : [ "27", "1388" ],
+    "pageStart" : [ "12", "1371" ],
+    "status" : [ "bibo:accepted", "bibo:published" ],
+    "dateTimeValue" : "this_graph:date",
+    "hasPublicationVenue" : "venue:issn:0961-9534",
+    "relatedBy" : [ "authorship:1452104-3", "authorship:1452104-4", "authorship:1452104-2", "authorship:1452104-1" ],
+    "label" : {
+      "@id" : "_:b0"
+    }
+  }, {
+    "@id" : "this_graph:date",
+    "@type" : "vivo:DateTimeValue",
+    "dateTime" : "2014-06-26T00:00:00",
+    "dateTimePrecision" : "vivo:yearMonthDayPrecision"
+  } ],
+  "@context" : {
+    "hasName" : {
+      "@id" : "http://www.w3.org/2006/vcard/ns#hasName",
+      "@type" : "@id"
+    },
+    "rank" : {
+      "@id" : "http://vivoweb.org/ontology/core#rank",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "relates" : {
+      "@id" : "http://vivoweb.org/ontology/core#relates",
+      "@type" : "@id"
+    },
+    "dateTime" : {
+      "@id" : "http://vivoweb.org/ontology/core#dateTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "dateTimePrecision" : {
+      "@id" : "http://vivoweb.org/ontology/core#dateTimePrecision",
+      "@type" : "@id"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "issn" : {
+      "@id" : "http://purl.org/ontology/bibo/issn"
+    },
+    "eissn" : {
+      "@id" : "http://purl.org/ontology/bibo/eissn"
+    },
+    "publicationVenueFor" : {
+      "@id" : "http://vivoweb.org/ontology/core#publicationVenueFor",
+      "@type" : "@id"
+    },
+    "lastModifiedDateTime" : {
+      "@id" : "http://experts.ucdavis.edu/schema#lastModifiedDateTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "pagination_source" : {
+      "@id" : "http://experts.ucdavis.edu/schema#pagination_source"
+    },
+    "dateTimeValue" : {
+      "@id" : "http://vivoweb.org/ontology/core#dateTimeValue",
+      "@type" : "@id"
+    },
+    "doi" : {
+      "@id" : "http://purl.org/ontology/bibo/doi"
+    },
+    "relatedBy" : {
+      "@id" : "http://vivoweb.org/ontology/core#relatedBy",
+      "@type" : "@id"
+    },
+    "abstract" : {
+      "@id" : "http://purl.org/ontology/bibo/abstract"
+    },
+    "best_source" : {
+      "@id" : "http://experts.ucdavis.edu/schema#best_source"
+    },
+    "pageStart" : {
+      "@id" : "http://purl.org/ontology/bibo/pageStart"
+    },
+    "pageEnd" : {
+      "@id" : "http://purl.org/ontology/bibo/pageEnd"
+    },
+    "journal" : {
+      "@id" : "http://purl.org/ontology/bibo/journal"
+    },
+    "insertionDateTime" : {
+      "@id" : "http://experts.ucdavis.edu/schema#insertionDateTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "status" : {
+      "@id" : "http://purl.org/ontology/bibo/status",
+      "@type" : "@id"
+    },
+    "hasPublicationVenue" : {
+      "@id" : "http://vivoweb.org/ontology/core#hasPublicationVenue",
+      "@type" : "@id"
+    },
+    "familyName" : {
+      "@id" : "http://www.w3.org/2006/vcard/ns#familyName"
+    },
+    "givenName" : {
+      "@id" : "http://www.w3.org/2006/vcard/ns#givenName"
+    },
+    "FoR" : "http://experts.ucdavis.edu/concept/FoR/",
+    "skos" : "http://www.w3.org/2004/02/skos/core#",
+    "api" : "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "vivo" : "http://vivoweb.org/ontology/core#",
+    "foaf" : "http://xmlns.com/foaf/0.1/",
+    "work" : "http://experts.ucdavis.edu/work/",
+    "query" : "http://experts.ucdavis.edu/schema/queries/",
+    "harvest_oap" : "http://oapolicy.universityofcalifornia.edu/",
+    "vcard" : "http://www.w3.org/2006/vcard/ns#",
+    "list" : "http://jena.apache.org/ARQ/list#",
+    "this_graph" : "http://experts.ucdavis.edu/work/1452104#",
+    "person" : "http://experts.ucdavis.edu/person/",
+    "venue" : "http://experts.ucdavis.edu/venue/",
+    "private" : "http://experts.ucdavis.edu/private/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "ucdrp" : "http://experts.ucdavis.edu/schema#",
+    "purl" : "http://purl.org/ontology/bibo/",
+    "aeq" : "http://experts.ucdavis.edu/queries/schema#",
+    "iam" : "http://iam.ucdavis.edu/schema#",
+    "authorship" : "http://experts.ucdavis.edu/authorship/",
+    "free" : "http://experts.ucdavis.edu/concept/free",
+    "harvest_iam" : "http://iam.ucdavis.edu/",
+    "oap" : "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "afn" : "http://jena.apache.org/ARQ/function#",
+    "q" : "http://experts.ucdavis.edu/queries/",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "bibo" : "http://purl.org/ontology/bibo/",
+    "grant" : "http://experts.ucdavis.edu/grant/",
+    "experts" : "http://experts.ucdavis.edu/",
+    "obo" : "http://purl.obolibrary.org/obo/"
+  }
+}

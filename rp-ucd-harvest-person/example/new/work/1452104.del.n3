@@ -1,0 +1,3 @@
+@prefix api:   <http://oapolicy.universityofcalifornia.edu/vocab#> .
+@prefix graph: <http://experts.ucdavis.edu/work/1452104/old/> .
+@prefix minus: <http://experts.ucdavis.edu/work/1452104#new> .

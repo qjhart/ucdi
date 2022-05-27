@@ -1,0 +1,7 @@
+select (uri(replace(str(this_graph:),'#$','')) as ?g) (md5(group_concat(?f; SEPARATOR="\n")) as ?md5) where {
+  select (concat(str(?s)," ",str(?p)," ",str(?o)) as ?f)  WHERE {
+    graph this_graph:new {
+      ?s ?p ?o.
+    }
+  } order by ?s ?p ?o
+}

@@ -1,0 +1,140 @@
+@prefix :      <#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tdb2:  <http://jena.apache.org/2016/tdb#> .
+@prefix ja:    <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fuseki: <http://jena.apache.org/fuseki#> .
+@prefix hdt:     <http://www.rdfhdt.org/fuseki#> .
+
+ja:DatasetTxnMem  rdfs:subClassOf  ja:RDFDataset .
+ja:MemoryDataset  rdfs:subClassOf  ja:RDFDataset .
+
+tdb2:GraphTDB2  rdfs:subClassOf  ja:Model .
+tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
+
+# There are some configurations that you might want to change, if for example
+# you like to run multiple experts setups on a single fuseki instance.
+# Otherwise the defaults will setup a normal instance.
+
+:experts fuseki:name "experts" .
+:tdb_experts tdb2:location  "${FUSEKI_BASE}/databases/experts" .
+
+
+# ARQ.queryTimeout; https://jena.apache.org/documentation/fuseki2/fuseki-configuration.html
+[] a fuseki:Server ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "60000,120000" ] ;
+    .
+
+:experts a fuseki:Service ;
+    fuseki:dataset :dataset_experts ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "sparql"
+        ];
+    fuseki:endpoint [
+        fuseki:operation fuseki:query ;
+        fuseki:name "query"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:update ;
+        fuseki:name "update"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-r ;
+        fuseki:name "get"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:gsp-rw ;
+        fuseki:name "data"
+        ] ;
+    fuseki:endpoint [
+        fuseki:operation fuseki:upload ;
+        fuseki:name "upload"
+        ] ;
+    .
+
+:FoR a hdt:HDTGraph;
+    rdfs:label "Fields of Research" ;
+    hdt:fileName "/var/lib/fuseki/hdt/FoR.hdt" ;
+    .
+
+:positions a hdt:HDTGraph;
+    rdfs:label "UC Path positions" ;
+    hdt:fileName "/var/lib/fuseki/hdt/positions.hdt" ;
+    .
+
+:iam  a hdt:HDTGraph ;
+    fuseki:name "iam" ;
+    rdfs:label "UC Faculty and staff info" ;
+    hdt:fileName "${FUSEKI_BASE}/databases/hdt/iam.hdt" ;
+    .
+
+:grants  a hdt:HDTGraph ;
+    fuseki:name "grants" ;
+    rdfs:label "UC Davis Grants info" ;
+    hdt:fileName "${FUSEKI_BASE}/databases/hdt/grants.hdt" ;
+    .
+
+
+:tdb_experts
+    a              tdb2:DatasetTDB2 ;
+    rdfs:label "Scratch Location" ;
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
+    .
+
+:mem_experts
+    a ja:MemoryModel ;
+    .
+
+# We use HDT files for these.  If we want access to the TDB files, I Need to think about the
+# best way to do that.  Maybe service would be best.
+
+# IET and OAPolicy data are grants to internal review
+# these are stored in the database below
+#:tdb_grants
+#    a              tdb2:DatasetTDB2 ;
+#    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
+#    .
+
+# These two graphs are used below
+#:graph_grants
+#    a tdb2:GraphTDB2;
+#    tdb2:dataset :tdb_grants;
+#    tdb2:location  "${FUSEKI_BASE}/databases/grants";
+#    tdb2:graphName <http://experts.ucdavis.edu/fis/> ;
+#    .
+
+
+# IET and OAPolicy data are grants to internal review
+# these are stored in the database below
+#:tdb_iam
+#    a              tdb2:DatasetTDB2 ;
+#    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "600000,3600000" ] ;
+#    .
+
+# These two graphs are used below
+#:graph_iam
+#    a tdb2:GraphTDB2;
+#    tdb2:dataset :tdb_iam;
+#    tdb2:location  "${FUSEKI_BASE}/databases/iam" .
+#    tdb2:graphName <http://experts.ucdavis.edu/private/iam/> ;
+#    .
+
+
+# Other graphs will go to a emphemeral memory database, (I think)
+:dataset_experts
+    a ja:RDFDataset ;
+    ja:defaultGraph :mem_experts ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/ucop/> ;
+        ja:graph :positions ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://iam.ucdavis.edu/> ;
+        ja:graph :iam ;
+        ] ;
+    ja:namedGraph [
+        ja:graphName <http://experts.ucdavis.edu/fis/> ;
+        ja:graph :grants ;
+        ] ;
+    .

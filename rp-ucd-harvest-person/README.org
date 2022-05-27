@@ -14,7 +14,7 @@
  The fuseki layout file identifies that we need remove the ${FUSEKI_BASE}/system
  and ${FUSEKI_BASE}/system_files to reset the server.
 
- Some good review of all of Jena's tools are found in this [[https://www.bobdc.com/blog/jenagems/][blog post]].
+Some good review of all of Jena's tools are found in this [[https://www.bobdc.com/blog/jenagems/][blog post]].
 
 ** Private database
 
@@ -42,7 +42,6 @@
 
    #+begin_src bash
      b=/home/quinn/ucdi/rp-ucd-harvest-person
-     i=
      docker run --interactive --tty --rm --workdir=/home/ucd.process/workdir \
             --mount type=bind,source=b,target=/home/ucd.process/workdir \
             local-dev/ucdi-rp-ucd-harvest-person:main bash

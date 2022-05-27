@@ -1,0 +1,342 @@
+{
+  "@graph" : [ {
+    "@id" : "authorship:1445886-1",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 1,
+    "relates" : [ "work:1445886", "authorship:1445886-1#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-1#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-1#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-1#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Orang",
+    "givenName" : "Morteza N"
+  }, {
+    "@id" : "authorship:1445886-2",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 2,
+    "relates" : [ "work:1445886", "authorship:1445886-2#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-2#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-2#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-2#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Snyder",
+    "givenName" : "Richard L"
+  }, {
+    "@id" : "authorship:1445886-3",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 3,
+    "relates" : [ "work:1445886", "authorship:1445886-3#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-3#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-3#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-3#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Shu",
+    "givenName" : "Geng"
+  }, {
+    "@id" : "authorship:1445886-4",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 4,
+    "relates" : [ "work:1445886", "authorship:1445886-4#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-4#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-4#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-4#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Hart",
+    "givenName" : "Quinn J"
+  }, {
+    "@id" : "authorship:1445886-5",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 5,
+    "relates" : [ "work:1445886", "authorship:1445886-5#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-5#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-5#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-5#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Sarreshteh",
+    "givenName" : "Sara"
+  }, {
+    "@id" : "authorship:1445886-6",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 6,
+    "relates" : [ "work:1445886", "authorship:1445886-6#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-6#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-6#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-6#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Falk",
+    "givenName" : "Matthias"
+  }, {
+    "@id" : "authorship:1445886-7",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 7,
+    "relates" : [ "work:1445886", "authorship:1445886-7#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-7#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-7#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-7#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Beaudette",
+    "givenName" : "Dylan"
+  }, {
+    "@id" : "authorship:1445886-8",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 8,
+    "relates" : [ "work:1445886", "authorship:1445886-8#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-8#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-8#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-8#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Hayes",
+    "givenName" : "Scott"
+  }, {
+    "@id" : "authorship:1445886-9",
+    "@type" : [ "vivo:Authorship", "ucdrp:authorship" ],
+    "vivo:rank" : 9,
+    "relates" : [ "work:1445886", "authorship:1445886-9#vcard" ]
+  }, {
+    "@id" : "authorship:1445886-9#vcard",
+    "@type" : "vcard:Individual",
+    "hasName" : "authorship:1445886-9#vcard-name"
+  }, {
+    "@id" : "authorship:1445886-9#vcard-name",
+    "@type" : "vcard:Name",
+    "familyName" : "Eching",
+    "givenName" : "Simon"
+  }, {
+    "@id" : "free:482df6b45f0303696bc4b4f8fae3ef61",
+    "@type" : [ "skos:Concept", "ucdrp:concept" ],
+    "scheme" : "freetext",
+    "subjectAreaOf" : "work:1445886",
+    "label" : "crop coefficient",
+    "inScheme" : "experts:concept/free",
+    "prefLabel" : "crop coefficient"
+  }, {
+    "@id" : "free:519a07d22a74a97ed69d395b958280c2",
+    "@type" : [ "skos:Concept", "ucdrp:concept" ],
+    "scheme" : "freetext",
+    "subjectAreaOf" : "work:1445886",
+    "label" : "water resource planning",
+    "inScheme" : "experts:concept/free",
+    "prefLabel" : "water resource planning"
+  }, {
+    "@id" : "free:587801e1d482a195b92728d11abd8ccc",
+    "@type" : [ "skos:Concept", "ucdrp:concept" ],
+    "scheme" : "freetext",
+    "subjectAreaOf" : "work:1445886",
+    "label" : "soil water balance",
+    "inScheme" : "experts:concept/free",
+    "prefLabel" : "soil water balance"
+  }, {
+    "@id" : "free:6eb3f309938a0dcd43108f775d04ab94",
+    "@type" : [ "skos:Concept", "ucdrp:concept" ],
+    "scheme" : "freetext",
+    "subjectAreaOf" : "work:1445886",
+    "label" : "crop water requirements",
+    "inScheme" : "experts:concept/free",
+    "prefLabel" : "crop water requirements"
+  }, {
+    "@id" : "free:f2e510ae0f202c256b198a64a0b321da",
+    "@type" : [ "skos:Concept", "ucdrp:concept" ],
+    "scheme" : "freetext",
+    "subjectAreaOf" : "work:1445886",
+    "label" : "energy use",
+    "inScheme" : "experts:concept/free",
+    "prefLabel" : "energy use"
+  }, {
+    "@id" : "free:f9b3c5b46f31eb4b3712aa562112b282",
+    "@type" : [ "skos:Concept", "ucdrp:concept" ],
+    "scheme" : "freetext",
+    "subjectAreaOf" : "work:1445886",
+    "label" : "weather generator",
+    "inScheme" : "experts:concept/free",
+    "prefLabel" : "weather generator"
+  }, {
+    "@id" : "venue:issn:1671-2927",
+    "@type" : [ "bibo:Journal", "ucdrp:venue" ],
+    "issn" : "1671-2927",
+    "publicationVenueFor" : "work:1445886",
+    "label" : "Journal of Integrative Agriculture"
+  }, {
+    "@id" : "work:1445886",
+    "@type" : "bibo:AcademicArticle",
+    "best_source" : "dimensions",
+    "insertionDateTime" : "2022-05-27T01:13:49.371+00:00",
+    "lastModifiedDateTime" : "2022-05-20T12:01:52.277-07:00",
+    "pagination_source" : "scopus",
+    "doi" : "10.1016/s2095-3119(13)60742-x",
+    "issue" : "8",
+    "journal" : "Journal of Integrative Agriculture",
+    "pageEnd" : "1388",
+    "pageStart" : "1371",
+    "status" : "bibo:published",
+    "volume" : "12",
+    "dateTimeValue" : "this_graph:date",
+    "hasPublicationVenue" : "venue:issn:1671-2927",
+    "hasSubjectArea" : [ "free:519a07d22a74a97ed69d395b958280c2", "free:6eb3f309938a0dcd43108f775d04ab94", "free:482df6b45f0303696bc4b4f8fae3ef61", "free:587801e1d482a195b92728d11abd8ccc", "free:f9b3c5b46f31eb4b3712aa562112b282", "free:f2e510ae0f202c256b198a64a0b321da" ],
+    "relatedBy" : [ "authorship:1445886-5", "authorship:1445886-9", "authorship:1445886-8", "authorship:1445886-7", "authorship:1445886-4", "authorship:1445886-2", "authorship:1445886-3", "authorship:1445886-1", "authorship:1445886-6" ],
+    "label" : "California Simulation of Evapotranspiration of Applied Water and Agricultural Energy Use in California"
+  }, {
+    "@id" : "this_graph:date",
+    "@type" : "vivo:DateTimeValue",
+    "dateTime" : "2013-08-01T00:00:00",
+    "dateTimePrecision" : "vivo:yearMonthDayPrecision"
+  } ],
+  "@context" : {
+    "hasName" : {
+      "@id" : "http://www.w3.org/2006/vcard/ns#hasName",
+      "@type" : "@id"
+    },
+    "rank" : {
+      "@id" : "http://vivoweb.org/ontology/core#rank",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "relates" : {
+      "@id" : "http://vivoweb.org/ontology/core#relates",
+      "@type" : "@id"
+    },
+    "dateTime" : {
+      "@id" : "http://vivoweb.org/ontology/core#dateTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "dateTimePrecision" : {
+      "@id" : "http://vivoweb.org/ontology/core#dateTimePrecision",
+      "@type" : "@id"
+    },
+    "prefLabel" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "scheme" : {
+      "@id" : "http://experts.ucdavis.edu/schema#scheme"
+    },
+    "inScheme" : {
+      "@id" : "http://www.w3.org/2004/02/skos/core#inScheme",
+      "@type" : "@id"
+    },
+    "subjectAreaOf" : {
+      "@id" : "http://vivoweb.org/ontology/core#subjectAreaOf",
+      "@type" : "@id"
+    },
+    "insertionDateTime" : {
+      "@id" : "http://experts.ucdavis.edu/schema#insertionDateTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "hasSubjectArea" : {
+      "@id" : "http://vivoweb.org/ontology/core#hasSubjectArea",
+      "@type" : "@id"
+    },
+    "relatedBy" : {
+      "@id" : "http://vivoweb.org/ontology/core#relatedBy",
+      "@type" : "@id"
+    },
+    "hasPublicationVenue" : {
+      "@id" : "http://vivoweb.org/ontology/core#hasPublicationVenue",
+      "@type" : "@id"
+    },
+    "status" : {
+      "@id" : "http://purl.org/ontology/bibo/status",
+      "@type" : "@id"
+    },
+    "journal" : {
+      "@id" : "http://purl.org/ontology/bibo/journal"
+    },
+    "pagination_source" : {
+      "@id" : "http://experts.ucdavis.edu/schema#pagination_source"
+    },
+    "lastModifiedDateTime" : {
+      "@id" : "http://experts.ucdavis.edu/schema#lastModifiedDateTime",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "pageEnd" : {
+      "@id" : "http://purl.org/ontology/bibo/pageEnd"
+    },
+    "dateTimeValue" : {
+      "@id" : "http://vivoweb.org/ontology/core#dateTimeValue",
+      "@type" : "@id"
+    },
+    "best_source" : {
+      "@id" : "http://experts.ucdavis.edu/schema#best_source"
+    },
+    "pageStart" : {
+      "@id" : "http://purl.org/ontology/bibo/pageStart"
+    },
+    "issue" : {
+      "@id" : "http://purl.org/ontology/bibo/issue"
+    },
+    "volume" : {
+      "@id" : "http://purl.org/ontology/bibo/volume"
+    },
+    "doi" : {
+      "@id" : "http://purl.org/ontology/bibo/doi"
+    },
+    "familyName" : {
+      "@id" : "http://www.w3.org/2006/vcard/ns#familyName"
+    },
+    "givenName" : {
+      "@id" : "http://www.w3.org/2006/vcard/ns#givenName"
+    },
+    "issn" : {
+      "@id" : "http://purl.org/ontology/bibo/issn"
+    },
+    "publicationVenueFor" : {
+      "@id" : "http://vivoweb.org/ontology/core#publicationVenueFor",
+      "@type" : "@id"
+    },
+    "FoR" : "http://experts.ucdavis.edu/concept/FoR/",
+    "skos" : "http://www.w3.org/2004/02/skos/core#",
+    "api" : "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "vivo" : "http://vivoweb.org/ontology/core#",
+    "foaf" : "http://xmlns.com/foaf/0.1/",
+    "work" : "http://experts.ucdavis.edu/work/",
+    "query" : "http://experts.ucdavis.edu/schema/queries/",
+    "harvest_oap" : "http://oapolicy.universityofcalifornia.edu/",
+    "vcard" : "http://www.w3.org/2006/vcard/ns#",
+    "list" : "http://jena.apache.org/ARQ/list#",
+    "this_graph" : "http://experts.ucdavis.edu/work/1445886#",
+    "person" : "http://experts.ucdavis.edu/person/",
+    "venue" : "http://experts.ucdavis.edu/venue/",
+    "private" : "http://experts.ucdavis.edu/private/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "ucdrp" : "http://experts.ucdavis.edu/schema#",
+    "purl" : "http://purl.org/ontology/bibo/",
+    "aeq" : "http://experts.ucdavis.edu/queries/schema#",
+    "iam" : "http://iam.ucdavis.edu/schema#",
+    "authorship" : "http://experts.ucdavis.edu/authorship/",
+    "free" : "http://experts.ucdavis.edu/concept/free",
+    "harvest_iam" : "http://iam.ucdavis.edu/",
+    "oap" : "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "afn" : "http://jena.apache.org/ARQ/function#",
+    "q" : "http://experts.ucdavis.edu/queries/",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "bibo" : "http://purl.org/ontology/bibo/",
+    "grant" : "http://experts.ucdavis.edu/grant/",
+    "experts" : "http://experts.ucdavis.edu/",
+    "obo" : "http://purl.obolibrary.org/obo/"
+  }
+}

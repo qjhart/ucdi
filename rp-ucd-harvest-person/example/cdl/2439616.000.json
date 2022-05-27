@@ -1,0 +1,227 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "2439616",
+      "last-affected-when": "2021-11-23T09:58:14.643-08:00",
+      "last-modified-when": "2021-06-25T01:17:26.303-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2439616",
+      "created-when": "2018-12-15T23:02:43.427-08:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2015-03-30",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": {
+          "format": "native",
+          "id": "6642752",
+          "source-id": "24",
+          "source-name": "dspace",
+          "source-display-name": "eScholarship",
+          "id-at-source": "qt0jd5m384",
+          "api:native": {
+            "api:field": [
+              {
+                "name": "abstract",
+                "type": "text",
+                "display-name": "Abstract",
+                "api:text": "This project developed a system enabling Air Resources Board (ARB) Staff to determine what proportion of a specific cluster of sugar cane fields had been burned prior to harvest. ARB Staff provided the project with a series of sugar cane fields and were provided a set of geographic information system (GIS) maps in which MODIS satellite burn scar data were overlain onto sugar cane fields identified by producers seeking toregister for the Brazilian sugar cane ethanol pathway that included a mechanized harvest credit. The resulting GIS maps allowed ARB to calculate the percentage of the cane harvest area in which burns occurred. This was based on the assumption that manually harvested areas are burned prior to harvest."
+              },
+              {
+                "name": "authors",
+                "type": "person-list",
+                "display-name": "Authors",
+                "api:people": {
+                  "api:person": {
+                    "api:links": {
+                      "api:link": {
+                        "type": "elements/user",
+                        "id": "42956",
+                        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                      }
+                    },
+                    "api:last-name": "Hart",
+                    "api:initials": "QJ",
+                    "api:first-names": "Quinn James",
+                    "api:separate-first-names": {
+                      "api:first-name": [
+                        "Quinn",
+                        "James"
+                      ]
+                    },
+                    "api:addresses": {
+                      "api:address": {
+                        "api:line": {
+                          "type": "organisation",
+                          "$t": "UC Davis"
+                        },
+                        "api:grid": {
+                          "id": "grid.27860.3b",
+                          "href": "https://grid.ac/institutes/grid.27860.3b",
+                          "latitude": "38.54000",
+                          "longitude": "-121.75000"
+                        }
+                      }
+                    },
+                    "api:email-address": "qjhart@ucdavis.edu"
+                  }
+                }
+              },
+              {
+                "name": "c-eschol-id",
+                "type": "text",
+                "display-name": "eScholarship identifier",
+                "api:text": "ark:/13030/qt0jd5m384"
+              },
+              {
+                "name": "collections",
+                "type": "list",
+                "display-name": "Collections",
+                "api:items": {
+                  "api:item": "UC Davis: UC Davis Previously Published Works"
+                }
+              },
+              {
+                "name": "journal",
+                "type": "text",
+                "display-name": "Journal",
+                "api:text": "California Air Resources Board"
+              },
+              {
+                "name": "keywords",
+                "type": "keyword-list",
+                "display-name": "Keywords",
+                "api:keywords": {
+                  "api:keyword": [
+                    "Biofuels",
+                    "Sugarcane",
+                    "Landsat",
+                    "MODIS"
+                  ]
+                }
+              },
+              {
+                "name": "publication-date",
+                "type": "date",
+                "display-name": "Publication date",
+                "api:date": {
+                  "api:day": "30",
+                  "api:month": "3",
+                  "api:year": "2015"
+                }
+              },
+              {
+                "name": "public-url",
+                "type": "text",
+                "display-name": "Public URL",
+                "api:text": "https://escholarship.org/uc/item/0jd5m384"
+              },
+              {
+                "name": "record-created-at-source-date",
+                "type": "date",
+                "display-name": "Record created at source",
+                "api:date": {
+                  "api:day": "29",
+                  "api:month": "9",
+                  "api:year": "2015"
+                }
+              },
+              {
+                "name": "record-made-public-at-source-date",
+                "type": "date",
+                "display-name": "Record made publicly available",
+                "api:date": {
+                  "api:day": "29",
+                  "api:month": "9",
+                  "api:year": "2015"
+                }
+              },
+              {
+                "name": "repository-status",
+                "type": "text",
+                "display-name": "Availability",
+                "api:text": "Public"
+              },
+              {
+                "name": "title",
+                "type": "text",
+                "display-name": "Title",
+                "api:text": "Detection of Sugar Cane Harvest Burning Using Satellite Imaging"
+              },
+              {
+                "name": "volume",
+                "type": "text",
+                "display-name": "Volume",
+                "api:text": "Agreement 12-409"
+              }
+            ],
+            "api:files": {
+              "api:file": {
+                "proprietary-id": "qt0jd5m384/content/qt0jd5m384.pdf",
+                "api:filename": "qt0jd5m384.pdf",
+                "api:file-url": "https://submit.escholarship.org/dspace-preview/qt0jd5m384/content/qt0jd5m384.pdf?key=ipfp15lar3liidq739cib8ytw5z0vf5",
+                "api:extension": "pdf",
+                "api:file-size": "5392981",
+                "api:mime-type": "application/pdf",
+                "api:description": "File",
+                "api:embargo-description": "PUBLISHED"
+              }
+            }
+          }
+        }
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Biofuels"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Sugarcane"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "Landsat"
+            },
+            {
+              "origin": "record-data",
+              "source": "dspace",
+              "$t": "MODIS"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/2439616/relationships"
+      }
+    }
+  ]
+}

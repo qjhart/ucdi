@@ -1,0 +1,527 @@
+* Title Codes
+:PROPERTIES:
+:header-args:http: :host localhost:3030
+:header-args:sparqlx: :url http://sparql.org/sparql :format text/csv
+:header-args:sparql: :url http://localhost:3030/profiles/sparql :format text/csv
+:END:
+
+** IAM Profiles
+
+Eventually, we want to get all the title codes that make up the Acedemic Senate
+and federation, but first, we want to investigate what makes up the ~isFaculty~
+component of the IAM profiles.  First, let's see what title codes are both in
+and not in the ~isFaculty~ group.
+
+#+BEGIN_SRC sparql
+PREFIX iam: <http://iam.ucdavis.edu/schema#>
+select * WHERE {
+{
+  select ?title (count(*) as ?facultyFalse) WHERE {
+  ?s iam:isEmployee ?emp;
+    iam:isFaculty false;
+    iam:ppsAssociations [ iam:assocRank 1;
+    iam:titleCode ?title ];
+    .
+  } group by ?title
+}
+{
+  select ?title (count(*) as ?facultyTrue) WHERE {
+  ?s iam:isEmployee ?emp;
+    iam:isFaculty true;
+    iam:ppsAssociations [ iam:assocRank 1;
+    iam:titleCode ?title ];
+    .
+  } group by ?title
+}
+} order by ?title
+
+#+END_SRC
+
+#+RESULTS:
+|  title | facultyFalse | facultyTrue |
+|--------+--------------+-------------|
+| 000353 |           26 |           1 |
+| 000378 |           17 |           2 |
+| 000547 |           71 |           1 |
+| 000548 |           36 |           1 |
+| 000549 |            8 |           1 |
+| 000566 |            5 |           1 |
+| 000657 |           39 |           1 |
+| 000770 |           43 |           6 |
+| 000771 |          142 |           7 |
+| 000841 |            4 |           8 |
+| 000843 |            6 |          27 |
+| 000845 |            1 |          10 |
+| 001063 |            1 |           4 |
+| 001065 |            1 |           2 |
+| 001066 |            1 |           4 |
+| 001067 |            1 |           5 |
+| 001988 |            1 |           1 |
+| 002732 |           50 |           1 |
+| 002741 |            2 |           3 |
+| 003202 |            3 |           1 |
+| 003207 |            4 |           2 |
+| 003208 |            6 |           1 |
+| 003210 |            5 |          12 |
+| 003212 |            2 |           1 |
+| 003217 |            1 |           1 |
+| 003220 |            6 |           9 |
+| 003252 |          667 |           6 |
+| 003282 |         1453 |           1 |
+| 003300 |            6 |          20 |
+| 003310 |            7 |          24 |
+| 003311 |            1 |           2 |
+| 003320 |           29 |          19 |
+| 003321 |            4 |           5 |
+| 003330 |          293 |           1 |
+| 003390 |            3 |          21 |
+| 003392 |            9 |          48 |
+| 003393 |            1 |           3 |
+| 003394 |           52 |          79 |
+| 003395 |           10 |          15 |
+| 003403 |            6 |           1 |
+| 003475 |           10 |           3 |
+| 003479 |            8 |           3 |
+| 003492 |            1 |           4 |
+| 003494 |            8 |           4 |
+| 003570 |          789 |           4 |
+| 003602 |            1 |           3 |
+| 003603 |            1 |           1 |
+| 003617 |            3 |           2 |
+| 003618 |            1 |           1 |
+| 003622 |            2 |           1 |
+| 003800 |            1 |          33 |
+| 004501 |            7 |           2 |
+| 004504 |            2 |           1 |
+| 004517 |           11 |           1 |
+| 004550 |           17 |           1 |
+| 004553 |            1 |           1 |
+| 004568 |           13 |           3 |
+| 004724 |           20 |           1 |
+| 005724 |            6 |           1 |
+| 006037 |           12 |           1 |
+| 006039 |          123 |           2 |
+| 006049 |           39 |           1 |
+| 006132 |            1 |           1 |
+| 006147 |            8 |           1 |
+| 006523 |            3 |           1 |
+| 007120 |           47 |           1 |
+| 007377 |           59 |           1 |
+| 007932 |           47 |           2 |
+| 009545 |           23 |           1 |
+| 009611 |          178 |           2 |
+| CWR015 |           94 |           3 |
+| CWR022 |          186 |          11 |
+
+#+BEGIN_SRC sparql
+  select ?faculty ?title (count(*) as ?cnt) WHERE {
+  #bind(true as ?faculty)
+  bind("006132" as ?title)
+  ?s iam:isEmployee ?emp;
+    iam:isStaff ?staff;
+    iam:isHSEmployee ?hs;
+    iam:isFaculty ?faculty;
+    iam:isExternal ?ext;
+    iam:ppsAssociations [ iam:assocRank 1;
+    iam:titleCode ?title ];
+    .
+  } group by ?faculty ?title
+
+#+END_SRC
+
+#+BEGIN_SRC sparql :format raw :wrap SRC ttl
+PREFIX iam: <http://iam.ucdavis.edu/schema#>
+describe ?s
+WHERE {
+  bind("001063" as ?title)
+  ?s iam:ppsAssociations
+    [  iam:assocRank 1;
+       iam:titleCode ?title ];
+  .
+} LIMIT 5
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC ttl
+@prefix iam:   <http://iam.ucdavis.edu/schema#> .
+
+<http://iam.ucdavis.edu/1000255656>
+        iam:dFirstName       "Jose" ;
+        iam:dFullName        "Jose M Ballesteros" ;
+        iam:dLastName        "Ballesteros" ;
+        iam:dMiddleName      "M" ;
+        iam:directory        [ iam:displayName  [ iam:nameUcdFlag     "Y" ;
+                                                  iam:nameWwwFlag     "Y" ;
+                                                  iam:preferredFname  "Jose" ;
+                                                  iam:preferredLname  "Ballesteros" ;
+                                                  iam:preferredMname  "M"
+                                                ] ;
+                               iam:listings     [ iam:createDate      "2016-06-29 02:18:26" ;
+                                                  iam:deptCode        "7997" ;
+                                                  iam:deptName        "Graduate Studies" ;
+                                                  iam:deptUcdFlag     "Y" ;
+                                                  iam:deptWwwFlag     "Y" ;
+                                                  iam:device          [ iam:phone         "530-754-9777" ;
+                                                                        iam:phoneUcdFlag  "Y" ;
+                                                                        iam:phoneWwwFlag  "Y" ;
+                                                                        iam:type          "Voice (Land Line)"
+                                                                      ] ;
+                                                  iam:listingOrder    1 ;
+                                                  iam:location        [ iam:addressUcdFlag  "Y" ;
+                                                                        iam:addressWwwFlag  "Y" ;
+                                                                        iam:city            "Davis" ;
+                                                                        iam:state           "CA" ;
+                                                                        iam:street          "2312 Student Community Center" ;
+                                                                        iam:zip             "95616"
+                                                                      ] ;
+                                                  iam:modifyDate      "2020-10-05 10:15:38" ;
+                                                  iam:title           "McNair Director" ;
+                                                  iam:titleUcdFlag    "Y" ;
+                                                  iam:titleWwwFlag    "Y" ;
+                                                  iam:websiteUcdFlag  "Y" ;
+                                                  iam:websiteWwwFlag  "Y"
+                                                ]
+                             ] ;
+        iam:email            "jmballesteros@ucdavis.edu" ;
+        iam:employeeId       "10208676" ;
+        iam:isEmployee       true ;
+        iam:isExternal       false ;
+        iam:isFaculty        true ;
+        iam:isHSEmployee     false ;
+        iam:isStaff          true ;
+        iam:isStudent        false ;
+        iam:modifyDate       "2020-12-11 17:10:01" ;
+        iam:mothraId         "00287937" ;
+        iam:oFirstName       "Jose" ;
+        iam:oFullName        "Jose M Ballesteros" ;
+        iam:oLastName        "Ballesteros" ;
+        iam:oMiddleName      "M" ;
+        iam:ppsAssociations  [ iam:adminBouOrgoid         "F80B657C9EE023A0E0340003BA8A560D" ;
+                               iam:adminDept              "061300" ;
+                               iam:adminDeptAbbreviation  "GRAD DIV" ;
+                               iam:adminDeptDisplayName   "GRADUATE DIVISION" ;
+                               iam:adminDeptOfficialName  "GRADUATE DIVISION" ;
+                               iam:adminIsUCDHS           "N" ;
+                               iam:apptBouOrgoid          "F80B657C9EE023A0E0340003BA8A560D" ;
+                               iam:apptDeptAbbreviation   "GRAD DIV" ;
+                               iam:apptDeptCode           "061300" ;
+                               iam:apptDeptOfficialName   "GRADUATE DIVISION" ;
+                               iam:apptIsUCDHS            "N" ;
+                               iam:assocEndDate           "2022-09-30 00:00:00" ;
+                               iam:assocRank              1 ;
+                               iam:assocStartDate         "2020-09-10 00:00:00" ;
+                               iam:bouOrgoid              "F80B657C9EE023A0E0340003BA8A560D" ;
+                               iam:createDate             "2016-06-28 06:30:52" ;
+                               iam:deptAbbreviation       "GRAD DIV" ;
+                               iam:deptCode               "061300" ;
+                               iam:deptDisplayName        "GRADUATE DIVISION" ;
+                               iam:deptOfficialName       "GRADUATE DIVISION" ;
+                               iam:emplClass              "10" ;
+                               iam:emplPositionNumber     "40216911" ;
+                               iam:isUCDHS                "N" ;
+                               iam:modifyDate             "2020-09-11 14:01:25" ;
+                               iam:percentFulltime        1 ;
+                               iam:positionType           "Regular/Career" ;
+                               iam:positionTypeCode       "2" ;
+                               iam:reportsToEmplID        "40213626" ;
+                               iam:titleCode              "001063" ;
+                               iam:titleDisplayName       "ACADEMIC ADMINISTRATOR III" ;
+                               iam:titleOfficialName      "ACADEMIC ADMINISTRATOR III"
+                             ] ;
+        iam:ppsId            "615616893" ;
+        iam:userID           "zektorsc" ;
+        iam:uuid             "93359" .
+
+<http://iam.ucdavis.edu/1000001794>
+        iam:dFirstName       "Meredith" ;
+        iam:dFullName        "Meredith J Heinig" ;
+        iam:dLastName        "Heinig" ;
+        iam:dMiddleName      "J" ;
+        iam:directory        [ iam:displayName  [ iam:nameUcdFlag     "Y" ;
+                                                  iam:nameWwwFlag     "Y" ;
+                                                  iam:preferredFname  "Meredith" ;
+                                                  iam:preferredLname  "Heinig" ;
+                                                  iam:preferredMname  "J"
+                                                ] ;
+                               iam:listings     [ iam:createDate      "2013-09-20 02:19:20" ;
+                                                  iam:deptUcdFlag     "Y" ;
+                                                  iam:deptWwwFlag     "Y" ;
+                                                  iam:listingOrder    1 ;
+                                                  iam:modifyDate      "2020-10-05 10:15:38" ;
+                                                  iam:titleUcdFlag    "Y" ;
+                                                  iam:titleWwwFlag    "Y" ;
+                                                  iam:websiteUcdFlag  "Y" ;
+                                                  iam:websiteWwwFlag  "Y"
+                                                ]
+                             ] ;
+        iam:email            "mjheinig@ucdavis.edu" ;
+        iam:employeeId       "10217939" ;
+        iam:isEmployee       true ;
+        iam:isExternal       false ;
+        iam:isFaculty        false ;
+        iam:isHSEmployee     false ;
+        iam:isStaff          true ;
+        iam:isStudent        false ;
+        iam:modifyDate       "2020-12-11 17:10:01" ;
+        iam:mothraId         "00004103" ;
+        iam:oFirstName       "Meredith" ;
+        iam:oFullName        "Meredith J Heinig" ;
+        iam:oLastName        "Heinig" ;
+        iam:oMiddleName      "J" ;
+        iam:ppsAssociations  [ iam:adminBouOrgoid         "F80B657C9EF523A0E0340003BA8A560D" ;
+                               iam:adminDept              "030200" ;
+                               iam:adminDeptAbbreviation  "NUTR" ;
+                               iam:adminDeptDisplayName   "NUTRITION" ;
+                               iam:adminDeptOfficialName  "NUTRITION" ;
+                               iam:adminIsUCDHS           "N" ;
+                               iam:apptBouOrgoid          "F80B657C9EF523A0E0340003BA8A560D" ;
+                               iam:apptDeptAbbreviation   "NUTR" ;
+                               iam:apptDeptCode           "030200" ;
+                               iam:apptDeptOfficialName   "NUTRITION" ;
+                               iam:apptIsUCDHS            "N" ;
+                               iam:assocEndDate           "2022-06-30 00:00:00" ;
+                               iam:assocRank              1 ;
+                               iam:assocStartDate         "2020-07-01 00:00:00" ;
+                               iam:bouOrgoid              "F80B657C9EF523A0E0340003BA8A560D" ;
+                               iam:createDate             "2018-10-24 06:30:39" ;
+                               iam:deptAbbreviation       "NUTR" ;
+                               iam:deptCode               "030200" ;
+                               iam:deptDisplayName        "NUTRITION" ;
+                               iam:deptOfficialName       "NUTRITION" ;
+                               iam:emplClass              "10" ;
+                               iam:emplPositionNumber     "40228735" ;
+                               iam:isUCDHS                "N" ;
+                               iam:modifyDate             "2020-08-20 14:00:37" ;
+                               iam:percentFulltime        1 ;
+                               iam:positionType           "Regular/Career" ;
+                               iam:positionTypeCode       "2" ;
+                               iam:titleCode              "001063" ;
+                               iam:titleDisplayName       "ACADEMIC ADMINISTRATOR III" ;
+                               iam:titleOfficialName      "ACADEMIC ADMINISTRATOR III"
+                             ] ;
+        iam:ppsId            "050612464" ;
+        iam:userID           "mjheinig" ;
+        iam:uuid             "24927" .
+
+<http://iam.ucdavis.edu/1000291440>
+        iam:dFirstName       "Jose" ;
+        iam:dFullName        "Jose A Arenas" ;
+        iam:dLastName        "Arenas" ;
+        iam:dMiddleName      "A" ;
+        iam:directory        [ iam:displayName  [ iam:nameUcdFlag     "Y" ;
+                                                  iam:nameWwwFlag     "Y" ;
+                                                  iam:preferredFname  "Jose" ;
+                                                  iam:preferredLname  "Arenas" ;
+                                                  iam:preferredMname  "A"
+                                                ] ;
+                               iam:listings     [ iam:createDate      "2017-07-28 02:25:59" ;
+                                                  iam:deptUcdFlag     "Y" ;
+                                                  iam:deptWwwFlag     "Y" ;
+                                                  iam:listingOrder    1 ;
+                                                  iam:modifyDate      "2020-10-05 10:15:38" ;
+                                                  iam:titleUcdFlag    "Y" ;
+                                                  iam:titleWwwFlag    "Y" ;
+                                                  iam:websiteUcdFlag  "Y" ;
+                                                  iam:websiteWwwFlag  "Y"
+                                                ]
+                             ] ;
+        iam:email            "jaarenas@ucdavis.edu" ;
+        iam:employeeId       "10206645" ;
+        iam:isEmployee       true ;
+        iam:isExternal       false ;
+        iam:isFaculty        true ;
+        iam:isHSEmployee     false ;
+        iam:isStaff          true ;
+        iam:isStudent        false ;
+        iam:modifyDate       "2020-12-11 17:10:01" ;
+        iam:mothraId         "01390502" ;
+        iam:oFirstName       "Jose" ;
+        iam:oFullName        "Jose A Arenas" ;
+        iam:oLastName        "Arenas" ;
+        iam:oMiddleName      "A" ;
+        iam:ppsAssociations  [ iam:adminBouOrgoid         "F80B657C9EE323A0E0340003BA8A560D" ;
+                               iam:adminDept              "040064" ;
+                               iam:adminDeptAbbreviation  "CHICANO ST" ;
+                               iam:adminDeptDisplayName   "CHICANO STUDIES" ;
+                               iam:adminDeptOfficialName  "CHICANO STUDIES" ;
+                               iam:adminIsUCDHS           "N" ;
+                               iam:apptBouOrgoid          "F80B657C9EE323A0E0340003BA8A560D" ;
+                               iam:apptDeptAbbreviation   "CHICANO ST" ;
+                               iam:apptDeptCode           "040064" ;
+                               iam:apptDeptOfficialName   "CHICANO STUDIES" ;
+                               iam:apptIsUCDHS            "N" ;
+                               iam:assocEndDate           "2022-06-30 00:00:00" ;
+                               iam:assocRank              1 ;
+                               iam:assocStartDate         "2019-09-01 00:00:00" ;
+                               iam:bouOrgoid              "F80B657C9EE323A0E0340003BA8A560D" ;
+                               iam:createDate             "2017-07-27 06:30:50" ;
+                               iam:deptAbbreviation       "CHICANO ST" ;
+                               iam:deptCode               "040064" ;
+                               iam:deptDisplayName        "CHICANO STUDIES" ;
+                               iam:deptOfficialName       "CHICANO STUDIES" ;
+                               iam:emplClass              "10" ;
+                               iam:emplPositionNumber     "40225539" ;
+                               iam:isUCDHS                "N" ;
+                               iam:modifyDate             "2019-11-19 11:32:47" ;
+                               iam:percentFulltime        1 ;
+                               iam:positionType           "Regular/Career" ;
+                               iam:positionTypeCode       "2" ;
+                               iam:titleCode              "001063" ;
+                               iam:titleDisplayName       "ACADEMIC ADMINISTRATOR III" ;
+                               iam:titleOfficialName      "ACADEMIC ADMINISTRATOR III"
+                             ] ;
+        iam:ppsId            "878529825" ;
+        iam:userID           "jaarenas" ;
+        iam:uuid             "834112" .
+
+<http://iam.ucdavis.edu/1000259925>
+        iam:dFirstName       "Ryan" ;
+        iam:dFullName        "Ryan Meyer" ;
+        iam:dLastName        "Meyer" ;
+        iam:directory        [ iam:displayName  [ iam:nameUcdFlag     "Y" ;
+                                                  iam:nameWwwFlag     "Y" ;
+                                                  iam:preferredFname  "Ryan" ;
+                                                  iam:preferredLname  "Meyer"
+                                                ] ;
+                               iam:listings     [ iam:createDate      "2018-07-20 02:24:37" ;
+                                                  iam:deptUcdFlag     "Y" ;
+                                                  iam:deptWwwFlag     "Y" ;
+                                                  iam:listingOrder    1 ;
+                                                  iam:modifyDate      "2020-10-05 10:15:38" ;
+                                                  iam:titleUcdFlag    "Y" ;
+                                                  iam:titleWwwFlag    "Y" ;
+                                                  iam:websiteUcdFlag  "Y" ;
+                                                  iam:websiteWwwFlag  "Y"
+                                                ]
+                             ] ;
+        iam:email            "rmmeyer@ucdavis.edu" ;
+        iam:employeeId       "10222342" ;
+        iam:isEmployee       true ;
+        iam:isExternal       false ;
+        iam:isFaculty        true ;
+        iam:isHSEmployee     false ;
+        iam:isStaff          true ;
+        iam:isStudent        false ;
+        iam:modifyDate       "2020-12-11 17:10:01" ;
+        iam:mothraId         "01264080" ;
+        iam:oFirstName       "Ryan" ;
+        iam:oFullName        "Ryan M Meyer" ;
+        iam:oLastName        "Meyer" ;
+        iam:oMiddleName      "Mclaren" ;
+        iam:ppsAssociations  [ iam:adminBouOrgoid         "F80B657C9EF623A0E0340003BA8A560D" ;
+                               iam:adminDept              "040120" ;
+                               iam:adminDeptAbbreviation  "ED" ;
+                               iam:adminDeptDisplayName   "EDUCATION" ;
+                               iam:adminDeptOfficialName  "EDUCATION" ;
+                               iam:adminIsUCDHS           "N" ;
+                               iam:apptBouOrgoid          "F80B657C9EF623A0E0340003BA8A560D" ;
+                               iam:apptDeptAbbreviation   "ED" ;
+                               iam:apptDeptCode           "040120" ;
+                               iam:apptDeptOfficialName   "EDUCATION" ;
+                               iam:apptIsUCDHS            "N" ;
+                               iam:assocEndDate           "2021-06-30 00:00:00" ;
+                               iam:assocRank              1 ;
+                               iam:assocStartDate         "2019-09-01 00:00:00" ;
+                               iam:bouOrgoid              "F80B657C9EF623A0E0340003BA8A560D" ;
+                               iam:createDate             "2019-07-09 06:30:56" ;
+                               iam:deptAbbreviation       "ED" ;
+                               iam:deptCode               "040120" ;
+                               iam:deptDisplayName        "EDUCATION" ;
+                               iam:deptOfficialName       "EDUCATION" ;
+                               iam:emplClass              "10" ;
+                               iam:emplPositionNumber     "40211597" ;
+                               iam:isUCDHS                "N" ;
+                               iam:modifyDate             "2019-09-05 13:06:43" ;
+                               iam:percentFulltime        1 ;
+                               iam:positionType           "Academic" ;
+                               iam:positionTypeCode       "5" ;
+                               iam:titleCode              "001063" ;
+                               iam:titleDisplayName       "ACADEMIC ADMINISTRATOR III" ;
+                               iam:titleOfficialName      "ACADEMIC ADMINISTRATOR III"
+                             ] ;
+        iam:ppsId            "157374760" ;
+        iam:userID           "rmmeyer" ;
+        iam:uuid             "747762" .
+
+<http://iam.ucdavis.edu/1000038336>
+        iam:dFirstName       "Will" ;
+        iam:dFullName        "Will Snyder" ;
+        iam:dLastName        "Snyder" ;
+        iam:directory        [ iam:displayName  [ iam:nameUcdFlag     "Y" ;
+                                                  iam:nameWwwFlag     "Y" ;
+                                                  iam:preferredFname  "Will" ;
+                                                  iam:preferredLname  "Snyder"
+                                                ] ;
+                               iam:listings     [ iam:createDate      "2012-01-25 02:19:30" ;
+                                                  iam:deptCode        "7996" ;
+                                                  iam:deptName        "Grad School of Mgmt" ;
+                                                  iam:deptUcdFlag     "Y" ;
+                                                  iam:deptWwwFlag     "Y" ;
+                                                  iam:device          [ iam:phone         "530-752-7403" ;
+                                                                        iam:phoneUcdFlag  "Y" ;
+                                                                        iam:phoneWwwFlag  "Y" ;
+                                                                        iam:type          "Voice (Land Line)"
+                                                                      ] ;
+                                                  iam:listingOrder    1 ;
+                                                  iam:location        [ iam:addressUcdFlag  "Y" ;
+                                                                        iam:addressWwwFlag  "Y" ;
+                                                                        iam:city            "Davis" ;
+                                                                        iam:state           "CA" ;
+                                                                        iam:street          "3417 Gallagher Hall" ;
+                                                                        iam:zip             "95616"
+                                                                      ] ;
+                                                  iam:modifyDate      "2020-10-05 10:15:38" ;
+                                                  iam:title           "Executive Director" ;
+                                                  iam:titleUcdFlag    "Y" ;
+                                                  iam:titleWwwFlag    "Y" ;
+                                                  iam:websiteUcdFlag  "Y" ;
+                                                  iam:websiteWwwFlag  "Y"
+                                                ]
+                             ] ;
+        iam:email            "wsnyder@ucdavis.edu" ;
+        iam:employeeId       "10222667" ;
+        iam:isEmployee       true ;
+        iam:isExternal       false ;
+        iam:isFaculty        true ;
+        iam:isHSEmployee     false ;
+        iam:isStaff          true ;
+        iam:isStudent        false ;
+        iam:modifyDate       "2020-12-11 17:10:01" ;
+        iam:mothraId         "00824588" ;
+        iam:oFirstName       "Willard" ;
+        iam:oFullName        "Willard Snyder" ;
+        iam:oLastName        "Snyder" ;
+        iam:ppsAssociations  [ iam:adminBouOrgoid         "F80B657C9EF923A0E0340003BA8A560D" ;
+                               iam:adminDept              "061100" ;
+                               iam:adminDeptAbbreviation  "GRAD SCH A" ;
+                               iam:adminDeptDisplayName   "GRADUATE SCHOOL OF MANAGEMENT" ;
+                               iam:adminDeptOfficialName  "GRADUATE SCHOOL OF MANAGEMENT" ;
+                               iam:adminIsUCDHS           "N" ;
+                               iam:apptBouOrgoid          "F80B657C9EF923A0E0340003BA8A560D" ;
+                               iam:apptDeptAbbreviation   "GRAD SCH A" ;
+                               iam:apptDeptCode           "061100" ;
+                               iam:apptDeptOfficialName   "GRADUATE SCHOOL OF MANAGEMENT" ;
+                               iam:apptIsUCDHS            "N" ;
+                               iam:assocRank              1 ;
+                               iam:assocStartDate         "2019-09-01 00:00:00" ;
+                               iam:bouOrgoid              "F80B657C9EF923A0E0340003BA8A560D" ;
+                               iam:createDate             "2014-06-21 09:01:40" ;
+                               iam:deptAbbreviation       "GRAD SCH A" ;
+                               iam:deptCode               "061100" ;
+                               iam:deptDisplayName        "GRADUATE SCHOOL OF MANAGEMENT" ;
+                               iam:deptOfficialName       "GRADUATE SCHOOL OF MANAGEMENT" ;
+                               iam:emplClass              "10" ;
+                               iam:emplPositionNumber     "40212243" ;
+                               iam:isUCDHS                "N" ;
+                               iam:modifyDate             "2019-10-17 08:39:24" ;
+                               iam:percentFulltime        1 ;
+                               iam:positionType           "Academic" ;
+                               iam:positionTypeCode       "5" ;
+                               iam:titleCode              "001063" ;
+                               iam:titleDisplayName       "ACADEMIC ADMINISTRATOR III" ;
+                               iam:titleOfficialName      "ACADEMIC ADMINISTRATOR III"
+                             ] ;
+        iam:ppsId            "169310810" ;
+        iam:userID           "wsnyder" ;
+        iam:uuid             "434105" .
+#+END_SRC

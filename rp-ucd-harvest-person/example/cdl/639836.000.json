@@ -1,0 +1,1713 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "639836",
+      "last-affected-when": "2022-05-24T06:04:05.213-07:00",
+      "last-modified-when": "2022-05-24T06:04:05.213-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/639836",
+      "created-when": "2014-07-02T02:13:04.293-07:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2011-11-01",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "1450641",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-80355132553",
+            "api:citation-count": "42",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "In this study, the influence of climate change to California and Nevada regions was investigated through high-resolution (4-km grid spacing) dynamical downscaling using the WRF (Weather Research & Forecasting) model. The dynamical downscaling was performed to both the GFS (Global forecast model) reanalysis (called GFS-WRF runs) from 2000-2006 and PCM (Parallel Climate Model) simulations (called PCM-WRF runs) from 1997-2006 and 2047-2056. The downscaling results were first validated by comparing current model outputs with the observational analysis PRISM (Parameter-elevation Regressions on Independent Slopes Model) dataset. In general, the dominant features from GFS-WRF runs and PCM-WRF runs were consistent with each other, as well as with PRISM results. The influences of climate change on the California and Nevada regions can be inferred from the model future runs. The averaged temperature showed a positive trend in the future, as in other studies. The temperature increases by around 1-2°C under the assumption of business as usual over 50 years. This leads to an upward shifting of the freezing level (the contour line of 0°C temperature) and more rain instead of snow in winter (December, January, and February). More hot days (>32. 2°C or 90°F) and extreme hot days (>37. 8°C or 100°F) are predicted in the Sacramento Valley and the southern parts of California and Nevada during summer (June, July, and August). More precipitation is predicted in northern California but not in southern California. Rainfall frequency slightly increases in the coast regions, but not in the inland area. No obvious trend of the surface wind was indicated. The probability distribution functions (PDF) of daily temperature, wind and precipitation for California and Nevada showed no significant change in shape in either winter or summer. The spatial distributions of precipitation frequency from GFS-WRF and PCM-WRF were highly correlated (r = 0. 83). However, overall positive shifts were seen in the temperature field; increases of 2°C for California and 3°C for Nevada in summer and 2. 5°C for California and 1. 5°C for Nevada in winter. The PDFs predicted higher precipitation in winter and lower precipitation in the summer for both California and Nevada. © 2010 The Author(s)."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Pan",
+                        "api:initials": "LL",
+                        "api:first-names": "LL",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "L",
+                            "L"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "National Center for Atmospheric Research"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Boulder"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.57828.30",
+                                "href": "https://grid.ac/institutes/grid.57828.30",
+                                "latitude": "39.97815",
+                                "longitude": "-105.27492"
+                              }
+                            }
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "37019381400"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "15240",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/15240"
+                          }
+                        },
+                        "api:last-name": "Chen",
+                        "api:initials": "SH",
+                        "api:first-names": "SH",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "S",
+                            "H"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "13608035400"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Cayan",
+                        "api:initials": "D",
+                        "api:first-names": "D",
+                        "api:separate-first-names": {
+                          "api:first-name": "D"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "Scripps Institution of Oceanography"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "San Diego"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.217200.6",
+                              "href": "https://grid.ac/institutes/grid.217200.6",
+                              "latitude": "32.86544",
+                              "longitude": "-117.25363"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7005265210"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Lin",
+                        "api:initials": "MY",
+                        "api:first-names": "MY",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "M",
+                            "Y"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "TW",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "Taiwan Typhoon and Flood Research Institute"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Taichung"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "Taiwan"
+                              }
+                            ]
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "25652925700"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Q",
+                        "api:separate-first-names": {
+                          "api:first-name": "Q"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Zhang",
+                        "api:initials": "MH",
+                        "api:first-names": "MH",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "M",
+                            "H"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56004320000"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Liu",
+                        "api:initials": "Y",
+                        "api:first-names": "Y",
+                        "api:separate-first-names": {
+                          "api:first-name": "Y"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "National Center for Atmospheric Research"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Boulder"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.57828.30",
+                              "href": "https://grid.ac/institutes/grid.57828.30",
+                              "latitude": "39.97815",
+                              "longitude": "-105.27492"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7410221267"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Wang",
+                        "api:initials": "J",
+                        "api:first-names": "J",
+                        "api:separate-first-names": {
+                          "api:first-name": "J"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Department of Water Resources"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "54404199800"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1007/s00382-010-0961-5",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1007/s00382-010-0961-5"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1007/s00382-010-0961-5"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1432-0894",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0930-7575",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "9-10"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Climate Dynamics"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "2005",
+                    "api:end-page": "2020"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "11",
+                    "api:year": "2011"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Influences of climate change on California and Nevada regions revealed by a high-resolution dynamical downscaling study"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "37"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "2336912",
+            "source-id": "11",
+            "source-name": "wos-lite",
+            "source-display-name": "Web of Science (Lite)",
+            "id-at-source": "WOS:000296476600018",
+            "api:citation-count": "41",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Pan",
+                        "api:initials": "L-L",
+                        "api:first-names": "Lin-Lin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Lin-Lin"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "15240",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/15240"
+                          }
+                        },
+                        "api:last-name": "Chen",
+                        "api:initials": "S-H",
+                        "api:first-names": "Shu-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Shu-Hua"
+                        }
+                      },
+                      {
+                        "api:last-name": "Cayan",
+                        "api:initials": "D",
+                        "api:first-names": "Dan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dan"
+                        }
+                      },
+                      {
+                        "api:last-name": "Lin",
+                        "api:initials": "M-Y",
+                        "api:first-names": "Mei-Ying",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mei-Ying"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:last-name": "Zhang",
+                        "api:initials": "M-H",
+                        "api:first-names": "Ming-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Ming-Hua"
+                        }
+                      },
+                      {
+                        "api:last-name": "Liu",
+                        "api:initials": "Y",
+                        "api:first-names": "Yubao",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yubao"
+                        }
+                      },
+                      {
+                        "api:last-name": "Wang",
+                        "api:initials": "J",
+                        "api:first-names": "Jianzhong",
+                        "api:separate-first-names": {
+                          "api:first-name": "Jianzhong"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "author-url",
+                  "type": "text",
+                  "display-name": "Author URL",
+                  "api:text": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=PARTNER_APP&SrcAuth=LinksAMR&KeyUT=WOS:000296476600018&DestLinkType=FullRecord&DestApp=ALL_WOS&UsrCustomerID=039f08444e522f04b0c74ec005e57dc4"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1007/s00382-010-0961-5",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1007/s00382-010-0961-5"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1007/s00382-010-0961-5"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1432-0894",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "external-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "External identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "isidoc",
+                      "$t": "840XY"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0930-7575",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "9-10"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "CLIMATE DYNAMICS"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "2005",
+                    "api:end-page": "2020"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "11",
+                    "api:year": "2011"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Influences of climate change on California and Nevada regions revealed by a high-resolution dynamical downscaling study"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "37"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "1735442",
+            "source-id": "13",
+            "source-name": "crossref",
+            "source-display-name": "Crossref",
+            "id-at-source": "10.1007/s00382-010-0961-5",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Pan",
+                        "api:initials": "L-L",
+                        "api:first-names": "Lin-Lin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Lin-Lin"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "15240",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/15240"
+                          }
+                        },
+                        "api:last-name": "Chen",
+                        "api:initials": "S-H",
+                        "api:first-names": "Shu-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Shu-Hua"
+                        }
+                      },
+                      {
+                        "api:last-name": "Cayan",
+                        "api:initials": "D",
+                        "api:first-names": "Dan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dan"
+                        }
+                      },
+                      {
+                        "api:last-name": "Lin",
+                        "api:initials": "M-Y",
+                        "api:first-names": "Mei-Ying",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mei-Ying"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:last-name": "Zhang",
+                        "api:initials": "M-H",
+                        "api:first-names": "Ming-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Ming-Hua"
+                        }
+                      },
+                      {
+                        "api:last-name": "Liu",
+                        "api:initials": "Y",
+                        "api:first-names": "Yubao",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yubao"
+                        }
+                      },
+                      {
+                        "api:last-name": "Wang",
+                        "api:initials": "J",
+                        "api:first-names": "Jianzhong",
+                        "api:separate-first-names": {
+                          "api:first-name": "Jianzhong"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1007/s00382-010-0961-5",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1007/s00382-010-0961-5"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1007/s00382-010-0961-5"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1432-0894",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0930-7575",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "9-10"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Climate Dynamics"
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "en"
+                },
+                {
+                  "name": "online-publication-date",
+                  "type": "date",
+                  "display-name": "Online publication date",
+                  "api:date": {
+                    "api:day": "14",
+                    "api:month": "12",
+                    "api:year": "2010"
+                  }
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "2005",
+                    "api:end-page": "2020"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "11",
+                    "api:year": "2011"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "publisher",
+                  "type": "text",
+                  "display-name": "Publisher",
+                  "api:text": "Springer Science and Business Media LLC"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "15",
+                    "api:month": "12",
+                    "api:year": "2010"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Influences of climate change on California and Nevada regions revealed by a high-resolution dynamical downscaling study"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "37"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "7846655",
+            "source-id": "10",
+            "source-name": "dimensions",
+            "source-display-name": "Dimensions",
+            "id-at-source": "pub.1026112604",
+            "api:citation-count": "43",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "altmetric-attention-score",
+                  "type": "integer",
+                  "display-name": "Altmetric attention score",
+                  "api:integer": "1"
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Pan",
+                        "api:initials": "L-L",
+                        "api:first-names": "Lin-Lin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Lin-Lin"
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "National Center for Atmospheric Research"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Boulder"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "Colorado"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.57828.30",
+                                "href": "https://grid.ac/institutes/grid.57828.30",
+                                "latitude": "39.97815",
+                                "longitude": "-105.27492"
+                              }
+                            }
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.014752211265.09"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "15240",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/15240"
+                          }
+                        },
+                        "api:last-name": "Chen",
+                        "api:initials": "S-H",
+                        "api:first-names": "Shu-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Shu-Hua"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.01104277006.37"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Cayan",
+                        "api:initials": "D",
+                        "api:first-names": "Dan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dan"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, San Diego"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "San Diego"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.266100.3",
+                              "href": "https://grid.ac/institutes/grid.266100.3",
+                              "latitude": "32.88100",
+                              "longitude": "-117.23800"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015517747767.42"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Lin",
+                        "api:initials": "M-Y",
+                        "api:first-names": "Mei-Ying",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mei-Ying"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "TW",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "Taiwan Typhoon and Flood Research Institute, Taichung, Taiwan"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Taichung"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "Taiwan"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "Taiwan"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015323550434.14"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Zhang",
+                        "api:initials": "M-H",
+                        "api:first-names": "Ming-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Ming-Hua"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Liu",
+                        "api:initials": "Y",
+                        "api:first-names": "Yubao",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yubao"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "National Center for Atmospheric Research"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Boulder"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "Colorado"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.57828.30",
+                              "href": "https://grid.ac/institutes/grid.57828.30",
+                              "latitude": "39.97815",
+                              "longitude": "-105.27492"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.010341441371.72"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Wang",
+                        "api:initials": "J",
+                        "api:first-names": "Jianzhong",
+                        "api:separate-first-names": {
+                          "api:first-name": "Jianzhong"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Natural Resources Agency"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1007/s00382-010-0961-5",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1007/s00382-010-0961-5"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1007/s00382-010-0961-5"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "field-citation-ratio",
+                  "type": "decimal",
+                  "display-name": "Field citation ratio",
+                  "api:decimal": "3.25"
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0930-7575",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "9-10"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Climate Dynamics"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "2005",
+                    "api:end-page": "2020"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "14",
+                    "api:month": "12",
+                    "api:year": "2010"
+                  }
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "31",
+                    "api:month": "8",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Influences of climate change on California and Nevada regions revealed by a high-resolution dynamical downscaling study"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "37"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "11098925",
+            "source-id": "1",
+            "source-name": "manual",
+            "source-display-name": "Manual",
+            "id-at-source": "931034BB-DD11-4A49-B602-0F3B0BD30F0B",
+            "api:verification-status": "unverified",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "In this study, the influence of climate change to California and Nevada regions was investigated through high-resolution (4-km grid spacing) dynamical downscaling using the WRF (Weather Research & Forecasting) model. The dynamical downscaling was performed to both the GFS (Global forecast model) reanalysis (called GFS-WRF runs) from 2000–2006 and PCM (Parallel Climate Model) simulations (called PCM-WRF runs) from 1997–2006 and 2047–2056. The downscaling results were first validated by comparing current model outputs with the observational analysis PRISM (Parameter-elevation Regressions on Independent Slopes Model) dataset. In general, the dominant features from GFS-WRF runs and PCM-WRF runs were consistent with each other, as well as with PRISM results. The influences of climate change on the California and Nevada regions can be inferred from the model future runs. The averaged temperature showed a positive trend in the future, as in other studies. The temperature increases by around 1–2°C under the assumption of business as usual over 50 years. This leads to an upward shifting of the freezing level (the contour line of 0°C temperature) and more rain instead of snow in winter (December, January, and February). More hot days (\\textgreater32.2°C or 90°F) and extreme hot days (\\textgreater37.8°C or 100°F) are predicted in the Sacramento Valley and the southern parts of California and Nevada during summer (June, July, and August). More precipitation is predicted in northern California but not in southern California. Rainfall frequency slightly increases in the coast regions, but not in the inland area. No obvious trend of the surface wind was indicated. The probability distribution functions (PDF) of daily temperature, wind and precipitation for California and Nevada showed no significant change in shape in either winter or summer. The spatial distributions of precipitation frequency from GFS-WRF and PCM-WRF were highly correlated (r = 0.83). However, overall positive shifts were seen in the temperature field; increases of 2°C for California and 3°C for Nevada in summer and 2.5°C for California and 1.5°C for Nevada in winter. The PDFs predicted higher precipitation in winter and lower precipitation in the summer for both California and Nevada."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Pan",
+                        "api:initials": "L-L",
+                        "api:first-names": "Lin-Lin",
+                        "api:separate-first-names": {
+                          "api:first-name": "Lin-Lin"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "15240",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/15240"
+                          }
+                        },
+                        "api:last-name": "Chen",
+                        "api:initials": "S-H",
+                        "api:first-names": "Shu-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Shu-Hua"
+                        }
+                      },
+                      {
+                        "api:last-name": "Cayan",
+                        "api:initials": "D",
+                        "api:first-names": "Dan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dan"
+                        }
+                      },
+                      {
+                        "api:last-name": "Lin",
+                        "api:initials": "M-Y",
+                        "api:first-names": "Mei-Ying",
+                        "api:separate-first-names": {
+                          "api:first-name": "Mei-Ying"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:last-name": "Zhang",
+                        "api:initials": "M-H",
+                        "api:first-names": "Ming-Hua",
+                        "api:separate-first-names": {
+                          "api:first-name": "Ming-Hua"
+                        }
+                      },
+                      {
+                        "api:last-name": "Liu",
+                        "api:initials": "Y",
+                        "api:first-names": "Yubao",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yubao"
+                        }
+                      },
+                      {
+                        "api:last-name": "Wang",
+                        "api:initials": "J",
+                        "api:first-names": "Jianzhong",
+                        "api:separate-first-names": {
+                          "api:first-name": "Jianzhong"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1007/s00382-010-0961-5",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1007/s00382-010-0961-5"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1007/s00382-010-0961-5"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "1432-0894",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Climate Dynamics"
+                },
+                {
+                  "name": "number",
+                  "type": "text",
+                  "display-name": "Number",
+                  "api:text": "9"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "2005",
+                    "api:end-page": "2020"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:year": "2011"
+                  }
+                },
+                {
+                  "name": "publisher-url",
+                  "type": "text",
+                  "display-name": "URL for publisher's version of this article",
+                  "api:text": "https://doi.org/10.1007/s00382-010-0961-5"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "12",
+                    "api:month": "5",
+                    "api:year": "2021"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Influences of climate change on California and Nevada regions revealed by a high-resolution dynamical downscaling study"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "37"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "scheme": "science-metrix",
+              "origin": "issn-inferred",
+              "$t": "Meteorology & Atmospheric Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "0401 Atmospheric Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "0405 Oceanography"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "0406 Physical Geography and Environmental Geoscience"
+            }
+          ]
+        }
+      },
+      "api:journal": {
+        "issn": "0930-7575",
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705085",
+        "api:records": {
+          "api:record": [
+            {
+              "source-name": "era-2015",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "science-metrix",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "era-2010",
+              "api:title": "Climate Dynamics: observational, theoretical and computational research on the climate system"
+            },
+            {
+              "source-name": "snip",
+              "api:title": "Climate Dynamics"
+            },
+            {
+              "source-name": "era-2012",
+              "api:title": "Climate Dynamics: observational, theoretical and computational research on the climate system"
+            },
+            {
+              "source-name": "era-2018",
+              "api:title": "Climate Dynamics"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/639836/relationships"
+      }
+    }
+  ]
+}

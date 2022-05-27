@@ -1,0 +1,1253 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "1875203",
+      "last-affected-when": "2022-05-20T12:01:52.277-07:00",
+      "last-modified-when": "2022-05-20T12:01:52.277-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1875203",
+      "created-when": "2017-03-23T01:23:36.063-07:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2017-02-15",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "7407234",
+            "source-id": "18",
+            "source-name": "epmc",
+            "source-display-name": "Europe PubMed Central",
+            "id-at-source": "AGR:IND605584850",
+            "api:citation-count": "0",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Short rotation woody crop (SRWC) systems continue to be investigated as energy crops for a range of energy products including liquid biofuels and electricity. To understand their market potential and economic viability, regional biomass yield and production estimates are used as primary inputs. Biomass is generally estimated using growth models which often utilize gridded weather datasets when implemented for regional simulations. With such models, the accuracy of weather data will affect the uncertainty of estimated biomass and subsequent bioenergy analyses. This study evaluates the biases in weather variables of commonly used high resolution gridded datasets including PRISM, Daymet, NARR, and NLDAS in comparison with observed weather at five flux tower stations. Further, impacts of inaccuracies in gridded data sources on biomass estimates of SRWC hybrid poplar was investigated at site and regional levels using a version of the 3-PG growth model modified to model production with multiple harvests through coppicing or periodic cutting of the trees with regrowth from the tree stump.Results suggest that weather variables in all gridded datasets are characterized by some degree of bias leading to considerable bias in biomass estimates, in some cases up to 45%. PRISM and Daymet were shown to have lower uncertainty in most of the weather variables, likely due to their higher spatial resolution and higher dependency on station weather. Site level simulations indicate that relative to the reference biomass estimates based on actual weather measurements, NARR data yielded 4.1Mgha−1y−1 higher biomass while NLDAS, Daymet, and PRISM resulted in 3.3, 1.2 and 0.3Mgha−1y−1 lower biomass. Regional simulations suggest that total biomass varied substantially with gridded data sources ranging between 47.4 and 58.3Tg on the croplands and rangelands in the region (Columbia Plateau), which subsequently led up to 23% variation in the estimate of poplar based jet fuel production from the SRWC resource. Therefore, findings of this study reinforce the need to account for uncertainties in biomass estimates introduced by biases in gridded weather when modeling bioenergy production."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:last-name": "Bryan M. Jenkins",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Quinn Hart",
+                        "api:initials": {}
+                      },
+                      {
+                        "api:last-name": "Yu Pei",
+                        "api:initials": {}
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.agrformet.2016.11.008",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.agrformet.2016.11.008"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.agrformet.2016.11.008"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "is-open-access",
+                  "type": "boolean",
+                  "display-name": "Open access",
+                  "api:boolean": "false"
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1923",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Agricultural and forest meteorology."
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "eng"
+                },
+                {
+                  "name": "medium",
+                  "type": "text",
+                  "display-name": "Medium",
+                  "api:text": "Undetermined"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "71",
+                    "api:end-page": "79"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "2",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "18",
+                    "api:month": "3",
+                    "api:year": "2019"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Impact of biases in gridded weather datasets on biomass estimates of short rotation woody cropping systems"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "233"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "5172031",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-84996917621",
+            "api:citation-count": "13",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Short rotation woody crop (SRWC) systems continue to be investigated as energy crops for a range of energy products including liquid biofuels and electricity. To understand their market potential and economic viability, regional biomass yield and production estimates are used as primary inputs. Biomass is generally estimated using growth models which often utilize gridded weather datasets when implemented for regional simulations. With such models, the accuracy of weather data will affect the uncertainty of estimated biomass and subsequent bioenergy analyses. This study evaluates the biases in weather variables of commonly used high resolution gridded datasets including PRISM, Daymet, NARR, and NLDAS in comparison with observed weather at five flux tower stations. Further, impacts of inaccuracies in gridded data sources on biomass estimates of SRWC hybrid poplar was investigated at site and regional levels using a version of the 3-PG growth model modified to model production with multiple harvests through coppicing or periodic cutting of the trees with regrowth from the tree stump. Results suggest that weather variables in all gridded datasets are characterized by some degree of bias leading to considerable bias in biomass estimates, in some cases up to 45%. PRISM and Daymet were shown to have lower uncertainty in most of the weather variables, likely due to their higher spatial resolution and higher dependency on station weather. Site level simulations indicate that relative to the reference biomass estimates based on actual weather measurements, NARR data yielded 4.1 Mg ha−1 y−1 higher biomass while NLDAS, Daymet, and PRISM resulted in 3.3, 1.2 and 0.3 Mg ha−1 y−1 lower biomass. Regional simulations suggest that total biomass varied substantially with gridded data sources ranging between 47.4 and 58.3 Tg on the croplands and rangelands in the region (Columbia Plateau), which subsequently led up to 23% variation in the estimate of poplar based jet fuel production from the SRWC resource. Therefore, findings of this study reinforce the need to account for uncertainties in biomass estimates introduced by biases in gridded weather when modeling bioenergy production."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "V",
+                        "api:separate-first-names": {
+                          "api:first-name": "V"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "14051672300"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Pei",
+                        "api:initials": "Y",
+                        "api:first-names": "Y",
+                        "api:separate-first-names": {
+                          "api:first-name": "Y"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "57192081517"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Q",
+                        "api:separate-first-names": {
+                          "api:first-name": "Q"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "BM",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "B",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7102927027"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.agrformet.2016.11.008",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.agrformet.2016.11.008"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.agrformet.2016.11.008"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1923",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Agricultural and Forest Meteorology"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "71",
+                    "api:end-page": "79"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "15",
+                    "api:month": "2",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Impact of biases in gridded weather datasets on biomass estimates of short rotation woody cropping systems"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "233"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "5174267",
+            "source-id": "11",
+            "source-name": "wos-lite",
+            "source-display-name": "Web of Science (Lite)",
+            "id-at-source": "WOS:000393259400006",
+            "api:citation-count": "10",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:last-name": "Pei",
+                        "api:initials": "Y",
+                        "api:first-names": "Yu",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yu"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "author-url",
+                  "type": "text",
+                  "display-name": "Author URL",
+                  "api:text": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=PARTNER_APP&SrcAuth=LinksAMR&KeyUT=WOS:000393259400006&DestLinkType=FullRecord&DestApp=ALL_WOS&UsrCustomerID=039f08444e522f04b0c74ec005e57dc4"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.agrformet.2016.11.008",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.agrformet.2016.11.008"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.agrformet.2016.11.008"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1873-2240",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078"
+                    }
+                  }
+                },
+                {
+                  "name": "external-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "External identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "isidoc",
+                      "$t": "EJ5LL"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1923",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "AGRICULTURAL AND FOREST METEOROLOGY"
+                },
+                {
+                  "name": "keywords",
+                  "type": "keyword-list",
+                  "display-name": "Keywords",
+                  "api:keywords": {
+                    "api:keyword": [
+                      "Biomass",
+                      "Gridded weather data",
+                      "Spatial modeling",
+                      "Hybrid poplar",
+                      "Uncertainty",
+                      "3-PG model",
+                      "PRISM",
+                      "NLDAS",
+                      "NARR",
+                      "Daymet"
+                    ]
+                  }
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "71",
+                    "api:end-page": "79"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "15",
+                    "api:month": "2",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Impact of biases in gridded weather datasets on biomass estimates of short rotation woody cropping systems"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "233"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "5172034",
+            "source-id": "13",
+            "source-name": "crossref",
+            "source-display-name": "Crossref",
+            "id-at-source": "10.1016/j.agrformet.2016.11.008",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        }
+                      },
+                      {
+                        "api:last-name": "Pei",
+                        "api:initials": "Y",
+                        "api:first-names": "Yu",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yu"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.agrformet.2016.11.008",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.agrformet.2016.11.008"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.agrformet.2016.11.008"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1923",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Agricultural and Forest Meteorology"
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "en"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "71",
+                    "api:end-page": "79"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "2",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "publisher",
+                  "type": "text",
+                  "display-name": "Publisher",
+                  "api:text": "Elsevier BV"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "19",
+                    "api:month": "11",
+                    "api:year": "2016"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Impact of biases in gridded weather datasets on biomass estimates of short rotation woody cropping systems"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "233"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "7792778",
+            "source-id": "10",
+            "source-name": "dimensions",
+            "source-display-name": "Dimensions",
+            "id-at-source": "pub.1030076901",
+            "api:citation-count": "13",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "associated-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "Associated Identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "dimensions-grant-id",
+                      "$t": "grant.3825881"
+                    }
+                  }
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "Varaprasad",
+                        "api:separate-first-names": {
+                          "api:first-name": "Varaprasad"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.014361542662.33"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Pei",
+                        "api:initials": "Y",
+                        "api:first-names": "Yu",
+                        "api:separate-first-names": {
+                          "api:first-name": "Yu"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "Q",
+                        "api:first-names": "Quinn",
+                        "api:separate-first-names": {
+                          "api:first-name": "Quinn"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015323550434.14"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "Bryan M",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Bryan",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.0741703046.48"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.agrformet.2016.11.008",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.agrformet.2016.11.008"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.agrformet.2016.11.008"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0168-1923",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Agricultural and Forest Meteorology"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "71",
+                    "api:end-page": "79"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "2",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "31",
+                    "api:month": "8",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Impact of biases in gridded weather datasets on biomass estimates of short rotation woody cropping systems"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "233"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Biomass"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Gridded weather data"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Spatial modeling"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Hybrid poplar"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Uncertainty"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "3-PG model"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "PRISM"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "NLDAS"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "NARR"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "Daymet"
+            },
+            {
+              "scheme": "science-metrix",
+              "origin": "issn-inferred",
+              "$t": "Meteorology & Atmospheric Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "04 Earth Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "06 Biological Sciences"
+            },
+            {
+              "scheme": "for",
+              "origin": "issn-inferred",
+              "$t": "07 Agricultural and Veterinary Sciences"
+            }
+          ]
+        }
+      },
+      "api:journal": {
+        "issn": "0168-1923",
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1705078",
+        "api:records": {
+          "api:record": [
+            {
+              "source-name": "era-2015",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "science-metrix",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "era-2010",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "snip",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "era-2012",
+              "api:title": "Agricultural and Forest Meteorology"
+            },
+            {
+              "source-name": "era-2018",
+              "api:title": "Agricultural and Forest Meteorology"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1875203/relationships"
+      }
+    }
+  ]
+}

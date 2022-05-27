@@ -1,0 +1,620 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "1452104",
+      "last-affected-when": "2022-05-20T12:01:52.277-07:00",
+      "last-modified-when": "2022-05-20T12:01:52.277-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1452104",
+      "created-when": "2015-12-20T00:23:46.347-08:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2014-06-26",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "5172032",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-84959186123",
+            "api:citation-count": "19",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "Predicting the economic viability and environmental sustainability of a biofuels industry based on intensively cultivated short rotation woody crops (SRWC) requires spatial predictions of growth and yield under various environmental conditions and across large regions. The Physiological Principles in Predicting Growth (3PG) model was modified to evaluate the growth and yield of coppiced poplar (Populus spp). This included an additional biomass partitioning method and developing a sub-model which takes into account the impact of coppicing on post harvest regeneration, extending the applicability of the 3PG model to coppice management regimes. The parameterized model was applied to the entire Pacific Northwest of the United States, using appropriate climate and soil input data. Results predict the yield of poplar cultivation at a spatial resolution of ≈64 km2 throughout the ≈8,000,000 km2 of the study region. Existing agricultural cultivation patterns were used to estimate regional water availability for irrigation, and for non-irrigated regions, land cover features including ownership, slope, soil salinity and water table depth where used to select areas with a real potential to support a SRWC plantation. Results can be integrated with other models that allow for optimizing crop selection and biorefinery site selection. Important results include; an updated 3PG model for coppiced SRWC plantings, estimates of biomass feedstock yields under different irrigation patterns and weather conditions, and estimates for feedstock availability when combined with crop adoption scenarios."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "QJ",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Q",
+                            "J"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "PW",
+                        "api:first-names": "PW",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "P",
+                            "W"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Berkeley"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Berkeley"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.47840.3f",
+                              "href": "https://grid.ac/institutes/grid.47840.3f",
+                              "latitude": "37.87216",
+                              "longitude": "-122.25857"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56897045100"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "V",
+                        "api:separate-first-names": {
+                          "api:first-name": "V"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "14051672300"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "BM",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "B",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7102927027"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.biombioe.2015.05.004",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.biombioe.2015.05.004"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.biombioe.2015.05.004"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1873-2909",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706201"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0961-9534",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706201"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Biomass and Bioenergy"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "12",
+                    "api:end-page": "27"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "26",
+                    "api:month": "6",
+                    "api:year": "2014"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "Modeling poplar growth as a short rotation woody crop for biofuels in the Pacific Northwest"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "79"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "4010488",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-84930024345",
+            "api:citation-count": "0",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "© 2015 Elsevier Ltd. Predicting the economic viability and environmental sustainability of a biofuels industry based on intensively cultivated short rotation woody crops (SRWC) requires spatial predictions of growth and yield under various environmental conditions and across large regions. The Physiological Principles in Predicting Growth (3PG) model was modified to evaluate the growth and yield of coppiced poplar (Populus spp). This included an additional biomass partitioning method and developing a sub-model which takes into account the impact of coppicing on post harvest regeneration, extending the applicability of the 3PG model to coppice management regimes.The parameterized model was applied to the entire Pacific Northwest of the United States, using appropriate climate and soil input data. Results predict the yield of poplar cultivation at a spatial resolution of ≈64km<sup>2</sup> throughout the ≈8,000,000km<sup>2</sup> of the study region. Existing agricultural cultivation patterns were used to estimate regional water availability for irrigation, and for non-irrigated regions, land cover features including ownership, slope, soil salinity and water table depth where used to select areas with a real potential to support a SRWC plantation.Results can be integrated with other models that allow for optimizing crop selection and biorefinery site selection. Important results include; an updated 3PG model for coppiced SRWC plantings, estimates of biomass feedstock yields under different irrigation patterns and weather conditions, and estimates for feedstock availability when combined with crop adoption scenarios."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "QJ",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Q",
+                            "J"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "UC Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Tittmann",
+                        "api:initials": "PW",
+                        "api:first-names": "PW",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "P",
+                            "W"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "UC Berkeley"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Berkeley"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.47840.3f",
+                              "href": "https://grid.ac/institutes/grid.47840.3f",
+                              "latitude": "37.87216",
+                              "longitude": "-122.25857"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "56897045100"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Bandaru",
+                        "api:initials": "V",
+                        "api:first-names": "V",
+                        "api:separate-first-names": {
+                          "api:first-name": "V"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "UC Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "14051672300"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "14856",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/14856"
+                          }
+                        },
+                        "api:last-name": "Jenkins",
+                        "api:initials": "BM",
+                        "api:first-names": "BM",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "B",
+                            "M"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "UC Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7102927027"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/j.biombioe.2015.05.004",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/j.biombioe.2015.05.004"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/j.biombioe.2015.05.004"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eissn",
+                  "type": "text",
+                  "display-name": "eISSN",
+                  "api:text": "1873-2909",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706201"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "0961-9534",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1706201"
+                    }
+                  }
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Biomass and Bioenergy"
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "26",
+                    "api:month": "6",
+                    "api:year": "2014"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Accepted"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": {
+                    "$t": "Modeling poplar growth as a short rotation woody crop f"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

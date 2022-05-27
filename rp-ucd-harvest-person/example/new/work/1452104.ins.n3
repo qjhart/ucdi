@@ -1,0 +1,128 @@
+@prefix api:   <http://oapolicy.universityofcalifornia.edu/vocab#> .
+@prefix graph: <http://experts.ucdavis.edu/work/1452104#new> .
+@prefix minus: <http://experts.ucdavis.edu/work/1452104/old/> .
+
+<http://experts.ucdavis.edu/authorship/1452104-2#vcard>
+        a       <http://www.w3.org/2006/vcard/ns#Individual> ;
+        <http://www.w3.org/2006/vcard/ns#hasName>
+                <http://experts.ucdavis.edu/authorship/1452104-2#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/1452104-1>
+        a       <http://vivoweb.org/ontology/core#Authorship> , <http://experts.ucdavis.edu/schema#authorship> ;
+        <http://vivoweb.org/ontology/core#rank>
+                1 ;
+        <http://vivoweb.org/ontology/core#relates>
+                <http://experts.ucdavis.edu/work/1452104> , <http://experts.ucdavis.edu/authorship/1452104-1#vcard> .
+
+<http://experts.ucdavis.edu/authorship/1452104-3#vcard>
+        a       <http://www.w3.org/2006/vcard/ns#Individual> ;
+        <http://www.w3.org/2006/vcard/ns#hasName>
+                <http://experts.ucdavis.edu/authorship/1452104-3#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/1452104-4>
+        a       <http://vivoweb.org/ontology/core#Authorship> , <http://experts.ucdavis.edu/schema#authorship> ;
+        <http://vivoweb.org/ontology/core#rank>
+                4 ;
+        <http://vivoweb.org/ontology/core#relates>
+                <http://experts.ucdavis.edu/work/1452104> , <http://experts.ucdavis.edu/authorship/1452104-4#vcard> .
+
+<http://experts.ucdavis.edu/authorship/1452104-4#vcard>
+        a       <http://www.w3.org/2006/vcard/ns#Individual> ;
+        <http://www.w3.org/2006/vcard/ns#hasName>
+                <http://experts.ucdavis.edu/authorship/1452104-4#vcard-name> .
+
+<http://experts.ucdavis.edu/work/1452104#date>
+        a       <http://vivoweb.org/ontology/core#DateTimeValue> ;
+        <http://vivoweb.org/ontology/core#dateTime>
+                "2014-06-26T00:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://vivoweb.org/ontology/core#dateTimePrecision>
+                <http://vivoweb.org/ontology/core#yearMonthDayPrecision> .
+
+<http://experts.ucdavis.edu/venue/issn:0961-9534>
+        a       <http://purl.org/ontology/bibo/Journal> , <http://experts.ucdavis.edu/schema#venue> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Biomass and Bioenergy" ;
+        <http://purl.org/ontology/bibo/eissn>
+                "1873-2909" ;
+        <http://purl.org/ontology/bibo/issn>
+                "0961-9534" ;
+        <http://vivoweb.org/ontology/core#publicationVenueFor>
+                <http://experts.ucdavis.edu/work/1452104> .
+
+<http://experts.ucdavis.edu/work/1452104>
+        a       <http://purl.org/ontology/bibo/AcademicArticle> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                []  ;
+        <http://experts.ucdavis.edu/schema#best_source>
+                "scopus" ;
+        <http://experts.ucdavis.edu/schema#insertionDateTime>
+                "2022-05-27T15:45:08.510+00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://experts.ucdavis.edu/schema#lastModifiedDateTime>
+                "2022-05-20T12:01:52.277-07:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://experts.ucdavis.edu/schema#pagination_source>
+                "scopus" ;
+        <http://purl.org/ontology/bibo/abstract>
+                "© 2015 Elsevier Ltd. Predicting the economic viability and environmental sustainability of a biofuels industry based on intensively cultivated short rotation woody crops (SRWC) requires spatial predictions of growth and yield under various environmental conditions and across large regions. The Physiological Principles in Predicting Growth (3PG) model was modified to evaluate the growth and yield of coppiced poplar (Populus spp). This included an additional biomass partitioning method and developing a sub-model which takes into account the impact of coppicing on post harvest regeneration, extending the applicability of the 3PG model to coppice management regimes.The parameterized model was applied to the entire Pacific Northwest of the United States, using appropriate climate and soil input data. Results predict the yield of poplar cultivation at a spatial resolution of ≈64km<sup>2</sup> throughout the ≈8,000,000km<sup>2</sup> of the study region. Existing agricultural cultivation patterns were used to estimate regional water availability for irrigation, and for non-irrigated regions, land cover features including ownership, slope, soil salinity and water table depth where used to select areas with a real potential to support a SRWC plantation.Results can be integrated with other models that allow for optimizing crop selection and biorefinery site selection. Important results include; an updated 3PG model for coppiced SRWC plantings, estimates of biomass feedstock yields under different irrigation patterns and weather conditions, and estimates for feedstock availability when combined with crop adoption scenarios." ;
+        <http://purl.org/ontology/bibo/doi>
+                "10.1016/j.biombioe.2015.05.004" ;
+        <http://purl.org/ontology/bibo/journal>
+                "Biomass and Bioenergy" ;
+        <http://purl.org/ontology/bibo/pageEnd>
+                "27" , "1388" ;
+        <http://purl.org/ontology/bibo/pageStart>
+                "12" , "1371" ;
+        <http://purl.org/ontology/bibo/status>
+                <http://purl.org/ontology/bibo/accepted> , <http://purl.org/ontology/bibo/published> ;
+        <http://vivoweb.org/ontology/core#dateTimeValue>
+                <http://experts.ucdavis.edu/work/1452104#date> ;
+        <http://vivoweb.org/ontology/core#hasPublicationVenue>
+                <http://experts.ucdavis.edu/venue/issn:0961-9534> ;
+        <http://vivoweb.org/ontology/core#relatedBy>
+                <http://experts.ucdavis.edu/authorship/1452104-3> , <http://experts.ucdavis.edu/authorship/1452104-4> , <http://experts.ucdavis.edu/authorship/1452104-2> , <http://experts.ucdavis.edu/authorship/1452104-1> .
+
+<http://experts.ucdavis.edu/authorship/1452104-2>
+        a       <http://vivoweb.org/ontology/core#Authorship> , <http://experts.ucdavis.edu/schema#authorship> ;
+        <http://vivoweb.org/ontology/core#rank>
+                2 ;
+        <http://vivoweb.org/ontology/core#relates>
+                <http://experts.ucdavis.edu/work/1452104> , <http://experts.ucdavis.edu/authorship/1452104-2#vcard> .
+
+<http://experts.ucdavis.edu/authorship/1452104-4#vcard-name>
+        a       <http://www.w3.org/2006/vcard/ns#Name> ;
+        <http://www.w3.org/2006/vcard/ns#familyName>
+                "Jenkins" ;
+        <http://www.w3.org/2006/vcard/ns#givenName>
+                "BM" .
+
+<http://experts.ucdavis.edu/authorship/1452104-1#vcard-name>
+        a       <http://www.w3.org/2006/vcard/ns#Name> ;
+        <http://www.w3.org/2006/vcard/ns#familyName>
+                "Hart" ;
+        <http://www.w3.org/2006/vcard/ns#givenName>
+                "QJ" .
+
+<http://experts.ucdavis.edu/authorship/1452104-2#vcard-name>
+        a       <http://www.w3.org/2006/vcard/ns#Name> ;
+        <http://www.w3.org/2006/vcard/ns#familyName>
+                "Tittmann" ;
+        <http://www.w3.org/2006/vcard/ns#givenName>
+                "PW" .
+
+<http://experts.ucdavis.edu/authorship/1452104-1#vcard>
+        a       <http://www.w3.org/2006/vcard/ns#Individual> ;
+        <http://www.w3.org/2006/vcard/ns#hasName>
+                <http://experts.ucdavis.edu/authorship/1452104-1#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/1452104-3#vcard-name>
+        a       <http://www.w3.org/2006/vcard/ns#Name> ;
+        <http://www.w3.org/2006/vcard/ns#familyName>
+                "Bandaru" ;
+        <http://www.w3.org/2006/vcard/ns#givenName>
+                "V" .
+
+<http://experts.ucdavis.edu/authorship/1452104-3>
+        a       <http://vivoweb.org/ontology/core#Authorship> , <http://experts.ucdavis.edu/schema#authorship> ;
+        <http://vivoweb.org/ontology/core#rank>
+                3 ;
+        <http://vivoweb.org/ontology/core#relates>
+                <http://experts.ucdavis.edu/work/1452104> , <http://experts.ucdavis.edu/authorship/1452104-3#vcard> .

@@ -1,0 +1,5 @@
+* Fuseki Startup
+
+  This files are the initialization of the fuseki server.  Some of these are
+  template files so they can be modified on reinitialization of the container,
+  since these files might live on a volume.

@@ -1,0 +1,29 @@
+* Sub files
+:PROPERTIES:
+:header-args:http: :host localhost:6030
+:header-args:sparql: :url http://sparql.org/sparql :format text/csv
+:header-args:sparqlx: :url http://localhost:3030/experts_private/sparql :format text/csv
+:END:
+
+** Grant Stub
+
+We create a stub grants hdt file if the grants data doesn't exist.
+
+#+name: grants
+#+BEGIN_SRC sparql :no-tangle :format raw :wrap "SRC ttl :tangle grant_stub.ttl"
+PREFIX ucdrp: <http://experts.ucdavis.edu/schema#>
+  construct {
+  [] ucdrp:graph <http://experts.ucdavis.edu/FIS/>.
+  }
+  WHERE {}
+#+END_SRC
+
+#+RESULTS: grants
+#+begin_SRC ttl :tangle grant_stub.ttl
+@prefix ucdrp: <http://experts.ucdavis.edu/schema#> .
+
+[ ucdrp:graph  <http://experts.ucdavis.edu/fis/> ]
+ .
+#+end_SRC
+
+**

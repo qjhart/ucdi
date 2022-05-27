@@ -1,0 +1,1558 @@
+{
+  "@context": {
+    "@base": "http://oapolicy.universityofcalifornia.edu/",
+    "@vocab": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "oap": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "api": "http://oapolicy.universityofcalifornia.edu/vocab#",
+    "id": {
+      "@type": "@id",
+      "@id": "@id"
+    },
+    "field-name": "api:field-name",
+    "field-number": "api:field-number",
+    "$t": "api:field-value",
+    "api:person": {
+      "@container": "@list"
+    },
+    "api:first-name": {
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "category": "publication",
+      "@id": "1445886",
+      "last-affected-when": "2022-05-20T12:01:52.277-07:00",
+      "last-modified-when": "2022-05-20T12:01:52.277-07:00",
+      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1445886",
+      "created-when": "2015-12-19T21:07:39.26-08:00",
+      "type-id": "5",
+      "type": "journal-article",
+      "api:ever-approved": "true",
+      "api:reporting-date-1": "2013-08-01",
+      "api:privacy-level": "Public",
+      "api:is-public": "true",
+      "api:records": {
+        "api:record": [
+          {
+            "format": "native",
+            "id": "5188462",
+            "source-id": "7",
+            "source-name": "scopus",
+            "source-display-name": "Scopus",
+            "id-at-source": "2-s2.0-84881535613",
+            "api:citation-count": "16",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "abstract",
+                  "type": "text",
+                  "display-name": "Abstract",
+                  "api:text": "The California Simulation of Evapotranspiration of Applied Water (Cal-SIMETAW) model is a new tool developed by the California Department of Water Resources and the University of California, Davis to perform daily soil water balance and determine crop evapotranspiration (ETc), evapotranspiration of applied water (ETaw), and applied water (AW) for use in California water resources planning. ETaw is a seasonal estimate of the water needed to irrigate a crop assuming 100% irrigation efficiency. The model accounts for soils, crop coefficients, rooting depths, seepage, etc. that influence crop water balance. It provides spatial soil and climate information and it uses historical crop and land-use category information to provide seasonal water balance estimates by combinations of detailed analysis unit and county (DAU/County) over California. The result is a large data base of ETc and ETaw that will be used to update information in the new California Water Plan (CWP). The application uses the daily climate data, i.e., maximum (Tx) and minimum (Tn) temperature and precipitation (Pcp), which were derived from monthly USDA-NRCS PRISM data (PRISM Group 2011) and daily US National Climate Data Center (NCDC) climate station data to cover California on a 4 km×4 km change grid spacing. The application uses daily weather data to determine reference evapotranspiration (ETo), using the Hargreaves-Samani (HS) equation (Hargreaves and Samani 1982, 1985). Because the HS equation is based on temperature only, ETo from the HS equation were compared with CIMIS ETo at the same locations using available CIMIS data to determine correction factors to estimate CIMIS ETo from the HS ETo to account for spatial climate differences. Cal-SIMETAW also employs near real-time reference evapotranspiration (ETo) information from Spatial CIMIS, which is a model that combines weather station data and remote sensing to provide a grid of ETo information. A second database containing the available soil water holding capacity and soil depth information for all of California was also developed from the USDA-NRCS SSURGO database. The Cal-SIMETAW program also has the ability to generate daily weather data from monthly mean values for use in studying climate change scenarios and their possible impacts on water demand in the state. The key objective of this project is to improve the accuracy of water use estimates for the California Water Plan (CWP), which provides a comprehensive report on water supply, demand, and management in California. In this paper, we will discuss the model and how it determines ETaw for use in water resources planning. © 2013 Chinese Academy of Agricultural Sciences."
+                },
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Orang",
+                        "api:initials": "MN",
+                        "api:first-names": "MN",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "M",
+                            "N"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Department of Water Resources"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506230549"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Snyder",
+                        "api:initials": "RL",
+                        "api:first-names": "RL",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "R",
+                            "L"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7402214190"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Shu",
+                        "api:initials": "G",
+                        "api:first-names": "G",
+                        "api:separate-first-names": {
+                          "api:first-name": "G"
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "CN",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "Peking University"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Beijing"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "China"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.11135.37",
+                                "href": "https://grid.ac/institutes/grid.11135.37",
+                                "latitude": "39.98715",
+                                "longitude": "116.30585"
+                              }
+                            }
+                          ]
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "7005166837"
+                          }
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "QJ",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Q",
+                            "J"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6506365550"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Sarreshteh",
+                        "api:initials": "S",
+                        "api:first-names": "S",
+                        "api:separate-first-names": {
+                          "api:first-name": "S"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "55255174100"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Falk",
+                        "api:initials": "M",
+                        "api:first-names": "M",
+                        "api:separate-first-names": {
+                          "api:first-name": "M"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "35304981600"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Beaudette",
+                        "api:initials": "D",
+                        "api:first-names": "D",
+                        "api:separate-first-names": {
+                          "api:first-name": "D"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "30067466700"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Hayes",
+                        "api:initials": "S",
+                        "api:first-names": "S",
+                        "api:separate-first-names": {
+                          "api:first-name": "S"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Department of Water Resources"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "55821861100"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Eching",
+                        "api:initials": "S",
+                        "api:first-names": "S",
+                        "api:separate-first-names": {
+                          "api:first-name": "S"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Department of Water Resources"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "scopus-author-id",
+                            "$t": "6507717735"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/S2095-3119(13)60742-X",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/S2095-3119(13)60742-X"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/S2095-3119(13)60742-X"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "2095-3119",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1728263"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "8"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Journal of Integrative Agriculture"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "1371",
+                    "api:end-page": "1388"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "8",
+                    "api:year": "2013"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "California Simulation of Evapotranspiration of Applied Water and Agricultural Energy Use in California"
+                },
+                {
+                  "name": "types",
+                  "type": "list",
+                  "display-name": "Sub types",
+                  "api:items": {
+                    "api:item": "Journal Article"
+                  }
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "12"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "3913678",
+            "source-id": "11",
+            "source-name": "wos-lite",
+            "source-display-name": "Web of Science (Lite)",
+            "id-at-source": "WOS:000324348800009",
+            "api:citation-count": "17",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Orang",
+                        "api:initials": "MN",
+                        "api:first-names": "Morteza N",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Morteza",
+                            "N"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Snyder",
+                        "api:initials": "RL",
+                        "api:first-names": "Richard L",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Richard",
+                            "L"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Geng",
+                        "api:initials": "S",
+                        "api:first-names": "Shu",
+                        "api:separate-first-names": {
+                          "api:first-name": "Shu"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Sarreshteh",
+                        "api:initials": "S",
+                        "api:first-names": "Sara",
+                        "api:separate-first-names": {
+                          "api:first-name": "Sara"
+                        }
+                      },
+                      {
+                        "api:last-name": "Falk",
+                        "api:initials": "M",
+                        "api:first-names": "Matthias",
+                        "api:separate-first-names": {
+                          "api:first-name": "Matthias"
+                        }
+                      },
+                      {
+                        "api:last-name": "Beaudette",
+                        "api:initials": "D",
+                        "api:first-names": "Dylan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dylan"
+                        }
+                      },
+                      {
+                        "api:last-name": "Hayes",
+                        "api:initials": "S",
+                        "api:first-names": "Scott",
+                        "api:separate-first-names": {
+                          "api:first-name": "Scott"
+                        }
+                      },
+                      {
+                        "api:last-name": "Eching",
+                        "api:initials": "S",
+                        "api:first-names": "Simon",
+                        "api:separate-first-names": {
+                          "api:first-name": "Simon"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "author-url",
+                  "type": "text",
+                  "display-name": "Author URL",
+                  "api:text": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcApp=PARTNER_APP&SrcAuth=LinksAMR&KeyUT=WOS:000324348800009&DestLinkType=FullRecord&DestApp=ALL_WOS&UsrCustomerID=039f08444e522f04b0c74ec005e57dc4"
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/S2095-3119(13)60742-X",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/S2095-3119(13)60742-X"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/S2095-3119(13)60742-X"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "external-identifiers",
+                  "type": "identifier-list",
+                  "display-name": "External identifiers",
+                  "api:identifiers": {
+                    "api:identifier": {
+                      "scheme": "isidoc",
+                      "$t": "217GW"
+                    }
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "2095-3119",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1728263"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "8"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "JOURNAL OF INTEGRATIVE AGRICULTURE"
+                },
+                {
+                  "name": "keywords",
+                  "type": "keyword-list",
+                  "display-name": "Keywords",
+                  "api:keywords": {
+                    "api:keyword": [
+                      "soil water balance",
+                      "crop water requirements",
+                      "weather generator",
+                      "water resource planning",
+                      "crop coefficient",
+                      "energy use"
+                    ]
+                  }
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "1371",
+                    "api:end-page": "1388"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:year": "2013"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "California Simulation of Evapotranspiration of Applied Water and Agricultural Energy Use in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "12"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "4243541",
+            "source-id": "13",
+            "source-name": "crossref",
+            "source-display-name": "Crossref",
+            "id-at-source": "10.1016/S2095-3119(13)60742-X",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Orang",
+                        "api:initials": "MN",
+                        "api:first-names": "Morteza N",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Morteza",
+                            "N"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Snyder",
+                        "api:initials": "RL",
+                        "api:first-names": "Richard L",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Richard",
+                            "L"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Shu",
+                        "api:initials": "G",
+                        "api:first-names": "Geng",
+                        "api:separate-first-names": {
+                          "api:first-name": "Geng"
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        }
+                      },
+                      {
+                        "api:last-name": "Sarreshteh",
+                        "api:initials": "S",
+                        "api:first-names": "Sara",
+                        "api:separate-first-names": {
+                          "api:first-name": "Sara"
+                        }
+                      },
+                      {
+                        "api:last-name": "Falk",
+                        "api:initials": "M",
+                        "api:first-names": "Matthias",
+                        "api:separate-first-names": {
+                          "api:first-name": "Matthias"
+                        }
+                      },
+                      {
+                        "api:last-name": "Beaudette",
+                        "api:initials": "D",
+                        "api:first-names": "Dylan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dylan"
+                        }
+                      },
+                      {
+                        "api:last-name": "Hayes",
+                        "api:initials": "S",
+                        "api:first-names": "Scott",
+                        "api:separate-first-names": {
+                          "api:first-name": "Scott"
+                        }
+                      },
+                      {
+                        "api:last-name": "Eching",
+                        "api:initials": "S",
+                        "api:first-names": "Simon",
+                        "api:separate-first-names": {
+                          "api:first-name": "Simon"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/s2095-3119(13)60742-x",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/s2095-3119(13)60742-x"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/s2095-3119(13)60742-x"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "2095-3119",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1728263"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "8"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Journal of Integrative Agriculture"
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "display-name": "Language",
+                  "api:text": "en"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "1371",
+                    "api:end-page": "1388"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:month": "8",
+                    "api:year": "2013"
+                  }
+                },
+                {
+                  "name": "publication-status",
+                  "type": "text",
+                  "display-name": "Status",
+                  "api:text": "Published"
+                },
+                {
+                  "name": "publisher",
+                  "type": "text",
+                  "display-name": "Publisher",
+                  "api:text": "Elsevier BV"
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "5",
+                    "api:month": "8",
+                    "api:year": "2013"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "California Simulation of Evapotranspiration of Applied Water and Agricultural Energy Use in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "12"
+                }
+              ]
+            }
+          },
+          {
+            "format": "native",
+            "id": "9182957",
+            "source-id": "10",
+            "source-name": "dimensions",
+            "source-display-name": "Dimensions",
+            "id-at-source": "pub.1000081763",
+            "api:citation-count": "18",
+            "api:native": {
+              "api:field": [
+                {
+                  "name": "authors",
+                  "type": "person-list",
+                  "display-name": "Authors",
+                  "api:people": {
+                    "api:person": [
+                      {
+                        "api:last-name": "Orang",
+                        "api:initials": "MN",
+                        "api:first-names": "Morteza N",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Morteza",
+                            "N"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Natural Resources Agency"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.012744714175.11"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Snyder",
+                        "api:initials": "RL",
+                        "api:first-names": "Richard L",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Richard",
+                            "L"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.010472663633.07"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Shu",
+                        "api:initials": "G",
+                        "api:first-names": "Geng",
+                        "api:separate-first-names": {
+                          "api:first-name": "Geng"
+                        },
+                        "api:addresses": {
+                          "api:address": [
+                            {
+                              "iso-country-code": "US",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "University of California, Davis"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Davis"
+                                },
+                                {
+                                  "type": "state",
+                                  "$t": "California"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "United States"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.27860.3b",
+                                "href": "https://grid.ac/institutes/grid.27860.3b",
+                                "latitude": "38.54000",
+                                "longitude": "-121.75000"
+                              }
+                            },
+                            {
+                              "iso-country-code": "CN",
+                              "api:line": [
+                                {
+                                  "type": "organisation",
+                                  "$t": "Peking University"
+                                },
+                                {
+                                  "type": "city",
+                                  "$t": "Beijing"
+                                },
+                                {
+                                  "type": "country",
+                                  "$t": "China"
+                                }
+                              ],
+                              "api:grid": {
+                                "id": "grid.11135.37",
+                                "href": "https://grid.ac/institutes/grid.11135.37",
+                                "latitude": "39.98715",
+                                "longitude": "116.30585"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "api:links": {
+                          "api:link": {
+                            "type": "elements/user",
+                            "id": "42956",
+                            "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/users/42956"
+                          }
+                        },
+                        "api:last-name": "Hart",
+                        "api:initials": "QJ",
+                        "api:first-names": "Quinn J",
+                        "api:separate-first-names": {
+                          "api:first-name": [
+                            "Quinn",
+                            "J"
+                          ]
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.015323550434.14"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Sarreshteh",
+                        "api:initials": "S",
+                        "api:first-names": "Sara",
+                        "api:separate-first-names": {
+                          "api:first-name": "Sara"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.016543570750.55"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Falk",
+                        "api:initials": "M",
+                        "api:first-names": "Matthias",
+                        "api:separate-first-names": {
+                          "api:first-name": "Matthias"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.01056654150.20"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Beaudette",
+                        "api:initials": "D",
+                        "api:first-names": "Dylan",
+                        "api:separate-first-names": {
+                          "api:first-name": "Dylan"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "University of California, Davis"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Davis"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.27860.3b",
+                              "href": "https://grid.ac/institutes/grid.27860.3b",
+                              "latitude": "38.54000",
+                              "longitude": "-121.75000"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.014776333401.10"
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Hayes",
+                        "api:initials": "S",
+                        "api:first-names": "Scott",
+                        "api:separate-first-names": {
+                          "api:first-name": "Scott"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Natural Resources Agency"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "api:last-name": "Eching",
+                        "api:initials": "S",
+                        "api:first-names": "Simon",
+                        "api:separate-first-names": {
+                          "api:first-name": "Simon"
+                        },
+                        "api:addresses": {
+                          "api:address": {
+                            "iso-country-code": "US",
+                            "api:line": [
+                              {
+                                "type": "organisation",
+                                "$t": "California Natural Resources Agency"
+                              },
+                              {
+                                "type": "city",
+                                "$t": "Sacramento"
+                              },
+                              {
+                                "type": "state",
+                                "$t": "California"
+                              },
+                              {
+                                "type": "country",
+                                "$t": "United States"
+                              }
+                            ],
+                            "api:grid": {
+                              "id": "grid.427509.d",
+                              "href": "https://grid.ac/institutes/grid.427509.d",
+                              "latitude": "38.57575",
+                              "longitude": "-121.49747"
+                            }
+                          }
+                        },
+                        "api:identifiers": {
+                          "api:identifier": {
+                            "scheme": "dimensions-researcher-id",
+                            "$t": "ur.013577652403.11"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "display-name": "DOI",
+                  "api:text": "10.1016/s2095-3119(13)60742-x",
+                  "api:links": {
+                    "api:link": [
+                      {
+                        "type": "doi",
+                        "href": "http://doi.org/10.1016/s2095-3119(13)60742-x"
+                      },
+                      {
+                        "type": "altmetric",
+                        "href": "http://www.altmetric.com/details.php?doi=10.1016/s2095-3119(13)60742-x"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "issn",
+                  "type": "text",
+                  "display-name": "ISSN",
+                  "api:text": "1671-2927",
+                  "api:links": {
+                    "api:link": {
+                      "type": "elements/journal",
+                      "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1722473"
+                    }
+                  }
+                },
+                {
+                  "name": "issue",
+                  "type": "text",
+                  "display-name": "Issue",
+                  "api:text": "8"
+                },
+                {
+                  "name": "journal",
+                  "type": "text",
+                  "display-name": "Journal",
+                  "api:text": "Journal of Integrative Agriculture"
+                },
+                {
+                  "name": "pagination",
+                  "type": "pagination",
+                  "display-name": "Pagination",
+                  "api:pagination": {
+                    "api:begin-page": "1371",
+                    "api:end-page": "1388"
+                  }
+                },
+                {
+                  "name": "publication-date",
+                  "type": "date",
+                  "display-name": "Publication date",
+                  "api:date": {
+                    "api:day": "1",
+                    "api:month": "8",
+                    "api:year": "2013"
+                  }
+                },
+                {
+                  "name": "record-created-at-source-date",
+                  "type": "date",
+                  "display-name": "Record created at source",
+                  "api:date": {
+                    "api:day": "31",
+                    "api:month": "8",
+                    "api:year": "2017"
+                  }
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "display-name": "Title",
+                  "api:text": "California Simulation of Evapotranspiration of Applied Water and Agricultural Energy Use in California"
+                },
+                {
+                  "name": "volume",
+                  "type": "text",
+                  "display-name": "Volume",
+                  "api:text": "12"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "api:fields": {},
+      "api:all-labels": {
+        "type": "keyword-list",
+        "api:keywords": {
+          "api:keyword": [
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "soil water balance"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "crop water requirements"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "weather generator"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "water resource planning"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "crop coefficient"
+            },
+            {
+              "origin": "record-data",
+              "source": "wos-lite",
+              "$t": "energy use"
+            }
+          ]
+        }
+      },
+      "api:journal": {
+        "issn": "2095-3119",
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/journals/1728263",
+        "api:records": {
+          "api:record": [
+            {
+              "source-name": "sherpa-romeo",
+              "api:title": "Journal of Integrative Agriculture"
+            },
+            {
+              "source-name": "sjr",
+              "api:title": "Journal of Integrative Agriculture"
+            },
+            {
+              "source-name": "snip",
+              "api:title": "Journal of Integrative Agriculture"
+            }
+          ]
+        }
+      },
+      "api:relationships": {
+        "href": "https://oapolicy.universityofcalifornia.edu:8002/elements-secure-api/v5.5/publications/1445886/relationships"
+      }
+    }
+  ]
+}

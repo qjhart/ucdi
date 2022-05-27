@@ -1,0 +1,220 @@
+* Title Codes
+:PROPERTIES:
+:header-args:http: :host localhost:8081
+:header-args:sparqlx: :url http://sparql.org/sparql :format text/csv
+:header-args:sparql: :url http://localhost:8081/vocabularies/sparql :format text/csv
+:END:
+
+** Standard Prefixes
+All of the queries throughout this document use these standard prefixes.  The
+~oap~ and the ~api~ are from the API calls, the rest are used in new creations.
+
+#+name: local-prefixes
+#+BEGIN_SRC sparql :no-tangle
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX experts: <http://experts.ucdavis.edu/>
+PREFIX experts_iam: <http://experts.ucdavis.edu/iam/>
+PREFIX experts_oap: <http://experts.ucdavis.edu/oap/>
+PREFIX experts_pub: <http://experts.ucdavis.edu/pub/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX position: <http://experts.ucdavis.edu/position/>
+PREFIX ucdrp:   <http://experts.ucdavis.edu/schema#>
+PREFIX vivo:  <http://vivoweb.org/ontology/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#+END_SRC
+
+** Value Tables
+*** Employee Class
+These are the items that were sent to me from Brian Darnell, which he sez is
+directly from UC Path
+
+#+name: class_code_values
+#+BEGIN_SRC sparql :noweb yes :no-tangle :format
+    VALUES (?emplclass ?empclass_description ?empclass_shortname) {
+    ("Staff" "Staff" "Staff")
+    ("Academic" "Academic" "Academic")
+    ("Student" "Student" "Student")
+    ("1" "Staff:Contract" "Contract")
+    ("10" "Academic:Non Faculty" "Non Fac")
+    ("11" "Academic:Academic Student" "Ac Student")
+    ("13" "Staff:Contingent Worker" "CWR Staff")
+    ("14" "Academic:Contingent Worker" "CWR Acad")
+    ("15" "Staff:Rehired Retireee" "RehRetiree")
+    ("2" "Staff:Career" "Career")
+    ("20" "Academic:Conversion" "Ac Conv")
+    ("21" "Academic:Emeriti" "Ac Emeriti")
+    ("22" "Academic:Deans/Faculty Admin" "Ac Dean/FA")
+    ("23" "Academic:Post Docs" "Ac PostDoc")
+    ("24" "Academic:Medical Residents" "Ac Med Res")
+    ("3" "Academic:Recall" "Ac Recall")
+    ("4" "Staff:Limited" "Limited")
+    ("5" "Student:Casual/Restricted" "Student")
+    ("6" "Staff:Per Diem" "Per Diem")
+    ("7" "Staff:Partial Year Career" "PartYrCar")
+    ("8" "Staff:Floater" "Floater")
+    ("9" "Academic:Faculty" "Ac Faculty")
+    ("C" "Converstion Use Only" "Conv")
+    }
+#+END_SRC sparql
+
+
+
+
+*** Title Codes
+
+
+#+name: title_code_values"
+#+BEGIN_SRC sparql
+  VALUES (?code6 ?title ?class ?system_local ?cto ?cto_name ?ucd_academic ?ucd_senate_federation) {
+ }
+#+END_SRC
+
+
+** Academic Title Codes and Concepts Organization
+
+For Academic titles, the [[https://www.ucop.edu/academic-personnel-programs/compensation/academic-ctos-titles-and-title-codes/index.html][Academic Personnel and Programs]] page includes
+information you need about the titles and codes for Academic. I retrieved this
+page on 2021-02-08 and converted that to a CSV file.  Vessela received an email
+from Brian Darnell, on Feb 9th, that includes the CTO codes that are in the
+senate and the federation.  Alainna Wrigley sent us the UCOP complete list of
+Title Codes on 2021-02-16, this includes all codes, not just title codes.
+Vessela forwarded a list of CTO codes (On Feb 5th).  This includes whether they
+are active or not. This is currently not included.
+
+[[https://academicaffairs.ucdavis.edu/academic-federation][Academic Federation]] has some information, but these are in terms of title series
+codes, and how do they compare to title codes?
+
+All of these were combined in a single spreadsheet, better to communicate the
+issues with other agencies.
+
+#+name: positions
+#+BEGIN_SRC sparql :noweb yes :no-tangle :format raw :file positions.ttl :wrapx "SRC ttl :tangle positions.ttl"
+      <<local-prefixes>>
+      construct {
+        position: a skos:ConceptScheme;
+            rdfs:label "UCOP / UCDavis Title Codes"@en;
+            dcterms:title "UCOP / UCDavis Title Codes"@en;
+            dcterms:source <http://experts.ucdavis.edu>;
+            dcterms:creator "Aggie Experts" ;
+            dcterms:created "2021-03-05"^^<http://www.w3.org/2001/XMLSchema#date> ;
+            dcterms:type "Classification" ;
+            dcterms:language <http://id.loc.gov/vocabulary/iso639-2/eng>;
+        # dcterms:license <http://creativecommons.org/licenses/by-sa/3.0/igo/> ;
+            dcterms:rights "© University of Calfornia, Davis" ;
+           dcterms:rights
+      '''This work is copyright.
+      ''';
+        skos:prefLabel "UC Davis Title Concepts";
+        skos:hasTopConcept position:Academic, position:CTO, position:Class;
+        .
+
+        position:Class a skos:Concept;
+        .
+
+        position:AcademicClass a skos:Concept;
+        .
+        position:StaffClass a skos:Concept;
+        .
+        position:StudentClass a skos:Concept;
+        .
+
+        position:Academic a skos:Concept;
+          rdfs:label "Academic Title";
+          skos:prefLabel "Academic Title";
+          skos:inScheme position: ;
+        .
+
+        position:AcademicSenate a skos:Concept;
+            rdfs:label "Academic Senate";
+          skos:prefLabel "Academic Senate";
+          skos:broader position:Academic;
+          skos:inScheme position: ;
+          .
+
+        position:AcademicFederation a skos:Concept;
+            rdfs:label "Academic Federation";
+          skos:prefLabel "Academic Federation";
+          skos:broader position:Academic;
+          skos:inScheme position: ;
+          .
+
+        position:CTO a skos:Concept, ucdrp:CTO;
+            rdfs:label "Class Title Outline";
+          skos:prefLabel "Class Title Outline";
+          skos:inScheme position: ;
+          .
+
+        ?id a skos:Concept, vivo:Position, ucdrp:position, ucdrp:Academic;
+          rdfs:label ?title;
+          ucdrp:identifier ?sys_loc;
+          ucdrp:cto ?cto_id;
+          skos:prefLabel ?title;
+          skos:broader ?cto_id;
+          skos:broader ?senate_id;
+          skos:broader ?academic_id;
+          skos:inScheme position: ;
+          .
+
+        ?ucd_senate_federation_id skos:narrower ?id.
+
+        ?cto_id a skos:Concept;
+            rdfs:label ?cto_name;
+          skos:prefLabel ?cto_name;
+          skos:broader position:CTO;
+          skos:broader ?academic_id;
+          skos:inScheme position: ;
+          .
+      } WHERE {
+      # Employee Class Codes Come from UCPATH
+      <<class_code_values>>
+
+      <<title_code_values>>
+
+        OPTIONAL {
+          bind(URI(concat(str(position:),"Senate")) as ?senate_id)
+          filter (?ucd_senate_federation='Senate')
+        }
+        OPTIONAL {
+          bind(URI(concat(str(position:),"Federation")) as ?senate_id)
+          filter (?ucd_senate_federation='Federation')
+        }
+
+        bind(URI(concat(str(position:),"CTO",?cto)) as ?cto_id)
+        bind(URI(concat(str(position:),?code6)) as ?id)
+        bind(URI(concat(str(position:),'Academic')) as ?academic_id)
+        bind(URI(concat(str(ucdrp:),?system_local)) as ?sys_loc)
+
+  }
+#+END_SRC
+
+#+RESULTS: positions
+[[file:positions.ttl]]
+
+
+*** Academic Federation Logic
+
+#+BEGIN_EXAMPLE
+(LIB.JOB_CD_OCUPTNL_SUBGRP_CD in
+('040','225','335','530','531','534','557','621','627','729','825','S46','S56')
+or (LIB.JOB_CD_OCUPTNL_SUBGRP_CD = '341' and LIB.JOB_CD not in ('001759','001761',
+'001781','001784','001785'))
+or (LIB.JOB_CD_OCUPTNL_SUBGRP_CD = '541' and LIB.JOB_CD not in ('003227','003217',
+'003211','003207','001990','001991','001992','001993','001994','001995'))
+or (LIB.JOB_CD_OCUPTNL_SUBGRP_CD = '581' and LIB.JOB_CD not in ('003403','003404',
+'003405','003406','003407','003408'))
+or LIB.JOB_CD in ('001550','002220','002221','002222','002223','003300','003301',
+'003310','003311','003320','003321','003572', '003575','001650', '001675',
+'002210','002211', '002284', '002285','003800'))
+and LIB.JOB_CD_EFF_STAT_CD = 'A'
+and LIB.JOB_CD_EFF_DT = (select max(LIB2.JOB_CD_EFF_DT) from LIBRARY_DM.JOB_CODE_D_V LIB2
+where LIB.JOB_CD = LIB2.JOB_CD and LIB2.JOB_CD_EFF_STAT_CD = 'A'))
+#+END_EXAMPLE
+
+#+BEGIN_SRC sparql :noweb yes :no-tangle :format raw :wrap "SRC ttl"
+<<prefixes>>
+construct {
+} WHERE {
+  position:
+#+END_SRC
