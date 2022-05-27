@@ -1,118 +1,881 @@
-* RP harvester
-
- The idea here is create a more agile fuseki/jena system that can be used to
- create the file based inputs for our cloud computing environment.  So multiple
- versions can be started up at any given time, and used to poppulate the cloud
- based services.
-
- In addition, we hope this can be added to Apache Workflow in order to better
- manage the task of incrementally adding up the users
-
- We are trying to use the standard [[https://jena.apache.org/documentation/fuseki2/fuseki-layout.html][fuseki layout]], FUSEKI_HOME and FUSEKI_BASE.
- This allows us to have the configuration files in the image.  The databases are
- not in their default location, but are instead at: /var/lib/fuseki/databases.
- The fuseki layout file identifies that we need remove the ${FUSEKI_BASE}/system
- and ${FUSEKI_BASE}/system_files to reset the server.
-
-Some good review of all of Jena's tools are found in this [[https://www.bobdc.com/blog/jenagems/][blog post]].
-
-** Private database
-
-   One idea is that we can periodically run one item to create our private
-   database and our vocabularies, and then simply mount this volume among all
-   the versions that are using this.  This allows us to have local tdb2 files
-   for our data, so we can more quickly spin up a database.
-
-   However, apache sez that multiple users of the same TDB file is verboten, and
-   so maybe we need an alternative plan for that.
+* Works
+:PROPERTIES:
+:header-args:sparql: :url http://localhost:3030/experts/sparql
+:END:
 
 
-
-*** Indices
-
-    To further improve our setup, we should always add statistics to our
-    databases, especially the ones that are not changing too quickly.
-
-    The TDB [[https://jena.apache.org/documentation/tdb/optimizer.html][Optimizer]] gives information on creating the statistics to create
-    better optimization strategies.
-
-
-
-** Running the setup
-
-   #+begin_src bash
-     b=/home/quinn/ucdi/rp-ucd-harvest-person
-     docker run --interactive --tty --rm --workdir=/home/ucd.process/workdir \
-            --mount type=bind,source=b,target=/home/ucd.process/workdir \
-            local-dev/ucdi-rp-ucd-harvest-person:main bash
-   #+end_src
-
-
-** Docker instances
-
-   Right now the creation of this docker instance is pretty hodge podge.  I'm
-   getting the fuseki instance from the apache jena project directly.  Apache
-   has the [[https://jena.apache.org/documentation/fuseki2/fuseki-docker.html][Fuseki Docker]] tools description.  The apache jena-docker doesn't
-   include the full UI server, and is simply the services.  It's [[https://jena.apache.org/documentation/fuseki2/fuseki-configuration.html][configured]] with
-   a single configuration file.
-
-   The full server includes the UI, and also has shiro security enabled. This
-   seems like it might be convenient, I need to investigate the [[https://jena.apache.org/documentation/fuseki2/fuseki-data-access-control.html][Access Control]]
-   in more detail.
-
-   Persistent files are mounted to /fuseki/databases,
-
-#+begin_src bash
-  JENA_VERSION=4.4.0
-  git clone https://github.com/apache/jena.git
-  docker build -t local-dev/jena-fuseki:${JENA_VERSION} --build-arg JENA_VERSION=${JENA_VERSION} jena/jena-fuseki2
-#+end_src
-
-The JENA build, I'm getting from the stain github, by way of my fork.  This is
-probably something that needs looking into.
-
-   #+begin_src bash
-     git clone https://github.com/qjhart/jena-docker.git
-     docker build --build-arg JENA-VERSION=${JENA_VERSION} --tag=local-dev/jena4:${JENA_VERSION} jena-docker/jena
-   #+end_src
-
-
-*** Fuseki
-
-*** HDT Java
-
-    I am looking at the possibility of using HDT files as read-only additions
-    for the fuseki services.  This might be a more convenient method of sharing
-    the slowly changing files.
-
-    #+begin_src
-HDT_VERSION=3.0.1
-git clone --branch=v${HDT_VERSION} https://github.com/rdfhdt/hdt-java.git
-docker build --tag=local-dev/hdt-java:${HDT_VERSION} hdt-java
-    #+end_src
-
-
-
-** Exporting
-
-   #+begin_src bash
-     dc exec fuseki curl http://fuseki:3030/vocabularies/get -H "Accept:application/ld+json" | gzip > vocabularies.json.gz
-   #+end_src
+#+call: /home/quinn/aeq/queries/prefixes.org:lob-ingest()
 
 #+RESULTS:
+: 0
+
+** Work processing workflow
+
+*** Fetching the CDL publication
+The ATOM feed for the elements data allows queries of individual works or lists
+of works by id.  When we call for a publication, we get every individual record
+-- there are many -- for a work.
+
+The ATOM feed comes as an XML file, we convert that to JSON-LD, by using the
+xml2json, and a simple ~@content~ file.  This is part of the cdl-elements
+script.
+
+This data is stored in the ~http://experts.ucdavis.edu/cdl/~ graph.  For a
+single work this
+
+Here is an example for the rest of the work, where a few publications are retrieved.
+
+#+begin_src bash
+  works='2364120 2327636 1875203 1452104 1452140 2439616 2713711 2449942 1445886  639836'
+  for i in ${works}; do
+      cdl-elements publications ${i}
+  done
+#+end_src
+
+*** VIVO:Work from a CDL publication
+
+Next, we need to create a vivo:Work/ucdrp:work from these CDL publications.  We
+can do that with a single insert query.
+
+The graph we insert the data into is
+~<http://experts.ucdavis.edu/work/${name}/new#>~.
+
+#+name: work_from_cdl
+#+BEGIN_SRC sparql :tangle harvest/ru/work/work_from_cdl.ru :noweb yes :var limit="1000" :format raw :wrap SRC ttl
+  <<prefixes>>
+  #  describe ?pub
+  #    describe ?pub ?exemplarRecordx ?best_native_recordx
+  #  select *
+  construct {
+    ?experts_work_id a ?bibo_type;
+                     rdfs:label ?title;
+                     bibo:status ?vivoStatus;
+                     ucdrp:best_source ?source;
+                     ucdrp:lastModifiedDateTime ?lastModifiedDateTime;
+                     ucdrp:insertionDateTime ?insertionDateTime;
+                     ?bibo_predicate ?field_text;
+                     ucdrp:pagination_source ?page_source;
+                     bibo:pageStart ?begin;
+                     bibo:pageEnd ?end;
+                     vivo:dateTimeValue ?work_date;
+                     vivo:hasPublicationVenue ?journalURI;
+                     .
+
+    ?work_date a vivo:DateTimeValue;
+               vivo:dateTime ?workDateTime;
+               vivo:dateTimePrecision ?dateTimePrecision;
+               .
+
+    ?journalURI a bibo:Journal, ucdrp:venue;
+                  rdfs:label ?journalTitle;
+                  bibo:issn ?issn;
+                  bibo:eissn ?eissn;
+                  vivo:publicationVenueFor ?experts_work_id;
+                  .
+
+    ?keyword a skos:Concept, ucdrp:concept;
+               skos:prefLabel ?term;
+               rdfs:label ?term;
+               ucdrp:scheme "freetext";
+               skos:inScheme free: ;
+    .
+    ?experts_work_id vivo:hasSubjectArea ?keyword.
+    ?keyword vivo:subjectAreaOf ?experts_work_id.
 
 
-** Example Workflow.
+    ?concept a ?type, ucdrp:concept;
+               skos:broader ?broader;
+               skos:inScheme FoR:;
+               skos:prefLabel ?concept_prefLabel;
+               rdfs:label ?concept_label;
+               .
 
-   I'm trying
+    ?broader skos:narrower ?concept.
 
-   This is how you can add the ucdid data into the database.
-   #+begin_src bash
-     ucdid fetch --format=jsonld --search=userId=quinn profiles | curl -X POST --data-binary @- -H 'Content-Type:application/ld+json' http://fuseki:3030/harvest/data?graph=http://iam.ucdavis.edu/
-   #+end_src
+    ?experts_work_id vivo:hasSubjectArea ?conceptURI .
+    ?conceptURI vivo:subjectAreaOf ?experts_work_id .
 
-   The cdl-elements has loading in the script file.
+    ?authorship a vivo:Authorship,ucdrp:authorship;
+                vivo:rank ?authorRank;
+                vivo:relates ?experts_work_id;
+                vivo:relates ?authorship_vcard;
+                .
 
-   #+begin_src bash
-     cdl-elements -v -v --cache=. --data=http://fuseki:3030/harvest/data users --pubs quinn
-   #+end_src
+    ?authorship_vcard a vcard:Individual;
+                      vivo:relatedBy ?vcard;
+                      vcard:hasName ?authorship_vcard_name;
+                      .
+
+    ?authorship_vcard_name  a vcard:Name;
+                            vcard:familyName ?authorLastName;
+                            vcard:givenName ?authorFirstName ;
+    .
+
+    ?experts_work_id vivo:relatedBy ?authorship.
+
+  }
+  WHERE {
+    VALUES(?oap_type ?bibo_type){
+      ("book" bibo:Book)
+      ("chapter" bibo:Chapter)
+      ("conference" vivo:ConferencePaper)
+      ("journal-article" bibo:AcademicArticle)
+      ("preprint" ucdrp:PrePrint)
+    }
+    VALUES(?field_name ?bibo_predicate) {
+      ("title" rdfs:label)
+      ("abstract" bibo:abstract)
+      ("author-url" bibo:uri)
+      ("doi" bibo:doi)
+      ("isbn-10" bibo:isbn10)
+      ("isbn-13" bibo:isbn13)
+      ("issue" bibo:issue)
+      ("journal" bibo:journal)
+      ("number" bibo:number)
+      ("publish-url" bibo:uri)
+      ("public-url" bibo:uri)
+      ("c-eschol-id" bibo:identifier)
+      ("volume" bibo:volume)
+    }
+
+    ?pub oap:category "publication".
+
+    {
+      select ?pub ?best_record ?native WHERE {
+        { select ?pub ?best_record (min(?a_native) as ?native) WHERE {
+          ?best_record oap:native ?a_native.
+          {
+            SELECT ?pub (MIN(?record) AS ?best_record) WHERE {
+              VALUES (?sourceNameA ?minPriority) {
+                ("verified-manual" 1) ("epmc" 8) ("pubmed" 3)  ("scopus" 4)("wos" 5) ("wos-lite" 6)
+                ("crossref" 7)  ("dimensions" 2) ("arxiv" 9)("orcid" 10) ("dblp" 11)  ("cinii-english" 12)
+                ("repec" 13)  ("figshare" 14)  ("cinii-japanese" 15) ("manual" 16)  ("dspace" 17) }
+              ?pub oap:category "publication" ;
+              oap:records/oap:record ?record .
+              ?record oap:source-name  ?sourceNameA
+              {
+                SELECT
+                ?pub (MIN(?priority) AS ?minPriority)
+                WHERE {
+                  VALUES (?sourceNameIQ ?priority) {
+                    ("verified-manual" 1) ("epmc" 8) ("pubmed" 3)  ("scopus" 4)("wos" 5) ("wos-lite" 6)
+                    ("crossref" 7)  ("dimensions" 2) ("arxiv" 9)("orcid" 10) ("dblp" 11)  ("cinii-english" 12)
+                    ("repec" 13)  ("figshare" 14)  ("cinii-japanese" 15) ("manual" 16)  ("dspace" 17) }
+                  ?pub oap:category "publication" ;
+                  oap:records/oap:record/oap:source-name ?sourceNameIQ
+                } GROUP BY ?pub }
+            } GROUP BY ?pub }
+        } GROUP BY ?pub ?best_record }
+        bind(replace(str(?pub),str(harvest_oap:),'') as ?pub_number)
+        bind(uri(concat(str(work:),?pub_number)) as ?experts_work_id)
+      }
+    }
+    bind(replace(str(?pub),str(harvest_oap:),'') as ?pub_id)
+    bind(uri(concat(str(work:),?pub_id)) as ?experts_work_id)
+
+    # Page source
+    { select ?page_source ?begin ?end
+      WHERE {
+        VALUES (?page_source ?page_priority) {
+          ("verified-manual" 1) ("epmc" 2) ("pubmed" 3)  ("scopus" 4)("wos" 5) ("wos-lite" 6)
+          ("crossref" 7)  ("dimensions" 8) ("arxiv" 9)("orcid" 10) ("dblp" 11)  ("cinii-english" 12)
+          ("repec" 13)  ("figshare" 14)  ("cinii-japanese" 15) ("manual" 16)  ("dspace" 17) }
+
+        ?pub oap:category "publication";
+             oap:records/oap:record ?record .
+        ?record oap:source-name  ?page_source;
+                oap:native/oap:field/oap:pagination [oap:begin-page ?begin; oap:end-page ?end ];
+                                                                                         .
+        {
+          select ?pub (min(?mpriority) as ?page_priority) WHERE {
+            VALUES (?msource ?mpriority) {
+              ("verified-manual" 1) ("epmc" 2) ("pubmed" 3)  ("scopus" 4)("wos" 5) ("wos-lite" 6)
+              ("crossref" 7)  ("dimensions" 8) ("arxiv" 9)("orcid" 10) ("dblp" 11)  ("cinii-english" 12)
+              ("repec" 13)  ("figshare" 14)  ("cinii-japanese" 15) ("manual" 16)  ("dspace" 17) }
+            ?work oap:category "publication";
+                  oap:records/oap:record [ oap:source-name  ?msource;
+                                           oap:native/oap:field/oap:pagination [] ].
+          } group by ?pub
+        }
+      }
+    }
+
+    ?pub oap:type ?oap_type;
+         oap:last-modified-when ?lastModifiedWhen;
+         .
+
+    BIND(xsd:dateTime(?lastModifiedWhen) AS ?lastModifiedDateTime)
+    BIND(NOW() as ?insertionDateTime)
+
+    ?best_record oap:source-name ?source.
+
+    ?native oap:field [ oap:name ?field_name ; oap:text ?field_text ].
+
+    # Authorship
+    OPTIONAL {
+      ?native oap:field [ oap:name "authors" ; oap:people/oap:person [ list:index(?pos ?elem) ] ] .
+      BIND(?pos+1 AS ?authorRank)
+      OPTIONAL {
+        ?elem oap:last-name ?authorLastName .
+      }
+      OPTIONAL {
+        ?elem oap:first-names ?authorFirstName .
+      }
+    }
+    BIND(uri(concat(replace(str(?experts_work_id),str(work:),str(authorship:)),"-",str(?authorRank))) as ?authorship)
+    BIND(uri(concat(str(?authorship),"#vcard")) as ?authorship_vcard)
+    BIND(uri(concat(str(?authorship_vcard),"-name")) as ?authorship_vcard_name)
+
+
+    # Journal Information
+    OPTIONAL {
+      ?native oap:field [ oap:name "journal" ; oap:text ?journalTitle ].
+      OPTIONAL {
+        ?native oap:field [ oap:name "eissn" ; oap:text ?eissn ].
+      }
+      OPTIONAL {
+        ?native oap:field [ oap:name "issn" ; oap:text ?issn ].
+      }
+      BIND(REPLACE(REPLACE(LCASE(STR(?journalTitle)), '[^\\w\\d]','-'), '-{2,}' ,'-') AS ?journalIdText)
+      BIND(URI(CONCAT(str(venue:), COALESCE(CONCAT("issn:", ?issn), CONCAT("eissn:", ?eissn), CONCAT("journal:", ?journalIdText)))) AS ?journalURI)
+    }
+
+    # Keywords ( from every record!)
+    OPTIONAL {
+      {
+        ?pub oap:records/oap:record/oap:native/oap:field  [ oap:name "keywords" ; oap:keywords/oap:keyword ?term ]
+        #        ?native oap:field  [ oap:name "keywords" ; oap:keywords/oap:keyword ?term ]
+        FILTER(!ISBLANK(?term))
+        #          bind ("free" as ?scheme)
+      }
+      UNION
+      {
+        ?pub oap:records/oap:record/oap:native/oap:field  [ oap:name "keywords" ; oap:keywords/oap:keyword/oap:field-value ?term ]
+        #        ?native oap:field  [ oap:name "keywords" ; oap:keywords/oap:keyword/oap:field-value ?term ]
+        FILTER(!ISBLANK(?term))
+        #          bind ("free" as ?scheme)
+      }
+      UNION
+      {
+        ?pub oap:all-labels/oap:keywords/oap:keyword [ oap:field-value ?term ; oap:scheme ?scheme ] .
+      }
+      bind(IRI(concat(str(free:),md5(lcase(?term)))) as ?keyword)
+    }
+
+    # FoR
+    OPTIONAL {
+      ?pub oap:all-labels/oap:keywords/oap:keyword [ oap:field-value ?con ; oap:scheme 'for' ] .
+      BIND(URI(CONCAT(str(FoR:), REPLACE(?con," .*",""))) AS ?_concept)
+
+      graph FoR: {
+        ?_concept skos:inScheme FoR:;
+                  skos:broader* ?concept;
+                  .
+        ?concept a ?type;
+                 rdfs:label ?concept_label;
+                 skos:broader ?broader;
+                 skos:prefLabel ?concept_prefLabel;
+                 .
+      }
+    }
+
+
+    # Publication Date
+    OPTIONAL {
+      {
+        ?native oap:field [ oap:name "publication-date" ; oap:date ?wd_date ].
+      }
+      UNION
+      {
+        ?native oap:field [ oap:name "online-publication-date" ; oap:date ?wd_online ].
+      }
+      bind(coalesce(?wd_date,?wd_online) as ?workDate)
+      ?workDate oap:year ?workDateYear
+      BIND(vivo:yearPrecision AS ?yearPrecision)
+      OPTIONAL {
+        ?workDate oap:month ?workDateMonthRaw
+        BIND(IF(xsd:integer(?workDateMonthRaw)<10, #>
+                CONCAT("0", ?workDateMonthRaw), ?workDateMonthRaw) AS ?workDateMonth)
+        BIND(vivo:yearMonthPrecision AS ?yearMonthPrecision)
+        OPTIONAL {
+          ?workDate oap:day ?workDateDayRaw
+          BIND(IF(xsd:integer(?workDateDayRaw) < 10, #>
+                  CONCAT("0", ?workDateDayRaw), ?workDateDayRaw) AS ?workDateDay)
+          BIND(vivo:yearMonthDayPrecision AS ?yearMonthDayPrecision)
+        }
+      }
+      BIND(xsd:dateTime(CONCAT(?workDateYear, "-", COALESCE(?workDateMonth, "01"), "-", COALESCE(?workDateDay, "01"), "T00:00:00")) AS ?workDateTime)
+      BIND(COALESCE(?yearMonthDayPrecision, ?yearMonthPrecision, ?yearPrecision) AS ?dateTimePrecision)
+      bind("#date" as ?date_part)
+    }
+    bind(uri(concat(str(?experts_work_id),?date_part)) as ?work_date)
+
+    OPTIONAL {
+      VALUES (?status ?vivoStatus) { ( "Published" bibo:published ) ( "Published online" bibo:published ) ( "Accepted" bibo:accepted ) }
+      ?best_native oap:field [ oap:name "publication-status" ; oap:text ?status ]
+    }
+
+  }
+#+END_SRC
+
+#+RESULTS: work_from_cdl
+#+begin_SRC ttl
+@prefix FoR:         <http://experts.ucdavis.edu/concept/FoR/> .
+@prefix aeq:         <http://experts.ucdavis.edu/queries/schema#> .
+@prefix afn:         <http://jena.apache.org/ARQ/function#> .
+@prefix api:         <http://oapolicy.universityofcalifornia.edu/vocab#> .
+@prefix authorship:  <http://experts.ucdavis.edu/authorship/> .
+@prefix bibo:        <http://purl.org/ontology/bibo/> .
+@prefix experts:     <http://experts.ucdavis.edu/> .
+@prefix foaf:        <http://xmlns.com/foaf/0.1/> .
+@prefix free:        <http://experts.ucdavis.edu/concept/free> .
+@prefix grant:       <http://experts.ucdavis.edu/grant/> .
+@prefix harvest_iam: <http://iam.ucdavis.edu/> .
+@prefix harvest_oap: <http://oapolicy.universityofcalifornia.edu/> .
+@prefix iam:         <http://iam.ucdavis.edu/schema#> .
+@prefix list:        <http://jena.apache.org/ARQ/list#> .
+@prefix oap:         <http://oapolicy.universityofcalifornia.edu/vocab#> .
+@prefix obo:         <http://purl.obolibrary.org/obo/> .
+@prefix person:      <http://experts.ucdavis.edu/person/> .
+@prefix private:     <http://experts.ucdavis.edu/private/> .
+@prefix purl:        <http://purl.org/ontology/bibo/> .
+@prefix q:           <http://experts.ucdavis.edu/queries/> .
+@prefix query:       <http://experts.ucdavis.edu/schema/queries/> .
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:        <http://www.w3.org/2004/02/skos/core#> .
+@prefix ucdrp:       <http://experts.ucdavis.edu/schema#> .
+@prefix vcard:       <http://www.w3.org/2006/vcard/ns#> .
+@prefix venue:       <http://experts.ucdavis.edu/venue/> .
+@prefix vivo:        <http://vivoweb.org/ontology/core#> .
+@prefix work:        <http://experts.ucdavis.edu/work/> .
+@prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
+
+FoR:0701  rdf:type      ucdrp:concept , skos:Concept ;
+        rdfs:label      "0701 Agriculture, Land and Farm Management" ;
+        skos:broader    FoR:07 ;
+        skos:inScheme   FoR: ;
+        skos:narrower   FoR:070101 ;
+        skos:prefLabel  "Agriculture, Land and Farm Management" .
+
+<http://experts.ucdavis.edu/authorship/1452104-1#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Hart" ;
+        vcard:givenName   "QJ" .
+
+<http://experts.ucdavis.edu/authorship/1452104-1#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/1452104-1#vcard-name> .
+
+venue:issn:0168-1699  rdf:type    ucdrp:venue , bibo:Journal ;
+        rdfs:label                "Computers and Electronics in Agriculture" ;
+        bibo:issn                 "0168-1699" ;
+        vivo:publicationVenueFor  work:2364120 .
+
+<http://experts.ucdavis.edu/authorship/2364120-3#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/2364120-3#vcard-name> .
+
+FoR:07  rdf:type        ucdrp:concept , skos:Concept ;
+        rdfs:label      "07 Agricultural and Veterinary Sciences" ;
+        skos:broader    FoR: ;
+        skos:inScheme   FoR: ;
+        skos:narrower   FoR:0701 ;
+        skos:prefLabel  "Agricultural and Veterinary Sciences" .
+
+free:8cc3dd2fc46afa30dce9259cfe4c23d6
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "07 Agricultural and Veterinary Sciences" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 , work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "07 Agricultural and Veterinary Sciences" .
+
+<http://experts.ucdavis.edu/authorship/1452104-4#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/1452104-4#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/2364120-2#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Bandaru" ;
+        vcard:givenName   "Varaprasad" .
+
+free:ebef4c0dac281d5565e5a49c56a8dbb3
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Agricultural and Veterinary Sciences" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Agricultural and Veterinary Sciences" .
+
+authorship:1452104-2  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     2 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/1452104-2#vcard> , work:1452104 .
+
+authorship:2364120-2  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     2 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/2364120-2#vcard> , work:2364120 .
+
+free:b15e8216f5eaffc8bc47fc20b6be4b5c
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Short rotation woody crops" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Short rotation woody crops" .
+
+free:5d554bc5f3d2cd182cdd0952b1fb87ca
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Engineering" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Engineering" .
+
+<http://experts.ucdavis.edu/work/1452104#date>
+        rdf:type                vivo:DateTimeValue ;
+        vivo:dateTime           "2015-08-01T00:00:00"^^xsd:dateTime ;
+        vivo:dateTimePrecision  vivo:yearMonthDayPrecision .
+
+<http://experts.ucdavis.edu/authorship/1452104-2#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Tittmann" ;
+        vcard:givenName   "PW" .
+
+free:c5716f0f06b6ccdf2299c5bea306e75a
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "10 Technology" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "10 Technology" .
+
+authorship:1452104-1  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     1 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/1452104-1#vcard> , work:1452104 .
+
+authorship:2364120-1  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     1 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/2364120-1#vcard> , work:2364120 .
+
+<http://experts.ucdavis.edu/authorship/2364120-1#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/2364120-1#vcard-name> .
+
+venue:issn:0961-9534  rdf:type    ucdrp:venue , bibo:Journal ;
+        rdfs:label                "Biomass and Bioenergy" ;
+        bibo:issn                 "0961-9534" ;
+        vivo:publicationVenueFor  work:1452104 .
+
+<http://experts.ucdavis.edu/authorship/1452104-2#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/1452104-2#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/2364120-4#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/2364120-4#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/2364120-3#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Hart" ;
+        vcard:givenName   "Quinn" .
+
+free:3915b767f52bca91f4dbf10fb347c9ae
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Agronomy & Agriculture" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Agronomy & Agriculture" .
+
+<http://experts.ucdavis.edu/authorship/2364120-4#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Parker" ;
+        vcard:givenName   "Nathan" .
+
+free:fa39367709a8a1ed12c57dcb89db7b7c
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "3PG" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "3PG" .
+
+free:7023e13a27d36f4b91f8a15f7c852d07
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Information and Computing Sciences" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Information and Computing Sciences" .
+
+free:0e0b8d40303896c979d0684e2c31caec
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Poplar" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Poplar" .
+
+free:4867db273a7174cefb3d439b73f15179
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "070101 Agricultural Land Management" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "070101 Agricultural Land Management" .
+
+FoR:070101  rdf:type    ucdrp:concept , skos:Concept ;
+        rdfs:label      "070101 Agricultural Land Management" ;
+        skos:broader    FoR:0701 ;
+        skos:inScheme   FoR: ;
+        skos:prefLabel  "Agricultural Land Management" .
+
+free:8193c8dfba7949646ac08338c0c2eabe
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Agricultural Land Management" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Agricultural Land Management" .
+
+authorship:2364120-5  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     5 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/2364120-5#vcard> , work:2364120 .
+
+<http://experts.ucdavis.edu/authorship/1452104-3#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Bandaru" ;
+        vcard:givenName   "V" .
+
+free:05e7d19a6d002118deef70d21ff4226e
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Energy" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Energy" .
+
+<http://experts.ucdavis.edu/authorship/2364120-2#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/2364120-2#vcard-name> .
+
+FoR:09  rdf:type        ucdrp:concept , skos:Concept ;
+        rdfs:label      "09 Engineering" ;
+        skos:broader    FoR: ;
+        skos:inScheme   FoR: ;
+        skos:prefLabel  "Engineering" .
+
+<http://experts.ucdavis.edu/authorship/1452104-4#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Jenkins" ;
+        vcard:givenName   "BM" .
+
+<http://experts.ucdavis.edu/authorship/1452104-3#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/1452104-3#vcard-name> .
+
+<http://experts.ucdavis.edu/authorship/2364120-5#vcard>
+        rdf:type       vcard:Individual ;
+        vcard:hasName  <http://experts.ucdavis.edu/authorship/2364120-5#vcard-name> .
+
+free:718f1ba0b94edd1ab8c2a02a1316e13a
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "08 Information and Computing Sciences" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "08 Information and Computing Sciences" .
+
+<http://experts.ucdavis.edu/authorship/2364120-1#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Merz" ;
+        vcard:givenName   "Justin" .
+
+<http://experts.ucdavis.edu/authorship/2364120-5#vcard-name>
+        rdf:type          vcard:Name ;
+        vcard:familyName  "Jenkins" ;
+        vcard:givenName   "Bryan M" .
+
+authorship:1452104-4  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     4 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/1452104-4#vcard> , work:1452104 .
+
+authorship:2364120-4  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     4 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/2364120-4#vcard> , work:2364120 .
+
+FoR:10  rdf:type        ucdrp:concept , skos:Concept ;
+        rdfs:label      "10 Technology" ;
+        skos:broader    FoR: ;
+        skos:inScheme   FoR: ;
+        skos:prefLabel  "Technology" .
+
+work:1452104  rdf:type              bibo:AcademicArticle ;
+        rdfs:label                  "Modeling poplar growth as a short rotation woody crop for biofuels in the Pacific Northwest" ;
+        ucdrp:best_source           "dimensions" ;
+        ucdrp:insertionDateTime     "2022-05-18T21:37:29.721+00:00"^^xsd:dateTime ;
+        ucdrp:lastModifiedDateTime  "2022-05-06T04:39:21.997-07:00"^^xsd:dateTime ;
+        ucdrp:pagination_source     "epmc" ;
+        bibo:doi                    "10.1016/j.biombioe.2015.05.004" ;
+        bibo:journal                "Biomass and Bioenergy" ;
+        bibo:pageEnd                "83" ;
+        bibo:pageStart              "76" ;
+        bibo:status                 bibo:accepted , bibo:published ;
+        bibo:volume                 "79" ;
+        vivo:dateTimeValue          <http://experts.ucdavis.edu/work/1452104#date> ;
+        vivo:hasPublicationVenue    venue:issn:0961-9534 ;
+        vivo:hasSubjectArea         free:8cc3dd2fc46afa30dce9259cfe4c23d6 , free:fa39367709a8a1ed12c57dcb89db7b7c , free:b15e8216f5eaffc8bc47fc20b6be4b5c , free:509e31f6139cefc950f1975ef5950c8b , free:05e7d19a6d002118deef70d21ff4226e , free:ada53304c5b9e4a839615b6e8f908eb6 , free:c5716f0f06b6ccdf2299c5bea306e75a , free:a672a6cd37add6aae4aa0142b8f29a90 , free:0e0b8d40303896c979d0684e2c31caec , free:e13ce8defa58e748f580a405ce83d0ca ;
+        vivo:relatedBy              authorship:1452104-3 , authorship:1452104-4 , authorship:1452104-2 , authorship:1452104-1 .
+
+free:a672a6cd37add6aae4aa0142b8f29a90
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Pacific Northwest" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Pacific Northwest" .
+
+FoR:08  rdf:type        ucdrp:concept , skos:Concept ;
+        rdfs:label      "08 Information and Computing Sciences" ;
+        skos:broader    FoR: ;
+        skos:inScheme   FoR: ;
+        skos:prefLabel  "Information and Computing Sciences" .
+
+work:2364120  rdf:type              bibo:AcademicArticle ;
+        rdfs:label                  "Hybrid Poplar based Biorefinery Siting Web Application (HP-BiSWA): An online decision support application for siting hybrid poplar based biorefineries" ;
+        ucdrp:best_source           "dimensions" ;
+        ucdrp:insertionDateTime     "2022-05-18T21:37:29.721+00:00"^^xsd:dateTime ;
+        ucdrp:lastModifiedDateTime  "2022-05-09T23:12:58.523-07:00"^^xsd:dateTime ;
+        ucdrp:pagination_source     "epmc" ;
+        bibo:doi                    "10.1016/j.compag.2018.09.042" ;
+        bibo:journal                "Computers and Electronics in Agriculture" ;
+        bibo:pageEnd                "83" ;
+        bibo:pageStart              "76" ;
+        bibo:status                 bibo:published , bibo:accepted ;
+        bibo:volume                 "155" ;
+        vivo:dateTimeValue          <http://experts.ucdavis.edu/work/2364120#date> ;
+        vivo:hasPublicationVenue    venue:issn:0168-1699 ;
+        vivo:hasSubjectArea         free:ebef4c0dac281d5565e5a49c56a8dbb3 , free:718f1ba0b94edd1ab8c2a02a1316e13a , free:509e31f6139cefc950f1975ef5950c8b , free:3915b767f52bca91f4dbf10fb347c9ae , free:5d554bc5f3d2cd182cdd0952b1fb87ca , free:4867db273a7174cefb3d439b73f15179 , free:8cc3dd2fc46afa30dce9259cfe4c23d6 , free:7023e13a27d36f4b91f8a15f7c852d07 , free:8193c8dfba7949646ac08338c0c2eabe ;
+        vivo:relatedBy              authorship:2364120-3 , authorship:2364120-4 , authorship:2364120-1 , authorship:2364120-5 , authorship:2364120-2 .
+
+<http://experts.ucdavis.edu/work/2364120#date>
+        rdf:type                vivo:DateTimeValue ;
+        vivo:dateTime           "2018-12-01T00:00:00"^^xsd:dateTime ;
+        vivo:dateTimePrecision  vivo:yearMonthDayPrecision .
+
+free:e13ce8defa58e748f580a405ce83d0ca
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "Yield estimations" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "Yield estimations" .
+
+free:509e31f6139cefc950f1975ef5950c8b
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "09 Engineering" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 , work:2364120 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "09 Engineering" .
+
+free:ada53304c5b9e4a839615b6e8f908eb6
+        rdf:type            ucdrp:concept , skos:Concept ;
+        rdfs:label          "USA" ;
+        ucdrp:scheme        "freetext" ;
+        vivo:subjectAreaOf  work:1452104 ;
+        skos:inScheme       free: ;
+        skos:prefLabel      "USA" .
+
+authorship:1452104-3  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     3 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/1452104-3#vcard> , work:1452104 .
+
+authorship:2364120-3  rdf:type  ucdrp:authorship , vivo:Authorship ;
+        vivo:rank     3 ;
+        vivo:relates  <http://experts.ucdavis.edu/authorship/2364120-3#vcard> , work:2364120 .
+
+FoR:    skos:narrower  FoR:10 , FoR:07 , FoR:08 , FoR:09 .
+#+end_SRC
+
+
+*** Framing the graph
+
+Now that we have the object graph, we need to
+
+#+name:citation_frame
+#+begin_src json
+  {
+      "@context":{
+        "article-journal": {
+          "@id":"bibo:AcademicArticle"
+        },
+        "type" :{
+          "@id":"@type"
+        },
+          "title": {
+          "@id": "rdfs:label"
+        },
+        "prefLabel": {
+          "@id": "skos:prefLabel"
+        },
+        "inScheme": {
+          "@id": "skos:inScheme",
+          "@type": "@id"
+        },
+        "broader": {
+          "@id": "skos:broader",
+          "@type": "@id"
+        },
+        "narrower": {
+          "@id": "skos:narrower",
+          "@type": "@id"
+        },
+        "givenName": {
+          "@id": "vcard:givenName"
+        },
+        "familyName": {
+          "@id": "vcard:familyName"
+        },
+        "hasName": {
+          "@id": "vcard:hasName",
+          "@type": "@id"
+        },
+        "publicationVenueFor": {
+          "@id": "vivo:publicationVenueFor",
+          "@type": "@id"
+        },
+        "issn": {
+          "@id": "bibo:issn"
+        },
+        "subjectAreaOf": {
+          "@id": "vivo:subjectAreaOf",
+          "@type": "@id"
+        },
+        "scheme": {
+          "@id": "ucdrp:scheme"
+        },
+        "relates": {
+          "@id": "vivo:relates",
+          "@type": "@id"
+        },
+        "rank": {
+          "@id": "vivo:rank",
+          "@type": "xsd:integer"
+        },
+        "dateTimePrecision": {
+          "@id": "vivo:dateTimePrecision",
+          "@type": "@id"
+        },
+        "dateTime": {
+          "@id": "vivo:dateTime",
+          "@type": "xsd:dateTime"
+        },
+        "pageStart": {
+          "@id": "bibo:pageStart"
+        },
+        "hasSubjectArea": {
+          "@id": "vivo:hasSubjectArea",
+          "@type": "@id",
+          "@context":{
+            "label": {
+          "@id": "rdfs:label"
+            }}
+        },
+        "doi": {
+          "@id": "bibo:doi"
+        },
+        "dateTimeValue": {
+          "@id": "vivo:dateTimeValue",
+          "@type": "@id"
+        },
+        "relatedBy": {
+          "@id": "vivo:relatedBy",
+          "@type": "@id"
+        },
+        "volume": {
+          "@id": "bibo:volume"
+        },
+        "best_source": {
+          "@id": "ucdrp:best_source"
+        },
+        "insertionDateTime": {
+          "@id": "ucdrp:insertionDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "lastModifiedDateTime": {
+          "@id": "ucdrp:lastModifiedDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "journal": {
+          "@id": "bibo:journal"
+        },
+        "pageEnd": {
+          "@id": "bibo:pageEnd"
+        },
+        "status": {
+          "@id": "bibo:status",
+          "@type": "@id"
+        },
+        "hasPublicationVenue": {
+          "@id": "vivo:hasPublicationVenue",
+          "@type": "@id"
+        },
+        "pagination_source": {
+          "@id": "ucdrp:pagination_source"
+        },
+        "FoR": "http://experts.ucdavis.edu/concept/FoR/",
+        "authorship": "http://experts.ucdavis.edu/authorship/",
+        "bibo": "http://purl.org/ontology/bibo/",
+        "experts": "http://experts.ucdavis.edu/",
+        "free": "http://experts.ucdavis.edu/concept/free",
+        "grant": "http://experts.ucdavis.edu/grant/",
+        "list": "http://jena.apache.org/ARQ/list#",
+        "person": "http://experts.ucdavis.edu/person/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "ucdrp": "http://experts.ucdavis.edu/schema#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "venue": "http://experts.ucdavis.edu/venue/",
+        "vivo": "http://vivoweb.org/ontology/core#",
+        "work": "http://experts.ucdavis.edu/work/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+      },
+      "@type":"bibo:AcademicArticle",
+      "@embed":"@always",
+      "@omitGraph":"true",
+      "hasSubjectArea":{
+      "subjectAreaOf": {
+        "@type":"bibo:AcademicArticle",
+        "@embed":"@never",
+        "@foo":"bar"
+      }
+      }
+    }
+#+end_src
+
+*** Creating diffs
+
+This query shows the differences between a citation, when I change the prefered citation source
+
+#+begin_src sparql
+  select ?g ?s ?p ?o
+WHERE {
+{  select ("D" as ?g) ?s ?p ?o WHERE {
+	  graph <http://experts.ucdavis.edu/work/1445886/old/> {
+    	?s ?p ?o.
+    	filter NOT EXISTS { graph <http://experts.ucdavis.edu/work/1445886#new> { ?s ?p ?o. } }
+      }
+  }
+} union {
+  select ("A" as ?g) ?s ?p ?o WHERE {
+	  graph <http://experts.ucdavis.edu/work/1445886#new> {
+    	?s ?p ?o.
+    	filter NOT EXISTS { graph <http://experts.ucdavis.edu/work/1445886/old/> { ?s ?p ?o. } }
+      }
+  }
+}
+} order by ?p ?g ?s
+#+end_src
